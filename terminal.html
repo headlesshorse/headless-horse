@@ -235,7 +235,7 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
     display: block;
   }
 
-  #mc_embed_signup {
+  #emailform {
     display: none;
   }
 
@@ -250,7 +250,8 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
   }
 </style>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 <script>
   // trigger 'home'
@@ -451,7 +452,7 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
 <script>
   $(document).ready(function() {
     $('#command').hide();
-    $('input[type="text"]').focus();
+    $('#commandinput[type="text"]').focus();
     $('#welcome').addClass('open');
     $('#welcome').textTyper({
       speed: 20,
@@ -562,25 +563,8 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
   lastvisit.showmessage();
 </script>
 
-<script>
-  $(document).on("keypress", "input", function(e) {
-    if (e.which == 13) {
-      document.getElementById('audio').play();
-    }
-  });
-</script>
-
-<div id="mc_embed_signup">
+<div id="emailform">
   <form action="https://headlesshorse.us20.list-manage.com/subscribe/post?u=4792941058b6d3b4b6ea3b3f2&amp;id=6ac99d042c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <div id="mc_embed_signup_scroll">
-      <div class="mc-field-group">
-        <input type="email" value="" name="EMAIL" class="" id="mce-EMAIL" placeholder="email@domain.com">
-      </div>
-      <div id="mce-responses" class="clear">
-        <br>
-      </div>
-      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_4792941058b6d3b4b6ea3b3f2_6ac99d042c" tabindex="-1" value=""></div>
-      <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" disabled="disabled"></div>
-      <br>
-      <div class="response" id="mce-error-response" style="display:none"></div>
-      <div class="response" id="mce-success-response" style="display:none"></div>
+    <input type="email" value="" name="EMAIL" class="emailform" id="mce-EMAIL" placeholder="email@domain.com">
+    <input type="submit" disabled="disabled" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+</div>
