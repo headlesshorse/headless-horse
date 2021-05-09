@@ -1,4 +1,4 @@
 # HH_website
-Headless Horse
+headless.horse
 
 Full-Service Design Studio.
