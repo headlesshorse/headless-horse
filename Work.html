@@ -340,7 +340,7 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
 <script>
   // loader
   width = 100,
-    perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.
+    perfData = window.performance.timing, // the 'performance.timing' interface represents timing-related performance information for the page
     EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
     time = parseInt((EstimatedTime / 1000) % 60) * 100 + 6000;
 
