@@ -907,16 +907,17 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
 </script>
 
 <script>
-  function showError(el, err) {
-    return err ?
-      $("#mc-embedded-subscribe").attr("disabled", true) :
-      $("#mc-embedded-subscribe").attr("disabled", false);
-  }
-
+  // trigger 'mailinglist'
   function showError(el, err) {
     return err ?
       $('#validate_message').html("Error: please enter a valid email address.") :
       $('#validate_message').html("Valid: press the enter key to subscribe.");
+  }
+
+  function showError(el, err) {
+    return err ?
+      $("#mc-embedded-subscribe").attr("disabled", true) :
+      $("#mc-embedded-subscribe").attr("disabled", false);
   }
 
   var isValidEmailAddress = function(emailAddress) {
@@ -931,11 +932,8 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
     showError(el, err);
   }
 
-  $('#commandinput').on('input', function() {
-    validate_email(this, this.value);
-  });
-
   $('#commandinput').on('keyup', function() {
+    validate_email(this, this.value);
     $('#mce-EMAIL').val($(this).val()); // clone input val to hidden email address input
   });
 
