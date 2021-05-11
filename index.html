@@ -43,9 +43,8 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
               guidelines, interior and digital experiences for brands and progressives, such as Nike, Rolls-Royce and Vogue.</p>
             <p>CLIENTELE: Adobe, American Airlines, Coveteur, Forbes, Fortune, GQ, Harley-Davidson, Jordan Brand, Kiehl’s, LYMA, Maxim, Men’s Health, MLB, NBA, Nespresso, Nike, OPI, Rolls-Royce, Sony Pictures, Triumph Motorcycles, Vogue, Yves Saint
               Laurent, 20th Century Fox.</p>
-            <p>SERVICES: Advertising, art direction, animation, branding, consultancy, content creation, copywriting, curation, digital, event design, fabrication, graphic Design, identity, illustration, interior design, naming, mural design,
-              packaging,
-              photography, sculpture, social content, strategy, website design.</p>
+            <p>EXPERTISE: Art direction, branding, consulting, content creation, copywriting, creative development, curation, digital, event design, fabrication, front-end development, graphic design, identity, illustration, interior design, naming,
+              motion, mural design, packaging, photography, sculpture, social content, strategy.</p>
             <p>PRESS: Hypebeast, Highsnobiety, FWA, Communication Arts, The Guardian, Vogue, Coveteur, Forbes.</p>
             <p>AWARDS: AWWWARDS, CSS Design Awards, Scottish Design Awards.</p>
             <p id="support_message"></p>
@@ -169,7 +168,7 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
           <section id="error">
             <p>Command not recognised.</p>
             <br>
-            <p>Type 'HELP' to see a list of commands.</p>
+            <p>Type 'help' to see a list of commands.</p>
           </section>
 
           <p id="command">root@hhorse:~# <input id="commandinput" type="text" autocorrect="off" autocomplete="off" autocapitalize="off" onkeyup="this.value = this.value.toLowerCase();"></p>
@@ -327,7 +326,7 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
 
   #loader_frame,
   #loader_percentage {
-    max-width: 35vw;
+    max-width: 40vw;
     height: 10px;
     position: absolute;
     top: 0;
@@ -382,7 +381,7 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
   }
 
   #terminal_container {
-    width: 80vw;
+    width: 75vw;
     padding: 0px;
   }
 
@@ -909,15 +908,12 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
 <script>
   // trigger 'mailinglist'
   function showError(el, err) {
-    return err ?
-      $('#validate_message').html("Error: please enter a valid email address.") :
-      $('#validate_message').html("Valid: press the enter key to subscribe.");
-  }
-
-  function showError(el, err) {
-    return err ?
-      $("#mc-embedded-subscribe").attr("disabled", true) :
-      $("#mc-embedded-subscribe").attr("disabled", false);
+    $("#mc-embedded-subscribe").attr("disabled", false);
+    $('#validate_message').html("Valid: press the enter key to subscribe.");
+    if (err) {
+      $("#mc-embedded-subscribe").attr("disabled", true)
+      $('#validate_message').html("Error: please input a valid email address.");
+    }
   }
 
   var isValidEmailAddress = function(emailAddress) {
@@ -1095,8 +1091,8 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
     var wh = new Date();
     if (lastvisit.getCookie("visit_record") == "") {
       lastvisit.setCookie("visit_record", wh, days);
-      document.getElementById("welcome_message").innerHTML = "Type 'HELP' to see a list of commands, or close the terminal to begin.";
-      document.getElementById("support_message").innerHTML = "<br> Type 'HELP' to see a list of commands.";
+      document.getElementById("welcome_message").innerHTML = "Type 'help' to see a list of commands, or close the terminal to begin.";
+      document.getElementById("support_message").innerHTML = "<br> Type 'help' to see a list of commands.";
 
     } else {
       var lv = lastvisit.getCookie("visit_record");
