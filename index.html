@@ -17,24 +17,24 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
   </div>
 
   <ul id="nav_bottom">
-    <li class="nav_link clicksound" title="Headless Horse">●</li>
+    <li class="nav_link click_sound" title="Headless Horse">●</li>
     <li style="float: right"><a id="nav_clock" onload="show_time()"></a></li>
   </ul>
 
   <div id="terminal">
     <div id="terminal_container">
-      <a id="terminal_close" onclick="clearframe(); pauseAudio()" class="terminal_close clicksound"></a>
+      <a id="terminal_close" onclick="clearframe(); pauseAudio()" class="terminal_close click_sound"></a>
       <button id="terminal_button"><a>●</a></button>
       <div id="terminal_title">Headless Horse</div>
       <iframe id="terminal_iframe" name="terminal_iframe" src="" defer loading="lazy" frameborder="0" allowfullscreen></iframe>
       <div id="terminal_content_frame">
         <div id=terminal_content>
           <section id="welcome">
-            <p id="welcomeback_message">Welcome to Headless Horse.</p>
-            <p>Full-Service Design Studio.</p>
+            <p id="welcome_message">Welcome to Headless Horse: full-service design studio.</p>
+            <p id=welcome_message_2">This is a visual index of work.</p>
             <br>
             <p id="lastvisit_message"></p>
-            <p id="welcome_message"></p>
+            <p id="firstuse_message"></p>
           </section>
 
           <section id="info">
@@ -253,7 +253,7 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
     <area href="https://headless.horse/project-1/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Nike: Los Fearless" shape="poly"
       coords="2040,611,2044,825,2135,825,2135,1018,1798,1020,1798,968,1614,957,1625,643,1847,657,1848,578,1890,570,1922,576,1940,569,1982,585,2006,580">
     <!--shop.headless.horse-->
-    <area href="https://shop.headless.horse/" class="project_link" onmouseenter="playMouseIn()" target="_blank" title="shop.headless.horse" shape="poly"
+    <area href="https://shop.headless.horse/" class="click_sound" onmouseenter="playMouseIn()" target="_blank" title="shop.headless.horse" shape="poly"
       coords="868,2693,969,2636,984,2634,994,2644,993,2656,981,2664,980,2688,1106,2678,1106,2669,1148,2660,1187,2644,1246,2635,1279,2624,1292,2649,1284,2659,1283,2669,1312,2666,1360,2682,1360,2999,921,3039,892,3065,878,3065,801,3048,740,3040,673,3046,654,3051,647,3025,712,2991,823,2914,841,2899,831,2843,836,2801,848,2752,862,2724,878,2705,892,2696,892,2691,866,2700">
   </map>
 
@@ -822,15 +822,16 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
 <script>
   // trigger 'awards'
   $(document).on("keypress", "input", function(e) {
-    if (e.which == 13) {
-      var inputVal = $(this).val();
-      if (inputVal == "awards") {
-        setTimeout(function(e) {
-          window.open('https://www.notion.so/Awards-Recognition-9104cf25931943938017cd0c0641a5d0/, '_blank');
-        }, 1000);
-      }
-    }
-  });
+        if (e.which == 13) {
+          var inputVal = $(this).val();
+          if (inputVal == "awards") {
+            setTimeout(function(e) {
+                window.open('https://www.notion.so/Awards-Recognition-9104cf25931943938017cd0c0641a5d0/, '
+                  _blank ');
+                }, 1000);
+            }
+          }
+        });
 </script>
 
 <script>
@@ -1089,7 +1090,7 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
     var wh = new Date();
     if (lastvisit.getCookie("visit_record") == "") {
       lastvisit.setCookie("visit_record", wh, days);
-      document.getElementById("welcome_message").innerHTML = "Type 'help' to see a list of commands, or close the terminal to begin.";
+      document.getElementById("firstuse_message").innerHTML = "Type 'help' to see a list of commands, or close the terminal to begin.";
       document.getElementById("support_message").innerHTML = "<br> Type 'help' to see a list of commands.";
 
     } else {
@@ -1121,7 +1122,8 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
         secs = "0" + secs
       }
       var dispDate = dd + "." + mn + "." + yy + " at " + hh + ":" + mins + ":" + secs
-      document.getElementById("welcomeback_message").innerHTML = "Welcome back to Headless Horse.";
+      document.getElementById("welcome_message").innerHTML = "Welcome back to Headless Horse.";
+      document.getElementById("welcome_message_2").innerHTML = "Full-Service Design Studio.";
       document.getElementById("lastvisit_message").innerHTML = "Your last visit was on " + dispDate + ".";
     }
     lastvisit.setCookie("visit_record", wh, days);
@@ -1153,7 +1155,7 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
 
   // link audio
   var a = document.getElementById("linkclick");
-  $('.clicksound').click(() => a.play());
+  $('.click_sound').click(() => a.play());
 
   function playMouseIn() {
     {
