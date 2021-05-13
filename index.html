@@ -121,9 +121,10 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
             <p>projects</p>
             <p>follow</p>
             <p>mailinglist</p>
-            <p>shop</p>
+            <p>awards</p>
             <p>jobs</p>
             <p>legal</p>
+            <p>shop</p>
             <p>tweet</p>
             <p>like</p>
             <p>email</p>
@@ -140,12 +141,17 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
             <p id="support_message"></p>
           </section>
 
-          <section id="shop">
+          <section id="awards">
             <p>Loading...</p>
             <p id="support_message"></p>
           </section>
 
           <section id="jobs">
+            <p>Loading...</p>
+            <p id="support_message"></p>
+          </section>
+
+          <section id="shop">
             <p>Loading...</p>
             <p id="support_message"></p>
           </section>
@@ -836,13 +842,13 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
 </script>
 
 <script>
-  // trigger 'shop'
+  // trigger 'jobs'
   $(document).on("keypress", "input", function(e) {
     if (e.which == 13) {
       var inputVal = $(this).val();
-      if (inputVal == "shop") {
+      if (inputVal == "awards") {
         setTimeout(function(e) {
-          window.open('https://shop.headless.horse/', '_blank');
+          window.open('https://www.notion.so/Awards-Recognition-9104cf25931943938017cd0c0641a5d0, '_blank');
         }, 1000);
       }
     }
@@ -857,6 +863,20 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
       if (inputVal == "jobs") {
         setTimeout(function(e) {
           window.open('https://www.notion.so/Jobs-3195d2cf92d545179591a066542d7c36', '_blank');
+        }, 1000);
+      }
+    }
+  });
+</script>
+
+<script>
+  // trigger 'shop'
+  $(document).on("keypress", "input", function(e) {
+    if (e.which == 13) {
+      var inputVal = $(this).val();
+      if (inputVal == "shop") {
+        setTimeout(function(e) {
+          window.open('https://shop.headless.horse/', '_blank');
         }, 1000);
       }
     }
