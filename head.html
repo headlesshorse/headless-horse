@@ -60,6 +60,28 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
     color: #999999;
   }
 
+  ::-webkit-scrollbar {
+    width: 25px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-left: 1px solid #999999;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #999999;
+  }
+
+  ::selection {
+    background: #999999;
+    color: #000000;
+  }
+
+  ::-moz-selection {
+    background: #999999;
+    color: #000000;
+  }
+
   @media (min-width: 20px) and (max-width: 480px) {
     #loader {
       background: #000000;
@@ -107,32 +129,6 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
       ::-webkit-scrollbar {
         width: 0px;
       }
-    }
-
-    ::-webkit-scrollbar {
-      width: 25px;
-    }
-
-    ::-webkit-scrollbar-track {
-      border-left: 1px solid #999999;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #999999;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #999999;
-    }
-
-    ::selection {
-      background: #999999;
-      color: #000000;
-    }
-
-    ::-moz-selection {
-      background: #999999;
-      color: #000000;
     }
 </style>
 
