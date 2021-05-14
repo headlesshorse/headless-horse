@@ -72,7 +72,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
 
 <script>
-  //scroller initate
   var $tickerWrapper = $(".tickerwrapper");
   var $list = $tickerWrapper.find("ul.list");
   var $clonedList = $list.clone();
@@ -90,7 +89,6 @@
 
   $clonedList.addClass("cloned").appendTo($tickerWrapper);
 
-  //TimelineMax
   var infinite = new TimelineMax({
     repeat: -1,
     paused: true
@@ -134,7 +132,6 @@
     .progress(1).progress(0)
     .play();
 
-  //Pause/Play
   $tickerWrapper.on("mouseenter", function() {
     ;
   }).on("mouseleave", function() {
