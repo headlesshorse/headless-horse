@@ -30,8 +30,8 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
       <div id="terminal_content_frame">
         <div id=terminal_content>
           <section id="welcome">
-            <p id="welcome_message">Welcome to Headless Horse: full-service design studio.</p>
-            <p id=welcome_message_2">This is a visual index of work.</p>
+            <p id="welcome_message">Welcome to Headless Horse.</p>
+            <p> Full-Service Design Studio.</p>
             <br>
             <p id="lastvisit_message"></p>
             <p id="firstuse_message"></p>
@@ -822,15 +822,15 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
 <script>
   // trigger 'awards'
   $(document).on("keypress", "input", function(e) {
-        if (e.which == 13) {
-          var inputVal = $(this).val();
-          if (inputVal == "awards") {
-            setTimeout(function(e) {
-                window.open('https://www.notion.so/Awards-Recognition-9104cf25931943938017cd0c0641a5d0/', '_blank');
-                }, 1000);
-            }
-          }
-        });
+    if (e.which == 13) {
+      var inputVal = $(this).val();
+      if (inputVal == "awards") {
+        setTimeout(function(e) {
+          window.open('https://www.notion.so/Awards-Recognition-9104cf25931943938017cd0c0641a5d0/', '_blank');
+        }, 1000);
+      }
+    }
+  });
 </script>
 
 <script>
@@ -1122,7 +1122,6 @@ _  _ ____ ____ ___  _    ____ ____ ____     _  _ ____ ____ ____ ____
       }
       var dispDate = dd + "." + mn + "." + yy + " at " + hh + ":" + mins + ":" + secs
       document.getElementById("welcome_message").innerHTML = "Welcome back to Headless Horse.";
-      document.getElementById("welcome_message_2").innerHTML = "Full-Service Design Studio.";
       document.getElementById("lastvisit_message").innerHTML = "Your last visit was on " + dispDate + ".";
     }
     lastvisit.setCookie("visit_record", wh, days);
