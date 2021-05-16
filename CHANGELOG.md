@@ -10,7 +10,7 @@
 * Update of all website elements into one page.
 * Update code to the tooltip.
 * Update id and class names.
-* Update CSS using [normalize.css](https://github.com/necolas/normalize.css/).
+* Update CSS using [idiomatic-css](https://github.com/necolas/idiomatic-css).
 
 ### 1.0.0 (11.09.2019)
 
