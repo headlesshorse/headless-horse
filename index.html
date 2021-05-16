@@ -503,7 +503,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.11/interact.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ModifiersPlugin-latest-beta.js"></script>
 
 <script>
@@ -890,6 +889,25 @@
 </script>
 
 <script>
+  $(function() {
+    var $content = $('#medium-content');
+    var data = {
+      rss_url: 'https://medium.com/feed/@headlesshorse'
+    };
+    $.get('https://api.rss2json.com/v1/api.json', data, function(response) {
+      if (response.status == 'ok') {
+        var output = '';
+        $.each(response.items, function(k, item) {
+          output += '<p class="medium-blog-post" style="text-decoration: underline;" onclick="window.open(\'' + item.guid + '\',\'mywindow\');">' + item.title + ": " + $.format.date(item.pubDate, "dd.MM.yyyy") + " →" + '</p>';
+          return k < 3;
+        });
+        $content.html(output);
+      }
+    });
+  });
+</script>
+
+<script>
   // trigger 'mailinglist'
   function showError(el, err) {
     $("#mc-embedded-subscribe").attr("disabled", false);
@@ -924,25 +942,6 @@
           $('#commandinput[type="text"]').focus();
           $("#mc-embedded-subscribe").trigger("click") // trigger hidden form submission
           break;
-      }
-    });
-  });
-</script>
-
-<script>
-  $(function() {
-    var $content = $('#medium-content');
-    var data = {
-      rss_url: 'https://medium.com/feed/@headlesshorse'
-    };
-    $.get('https://api.rss2json.com/v1/api.json', data, function(response) {
-      if (response.status == 'ok') {
-        var output = '';
-        $.each(response.items, function(k, item) {
-          output += '<p class="medium-blog-post" style="text-decoration: underline;" onclick="window.open(\'' + item.guid + '\',\'mywindow\');">' + item.title + ": " + $.format.date(item.pubDate, "dd.MM.yyyy") + " →" + '</p>';
-          return k < 3;
-        });
-        $content.html(output);
       }
     });
   });
