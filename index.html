@@ -574,11 +574,6 @@
     });
   });
 
-  $('#terminal').click(
-    function() {
-      $('#commandinput[type="text"]').focus();
-    });
-
   function clearframe() {
     document.getElementById("terminal_iframe").src = "about:blank";
   }
@@ -1022,6 +1017,11 @@
 </script>
 
 <script>
+  $('#terminal').click(
+    function() {
+      $('#commandinput[type="text"]').focus();
+    });
+
   $(document).ready(function() {
     $('#command').hide();
     $('#commandinput[type="text"]').focus();
