@@ -1,4 +1,4 @@
-# Changes to Headless.Horse
+# Changes to Headless.Horse.
 
 ### 2.0.0 (08.05.2021)
 
@@ -6,7 +6,7 @@
 * Remove secondary iframe pages 'contact-loader' and 'studies-loader'.
 * Add sign up mailinglist via terminal.
 * Add termianl showing the new 'Lab' RSS feed.
-* Add sharing via twitter, facebook and email.
+* Add sharing via Twitter, Facebook and email.
 * Update of all website elements into one page.
 * Update code to the tooltip.
 * Update id and class names.
