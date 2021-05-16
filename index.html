@@ -39,7 +39,6 @@
               Laurent, 20th Century Fox.</p>
             <p>EXPERTISE: Art direction, branding, consulting, content creation, copywriting, creative development, curation, digital, event design, fabrication, front-end development, graphic design, identity, illustration, interior design, naming,
               motion, mural design, packaging, photography, sculpture, social content, strategy.</p>
-            <p id="support_message"></p>
           </section>
 
           <section id="contact">
@@ -47,24 +46,19 @@
             <p>EMAIL: <a href="mailto:hello@headlesshorse.com?Subject=Hello Headless Horse..." target="_top">hello@headlesshorse.com</a></p>
             <p>OFFICE: 38 Castle Terrace, Edinburgh, EH3 9SJ</p>
             <p>PHONE: <a href="tel:+443334446773">0333.44.HORSE</a></p>
-            <p id="support_message"></p>
           </section>
 
           <section id="follow">
             <p>FOLLOW</p>
             <p>INSTAGRAM: <a href="https://www.instagram.com/headless.horse/" target="_blank">@headless.horse</a></p>
             <p>TWITTER: <a href="https://twitter.com/headless__horse/" target="_blank">@headless__horse</a></p>
-            <p>PINTEREST: <a href="https://www.pinterest.co.uk/headless_horse/" target="_blank">@headless_horse</a></p>
             <p>GITHUB: <a href="https://github.com/Headless-Horse/" target="_blank">@headless-horse</a></p>
-            <p>BEHANCE: <a href="https://www.behance.net/headlesshorse/" target="_blank">@headlesshorse</a></p>
-            <p id="support_message"></p>
           </section>
 
           <section id="mailinglist">
             <p>MAILINGLIST</p>
             <p>Join our mailing list to be the first to receive updates on project launches, product releases and news.</p>
             <p>Enter your email below.</p>
-            <p id="support_message"></p>
             <p id="validate_message"></p>
           </section>
 
@@ -93,7 +87,12 @@
             <a href="//headless.horse/project-3/" target="_blank">[03]</a> Jordan Brand: Russell Westbrook Logo <br>
             <a href="//headless.horse/project-2/" target="_blank">[02]</a> DC Shoes Inc.: DC Shoes Identity <br>
             <a href="//headless.horse/project-1/" target="_blank">[01]</a> Nike: Los Fearless <br>
-            <p id="support_message"></p>
+          </section>
+
+          <section id="lab">
+            <p>LAB</p>
+            <p>A home for ideas, experiments and abandoned projects.</p>
+            <p id="medium-content"></p>
           </section>
 
           <section id="legal">
@@ -102,7 +101,6 @@
             <p>Headless Horse Ltd, registered in England and Wales, Company Number 10573016.</p>
             <p>Registered Office: 2 Stamford Square, London, SW15 2BF.</p>
             <p><a href="https://www.notion.so/headlesshorse/Privacy-3da531bfce1d4f4094afa4e9c138a5ca/" target="_blank">Privacy policy.</a></p>
-            <p id="support_message"></p>
           </section>
 
           <section id="help">
@@ -110,6 +108,7 @@
             <p>info</p>
             <p>contact</p>
             <p>projects</p>
+            <p>lab</p>
             <p>awards</p>
             <p>follow</p>
             <p>mailinglist</p>
@@ -119,42 +118,34 @@
             <p>tweet</p>
             <p>like</p>
             <p>email</p>
-            <p id="support_message"></p>
           </section>
 
           <section id="home">
             <p>Loading...</p>
-            <p id="support_message"></p>
           </section>
 
           <section id="awards">
             <p>Loading...</p>
-            <p id="support_message"></p>
           </section>
 
           <section id="jobs">
             <p>Loading...</p>
-            <p id="support_message"></p>
           </section>
 
           <section id="shop">
             <p>Loading...</p>
-            <p id="support_message"></p>
           </section>
 
           <section id="tweet">
             <p>Loading Twitter...</p>
-            <p id="support_message"></p>
           </section>
 
           <section id="like">
             <p>Loading Facebook...</p>
-            <p id="support_message"></p>
           </section>
 
           <section id="email">
             <p>Loading email client...</p>
-            <p id="support_message"></p>
           </section>
 
           <section id="error">
@@ -511,6 +502,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.11/interact.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ModifiersPlugin-latest-beta.js"></script>
 
@@ -932,6 +924,25 @@
           $('#commandinput[type="text"]').focus();
           $("#mc-embedded-subscribe").trigger("click") // trigger hidden form submission
           break;
+      }
+    });
+  });
+</script>
+
+<script>
+  $(function() {
+    var $content = $('#medium-content');
+    var data = {
+      rss_url: 'https://medium.com/feed/@headlesshorse'
+    };
+    $.get('https://api.rss2json.com/v1/api.json', data, function(response) {
+      if (response.status == 'ok') {
+        var output = '';
+        $.each(response.items, function(k, item) {
+          output += '<p class="medium-blog-post" style="text-decoration: underline;" onclick="window.open(\'' + item.guid + '\',\'mywindow\');">' + item.title + ": " + $.format.date(item.pubDate, "dd.MM.yyyy") + " →" + '</p>';
+          return k < 3;
+        });
+        $content.html(output);
       }
     });
   });
