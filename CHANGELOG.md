@@ -5,7 +5,7 @@
 * Remove website home page terminal.
 * Remove secondary iframe pages 'contact-loader' and 'studies-loader'.
 * Add sign up mailinglist via terminal.
-* Add termianl showing the new 'Lab' RSS feed.
+* Add terminal showing the new 'Lab' RSS feed.
 * Add sharing via Twitter, Facebook and email.
 * Update of all website elements into one page.
 * Update code to the tooltip.
