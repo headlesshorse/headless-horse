@@ -4,11 +4,13 @@
 
 * Remove website home page terminal.
 * Remove secondary iframe pages 'contact-loader' and 'studies-loader'.
+* Remove dropdown navigation.
 * Add sign up mailing list via terminal.
-* Add terminal showing the new 'Lab' RSS feed.
 * Add sharing via Twitter, Facebook and email.
+* Add dynamic image based upon the time of day of set timezone.
+* Add Lab RSS feed to terminal.
 * Update of all website elements into one page.
-* Update code to the tooltip.
+* Update code to the image tooltip.
 * Update id and class names.
 * Update CSS using [idiomatic-css](https://github.com/necolas/idiomatic-css).
 
