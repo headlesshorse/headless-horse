@@ -87,15 +87,15 @@
             <p id="medium-content"></p>
           </section>
 
-          <section id="press">
-            <p>Loading...</p>
-          </section>
-
           <section id="follow">
             <p>FOLLOW</p>
             <p><a href="https://instagram.com/headless.horse/" target="_blank">Instagram →</a><br></p>
             <p><a href="https://twitter.com/headless__horse/" target="_blank">Twitter →</a></p>
             <p><a href="https://github.com/Headless-Horse/" target="_blank">Github →</a></p>
+          </section>
+
+          <section id="press">
+            <p>Loading...</p>
           </section>
 
           <section id="mailinglist">
@@ -109,16 +109,16 @@
             <p>Loading...</p>
           </section>
 
+          <section id="shop">
+            <p>Loading...</p>
+          </section>
+
           <section id="legal">
             <p>LEGAL</p>
             <p>&copy;/&#174; <span id="copyright"></span>. Headless Horse Ltd. All rights reserved.</p>
             <p>Headless Horse Ltd, registered in England and Wales, Company Number 10573016.</p>
             <p>Registered Office: 2 Stamford Square, London, SW15 2BF.</p>
             <p><a href="https://www.notion.so/headlesshorse/Privacy-3da531bfce1d4f4094afa4e9c138a5ca/" target="_blank">Privacy policy.</a></p>
-          </section>
-
-          <section id="shop">
-            <p>Loading...</p>
           </section>
 
           <section id="tweet">
@@ -137,6 +137,10 @@
             <p>Loading...</p>
           </section>
 
+          <section id="work">
+            <p>Loading...</p>
+          </section>
+
           <section id="help">
             <p>COMMANDS</p>
             <pre>
@@ -151,9 +155,9 @@ headless.horse/
 │   ├── press
 │   └── mailinglist
 ├── OTHER/
-│   ├── legal
 │   ├── jobs
-│   └── shop
+│   ├── shop
+│   └── legal
 └── SHARE/
     ├── tweet
     ├── like
@@ -912,7 +916,7 @@ headless.horse/
       if (response.status == 'ok') {
         var output = '';
         $.each(response.items, function(k, item) {
-          output += '<a class="medium-blog-post" style="cursor: pointer" onclick="window.open(\'' + item.guid + '\',\'mywindow\');">' + $.format.date(item.pubDate, "dd.MM.yyyy") + " — " + item.title + " →" + '</a>';
+          output += '<p><a class="medium-blog-post" style="cursor: pointer" onclick="window.open(\'' + item.guid + '\',\'mywindow\');">' + $.format.date(item.pubDate, "dd.MM.yyyy") + " — " + item.title + " →" + '</a></p>';
           return k < 3;
         });
         $content.html(output);
