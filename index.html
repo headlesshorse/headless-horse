@@ -233,8 +233,7 @@ headless.horse/
     <area href="/project-8/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Jordan Brand: Court Concept" shape="poly"
       coords="4221,537,3818,537,3824,397,3532,396,3524,684,3730,684,3727,792,3939,792,3933,1061,4240,1065,4248,847,4179,849,4177,796,4214,795">
     <!--[08] Nike: The Stands Cafe Identity-->
-    <area href="/project-8/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Nike: The Stands Cafe Identity" shape="poly"
-      coords="3021,450,2735,455,2735,608,2705,607,2703,800,2990,800,2991,642,3024,639">
+    <area href="/project-8/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Nike: The Stands Cafe Identity" shape="poly" coords="3021,450,2735,455,2735,608,2705,607,2703,800,2990,800,2991,642,3024,639">
     <!--[07] Nike: Kobe X, The Art of Attack-->
     <area href="/project-7/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Nike: Kobe X, The Art of Attack" shape="poly"
       coords="2614,2305,2745,2302,2753,2502,3090,2487,3079,2290,2808,2279,2803,2093,2511,2099,2508,2177,2483,2175,2491,2300,2469,2299,2468,2332,2279,2324,2277,2543,2612,2541">
@@ -243,8 +242,7 @@ headless.horse/
     <!--[05] Nike: Technology Logos-->
     <area href="/project-5/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Nike: Technology Logos" shape="poly" coords="2759,1723,2494,1731,2501,1903,2556,1902,2555,1882,2766,1882">
     <!--[04] Calvin Harris: Identity-->
-    <area href="/project-4/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Calvin Harris: Identity" shape="poly"
-      coords="3559,751,3357,761,3358,735,3336,736,3337,587,3527,589,3524,684,3563,684">
+    <area href="/project-4/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Calvin Harris: Identity" shape="poly" coords="3559,751,3357,761,3358,735,3336,736,3337,587,3527,589,3524,684,3563,684">
     <!--[03] Jordan Brand: Russell Westbrook Identity-->
     <area href="/project-9/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Jordan Brand: Russell Westbrook Identity" shape="poly"
       coords="2262,1952,2068,1951,2070,1958,1940,1970,1936,2164,1992,2165,1991,2187,2020,2186,2016,2402,2268,2410,2282,2170,2253,2170">
@@ -307,7 +305,6 @@ headless.horse/
   a:hover,
   a:focus {
     color: #999999;
-    text-decoration: underline;
   }
 
   #loader {
@@ -362,7 +359,7 @@ headless.horse/
     float: left;
   }
 
-  #nav_bottom>.nav_link {
+  .nav_link {
     border-right: 1px solid #999999;
     cursor: pointer !important;
   }
@@ -451,6 +448,17 @@ headless.horse/
     display: none;
   }
 
+  #terminal_content a {
+    padding: 0;
+    margin: 0;
+    line-height: 10px;
+    list-style-type: none;
+  }
+
+  #terminal_content a:hover::before {
+    content: '● ';
+  }
+
   .open {
     display: block;
   }
@@ -470,18 +478,6 @@ headless.horse/
   img.map,
   map area {
     outline: none;
-  }
-
-  .morning {
-    content: url();
-  }
-
-  .afternoon {
-    content: url();
-  }
-
-  .evening {
-    content: url();
   }
 
   #tooltip {
@@ -831,7 +827,7 @@ headless.horse/
   const tableTemplate = table => html`
     <div id="presscontent">
       ${table.map(({ id, Recognition, Outlet, Project, Published, Slug}) => html`
-        <p><a href="${Slug}" target="_blank">${Published} ${Recognition} – ${Outlet}.</a></p>
+        <p><a href="${Slug}" target="_blank">${Published} ${Recognition}, ${Outlet} – ${Project}.</a></p>
       `)}
     </div>
   `;
