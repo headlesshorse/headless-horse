@@ -14,7 +14,7 @@
 
   <ul id="nav_bottom">
     <li class="nav_link click_sound" title="Headless Horse"><a>●</a></li>
-    <li id="clock" onload="show_time()" style="float: right"></li>
+    <li id="clock" style="float: right"></li>
   </ul>
 
   <div id="terminal">
@@ -27,7 +27,7 @@
         <div id=terminal_content>
           <section id="welcome">
             <p id="welcome_message">Welcome to Headless Horse.</p>
-            <p> Full-Service Design Studio.</p>
+            <p>Full-Service Design Studio.</p>
             <br>
             <p id="lastvisit_message"></p>
             <p id="firstuse_message"></p>
@@ -52,29 +52,7 @@
 
           <section id="projects">
             <p>CASE STUDIES</p>
-            <p><a href="/project-23/" target="_blank">@pizza: Edinburgh Royal Mile</a></p>
-            <p><a href="/project-22/" target="_blank">Billelis: In Memoriam</a></p>
-            <p><a href="/project-21/" target="_blank">@pizza: Birmingham Grand Central</a></p>
-            <p><a href="/project-20/" target="_blank">Renderboxes: Identity</a></p>
-            <p><a href="/project-19/" target="_blank">Jordan Brand: Air Jordan 1</a></p>
-            <p><a href="/project-18/" target="_blank">Nike: Cortez, Blue Ribbon Sports</a></p>
-            <p><a href="/project-17/" target="_blank">Nike: Studio of Dreams</a></p>
-            <p><a href="/project-16/" target="_blank">Karl Lagerfeld: In Memoriam</a></p>
-            <p><a href="/project-15/" target="_blank">LYMA: Super Supplement</a></p>
-            <p><a href="/project-14/" target="_blank">Nike: Air Max Day</a></p>
-            <p><a href="/project-13/" target="_blank">Nike: Alpha Menace Elite</a></p>
-            <p><a href="/project-12/" target="_blank">Nike: Nike Football Program Typefa</a></p>
-            <p><a href="/project-11/" target="_blank">The Apostles</a></p>
-            <p><a href="/project-10/" target="_blank">Chanel: No5 Sculpture</a></p>
-            <p><a href="/project-9/" target="_blank">Jordan Brand: Court Concept</a></p>
-            <p><a href="/project-8/" target="_blank">Nike: The Stands Cafe Identity</a></p>
-            <p><a href="/project-7/" target="_blank">Nike: Kobe X, The Art of Attack</a></p>
-            <p><a href="/project-6/" target="_blank">Nike: Global Label System</a></p>
-            <p><a href="/project-5/" target="_blank">Nike: Technology Logos</a></p>
-            <p><a href="/project-4/" target="_blank">Calvin Harris: Identity</a></p>
-            <p><a href="/project-3/" target="_blank">Jordan Brand: Russell Westbrook Identity</a></p>
-            <p><a href="/project-2/" target="_blank">DC Shoes: Identity</a></p>
-            <p><a href="/project-1/" target="_blank">Nike: Los Fearless</a></p>
+            <p id="project_list"></p>
           </section>
 
           <section id="lab">
@@ -791,6 +769,37 @@ headless.horse/
   });
 </script>
 
+<script type="module">
+  // trigger 'projects'
+  import { html, render } from 'https://unpkg.com/lit?module';
+
+  const URL = "https://notion-api.splitbee.io/v1/table/40ee05b104644055b139eefafd9ae800";
+
+  const handleAsJson = response => response.json();
+
+  const trace = tag => x => {
+    console.log(tag, x);
+    return x;
+  }
+
+  const tableTemplate = table => html`
+    <div id="projectcontent">
+      ${table.map(({ id, Client, Project, Number, Status}) => html`
+        <p><a href="/project-${Number}" target="_blank">${Client} – ${Project}. ${Status}</a></p>
+      `)}
+    </div>
+  `;
+
+  // https://github.com/splitbee/notion-api-worker
+  const projectItem = fetch(URL)
+    .then(handleAsJson) // Promise<TableJson>
+    .then(trace('table is'))
+    .then(tableTemplate) // Promise<TemplateResult>
+		.then(trace('template result is'))
+    .then(result =>
+			render(result, document.getElementById('project_list')))
+</script>
+
 <script>
   // trigger 'lab'
   $(function() {
@@ -815,7 +824,7 @@ headless.horse/
   // trigger 'press'
   import { html, render } from 'https://unpkg.com/lit?module';
 
-  const URL = "https://notion-api.splitbee.io/v1/table/30ec5a86b2dd4d1192512bd5eceff6d9";
+  const URL = "https://notion-api.splitbee.io/v1/table/cd48ac8833464607818ff47ee43fb791";
 
   const handleAsJson = response => response.json();
 
