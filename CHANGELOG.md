@@ -10,6 +10,7 @@
 * Add dynamic image based upon the time of day of set timezone.
 * Add Lab RSS feed to terminal.
 * Add Notion API to show 'Selected Press' and 'Jobs' tables.
+* Add welcome message for first-time and return users including their ip address.
 * Update of all website elements into one page.
 * Update code to the image tooltip.
 * Update id and class names.
