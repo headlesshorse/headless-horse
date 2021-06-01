@@ -25,8 +25,9 @@
       <iframe id="terminal_iframe" name="terminal_iframe" src="" frameborder="0"></iframe>
       <div id="terminal_content_frame">
         <div id=terminal_content>
+
           <section id="welcome">
-            <p id="welcome_message">Welcome to Headless Horse <span id="ip_address"></span>.</p>
+            <p>Welcome <span id="welcome_back"></span> to Headless Horse, <span id="ip_address"></span>.</p>
             <br>
             <p id="lastvisit_message"></p>
             <p id="firstuse_message"></p>
@@ -1132,7 +1133,6 @@ headless.horse/
     if (lastvisit.getCookie("visit_record") == "") {
       lastvisit.setCookie("visit_record", wh, days);
       document.getElementById("firstuse_message").innerHTML = "Type 'list' to see a list of commands, or close the terminal to begin.";
-      document.getElementById("support_message").innerHTML = "<br> Type 'list' to see a list of commands.";
 
     } else {
       var lv = lastvisit.getCookie("visit_record");
@@ -1159,7 +1159,7 @@ headless.horse/
         mins = "0" + mins
       }
       var dispDate = dd + "." + mn + "." + yy + " at " + hh + ":" + mins
-      document.getElementById("welcome_message").innerHTML = "Welcome back to Headless Horse.";
+      document.getElementById("welcome_back").innerHTML = "back ";
       document.getElementById("lastvisit_message").innerHTML = "Your last visit was on " + dispDate + ".";
     }
     lastvisit.setCookie("visit_record", wh, days);
