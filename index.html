@@ -12,7 +12,7 @@
     </div>
   </div>
 
-  <ul id="nav_bottom" onmouseleave="playMouseOut()">
+  <ul id="nav_bottom">
     <li class="nav_link click_sound" title="Headless Horse"><a>●</a></li>
     <li id="clock" style="float: right"></li>
   </ul>
@@ -148,13 +148,13 @@ headless.horse/
   <img id="img" src="http://assets.headless.horse/img/external/website/Headless_Horse_2020.jpg" width="4995" height="3958" oncontextmenu="return false;" usemap="#img-map" />
   <map name="img-map">
     <!--[20] Renderboxes: Identity-->
-    <area href="/project-20/" class="project_link" onmouseenter="playMouseIn()" onmouseleave="playMouseOut()" target="terminal_iframe" Title="Renderboxes: Identity" shape="poly"
+    <area href="/project-20/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" Title="Renderboxes: Identity" shape="poly"
       coords="1410,1197,1424,1077,1641,1063,1636,960,1612,959,1625,643,1674,645,1675,626,1536,619,1309,628,1307,612,1289,612,1289,598,1162,600,1149,462,994,472,1004,601,998,602,994,569,767,576,775,770,764,955,927,960,924,1125,1011,1127,1302,1134,1298,1186">
     <!--[19] Jordan Brand: Air Jordan 1-->
-    <area href="/project-19/" class="project_link" onmouseenter="playMouseIn()" onmouseleave="playMouseOut()" target="terminal_iframe" title="Jordan Brand: Air Jordan 1" shape="poly"
+    <area href="/project-19/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Jordan Brand: Air Jordan 1" shape="poly"
       coords="3168,1033,2902,1029,2901,1276,2943,1278,2936,1372,3073,1373,3073,1306,3113,1302,3107,1204,3165,1200">
     <!--[19] Jordan Brand: Air Jordan 1-->
-    <area href="/project-19/" class="project_link" onmouseenter="playMouseIn()" onmouseleave="playMouseOut()" target="terminal_iframe" title="Jordan Brand: Air Jordan 1" shape="poly"
+    <area href="/project-19/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Jordan Brand: Air Jordan 1" shape="poly"
       coords="3566,954,3391,961,3389,1238,3359,1236,3329,1578,3624,1602,3628,1556,3574,1555,3585,1218,3727,1223,3728,1102,3713,1102,3713,1007,3566,1003">
     <!--[18] Nike: Cortez, Blue Ribbon Sports-->
     <area href="/project-18/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Nike: Cortez, Blue Ribbon Sports" shape="poly"
@@ -1148,10 +1148,6 @@ $.get("https://ipinfo.io", function (response) {
     }, 20000);
   });
 
-  // booting audio
-  var x = document.getElementById("BootingSequence");
-  $('.booting').click(() => x.play());
-
   // project audio
   var s = document.getElementById("projectclick");
   $('.project_link').click(() => s.play());
@@ -1164,27 +1160,6 @@ $.get("https://ipinfo.io", function (response) {
     {
       const audioCtx = new AudioContext();
       const audio = new Audio('http://assets.headless.horse/audio/external/website/HH_inmouse.mp3?dl=0');
-      audio.play();
-      audio.crossOrigin = 'anonymous';
-      const sourceNode = audioCtx.createMediaElementSource(audio);
-      const gainNode = audioCtx.createGain();
-      sourceNode.connect(gainNode);
-      gainNode.connect(audioCtx.destination);
-      gainNode.gain.setValueAtTime(1, audioCtx.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.002, audioCtx.currentTime + 5);
-      setTimeout(function() {
-        const val = gainNode.gain.value;
-        gainNode.gain.cancelScheduledValues(audioCtx.currentTime);
-        gainNode.gain.setValueAtTime(val, audioCtx.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(1, audioCtx.currentTime + 5);
-      }, 0);
-    };
-  }
-
-  function playMouseOut() {
-    {
-      const audioCtx = new AudioContext();
-      const audio = new Audio('http://assets.headless.horse/audio/external/website/HH_outmouse.mp3?dl=0');
       audio.play();
       audio.crossOrigin = 'anonymous';
       const sourceNode = audioCtx.createMediaElementSource(audio);
