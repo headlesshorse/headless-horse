@@ -308,8 +308,8 @@
 
   const tableTemplate = table => html`
     <div id="presscontent">
-      ${table.map(({ id, Recognition, Outlet, Project, Published, Slug}) => html`
-        <p><a href="${Slug}" target="_blank">${Recognition}, ${Outlet} – ${Project}.</a></p>
+      ${table.map(({ id, Recognition, Outlet, Project, Published, Status, Slug}) => html`
+        <p><a href="${Slug}" target="_blank">${Recognition}, ${Outlet} – ${Project}. ${Status}</a></p>
       `)}
     </div>
   `;

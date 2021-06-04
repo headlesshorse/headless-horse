@@ -232,7 +232,7 @@ headless.horse/
       coords="868,2693,969,2636,984,2634,994,2644,993,2656,981,2664,980,2688,1106,2678,1106,2669,1148,2660,1187,2644,1246,2635,1279,2624,1292,2649,1284,2659,1283,2669,1312,2666,1360,2682,1360,2999,921,3039,892,3065,878,3065,801,3048,740,3040,673,3046,654,3051,647,3025,712,2991,823,2914,841,2899,831,2843,836,2801,848,2752,862,2724,878,2705,892,2696,892,2691,866,2700">
   </map>
 
-  <audio src="https://assets.headless.horse/audio/external/website/HH_pad.mp3" id="background_loop" class="audiofile" loop="loop" type="audio/mpeg"></audio>
+  <audio src="http://assets.headless.horse/audio/external/website/HH_pad.wav?dl=0" id="background_loop" class="audiofile" loop="loop" type="audio/mpeg"></audio>
   <audio src="http://assets.headless.horse/audio/external/website/HH_project.mp3?dl=0" id="projectclick" class="audiofile" type="audio/mpeg"></audio>
   <audio src="http://assets.headless.horse/audio/external/website/HH_click.mp3?dl=0" id="linkclick" class="audiofile" type="audio/mpeg"></audio>
 </body>
@@ -487,6 +487,49 @@ headless.horse/
 <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.11/interact.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.js"></script>
 <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ModifiersPlugin-latest-beta.js"></script>
+
+<script>
+  window.onload = function() {
+    document.getElementById("background_loop").play();
+  }
+
+  //background audio
+  $(document).ready(function() {
+    $("#background_loop")[0].volume = 0;
+    $("#background_loop").animate({
+      volume: 0.2
+    }, 20000);
+  });
+
+  // project audio
+  var s = document.getElementById("projectclick");
+  $('.project_link').click(() => s.play());
+
+  // link audio
+  var a = document.getElementById("linkclick");
+  $('.click_sound').click(() => a.play());
+
+  function playMouseIn() {
+    {
+      const audioCtx = new AudioContext();
+      const audio = new Audio('http://assets.headless.horse/audio/external/website/HH_inmouse.mp3?dl=0');
+      audio.play();
+      audio.crossOrigin = 'anonymous';
+      const sourceNode = audioCtx.createMediaElementSource(audio);
+      const gainNode = audioCtx.createGain();
+      sourceNode.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+      gainNode.gain.setValueAtTime(1, audioCtx.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.002, audioCtx.currentTime + 5);
+      setTimeout(function() {
+        const val = gainNode.gain.value;
+        gainNode.gain.cancelScheduledValues(audioCtx.currentTime);
+        gainNode.gain.setValueAtTime(val, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(1, audioCtx.currentTime + 5);
+      }, 0);
+    };
+  }
+</script>
 
 <script>
   // loader
@@ -802,8 +845,8 @@ headless.horse/
 
   const tableTemplate = table => html`
     <div id="presscontent">
-      ${table.map(({ id, Recognition, Outlet, Project, Published, Slug}) => html`
-        <p><a href="${Slug}" target="_blank">${Published} ${Recognition}, ${Outlet} – ${Project}.</a></p>
+      ${table.map(({ id, Recognition, Outlet, Project, Published, Status, Slug}) => html`
+        <p><a href="${Slug}" target="_blank">${Published} ${Recognition}, ${Outlet} – ${Project}. ${Status}</a></p>
       `)}
     </div>
   `;
@@ -1162,49 +1205,6 @@ $.get("https://ipinfo.io", function (response) {
     $("#ip").html("IP: " + response.ip);
     $("#ip_address").html("Visitor IP: " + response.ip + ", " + response.region + ".");
 }, "jsonp");
-</script>
-
-<script>
-  window.onload = function() {
-    document.getElementById("background_loop").play();
-  }
-
-  //background audio
-  $(document).ready(function() {
-    $("#background_loop")[0].volume = 0;
-    $("#background_loop").animate({
-      volume: 0.2
-    }, 20000);
-  });
-
-  // project audio
-  var s = document.getElementById("projectclick");
-  $('.project_link').click(() => s.play());
-
-  // link audio
-  var a = document.getElementById("linkclick");
-  $('.click_sound').click(() => a.play());
-
-  function playMouseIn() {
-    {
-      const audioCtx = new AudioContext();
-      const audio = new Audio('http://assets.headless.horse/audio/external/website/HH_inmouse.mp3?dl=0');
-      audio.play();
-      audio.crossOrigin = 'anonymous';
-      const sourceNode = audioCtx.createMediaElementSource(audio);
-      const gainNode = audioCtx.createGain();
-      sourceNode.connect(gainNode);
-      gainNode.connect(audioCtx.destination);
-      gainNode.gain.setValueAtTime(1, audioCtx.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.002, audioCtx.currentTime + 5);
-      setTimeout(function() {
-        const val = gainNode.gain.value;
-        gainNode.gain.cancelScheduledValues(audioCtx.currentTime);
-        gainNode.gain.setValueAtTime(val, audioCtx.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(1, audioCtx.currentTime + 5);
-      }, 0);
-    };
-  }
 </script>
 
 <div id="emailform">
