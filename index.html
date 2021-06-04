@@ -26,9 +26,8 @@
       <div id="terminal_content_frame">
         <div id=terminal_content>
 
-          <section id="welcome">
-            <p>Welcome <span id="welcome_back"></span> to Headless Horse, <span id="ip_address"></span>.</p>
-            <br>
+          <section id="home">
+            <p>Welcome <span id="welcome_back"></span> to Headless Horse. <span id="ip_address"></span></p>
             <p id="lastvisit_message"></p>
             <p id="firstuse_message"></p>
           </section>
@@ -44,9 +43,9 @@
 
           <section id="contact">
             <p>CONTACT</p>
-            <p>EMAIL: <a href="mailto:hello@headlesshorse.com?Subject=Hello%20Headless%20Horse..." target="_top">hello@headlesshorse.com</a></p>
-            <p>OFFICE: 38 Castle Terrace, Edinburgh, EH3 9SJ</p>
-            <p>PHONE: <a href="tel:+443334446773">0333.44.HORSE</a></p>
+            <p><a href="mailto:hello@headlesshorse.com?Subject=Hello%20Headless%20Horse..." target="_blank">EMAIL: hello@headlesshorse.com</a></p>
+            <p><a href="https://goo.gl/maps/fGTDKRgZAnsZYqn3A" target="_blank">OFFICE: 38 Castle Terrace, Edinburgh, EH3 9SJ<a></p>
+            <p><a href="tel:+443334446773">PHONE: 0333.44.HORSE</a></p>
           </section>
 
           <section id="projects">
@@ -64,7 +63,7 @@
             <p>FOLLOW</p>
             <p><a href="https://instagram.com/headless.horse/" target="_blank">Instagram →</a><br></p>
             <p><a href="https://twitter.com/headless__horse/" target="_blank">Twitter →</a></p>
-            <p><a href="https://github.com/Headless-Horse/" target="_blank">Github →</a></p>
+            <p><a href="https://github.com/Headless-Horse/" target="_blank">GitHub →</a></p>
           </section>
 
           <section id="press">
@@ -106,14 +105,6 @@
           </section>
 
           <section id="email">
-            <p>Loading...</p>
-          </section>
-
-          <section id="home">
-            <p>Loading...</p>
-          </section>
-
-          <section id="work">
             <p>Loading...</p>
           </section>
 
@@ -233,7 +224,7 @@ headless.horse/
       coords="868,2693,969,2636,984,2634,994,2644,993,2656,981,2664,980,2688,1106,2678,1106,2669,1148,2660,1187,2644,1246,2635,1279,2624,1292,2649,1284,2659,1283,2669,1312,2666,1360,2682,1360,2999,921,3039,892,3065,878,3065,801,3048,740,3040,673,3046,654,3051,647,3025,712,2991,823,2914,841,2899,831,2843,836,2801,848,2752,862,2724,878,2705,892,2696,892,2691,866,2700">
   </map>
 
-  <audio src="http://assets.headless.horse/audio/external/website/HH_pad.mp3" id="background_loop" class="audiofile" loop="loop" type="audio/mpeg"></audio>
+  <audio src="https://assets.headless.horse/audio/external/website/HH_pad.mp3" id="background_loop" class="audiofile" loop="loop" type="audio/mpeg"></audio>
   <audio src="http://assets.headless.horse/audio/external/website/HH_project.mp3?dl=0" id="projectclick" class="audiofile" type="audio/mpeg"></audio>
   <audio src="http://assets.headless.horse/audio/external/website/HH_click.mp3?dl=0" id="linkclick" class="audiofile" type="audio/mpeg"></audio>
 </body>
@@ -737,38 +728,6 @@ headless.horse/
   document.onmouseup = _destroy;
 </script>
 
-<script>
-  // trigger 'home'
-  $(document).on("keypress", "input", function(e) {
-    if (e.which == 13) {
-      var inputVal = $(this).val();
-      if (inputVal == "home") {
-        setTimeout(function(e) {
-          $("#img").fadeOut(1000);
-          $("#terminal").delay(1000).fadeOut(1000);
-          $("#img_cover").delay(1000).fadeOut(2000);
-        }, 1000);
-      }
-    }
-  });
-</script>
-
-<script>
-  // trigger 'work'
-  $(document).on("keypress", "input", function(e) {
-    if (e.which == 13) {
-      var inputVal = $(this).val();
-      if (inputVal == "work") {
-        setTimeout(function(e) {
-          $("#img").fadeIn(2000);
-          $("#terminal").delay(1000).fadeOut(1000);
-          $("#img_cover").delay(1000).fadeOut(2000);
-        }, 1000);
-      }
-    }
-  });
-</script>
-
 <script type="module">
   // trigger 'projects'
   import { html, render } from 'https://unpkg.com/lit?module';
@@ -1060,8 +1019,8 @@ headless.horse/
   $(document).ready(function() {
     $('#command').hide();
     $('#commandinput[type="text"]').focus();
-    $('#welcome').addClass('open');
-    $('#welcome').textTyper({
+    $('#home').addClass('open');
+    $('#home').textTyper({
       speed: 20,
       afterAnimation: function() {
         $('#command').fadeIn();
@@ -1170,10 +1129,10 @@ headless.horse/
 </script>
 
 <script>
-	$.getJSON("https://api.ipify.org?format=json",
-		function(data) {
-			$("#ip_address").html(data.ip);
-		})
+$.get("https://ipinfo.io", function (response) {
+    $("#ip").html("IP: " + response.ip);
+    $("#ip_address").html("LOC: " + response.region + ", IP: " + response.ip + ".");
+}, "jsonp");
 </script>
 
 <script>
