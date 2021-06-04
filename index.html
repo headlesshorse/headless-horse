@@ -525,7 +525,8 @@ headless.horse/
   }
 
   setTimeout(function() {
-    $('#loader').delay(1000).fadeOut(2000);
+    $('#loader_frame, #loader_percentage').delay(1000).fadeOut(1000);
+    $('#loader').delay(2000).fadeOut(2000);
   }, time);
 
   $(document).ready(function() {
