@@ -28,6 +28,7 @@
 
           <section id="home">
             <p>Welcome <span id="welcome_back"></span> to Headless Horse.</p>
+            <br>
             <p id="ip_address"></p>
             <p id="lastvisit_message"></p>
             <p id="firstuse_message"></p>
@@ -862,9 +863,9 @@ headless.horse/
 function doclientSearch(textArea) {
 	var value = textArea.value;
 
-  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === "codename") { // matches the first word in the string, which should be 'client'
+  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === "uname:") { // matches the first word in the string, which should be 'client'
 
-    window.open('https://dev.headless.horse/' + value.match('codename(.*)')[1].trim());
+    window.open('https://dev.headless.horse/' + value.match('uname:(.*)')[1].trim());
   }
 }
 </script>
