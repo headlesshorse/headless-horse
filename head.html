@@ -30,6 +30,15 @@ _     _ _______ _______ ______         _______ _______ _______   _     _  _____ 
   <noscript>Headless Horse. Enable JavaScript to run this app.</noscript>
 </body>
 
+<div id="loader">
+  <div id="loader_percentage"></div>
+  <div id="loader_frame">
+    <div id="loader_trackbar">
+      <div id="loader_bar"></div>
+    </div>
+  </div>
+</div>
+
 <!-- panelbear -->
 <script async src="https://cdn.panelbear.com/analytics.js?site=KctEecJRIj8"></script>
 <script>
@@ -50,6 +59,55 @@ _     _ _______ _______ ______         _______ _______ _______   _     _  _____ 
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
+  }
+
+
+  #loader {
+    position: fixed;
+    z-index: 8;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    color: #999999;
+    font-size: 12px;
+    line-height: 50px;
+  }
+
+  #loader_frame,
+  #loader_percentage {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    max-width: 70vw;
+    height: 10px;
+    border: 1px solid #999999;
+    margin: auto;
+  }
+
+  #loader_bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 0%;
+    height: 100%;
+    background: #999999;
+  }
+
+  @media (min-width: 480px) and (max-width: 30000px) {
+    #loader {
+      display: none;
+    }
+  }
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    ::-webkit-scrollbar {
+      width: 0px;
+    }
   }
 
   ::-webkit-scrollbar {
@@ -74,3 +132,45 @@ _     _ _______ _______ ______         _______ _______ _______   _     _  _____ 
     color: #000000;
   }
 </style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+  // loader
+  width = 100,
+    perfData = window.performance.timing, // the 'performance.timing' interface represents timing-related performance information for the page
+    EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
+    time = parseInt((EstimatedTime / 1000) % 60) * 100 + 6000;
+
+  $("#loader_bar").animate({
+    width: width + "%"
+  }, time);
+
+  var loader_percentageID = $("#loader_percentage"),
+    start = 0,
+    end = 100,
+    durataion = time;
+  animateValue(loader_percentageID, start, end, durataion);
+
+  function animateValue(id, start, end, duration) {
+
+    var range = end - start,
+      current = start,
+      increment = end > start ? 1 : -1,
+      stepTime = Math.abs(Math.floor(duration / range)),
+      obj = $(id);
+
+    var timer = setInterval(function() {
+      current += increment;
+      $(obj).text(current + "% https://headless.horse/");
+      // obj.innerHTML = current;
+      if (current == end) {
+        clearInterval(timer);
+      }
+    }, stepTime);
+  }
+
+  setTimeout(function() {
+    $('#loader').delay(1000).fadeOut(2000);
+  }, time);
+</script>
