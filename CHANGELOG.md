@@ -6,6 +6,7 @@
 * Remove secondary iframe pages 'contact-loader' and 'studies-loader'.
 * Remove dropdown navigation.
 * Add sign up mailing list via terminal.
+* Add client login for accessing documents.
 * Add sharing via Twitter, Facebook and email.
 * Add dynamic image based upon the time of day of set timezone.
 * Add Lab RSS feed to terminal.

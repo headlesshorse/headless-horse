@@ -85,6 +85,10 @@
             <p>Looking to support our work? <a href="mailto:hello@headlesshorse.com?Subject=Hello%20Headless%20Horse..." target="_top">hello@headlesshorse.com</a>.</p>
           </section>
 
+          <section id="login">
+            <p>Please enter your ID below.</p>
+          </section>
+
           <section id="shop">
             <p>Loading...</p>
           </section>
@@ -121,6 +125,8 @@ headless.horse/
 │   ├── follow
 │   ├── press
 │   └── mailinglist
+├── PRIVATE/
+│   └── login
 ├── OTHER/
 │   ├── jobs
 │   ├── shop
@@ -133,7 +139,7 @@ headless.horse/
           </section>
 
           <section id="error">
-            <p>Command not recognised.</p>
+            <p>Error. Command not recognised.</p>
             <br>
             <p>Type 'list' to see a list of commands.</p>
           </section>
@@ -840,6 +846,27 @@ headless.horse/
 		.then(trace('template result is'))
     .then(result =>
 			render(result, document.getElementById('job_list')))
+</script>
+
+<script>
+(function() {
+  var textArea = document.getElementById("commandinput");
+
+  textArea.addEventListener("keydown", function(e) {
+    if (e.keyCode === 13) {
+      doclientSearch(textArea);
+    }
+  });
+})();
+
+function doclientSearch(textArea) {
+	var value = textArea.value;
+
+  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === "codename") { // matches the first word in the string, which should be 'client'
+
+    window.open('https://dev.headless.horse/' + value.match('codename(.*)')[1].trim());
+  }
+}
 </script>
 
 <script>
