@@ -5,6 +5,7 @@
 <body style="background-color: #000000;">
   <div id=lead>
     <p>Welcome <span id="welcome_back"></span> to Headless Horse.</p>
+    <br>
     <p id="ip_address"></p>
     <p id="lastvisit_message"></p>
   </div>
@@ -404,8 +405,8 @@
 </script>
 
 <script>
-  $.get("https://ipinfo.io", function(response) {
+$.get("https://ipinfo.io", function (response) {
     $("#ip").html("IP: " + response.ip);
-    $("#ip_address").html("LOC: " + response.region + ", IP: " + response.ip + ".");
-  }, "jsonp");
+    $("#ip_address").html("Visitor IP: " + response.ip + ", " + response.region + ".");
+}, "jsonp");
 </script>
