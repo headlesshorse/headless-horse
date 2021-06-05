@@ -1,6 +1,6 @@
 # Changes to Headless.Horse.
 
-### 2.0.0 (08.05.2021)
+### 2.0.0 (05.06.2021)
 
 * Remove website home page terminal.
 * Remove secondary iframe pages 'contact-loader' and 'studies-loader'.
