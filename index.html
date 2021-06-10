@@ -36,11 +36,7 @@
 
           <section id="info">
             <p>INFO</p>
-            <p>HEADLESS HORSE: an Edinburgh-based, full-service design studio working at the intersection of art, design and technology. From growing enterprises to global powerhouses, Horsemen have been called upon to deliver strategy, brand
-              guidelines, interior and digital experiences for brands and progressives, such as Nike, Rolls-Royce and Vogue.</p>
-            <p>CLIENTELE: Adobe, American Airlines, Coveteur, Forbes, Fortune, GQ, Harley-Davidson, Jordan Brand, Kiehl’s, LYMA, Maxim, Men’s Health, MLB, NBA, Nespresso, Nike, OPI, Rolls-Royce, Sony Pictures, Triumph Motorcycles, Universal Music, Vogue, Yves Saint Laurent, 20th Century Fox.</p>
-            <p>EXPERTISE: art direction, brand identity, consultation, content creation, copywriting, creative development, curation, event design, fabrication, front-end development, graphic design, illustration, interior design, naming, motion, packaging
-              design, photography, sculpture, strategy.</p>
+            <p id="info_list"></p>
           </section>
 
           <section id="contact">
@@ -775,7 +771,38 @@ headless.horse/
 </script>
 
 <script type="module">
-  // trigger 'contact'
+  // 'info'
+  import { html, render } from 'https://unpkg.com/lit?module';
+
+  const URL = "https://notion-api.splitbee.io/v1/table/9124c8ad65134a1293df2d4c243a189b";
+
+  const handleAsJson = response => response.json();
+
+  const trace = tag => x => {
+    console.log(tag, x);
+    return x;
+  }
+
+  const tableTemplate = table => html`
+      ${table.map(({Info, Clientele, Expertise}) => html`
+        <p>HEADLESS HORSE: ${Info}</p>
+        <p>CLIENTELE: ${Clientele}</p>
+        <p>EXPERTISE: ${Expertise}</p>
+      `)}
+  `;
+
+  // https://github.com/splitbee/notion-api-worker
+  const projectItem = fetch(URL)
+    .then(handleAsJson) // Promise<TableJson>
+    .then(trace('table is'))
+    .then(tableTemplate) // Promise<TemplateResult>
+		.then(trace('template result is'))
+    .then(result =>
+			render(result, document.getElementById('info_list')))
+</script>
+
+<script type="module">
+  // 'contact'
   import { html, render } from 'https://unpkg.com/lit?module';
 
   const URL = "https://notion-api.splitbee.io/v1/table/f711e8c41ebf45d19ffed66b9925d65a";
@@ -788,11 +815,9 @@ headless.horse/
   }
 
   const tableTemplate = table => html`
-    <div id="projectcontent">
-      ${table.map(({ Method, Details, Slug}) => html`
+      ${table.map(({Method, Details, Slug}) => html`
         <p><a href="${Slug}" target="_blank">${Method}: ${Details}</a></p>
       `)}
-    </div>
   `;
 
   // https://github.com/splitbee/notion-api-worker
@@ -806,7 +831,7 @@ headless.horse/
 </script>
 
 <script type="module">
-  // trigger 'projects'
+  // 'projects'
   import { html, render } from 'https://unpkg.com/lit?module';
 
   const URL = "https://notion-api.splitbee.io/v1/table/40ee05b104644055b139eefafd9ae800";
@@ -819,11 +844,9 @@ headless.horse/
   }
 
   const tableTemplate = table => html`
-    <div id="projectcontent">
-      ${table.map(({ id, Client, Project, Number, Status}) => html`
+      ${table.map(({id, Client, Project, Number, Status}) => html`
         <p><a href="/project-${Number}" target="terminal_iframe">${Number}. ${Client} – ${Project}. ${Status}</a></p>
       `)}
-    </div>
   `;
 
   // https://github.com/splitbee/notion-api-worker
@@ -837,7 +860,7 @@ headless.horse/
 </script>
 
 <script>
-  // trigger 'lab'
+  // 'lab'
   $(function() {
     var $content = $('#medium_content');
     var data = {
@@ -857,7 +880,7 @@ headless.horse/
 </script>
 
 <script type="module">
-  // trigger 'follow'
+  // 'follow'
   import { html, render } from 'https://unpkg.com/lit?module';
 
   const URL = "https://notion-api.splitbee.io/v1/table/b8c10ba180b64ad59d1e88e954592822";
@@ -870,11 +893,9 @@ headless.horse/
   }
 
   const tableTemplate = table => html`
-    <div id="projectcontent">
-      ${table.map(({ Site, Handle, Slug}) => html`
+      ${table.map(({Site, Handle, Slug}) => html`
         <p><a href="${Slug}${Handle}/" target="_blank">${Site} →</a></p>
       `)}
-    </div>
   `;
 
   // https://github.com/splitbee/notion-api-worker
@@ -888,7 +909,7 @@ headless.horse/
 </script>
 
 <script type="module">
-  // trigger 'press'
+  // 'press'
   import { html, render } from 'https://unpkg.com/lit?module';
 
   const URL = "https://notion-api.splitbee.io/v1/table/cd48ac8833464607818ff47ee43fb791";
@@ -901,11 +922,9 @@ headless.horse/
   }
 
   const tableTemplate = table => html`
-    <div id="presscontent">
-      ${table.map(({ id, Recognition, Outlet, Project, Published, Status, Slug}) => html`
+      ${table.map(({id, Recognition, Outlet, Project, Published, Status, Slug}) => html`
         <p><a href="${Slug}" target="_blank">${Published} ${Recognition}, ${Outlet} – ${Project}. ${Status}</a></p>
       `)}
-    </div>
   `;
 
   // https://github.com/splitbee/notion-api-worker
@@ -919,7 +938,7 @@ headless.horse/
 </script>
 
 <script type="module">
-  // trigger 'job'
+  // 'job'
   import { html, render } from 'https://unpkg.com/lit?module';
 
   const URL = "https://notion-api.splitbee.io/v1/table/c87900ce8abc4ed28c77222beebebeac";
@@ -932,11 +951,9 @@ headless.horse/
   }
 
   const tableTemplate = table => html`
-    <div id="jobcontent">
-      ${table.map(({ id, Status, Location, Job, Contract, Close, Slug}) => html`
+      ${table.map(({id, Status, Location, Job, Contract, Close, Slug}) => html`
         <p><a href="${Slug}" target="_blank">${Location}, ${Job}, ${Contract} – ${Status}.</a></p>
       `)}
-    </div>
   `;
 
   // https://github.com/splitbee/notion-api-worker
@@ -971,7 +988,7 @@ function doclientSearch(textArea) {
 </script>
 
 <script>
-  // trigger 'shop'
+  // 'shop'
   $(document).on("keypress", "input", function(e) {
     if (e.which == 13) {
       var inputVal = $(this).val();
@@ -985,7 +1002,7 @@ function doclientSearch(textArea) {
 </script>
 
 <script>
-  // trigger 'mailinglist'
+  // 'mailinglist'
   function showError(el, err) {
     $("#mc-embedded-subscribe").attr("disabled", false);
     $('#validate_message').html("Valid: press the enter key to subscribe.");
@@ -1025,7 +1042,7 @@ function doclientSearch(textArea) {
 </script>
 
 <script>
-  // trigger 'tweet'
+  // 'tweet'
   $(document).on("keypress", "input", function(e) {
     if (e.which == 13) {
       var inputVal = $(this).val();
@@ -1039,7 +1056,7 @@ function doclientSearch(textArea) {
 </script>
 
 <script>
-  // trigger 'like'
+  // 'like'
   $(document).on("keypress", "input", function(e) {
     if (e.which == 13) {
       var inputVal = $(this).val();
@@ -1053,7 +1070,7 @@ function doclientSearch(textArea) {
 </script>
 
 <script>
-  // trigger 'email'
+  // 'email'
   $(document).on("keypress", "input", function(e) {
     if (e.which == 13) {
       var inputVal = $(this).val();
