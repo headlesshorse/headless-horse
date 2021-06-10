@@ -45,9 +45,7 @@
 
           <section id="contact">
             <p>CONTACT</p>
-            <p><a href="mailto:hello@headlesshorse.com?Subject=Hello%20Headless%20Horse..." target="_blank">EMAIL: hello@headlesshorse.com</a></p>
-            <p><a href="https://goo.gl/maps/fGTDKRgZAnsZYqn3A" target="_blank">OFFICE: 38 Castle Terrace, Edinburgh, EH3 9SJ<a></p>
-            <p><a href="tel:+443334446773">PHONE: 0333.44.HORSE</a></p>
+            <p id="contact_list"></p>
           </section>
 
           <section id="projects">
@@ -63,9 +61,7 @@
 
           <section id="follow">
             <p>FOLLOW</p>
-            <p><a href="https://instagram.com/headless.horse/" target="_blank">Instagram →</a><br></p>
-            <p><a href="https://twitter.com/headless__horse/" target="_blank">Twitter →</a></p>
-            <p><a href="https://github.com/Headless-Horse/" target="_blank">GitHub →</a></p>
+            <p id="follow_list"></p>
           </section>
 
           <section id="press">
@@ -83,7 +79,6 @@
           <section id="jobs">
             <p>JOBS</p>
             <p id="job_list"></p>
-            <p>Looking to support our work? <a href="mailto:hello@headlesshorse.com?Subject=Hello%20Headless%20Horse..." target="_top">hello@headlesshorse.com</a>.</p>
           </section>
 
           <section id="login">
@@ -780,6 +775,37 @@ headless.horse/
 </script>
 
 <script type="module">
+  // trigger 'contact'
+  import { html, render } from 'https://unpkg.com/lit?module';
+
+  const URL = "https://notion-api.splitbee.io/v1/table/f711e8c41ebf45d19ffed66b9925d65a";
+
+  const handleAsJson = response => response.json();
+
+  const trace = tag => x => {
+    console.log(tag, x);
+    return x;
+  }
+
+  const tableTemplate = table => html`
+    <div id="projectcontent">
+      ${table.map(({ Method, Details, Slug}) => html`
+        <p><a href="${Slug}" target="_blank">${Method}: ${Details}</a></p>
+      `)}
+    </div>
+  `;
+
+  // https://github.com/splitbee/notion-api-worker
+  const projectItem = fetch(URL)
+    .then(handleAsJson) // Promise<TableJson>
+    .then(trace('table is'))
+    .then(tableTemplate) // Promise<TemplateResult>
+		.then(trace('template result is'))
+    .then(result =>
+			render(result, document.getElementById('contact_list')))
+</script>
+
+<script type="module">
   // trigger 'projects'
   import { html, render } from 'https://unpkg.com/lit?module';
 
@@ -828,6 +854,37 @@ headless.horse/
       }
     });
   });
+</script>
+
+<script type="module">
+  // trigger 'follow'
+  import { html, render } from 'https://unpkg.com/lit?module';
+
+  const URL = "https://notion-api.splitbee.io/v1/table/b8c10ba180b64ad59d1e88e954592822";
+
+  const handleAsJson = response => response.json();
+
+  const trace = tag => x => {
+    console.log(tag, x);
+    return x;
+  }
+
+  const tableTemplate = table => html`
+    <div id="projectcontent">
+      ${table.map(({ Site, Handle, Slug}) => html`
+        <p><a href="${Slug}${Handle}/" target="_blank">${Site} →</a></p>
+      `)}
+    </div>
+  `;
+
+  // https://github.com/splitbee/notion-api-worker
+  const projectItem = fetch(URL)
+    .then(handleAsJson) // Promise<TableJson>
+    .then(trace('table is'))
+    .then(tableTemplate) // Promise<TemplateResult>
+		.then(trace('template result is'))
+    .then(result =>
+			render(result, document.getElementById('follow_list')))
 </script>
 
 <script type="module">
