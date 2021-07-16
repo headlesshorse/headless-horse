@@ -9,7 +9,6 @@
 * Add client login for accessing documents.
 * Add sharing via Twitter, Facebook and email.
 * Add dynamic image based upon the time of day of set timezone.
-* Add Lab RSS feed to terminal.
 * Add Notion API for use as CMS for selected databases.
 * Add welcome message for first-time and return users including their IP address.
 * Update of all website elements into one page.
