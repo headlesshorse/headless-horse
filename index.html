@@ -390,9 +390,14 @@ headless.horse/
   #terminal_content_frame {
     z-index: 7;
     overflow-y: auto;
+    scrollbar-width: none;
     width: 50%;
     height: 70vh;
     padding: 10px 20px;
+  }
+
+  #terminal_content_frame::-webkit-scrollbar {
+    display: none;
   }
 
   #command {
