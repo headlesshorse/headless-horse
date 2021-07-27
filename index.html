@@ -996,7 +996,7 @@ headless.horse/
 function doclientSearch(textArea) {
 	var value = textArea.value;
 
-  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === "uname") { // matches the first word in the string, which should be 'client'
+  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === "uname") {
 
     window.open('https://dev.headless.horse/' + value.match('uname(.*)')[1].trim());
   }
