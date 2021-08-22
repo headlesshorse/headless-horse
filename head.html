@@ -51,6 +51,10 @@ _     _ _______ _______ ______         _______ _______ _______   _     _  _____ 
 </script>
 
 <style>
+  html {
+    background: #000000;
+  }
+
   body {
     padding: 0;
     margin: 0;
@@ -59,48 +63,6 @@ _     _ _______ _______ ______         _______ _______ _______   _     _  _____ 
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-  }
-
-  #loader {
-    position: fixed;
-    z-index: 8;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background: #000000;
-    color: #999999;
-    font-size: 12px;
-    line-height: 50px;
-  }
-
-  #loader_frame,
-  #loader_percentage {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    max-width: 70vw;
-    height: 10px;
-    border: 1px solid #999999;
-    margin: auto;
-  }
-
-  #loader_bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    width: 0%;
-    height: 100%;
-    background: #999999;
-  }
-
-  @media (min-width: 480px) and (max-width: 30000px) {
-    #loader {
-      display: none;
-    }
   }
 
   @media (min-width: 320px) and (max-width: 480px) {
@@ -135,41 +97,27 @@ _     _ _______ _______ ______         _______ _______ _______   _     _  _____ 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <script>
-  // loader
-  width = 100,
-    perfData = window.performance.timing, // the 'performance.timing' interface represents timing-related performance information for the page
-    EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
-    time = parseInt((EstimatedTime / 1000) % 60) * 100 + 6000;
+  // favicon
+  var favicon_images = [
+      '',
+    ],
+    image_counter = 0; // To keep track of the current image
 
-  $("#loader_bar").animate({
-    width: width + "%"
-  }, time);
+  setInterval(function() {
+    // remove current favicon
+    if (document.querySelector("link[rel='icon']") !== null)
+      document.querySelector("link[rel='icon']").remove();
+    if (document.querySelector("link[rel='shortcut icon']") !== null)
+      document.querySelector("link[rel='shortcut icon']").remove();
 
-  var loader_percentageID = $("#loader_percentage"),
-    start = 0,
-    end = 100,
-    durataion = time;
-  animateValue(loader_percentageID, start, end, durataion);
+    // add new favicon image
+    document.querySelector("head").insertAdjacentHTML('beforeend', '<link rel="icon" href="' + favicon_images[image_counter] + '" type="image/gif">');
 
-  function animateValue(id, start, end, duration) {
-
-    var range = end - start,
-      current = start,
-      increment = end > start ? 1 : -1,
-      stepTime = Math.abs(Math.floor(duration / range)),
-      obj = $(id);
-
-    var timer = setInterval(function() {
-      current += increment;
-      $(obj).text(current + "% https://headless.horse/");
-      // obj.innerHTML = current;
-      if (current == end) {
-        clearInterval(timer);
-      }
-    }, stepTime);
-  }
-
-  setTimeout(function() {
-    $('#loader').delay(1000).fadeOut(2000);
-  }, time);
+    // If last image then goto first image
+    // Else go to next image
+    if (image_counter == favicon_images.length - 1)
+      image_counter = 0;
+    else
+      image_counter++;
+  }, 5);
 </script>

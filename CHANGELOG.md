@@ -1,7 +1,15 @@
 # Changes to Headless.Horse.
 
-### 2.0.0 (05.06.2021)
+### 2.1 (23.08.2021)
+* Remove mob_nav.html file.
+* Remove loader from head.html
+* Add animated favicon of the Horseshoe logo.
+* Add new pages/commands for info, clients and services.
+* Update mobile navigation to follow the terminal navigation of the desktop version.
+* Update to copy: info, services.
+* Update to terminal structure to support breakpoint for mobile.
 
+### 2.0 (05.06.2021)
 * Remove website home page terminal.
 * Remove secondary iframe pages 'contact-loader' and 'studies-loader'.
 * Remove dropdown navigation.
@@ -16,6 +24,5 @@
 * Update id and class names.
 * Update CSS using [idiomatic-css](https://github.com/necolas/idiomatic-css).
 
-### 1.0.0 (11.09.2019)
-
+### 1.0(11.09.2019)
 * Site live.
