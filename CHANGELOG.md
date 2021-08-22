@@ -24,5 +24,5 @@
 * Update id and class names.
 * Update CSS using [idiomatic-css](https://github.com/necolas/idiomatic-css).
 
-### 1.0(11.09.2019)
+### 1.0 (11.09.2019)
 * Site live.
