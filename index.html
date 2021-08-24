@@ -390,11 +390,11 @@ headless.horse/
 
   #terminal_content_frame {
     z-index: 7;
-    overflow-y: auto;
+    overflow-x: auto;
     scrollbar-width: none;
     width: 50%;
     height: 70vh;
-    margin: 10px 20px;
+    padding: 10px 20px;
   }
 
   #terminal_content_frame::-webkit-scrollbar {
@@ -518,7 +518,6 @@ headless.horse/
       width: 100%;
       height: 100%;
       border: 0px;
-      background: #000000;
     }
 
     #terminal_container {
@@ -532,10 +531,11 @@ headless.horse/
 
     #terminal_content_frame {
       z-index: 7;
+      overflow-x: hidden;
       scrollbar-width: none;
-      width: calc(100% - 20px);
+      padding: 10px;
+      width: 100%;
       height: 100%;
-      margin: 10px;
     }
 
     #command {
