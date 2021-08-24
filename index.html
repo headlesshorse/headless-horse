@@ -28,10 +28,9 @@
 
           <section id="home">
             <p>Welcome <span id="welcome_back"></span> to Headless Horse.</p>
+            <p><span id="ip_address"></span><span id="lastvisit_message"></span></p>
+            <p><span id="hours"></span></p>
             <br>
-            <p id="latest_message"></p>
-            <p id="ip_address"></p>
-            <p id="lastvisit_message"></p>
             <p id="firstuse_message"></p>
           </section>
 
@@ -685,12 +684,24 @@ headless.horse/
     document.getElementById("terminal_iframe").src = "about:blank";
   }
 
-  // time of day
+  // 'clock' time of day
   var thehours =
     moment().tz("Europe/London").format('HH:mm [UK]');
 
   document.getElementById('clock').innerHTML = thehours;
   console.log(window.moment)
+
+  // opening hours
+  var dayOfWeek = (new Date).getDay();
+  var hours = ["O.O.O. We closed today. Our ours are from 8am to 6pm Monday to Friday.",          // Sunday
+               "Our studio is open today from 8am to 6pm, UK time.",   // Monday
+               "Our studio is open today from 8am to 6pm, UK time.",   // Tuesday
+               "Our studio is open today from 8am to 6pm, UK time.",   // Wednesday
+               "Our studio is open today from 8am to 6pm, UK time.",   // Thursday
+               "Our studio is open today from 8am to 6pm, UK time.",   // Friday
+               "O.O.O. We are closed today. Our ours are from 8am to 6pm Monday to Friday."];  // Saturday
+  var todaysHours = hours[dayOfWeek];
+  document.getElementById("hours").innerHTML = todaysHours;
 
   // image mover
   // acceleration value between 0 and 1 smaller values = smoother motion
@@ -1374,8 +1385,7 @@ function doclientSearch(textArea) {
 
 <script>
 $.get("https://ipinfo.io", function (response) {
-    $("#ip").html("IP: " + response.ip);
-    $("#ip_address").html("Visitor IP: " + response.ip + ", " + response.region + ".");
+    $("#ip_address").html(response.ip + ": " + response.region + ". ");
 }, "jsonp");
 </script>
 
