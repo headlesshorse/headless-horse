@@ -2,11 +2,13 @@
 
 ### 2.1 (23.08.2021)
 * Remove mob_nav.html file.
-* Remove loader from head.html
-* Add animated favicon of the Horseshoe logo.
-* Add new pages/commands for info, clients and services.
+* Remove loader from head.html.
+* Add animated favicon.
+* Add new pages/commands for info, services, clients, imprint.
+* Add live business hours to welcome message.
+* Add notice board on nav_bottom.
 * Update mobile navigation to follow the terminal navigation of the desktop version.
-* Update to copy: info, services.
+* Update copy for info and services.
 * Update to terminal structure to support breakpoint for mobile.
 
 ### 2.0 (05.06.2021)

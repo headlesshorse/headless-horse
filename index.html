@@ -1,4 +1,4 @@
-<!-- HEADLESS.HORSE -->
+ <!-- HEADLESS.HORSE -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,9 +12,15 @@
     </div>
   </div>
 
+  <div class="cookie">
+    <div class="cookie_text">We use cookies to ensure that we give you the best experience on our website. By clicking "OK" you agree to the storing of cookies on your device.</div>
+    <div class="cookie_button"><span class="accept">OK</span></div>
+  </div>
+
   <ul id="nav_bottom">
     <li class="nav_link click_sound" title="Headless Horse"><a>●</a></li>
-    <li id="clock" style="float: right"></li>
+    <li><span id="notice_list"></span> </li>
+    <li style="float: right"><span id="clock"></span></li>
   </ul>
 
   <div id="terminal">
@@ -27,26 +33,28 @@
         <div id=terminal_content>
 
           <section id="home">
-            <p>Welcome <span id="welcome_back"></span> to Headless Horse.</p>
-            <p><span id="ip_address"></span><span id="lastvisit_message"></span></p>
-            <p><span id="hours"></span></p>
+            <p>Welcome <span id="welcome_back"></span>to Headless Horse.</p>
+            <p id="lastvisit_message"></p>
+            <p id="hours_list"></p>
             <br>
             <p id="firstuse_message"></p>
           </section>
 
           <section id="info">
-            <p>INFO</p>
             <p id="info_list"></p>
-          </section>
-
-          <section id="contact">
-            <p>CONTACT</p>
-            <p id="contact_list"></p>
           </section>
 
           <section id="projects">
             <p>CASE STUDIES</p>
             <p id="project_list"></p>
+          </section>
+
+          <section id="contact">
+            <p id="contact_list"></p>
+          </section>
+
+          <section id="shop">
+            <p>Loading...</p>
           </section>
 
           <section id="lab">
@@ -72,26 +80,17 @@
             <p id="validate_message"></p>
           </section>
 
+          <section id="login">
+            <p>Please enter your ID# below.</p>
+          </section>
+
           <section id="jobs">
             <p>JOBS</p>
             <p id="job_list"></p>
           </section>
 
-          <section id="login">
-            <p>Please enter your ID# below.</p>
-          </section>
-
-          <section id="shop">
-            <p>Loading...</p>
-          </section>
-
-          <section id="legal">
-            <p>LEGAL</p>
-            <p>&copy;/&#174; <span id="copyright"></span>. Headless Horse Ltd. All rights reserved.</p>
-            <p>'Headless Horse' is a registered trademark of Headless Horse Ltd.</p>
-            <p>Headless Horse Ltd, registered in England and Wales, Company Number 10573016.</p>
-            <p>Registered Office: 2 Stamford Square, London, SW15 2BF.</p>
-            <p><a href="https://www.notion.so/headlesshorse/Privacy-3da531bfce1d4f4094afa4e9c138a5ca/" target="_blank">Privacy policy.</a></p>
+          <section id="imprint">
+           <p id="imprint_list"></p>
           </section>
 
           <section id="tweet">
@@ -111,19 +110,19 @@
 headless.horse/
 ├── SITE/
 │   ├── info
-│   ├── contact
 │   ├── projects
-│   └── lab
+│   └── contact
 ├── PUBLIC/
 │   ├── follow
 │   ├── press
+│   ├── shop
+│   ├── lab
 │   └── mailinglist
 ├── PRIVATE/
 │   └── login
 ├── OTHER/
 │   ├── jobs
-│   ├── shop
-│   └── legal
+│   └── imprint
 └── SHARE/
     ├── tweet
     ├── like
@@ -306,6 +305,27 @@ headless.horse/
     width: 0%;
     height: 100%;
     background: #999999;
+  }
+
+  .cookie {
+    z-index: 11;
+    position: absolute;
+    z-index: 11;
+    left: 0px;
+    padding: 20px;
+    background: #999999;
+    color: #000000;
+  }
+
+  .cookie div {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  .cookie_button {
+    cursor: pointer;
+    right: 0px;
   }
 
   #nav_bottom {
@@ -501,6 +521,10 @@ headless.horse/
       height: 7px;
     }
 
+    .cookie {
+      bottom: 0px;
+    }
+
     #nav_bottom {
       z-index: 7;
       top: 0px;
@@ -572,7 +596,8 @@ headless.horse/
     document.getElementById("background_loop").play();
   }
 
-  //background audio
+/***************************************** AUDIO *****************************************/
+  // audio pad
   $(document).ready(function() {
     $("#background_loop")[0].volume = 0;
     $("#background_loop").animate({
@@ -580,11 +605,11 @@ headless.horse/
     }, 20000);
   });
 
-  // project audio
+  // audio project
   var s = document.getElementById("projectclick");
   $('.project_link').click(() => s.play());
 
-  // link audio
+  // audio link
   var a = document.getElementById("linkclick");
   $('.click_sound').click(() => a.play());
 
@@ -611,7 +636,8 @@ headless.horse/
 </script>
 
 <script>
-  // loader
+/***************************************** LOADER *****************************************/
+
   width = 100,
     perfData = window.performance.timing, // the 'performance.timing' interface represents timing-related performance information for the page
     EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
@@ -684,26 +710,29 @@ headless.horse/
     document.getElementById("terminal_iframe").src = "about:blank";
   }
 
-  // 'clock' time of day
+/***************************************** CLOCK *****************************************/
+
   var thehours =
     moment().tz("Europe/London").format('HH:mm [UK]');
 
   document.getElementById('clock').innerHTML = thehours;
   console.log(window.moment)
 
-  // opening hours
-  var dayOfWeek = (new Date).getDay();
-  var hours = ["O.O.O. We closed today. Our ours are from 8am to 6pm Monday to Friday.",          // Sunday
-               "Our studio is open today from 8am to 6pm, UK time.",   // Monday
-               "Our studio is open today from 8am to 6pm, UK time.",   // Tuesday
-               "Our studio is open today from 8am to 6pm, UK time.",   // Wednesday
-               "Our studio is open today from 8am to 6pm, UK time.",   // Thursday
-               "Our studio is open today from 8am to 6pm, UK time.",   // Friday
-               "O.O.O. We are closed today. Our ours are from 8am to 6pm Monday to Friday."];  // Saturday
-  var todaysHours = hours[dayOfWeek];
-  document.getElementById("hours").innerHTML = todaysHours;
+/***************************************** OPENING HOURS *****************************************/
 
-  // image mover
+  var dayOfWeek = (new Date).getDay();
+  var hours = ["Our studio is closed today. We are open, 08:00 – 18:00 UTC+1, Monday to Friday.", // Sunday
+               "Our studio is open today, 08:00 – 18:00 UTC+1.", // Monday
+               "Our studio is open today, 08:00 – 18:00 UTC+1.", // Tuesday
+               "Our studio is open today, 08:00 – 18:00 UTC+1.", // Wednesday
+               "Our studio is open today, 08:00 – 18:00 UTC+1.", // Thursday
+               "Our studio is open today, 08:00 – 18:00 UTC+1.", // Friday
+               "Our studio is closed today. We are open, 08:00 – 18:00 UTC+1, Monday to Friday."]; // Saturday
+  var todaysHours = hours[dayOfWeek];
+  document.getElementById("hours_list").innerHTML = todaysHours;
+
+/***************************************** IMAGE MOVER *****************************************/
+
   // acceleration value between 0 and 1 smaller values = smoother motion
   var acceleration = 0.02;
 
@@ -786,7 +815,8 @@ headless.horse/
     }
   }
 
-  // tooltip
+/***************************************** TOOLTIP + TITLES *****************************************/
+
   window.addEventListener("load", init);
 
   (function() {
@@ -836,7 +866,8 @@ headless.horse/
     }
   })
 
-  // draggable
+/***************************************** DRAGGABLE *****************************************/
+
   var selected = null,
     x_pos = 0,
     y_pos = 0,
@@ -870,11 +901,13 @@ headless.horse/
   document.onmouseup = _destroy;
 </script>
 
+
 <script type="module">
-  // 'info'
+/***************************************** NOTICE *****************************************/
+
   import { html, render } from 'https://unpkg.com/lit?module';
 
-  const URL = "https://notion-api.splitbee.io/v1/table/9124c8ad65134a1293df2d4c243a189b";
+  const URL = "https://notion-api.splitbee.io/v1/page/f97f1af964fe48989650aae62609bf37";
 
   const handleAsJson = response => response.json();
 
@@ -883,29 +916,52 @@ headless.horse/
     return x;
   }
 
-  const tableTemplate = table => html`
-      ${table.map(({Info, Clientele, Expertise}) => html`
-        <p>HEADLESS HORSE: ${Info}</p>
-        <p>CLIENTELE: ${Clientele}</p>
-        <p>EXPERTISE: ${Expertise}</p>
-      `)}
-  `;
+  function renderText(node) {
+    if (node.length === 1)
+      return node[0];
 
-  // https://github.com/splitbee/notion-api-worker
-  const projectItem = fetch(URL)
-    .then(handleAsJson) // Promise<TableJson>
-    .then(trace('table is'))
-    .then(tableTemplate) // Promise<TemplateResult>
-		.then(trace('template result is'))
-    .then(result =>
-			render(result, document.getElementById('info_list')))
+    const [content, [[tagName, attr]]] = node;
+    if (tagName === 'a') {
+      return html`
+        <a href="${attr}" target="_blank">${content} →</a>
+      `;
+    }
+    else return node;
+  }
+
+  async function run() {
+
+    const result = await fetch(URL).then(handleAsJson)
+
+    const page = Object.values(result).find(x => x.value.type === 'page');
+
+    const blocks = page.value.content.map(id => result[id].value);
+
+console.log(blocks.map(x => x.type))
+
+const content = blocks.map(block => {
+  switch (block.type) {
+    case 'text':
+      if (!block.properties) return '';
+      else {
+        return html`<span>${block.properties.title.map(renderText)}</span>`;
+      }
+      default:
+        return block.title;
+  }
+  });
+
+  render(content, document.getElementById('notice_list'))
+}
+run();
 </script>
 
 <script type="module">
-  // 'contact'
+/***************************************** INFO *****************************************/
+
   import { html, render } from 'https://unpkg.com/lit?module';
 
-  const URL = "https://notion-api.splitbee.io/v1/table/f711e8c41ebf45d19ffed66b9925d65a";
+  const URL = "https://notion-api.splitbee.io/v1/page/a1f6fd4a910349c0ad29c9d8ee428780";
 
   const handleAsJson = response => response.json();
 
@@ -914,24 +970,53 @@ headless.horse/
     return x;
   }
 
-  const tableTemplate = table => html`
-      ${table.map(({Method, Details, Slug}) => html`
-        <p><a href="${Slug}" target="_blank">${Method}: ${Details}</a></p>
-      `)}
-  `;
+  function renderText(node) {
+    if (node.length === 1)
+      return node[0];
 
-  // https://github.com/splitbee/notion-api-worker
-  const projectItem = fetch(URL)
-    .then(handleAsJson) // Promise<TableJson>
-    .then(trace('table is'))
-    .then(tableTemplate) // Promise<TemplateResult>
-		.then(trace('template result is'))
-    .then(result =>
-			render(result, document.getElementById('contact_list')))
+    const [content, [[tagName, attr]]] = node;
+    if (tagName === 'a') {
+      return html`
+        <a href="${attr}" target="_blank">${content}</a>
+      `;
+    }
+    else return node;
+  }
+
+  async function run() {
+
+    const result = await fetch(URL).then(handleAsJson)
+
+    const page = Object.values(result).find(x => x.value.type === 'page');
+
+    const blocks = page.value.content.map(id => result[id].value);
+
+console.log(blocks.map(x => x.type))
+
+  const content = blocks.map(block => {
+    switch (block.type) {
+      case 'sub_header':
+        return html`<p style="text-transform: uppercase;">${block.properties.title}</p>`;
+      case 'divider':
+        return html`<br>`;
+      case 'text':
+        if (!block.properties) return '';
+        else {
+          return html`<p>${block.properties.title.map(renderText)}</p>`;
+        }
+        default:
+          return block.title;
+    }
+  });
+
+  render(content, document.getElementById('info_list'))
+}
+run();
 </script>
 
 <script type="module">
-  // 'projects'
+/***************************************** PROJECTS *****************************************/
+
   import { html, render } from 'https://unpkg.com/lit?module';
 
   const URL = "https://notion-api.splitbee.io/v1/table/40ee05b104644055b139eefafd9ae800";
@@ -949,7 +1034,6 @@ headless.horse/
       `)}
   `;
 
-  // https://github.com/splitbee/notion-api-worker
   const projectItem = fetch(URL)
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
@@ -960,10 +1044,11 @@ headless.horse/
 </script>
 
 <script type="module">
-  // 'lab'
+/***************************************** CONTACT *****************************************/
+
   import { html, render } from 'https://unpkg.com/lit?module';
 
-  const URL = "https://notion-api.splitbee.io/v1/table/2b84e2ba26354d04a6512d42d42ca711";
+  const URL = "https://notion-api.splitbee.io/v1/page/483f6b9565e246b4aaedafdf98483e5d";
 
   const handleAsJson = response => response.json();
 
@@ -972,24 +1057,53 @@ headless.horse/
     return x;
   }
 
-  const tableTemplate = table => html`
-      ${table.map(({Project, Published, Status, Slug}) => html`
-        <p><a href="${Slug}" target="_blank">${Published} ${Project}. ${Status}</a></p>
-      `)}
-  `;
+  function renderText(node) {
+    if (node.length === 1)
+      return node[0];
 
-  // https://github.com/splitbee/notion-api-worker
-  const projectItem = fetch(URL)
-    .then(handleAsJson) // Promise<TableJson>
-    .then(trace('table is'))
-    .then(tableTemplate) // Promise<TemplateResult>
-		.then(trace('template result is'))
-    .then(result =>
-			render(result, document.getElementById('lab_list')))
+    const [content, [[tagName, attr]]] = node;
+    if (tagName === 'a') {
+      return html`
+        <a href="${attr}" target="_blank">${content}</a>
+      `;
+    }
+    else return node;
+  }
+
+  async function run() {
+
+    const result = await fetch(URL).then(handleAsJson)
+
+    const page = Object.values(result).find(x => x.value.type === 'page');
+
+    const blocks = page.value.content.map(id => result[id].value);
+
+console.log(blocks.map(x => x.type))
+
+  const content = blocks.map(block => {
+    switch (block.type) {
+      case 'sub_header':
+        return html`<p style="text-transform: uppercase;">${block.properties.title}</p>`;
+      case 'divider':
+        return html`<br>`;
+      case 'text':
+        if (!block.properties) return '';
+        else {
+          return html`<p>${block.properties.title.map(renderText)}</p>`;
+        }
+        default:
+          return block.title;
+    }
+  });
+
+  render(content, document.getElementById('contact_list'))
+}
+run();
 </script>
 
 <script type="module">
-  // 'follow'
+/***************************************** FOLLOW *****************************************/
+
   import { html, render } from 'https://unpkg.com/lit?module';
 
   const URL = "https://notion-api.splitbee.io/v1/table/b8c10ba180b64ad59d1e88e954592822";
@@ -1007,7 +1121,6 @@ headless.horse/
       `)}
   `;
 
-  // https://github.com/splitbee/notion-api-worker
   const projectItem = fetch(URL)
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
@@ -1018,7 +1131,8 @@ headless.horse/
 </script>
 
 <script type="module">
-  // 'press'
+/***************************************** PRESS *****************************************/
+
   import { html, render } from 'https://unpkg.com/lit?module';
 
   const URL = "https://notion-api.splitbee.io/v1/table/cd48ac8833464607818ff47ee43fb791";
@@ -1036,7 +1150,6 @@ headless.horse/
       `)}
   `;
 
-  // https://github.com/splitbee/notion-api-worker
   const pressItem = fetch(URL)
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
@@ -1046,58 +1159,9 @@ headless.horse/
 			render(result, document.getElementById('press_list')))
 </script>
 
-<script type="module">
-  // 'job'
-  import { html, render } from 'https://unpkg.com/lit?module';
-
-  const URL = "https://notion-api.splitbee.io/v1/table/c87900ce8abc4ed28c77222beebebeac";
-
-  const handleAsJson = response => response.json();
-
-  const trace = tag => x => {
-    console.log(tag, x);
-    return x;
-  }
-
-  const tableTemplate = table => html`
-      ${table.map(({id, Status, Location, Job, Contract, Close, Slug}) => html`
-        <p><a href="${Slug}" target="_blank">${Location}, ${Job}, ${Contract} – ${Status}.</a></p>
-      `)}
-  `;
-
-  // https://github.com/splitbee/notion-api-worker
-  const jobItem = fetch(URL)
-    .then(handleAsJson) // Promise<TableJson>
-    .then(trace('table is'))
-    .then(tableTemplate) // Promise<TemplateResult>
-		.then(trace('template result is'))
-    .then(result =>
-			render(result, document.getElementById('job_list')))
-</script>
-
 <script>
-(function() {
-  var textArea = document.getElementById("commandinput");
+/***************************************** SHOP *****************************************/
 
-  textArea.addEventListener("keydown", function(e) {
-    if (e.keyCode === 13) {
-      doclientSearch(textArea);
-    }
-  });
-})();
-
-function doclientSearch(textArea) {
-	var value = textArea.value;
-
-  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === "uname") {
-
-    window.open('https://dev.headless.horse/' + value.match('uname(.*)')[1].trim());
-  }
-}
-</script>
-
-<script>
-  // 'shop'
   $(document).on("keypress", "input", function(e) {
     if (e.which == 13) {
       var inputVal = $(this).val();
@@ -1110,8 +1174,38 @@ function doclientSearch(textArea) {
   });
 </script>
 
+<script type="module">
+/***************************************** LAB *****************************************/
+
+  import { html, render } from 'https://unpkg.com/lit?module';
+
+  const URL = "https://notion-api.splitbee.io/v1/table/2b84e2ba26354d04a6512d42d42ca711";
+
+  const handleAsJson = response => response.json();
+
+  const trace = tag => x => {
+    console.log(tag, x);
+    return x;
+  }
+
+  const tableTemplate = table => html`
+      ${table.map(({Project, Published, Status, Slug}) => html`
+        <p><a href="${Slug}" target="_blank">${Published} ${Project}. ${Status}</a></p>
+      `)}
+  `;
+
+  const projectItem = fetch(URL)
+    .then(handleAsJson) // Promise<TableJson>
+    .then(trace('table is'))
+    .then(tableTemplate) // Promise<TemplateResult>
+		.then(trace('template result is'))
+    .then(result =>
+			render(result, document.getElementById('lab_list')))
+</script>
+
 <script>
-  // 'mailinglist'
+/***************************************** MAILINGLIST *****************************************/
+
   function showError(el, err) {
     $("#mc-embedded-subscribe").attr("disabled", false);
     $('#validate_message').html("Valid: press the enter key to subscribe.");
@@ -1151,7 +1245,123 @@ function doclientSearch(textArea) {
 </script>
 
 <script>
-  // 'tweet'
+/***************************************** PRIVATE LOGIN *****************************************/
+
+(function() {
+  var textArea = document.getElementById("commandinput");
+
+  textArea.addEventListener("keydown", function(e) {
+    if (e.keyCode === 13) {
+      doclientSearch(textArea);
+    }
+  });
+})();
+
+function doclientSearch(textArea) {
+	var value = textArea.value;
+
+  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === "uname") {
+
+    window.open('https://dev.headless.horse/' + value.match('uname(.*)')[1].trim());
+  }
+}
+</script>
+
+<script type="module">
+/***************************************** JOBS *****************************************/
+
+  import { html, render } from 'https://unpkg.com/lit?module';
+
+  const URL = "https://notion-api.splitbee.io/v1/table/c87900ce8abc4ed28c77222beebebeac";
+
+  const handleAsJson = response => response.json();
+
+  const trace = tag => x => {
+    console.log(tag, x);
+    return x;
+  }
+
+  const renderRow = ({id, Status, Location, Job, Contract, Close, Slug}) => html`
+    <p><a href="${Slug}" target="_blank">${Location}, ${Job}, ${Contract} – ${Status}.</a></p>
+  `;
+
+  const tableTemplate = table => html`
+      ${table.map(renderRow)}
+  `;
+
+  const firstRowTemplate = table => renderRow(table[0]);
+
+  const jobItem = fetch(URL)
+    .then(handleAsJson) // Promise<TableJson>
+    .then(trace('table is'))
+ //    .then(tableTemplate) // Promise<TemplateResult>
+    .then(firstRowTemplate) // Promise<TemplateResult>
+		.then(trace('template result is'))
+    .then(result =>
+			render(result, document.getElementById('job_list')))
+</script>
+
+<script type="module">
+/***************************************** IMPRINT *****************************************/
+
+  import { html, render } from 'https://unpkg.com/lit?module';
+
+  const URL = "https://notion-api.splitbee.io/v1/page/314869ae00f14b728bd642c732f70915";
+
+  const handleAsJson = response => response.json();
+
+  const trace = tag => x => {
+    console.log(tag, x);
+    return x;
+  }
+
+  function renderText(node) {
+    if (node.length === 1)
+      return node[0];
+
+    const [content, [[tagName, attr]]] = node;
+    if (tagName === 'a') {
+      return html`
+        <a href="${attr}" target="_blank">${content}</a>
+      `;
+    }
+    else return node;
+  }
+
+  async function run() {
+
+    const result = await fetch(URL).then(handleAsJson)
+
+    const page = Object.values(result).find(x => x.value.type === 'page');
+
+    const blocks = page.value.content.map(id => result[id].value);
+
+console.log(blocks.map(x => x.type))
+
+  const content = blocks.map(block => {
+    switch (block.type) {
+      case 'sub_header':
+        return html`<p style="text-transform: uppercase;">${block.properties.title}</p>`;
+      case 'divider':
+        return html`<br>`;
+      case 'text':
+        if (!block.properties) return '';
+        else {
+          return html`<p>${block.properties.title.map(renderText)}</p>`;
+        }
+        default:
+          return block.title;
+    }
+  });
+
+  render(content, document.getElementById('imprint_list'))
+}
+run();
+</script>
+
+<script>
+/***************************************** SHARE TWEET *****************************************/
+
   $(document).on("keypress", "input", function(e) {
     if (e.which == 13) {
       var inputVal = $(this).val();
@@ -1165,7 +1375,8 @@ function doclientSearch(textArea) {
 </script>
 
 <script>
-  // 'like'
+/***************************************** SHARE LIKE *****************************************/
+
   $(document).on("keypress", "input", function(e) {
     if (e.which == 13) {
       var inputVal = $(this).val();
@@ -1179,7 +1390,8 @@ function doclientSearch(textArea) {
 </script>
 
 <script>
-  // 'email'
+/***************************************** SHARE EMAIL *****************************************/
+
   $(document).on("keypress", "input", function(e) {
     if (e.which == 13) {
       var inputVal = $(this).val();
@@ -1193,6 +1405,8 @@ function doclientSearch(textArea) {
 </script>
 
 <script>
+/***************************************** TYPER *****************************************/
+
   (function(e) {
     "use strict";
     e.fn.textTyper = function(t) {
@@ -1266,6 +1480,8 @@ function doclientSearch(textArea) {
 </script>
 
 <script>
+/***************************************** TERMINAL OPEN *****************************************/
+
   $('#terminal').click(
     function() {
       $('#commandinput[type="text"]').focus();
@@ -1322,10 +1538,14 @@ function doclientSearch(textArea) {
 </script>
 
 <script>
+/***************************************** COPYRIGHT *****************************************/
+
   document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
 </script>
 
 <script type="text/javascript">
+/***************************************** LAST VISITED *****************************************/
+
   var days = 730; // the cookie will expire = 2 years
   var lastvisit = new Object();
 
@@ -1384,9 +1604,20 @@ function doclientSearch(textArea) {
 </script>
 
 <script>
-$.get("https://ipinfo.io", function (response) {
-    $("#ip_address").html(response.ip + ": " + response.region + ". ");
-}, "jsonp");
+/***************************************** COOKIE *****************************************/
+
+  $(".accept").click(function () {
+    $(".cookie").hide();
+    $.cookie('cookies', 'yes', { expires: 30 });
+  });
+
+  if($.cookie('cookies') == 'yes'){
+      $(".cookie").hide();
+  } else if($.cookie('cookies') == 'no') {
+      $(".cookie").hide();
+  } else {
+      $(".cookie").show();
+  }
 </script>
 
 <div id="emailform">
