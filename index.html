@@ -1622,6 +1622,32 @@ run();
   }
 </script>
 
+<script>
+/***************************************** FAVICON *****************************************/
+  var favicon_images = [
+      '',
+    ],
+    image_counter = 0; // To keep track of the current image
+
+  setInterval(function() {
+    // remove current favicon
+    if (document.querySelector("link[rel='icon']") !== null)
+      document.querySelector("link[rel='icon']").remove();
+    if (document.querySelector("link[rel='shortcut icon']") !== null)
+      document.querySelector("link[rel='shortcut icon']").remove();
+
+    // add new favicon image
+    document.querySelector("head").insertAdjacentHTML('beforeend', '<link rel="icon" href="' + favicon_images[image_counter] + '" type="image/gif">');
+
+    // If last image then goto first image
+    // Else go to next image
+    if (image_counter == favicon_images.length - 1)
+      image_counter = 0;
+    else
+      image_counter++;
+  }, 5);
+</script>
+
 <div id="emailform">
   <form action="https://headlesshorse.us20.list-manage.com/subscribe/post?u=4792941058b6d3b4b6ea3b3f2&amp;id=6ac99d042c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <input type="email" value="" name="EMAIL" class="emailform" id="mce-EMAIL" placeholder="email@domain.com">
