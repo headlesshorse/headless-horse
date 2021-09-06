@@ -11,11 +11,6 @@
     </div>
   </div>
 
-  <div class="cookie">
-    <div class="cookie_text">We use cookies to ensure that we give you the best experience on our website. By clicking "OK" you agree to the storing of cookies on your device.</div>
-    <div class="cookie_button"><span class="accept">OK</span></div>
-  </div>
-
   <ul id="nav_bottom">
     <li class="nav_link click_sound" title="Headless Horse"><a>●</a></li>
     <li><span id="notice_list"></span> </li>
@@ -305,26 +300,6 @@ headless.horse/
     background: #999999;
   }
 
-  .cookie {
-    position: absolute;
-    z-index: 9;
-    left: 0px;
-    padding: 20px;
-    background: #999999;
-    color: #000000;
-  }
-
-  .cookie div {
-    display: table-cell;
-    vertical-align: middle;
-    width: 100%;
-  }
-
-  .cookie_button {
-    cursor: pointer;
-    right: 0px;
-  }
-
   #nav_bottom {
     position: fixed;
     z-index: 2;
@@ -516,10 +491,6 @@ headless.horse/
     #loader_percentage {
       max-width: 75vw;
       height: 7px;
-    }
-
-    .cookie {
-      bottom: 0px;
     }
 
     #nav_bottom {
@@ -1545,7 +1516,7 @@ run();
   document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
 </script>
 
-<script type="text/javascript">
+<script>
 /***************************************** LAST VISITED *****************************************/
 
   var days = 730; // the cookie will expire = 2 years
@@ -1606,24 +1577,8 @@ run();
 </script>
 
 <script>
-/***************************************** COOKIE *****************************************/
-
-  $(".accept").click(function () {
-    $(".cookie").hide();
-    $.cookie('cookies', 'yes', { expires: 30 });
-  });
-
-  if($.cookie('cookies') == 'yes'){
-      $(".cookie").hide();
-  } else if($.cookie('cookies') == 'no') {
-      $(".cookie").hide();
-  } else {
-      $(".cookie").show();
-  }
-</script>
-
-<script>
 /***************************************** FAVICON *****************************************/
+
   var favicon_images = [
       '',
     ],

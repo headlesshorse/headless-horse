@@ -29,13 +29,34 @@ _     _ _______ _______ ______         _______ _______ _______   _     _  _____ 
   <meta name="twitter:image" content="http://assets.headless.horse/share_card.jpg" />
 </head>
 
-<body style="padding: 10px; background-color: #000000; font-family: courier, monospace;">
-  <noscript>Headless Horse. Enable JavaScript to run this app.</noscript>
+<body style="background-color: #000000; font-family: courier, monospace;">
+  <noscript style="padding: 10px;">Headless Horse. Enable JavaScript to run this app.</noscript>
 </body>
 
-<!-- panelbear -->
+<script>
+/***************************************** COOKIES *****************************************/
+
+  (function() {
+    if (!localStorage.getItem('cookie')) {
+      document.body.innerHTML += '\
+     <div class="cookie">\
+     <div class="cookie_text">We use cookies to ensure that we give you the best experience on our website. By clicking "OK" you agree to the storing of cookies on your device.</div>\
+     <div class="cookie_button"><span class="accept">OK</span></div>\
+     </div>\
+    ';
+      document.querySelector('.cookie_button').onclick = function(e) {
+        e.preventDefault();
+        document.querySelector('.cookie').style.display = 'none';
+        localStorage.setItem('cookie', true);
+      };
+    }
+  })();
+</script>
+
 <script async src="https://cdn.panelbear.com/analytics.js?site=KctEecJRIj8"></script>
 <script>
+/***************************************** PANELBEAR *****************************************/
+
   window.panelbear = window.panelbear || function() {
     (window.panelbear.q = window.panelbear.q || []).push(arguments);
   };
@@ -59,7 +80,32 @@ _     _ _______ _______ ______         _______ _______ _______   _     _  _____ 
     font-weight: 400;
   }
 
+  .cookie {
+    position: fixed;
+    z-index: 9;
+    left: 0px;
+    padding: 20px;
+    margin: 0;
+    background: #999999;
+    color: #000000;
+  }
+
+  .cookie div {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  .cookie_button {
+    right: 0px;
+    cursor: pointer !important;
+  }
+
   @media (min-width: 320px) and (max-width: 480px) {
+    .cookie {
+      bottom: 0px;
+    }
+
     ::-webkit-scrollbar {
       width: 0px;
     }
