@@ -39,10 +39,10 @@ _     _ _______ _______ ______         _______ _______ _______   _     _  _____ 
   (function() {
     if (!localStorage.getItem('cookie')) {
       document.body.innerHTML += '\
-     <div class="cookie">\
-     <div class="cookie_lang">We use cookies to ensure that we give you the best experience on our website. By clicking "OK" you agree to storing cookies on your device.</div>\
-     <div class="cookie_button"><span class="accept">OK</span></div>\
-     </div>\
+      <div class="cookie">\
+      <div class="cookie_lang">We use cookies to ensure that we give you the best experience on our website. By clicking "OK" you agree to storing cookies on your device. <a href="http://assets.headless.horse/privacy_policy.pdf">Privacy Policy</a></div>\
+      <div class="cookie_button"><span class="accept">OK</span></div>\
+      </div>\
     ';
       document.querySelector('.cookie_button').onclick = function(e) {
         e.preventDefault();
@@ -93,6 +93,14 @@ _     _ _______ _______ ______         _______ _______ _______   _     _  _____ 
     display: table-cell;
     vertical-align: middle;
     width: 100%;
+  }
+
+  .cookie a {
+    color: #000000;
+  }
+
+  .cookie a:hover::before {
+    content: '● ';
   }
 
   .cookie_button {
