@@ -285,7 +285,7 @@ headless.horse/
     bottom: 0;
     left: 0;
     max-width: 40vw;
-    height: 10px;
+    height: 7px;
     border: 1px solid #999999;
     margin: auto;
   }
@@ -369,7 +369,7 @@ headless.horse/
     border-bottom: 1px solid #999999;
     margin: 0;
     background: #000000;
-    cursor: all-scroll !important;
+    cursor: grab !important;
   }
 
   #terminal_iframe {
@@ -484,7 +484,7 @@ headless.horse/
 
     #loader_frame,
     #loader_percentage {
-      max-width: 60vw;
+      max-width: 70vw;
       height: 7px;
     }
 
@@ -1569,33 +1569,6 @@ run();
 
   }
   lastvisit.showmessage();
-</script>
-
-<script>
-/***************************************** FAVICON *****************************************/
-
-  var favicon_images = [
-      '',
-    ],
-    image_counter = 0; // To keep track of the current image
-
-  setInterval(function() {
-    // remove current favicon
-    if (document.querySelector("link[rel='icon']") !== null)
-      document.querySelector("link[rel='icon']").remove();
-    if (document.querySelector("link[rel='shortcut icon']") !== null)
-      document.querySelector("link[rel='shortcut icon']").remove();
-
-    // add new favicon image
-    document.querySelector("head").insertAdjacentHTML('beforeend', '<link rel="icon" href="' + favicon_images[image_counter] + '" type="image/gif">');
-
-    // If last image then goto first image
-    // Else go to next image
-    if (image_counter == favicon_images.length - 1)
-      image_counter = 0;
-    else
-      image_counter++;
-  }, 5);
 </script>
 
 <div id="emailform">
