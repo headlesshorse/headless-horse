@@ -4,9 +4,9 @@
 * Remove mob_nav.html file.
 * Remove loader from head.html.
 * Add animated favicon.
-* Add new pages/commands for info, services, clients, imprint.
+* Add new pages imprint with company details and colophon.
 * Add live business hours to welcome message.
-* Add notice board on nav_bottom.
+* Add notice message on nav_bottom.
 * Update mobile navigation to follow the terminal navigation of the desktop version.
 * Update copy for info and services.
 * Update to terminal structure to support breakpoint for mobile.
