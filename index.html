@@ -13,7 +13,7 @@
 
   <ul id="nav_bottom">
     <li class="nav_link click_sound" title="Headless Horse"><a>●</a></li>
-    <li><span id="notice_list"></span> </li>
+    <li><span id="notice_list"></span></li>
     <li style="float: right"><span id="clock"></span></li>
   </ul>
 
@@ -302,7 +302,7 @@ headless.horse/
 
   #nav_bottom {
     position: fixed;
-    z-index: 2;
+    z-index: 8;
     bottom: 0;
     overflow: hidden;
     width: 100%;
@@ -325,7 +325,7 @@ headless.horse/
 
   #terminal {
     position: fixed;
-    z-index: 6;
+    z-index: 5;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
@@ -339,7 +339,7 @@ headless.horse/
 
   #terminal_close {
     position: absolute;
-    z-index: 5;
+    z-index: 4;
     top: 0;
     right: 0;
     width: 26px;
@@ -349,7 +349,7 @@ headless.horse/
 
   #terminal_button {
     position: absolute;
-    z-index: 4;
+    z-index: 3;
     top: 0px;
     right: -1px;
     width: 26px;
@@ -364,7 +364,7 @@ headless.horse/
 
   #terminal_title {
     position: relative;
-    z-index: 3;
+    z-index: 2;
     padding: 5px 10px;
     border-bottom: 1px solid #999999;
     margin: 0;
@@ -374,13 +374,13 @@ headless.horse/
 
   #terminal_iframe {
     position: absolute;
-    z-index: 8;
+    z-index: 7;
     width: 100%;
     height: calc(100% - 25px);
   }
 
   #terminal_content_frame {
-    z-index: 7;
+    z-index: 6;
     overflow-x: auto;
     width: 50%;
     height: 70vh;
@@ -489,7 +489,7 @@ headless.horse/
     }
 
     #nav_bottom {
-      z-index: 7;
+      z-index: 8;
       top: 0px;
       height: 26px;
       border-top: 0px;
@@ -520,7 +520,7 @@ headless.horse/
     }
 
     #terminal_content_frame {
-      z-index: 7;
+      z-index: 6;
       overflow-x: hidden;
       scrollbar-width: none;
       padding: 5px 10px;
