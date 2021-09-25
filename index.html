@@ -577,27 +577,6 @@ headless.horse/
   // audio link
   var a = document.getElementById("linkclick");
   $('.click_sound').click(() => a.play());
-
-  function playMouseIn() {
-    {
-      const audioCtx = new AudioContext();
-      const audio = new Audio('https://assets.headless.horse/audio/hover.mp3?dl=0');
-      audio.play();
-      audio.crossOrigin = 'anonymous';
-      const sourceNode = audioCtx.createMediaElementSource(audio);
-      const gainNode = audioCtx.createGain();
-      sourceNode.connect(gainNode);
-      gainNode.connect(audioCtx.destination);
-      gainNode.gain.setValueAtTime(1, audioCtx.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.002, audioCtx.currentTime + 5);
-      setTimeout(function() {
-        const val = gainNode.gain.value;
-        gainNode.gain.cancelScheduledValues(audioCtx.currentTime);
-        gainNode.gain.setValueAtTime(val, audioCtx.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(1, audioCtx.currentTime + 5);
-      }, 0);
-    };
-  }
 </script>
 
 <script>
