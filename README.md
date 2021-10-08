@@ -1,4 +1,4 @@
-# HH_website
+# HeadlessHorse_website
 
 FULL-SERVICE CREATIVE STUDIO
 
