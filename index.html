@@ -14,7 +14,7 @@
   <ul id="nav_bottom">
     <li class="nav_link click_sound" title="Headless Horse"><a>●</a></li>
     <li><span id="notice_list" class="click_sound"></span></li>
-    <li style="float: right"><span id="clock"></span></li>
+    <li style="float: right"><span id="clock"></span><span id="hours_list_nav"></span></li>
   </ul>
 
   <div id="terminal">
@@ -137,7 +137,7 @@ headless.horse/
 
   <div id="img_cover" onclick="clearframe()"></div>
 
-  <img id="img" src="http://assets.headless.horse/images/wall_2020.jpg" width="4995" height="3958" oncontextmenu="return false;" usemap="#img-map" />
+  <img id="img" src="http://assets.headless.horse/images/wall_2020.jpg" width="4995" height="3958" draggable="false" oncontextmenu="return false;" usemap="#img-map" />
   <map name="img-map">
     <!--[20] Renderboxes: Identity-->
     <area href="/project-20/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" Title="Renderboxes: Identity" shape="poly"
@@ -316,6 +316,10 @@ headless.horse/
   #nav_bottom>li {
     padding: 5px 11px 5px 8px;
     float: left;
+  }
+
+  #notice_list a:hover::before {
+    content: '● ';
   }
 
   .nav_link {
@@ -657,23 +661,36 @@ headless.horse/
 /***************************************** CLOCK *****************************************/
 
   var thehours =
-    moment().tz("Europe/London").format('HH:mm [UK]');
+    moment().tz("Europe/London").format('[UK] HH:mm ');
 
   document.getElementById('clock').innerHTML = thehours;
   console.log(window.moment)
 
-/***************************************** OPENING HOURS *****************************************/
+/***************************************** OPENING HOURS TERMINAL *****************************************/
 
   var dayOfWeek = (new Date).getDay();
-  var hours = ["Our studio is closed today. We are open, 08:00 – 18:00 UTC+1, Monday to Friday.", // Sunday
-               "Our studio is open today, 08:00 – 18:00 UTC+1.", // Monday
-               "Our studio is open today, 08:00 – 18:00 UTC+1.", // Tuesday
-               "Our studio is open today, 08:00 – 18:00 UTC+1.", // Wednesday
-               "Our studio is open today, 08:00 – 18:00 UTC+1.", // Thursday
-               "Our studio is open today, 08:00 – 18:00 UTC+1.", // Friday
-               "Our studio is closed today. We are open, 08:00 – 18:00 UTC+1, Monday to Friday."]; // Saturday
+  var hours = ["Our studio is closed today. Our business hours are 08:00 – 18:00 UTC+1, Monday to Friday.", // Sunday
+               "We're Open today, 08:00 – 18:00 UTC+1.", // Monday
+               "We're Open today, 08:00 – 18:00 UTC+1.", // Tuesday
+               "We're Open today, 08:00 – 18:00 UTC+1.", // Wednesday
+               "We're Open today, 08:00 – 18:00 UTC+1.", // Thursday
+               "We're Open today, 08:00 – 18:00 UTC+1.", // Friday
+               "Our studio is closed today. Our business hours are 08:00 – 18:00 UTC+1, Monday to Friday."]; // Saturday
   var todaysHours = hours[dayOfWeek];
   document.getElementById("hours_list").innerHTML = todaysHours;
+
+/***************************************** OPENING HOURS NAV *****************************************/
+
+  var dayOfWeek = (new Date).getDay();
+  var hours = ["Sunday, Closed", // Sunday
+               "Open", // Monday
+               "Open", // Tuesday
+               "Open", // Wednesday
+               "Open", // Thursday
+               "Open", // Friday
+               "Closed"]; // Saturday
+  var todaysHours = hours[dayOfWeek];
+  document.getElementById("hours_list_nav").innerHTML = todaysHours;
 
 /***************************************** IMAGE MOVER *****************************************/
 
@@ -844,7 +861,6 @@ headless.horse/
   document.onmousemove = _move_elem;
   document.onmouseup = _destroy;
 </script>
-
 
 <script type="module">
 /***************************************** NOTICE *****************************************/
