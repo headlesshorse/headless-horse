@@ -1,6 +1,7 @@
  <!-- HEADLESS.HORSE -->
 <!DOCTYPE html>
 <html lang="en">
+<!--
 <body style="background-color: #000000;">
   <div id="loader">
     <div id="loader_percentage"></div>
@@ -9,7 +10,7 @@
         <div id="loader_bar"></div>
       </div>
     </div>
-  </div>
+  </div>-->
 
   <ul id="nav_bottom">
     <li class="nav_link click_sound" title="Headless Horse"><a>●</a></li>
@@ -669,13 +670,13 @@ headless.horse/
 /***************************************** OPENING HOURS TERMINAL *****************************************/
 
   var dayOfWeek = (new Date).getDay();
-  var hours = ["Status: Sunday, Closed. Business hours: 08:00 – 18:00 UTC+1, Monday to Friday.", // Sunday
-               "Status: Monday, Open. Business hours: 08:00 – 18:00 UTC+1.", // Monday
-               "Status: Tuesday, Open. Business hours: 08:00 – 18:00 UTC+1.", // Tuesday
-               "Status: Wednesday, Open. Business hours: 08:00 – 18:00 UTC+1.", // Wednesday
-               "Status: Thursday, Open. Business hours: 08:00 – 18:00 UTC+1.", // Thursday
-               "Status: Friday, Open. Business hours: 08:00 – 18:00 UTC+1.", // Friday
-               "Status: Saturday, Closed. Business hours: 08:00 – 18:00 UTC+1, Monday to Friday."]; // Saturday
+  var hours = ["Status: Sunday, Closed. Business hours: 08:00 – 18:00 GMT, Monday to Friday.", // Sunday
+               "Status: Monday, Open. Business hours: 08:00 – 18:00 GMT.", // Monday
+               "Status: Tuesday, Open. Business hours: 08:00 – 18:00 GMT.", // Tuesday
+               "Status: Wednesday, Open. Business hours: 08:00 – 18:00 GMT.", // Wednesday
+               "Status: Thursday, Open. Business hours: 08:00 – 18:00 GMT.", // Thursday
+               "Status: Friday, Open. Business hours: 08:00 – 18:00 GMT.", // Friday
+               "Status: Saturday, Closed. Business hours: 08:00 – 18:00 GMT, Monday to Friday."]; // Saturday
   var todaysHours = hours[dayOfWeek];
   document.getElementById("hours_list").innerHTML = todaysHours;
 
