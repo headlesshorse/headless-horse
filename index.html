@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <body style="background-color: #000000;">
+  <!--
   <div id="loader">
     <div id="loader_percentage"></div>
     <div id="loader_frame">
@@ -10,7 +11,7 @@
       </div>
     </div>
   </div>
-
+-->
   <ul id="nav_bottom">
     <li class="nav_link click_sound" title="Headless Horse"><a>●</a></li>
     <li><span id="notice_list" class="click_sound"></span></li>
@@ -669,20 +670,20 @@ headless.horse/
 /***************************************** OPENING HOURS TERMINAL *****************************************/
 
   var dayOfWeek = (new Date).getDay();
-  var hours = ["Our studio is closed today. Our business hours are 08:00 – 18:00 UTC+1, Monday to Friday.", // Sunday
-               "We're Open today, 08:00 – 18:00 UTC+1.", // Monday
-               "We're Open today, 08:00 – 18:00 UTC+1.", // Tuesday
-               "We're Open today, 08:00 – 18:00 UTC+1.", // Wednesday
-               "We're Open today, 08:00 – 18:00 UTC+1.", // Thursday
-               "We're Open today, 08:00 – 18:00 UTC+1.", // Friday
-               "Our studio is closed today. Our business hours are 08:00 – 18:00 UTC+1, Monday to Friday."]; // Saturday
+  var hours = ["Status: Sunday, Closed. Business hours: 08:00 – 18:00 UTC+1, Monday to Friday.", // Sunday
+               "Status: Monday, Open. Business hours: 08:00 – 18:00 UTC+1.", // Monday
+               "Status: Tuesday, Open. Business hours: 08:00 – 18:00 UTC+1.", // Tuesday
+               "Status: Wednesday, Open. Business hours: 08:00 – 18:00 UTC+1.", // Wednesday
+               "Status: Thursday, Open. Business hours: 08:00 – 18:00 UTC+1.", // Thursday
+               "Status: Friday, Open. Business hours: 08:00 – 18:00 UTC+1.", // Friday
+               "Status: Saturday, Closed. Business hours: 08:00 – 18:00 UTC+1, Monday to Friday."]; // Saturday
   var todaysHours = hours[dayOfWeek];
   document.getElementById("hours_list").innerHTML = todaysHours;
 
 /***************************************** OPENING HOURS NAV *****************************************/
 
   var dayOfWeek = (new Date).getDay();
-  var hours = ["Sunday, Closed", // Sunday
+  var hours = ["Closed", // Sunday
                "Open", // Monday
                "Open", // Tuesday
                "Open", // Wednesday
