@@ -2,4 +2,4 @@
 
 FULL-SERVICE CREATIVE STUDIO
 
-[headless.horse](https://headless.horse)
+[headless.horse](https://headless.horse/)
