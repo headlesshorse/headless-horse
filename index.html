@@ -1,4 +1,4 @@
- <!-- HEADLESS.HORSE -->
+<!-- HEADLESS.HORSE -->
 <!DOCTYPE html>
 <html lang="en">
 <body style="background-color: #000000;">
@@ -14,7 +14,7 @@
   <ul id="nav_bottom">
     <li class="nav_link click_sound" title="Headless Horse"><a>●</a></li>
     <li><span id="notice_list" class="click_sound"></span></li>
-    <li style="float: right"><span id="clock"></span><span id="hours_list_nav"></span></li>
+    <li style="float: right"><span id="clock" data-tz="Europe/London"></span></li>
   </ul>
 
   <div id="terminal">
@@ -554,8 +554,7 @@ headless.horse/
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.13/moment-timezone-with-data.min.js"></script>
+<script src="https://moment.github.io/luxon/global/luxon.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.js"></script>
 <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ModifiersPlugin-latest-beta.js"></script>
 
@@ -658,39 +657,55 @@ headless.horse/
     document.getElementById("terminal_iframe").src = "about:blank";
   }
 
+/***************************************** TIME *****************************************/
+
+	const locations = document.querySelectorAll("#clock")
+
+	setInterval(function() {
+		// for each output tag
+		locations.forEach(location => {
+
+			// https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+			const tz = location.getAttribute("data-tz")
+
+			// get the time in that timezone
+			const now = luxon.DateTime.now().setZone(tz)
+
+			// hour in 24-hour time, no padding
+			const hour = parseInt(now.toFormat("H"), 10)
+			console.log(hour)
+
+      // day of the week as number (Monday is 1, Sunday is 7)
+			const hourday = now.toFormat("c")
+			console.log(hourday)
+
+      // day of the week 'Wednesday'
+      const dayofweek = now.toFormat("cccc")
+      console.log(dayofweek)
+
+      // timezone 'GMT'
+      const timezone = now.toFormat("ZZZZ")
+      console.log(timezone)
+
+      // time with timezone '00:00:00 GMT'
+      const timeandtimezone = now.toFormat("HH:mm:ss ZZZZ")
+      console.log(timeandtimezone)
+
 /***************************************** CLOCK *****************************************/
+			if (hourday >= 1 && hourday < 6 || hour >= 8 && hour < 18) {
+				document.getElementById('clock').innerHTML = timeandtimezone + " Online";
+			} else {
+				document.getElementById('clock').innerHTML = timeandtimezone + " Offline";
+			}
 
-  var thehours =
-    moment().tz("Europe/London").format('[UK] HH:mm ');
-
-  document.getElementById('clock').innerHTML = thehours;
-  console.log(window.moment)
-
-/***************************************** OPENING HOURS TERMINAL *****************************************/
-
-  var dayOfWeek = (new Date).getDay();
-  var hours = ["Status: Sunday, Closed. Business hours: 08:00 – 18:00 GMT, Monday to Friday.", // Sunday
-               "Status: Monday, Open. Business hours: 08:00 – 18:00 GMT.", // Monday
-               "Status: Tuesday, Open. Business hours: 08:00 – 18:00 GMT.", // Tuesday
-               "Status: Wednesday, Open. Business hours: 08:00 – 18:00 GMT.", // Wednesday
-               "Status: Thursday, Open. Business hours: 08:00 – 18:00 GMT.", // Thursday
-               "Status: Friday, Open. Business hours: 08:00 – 18:00 GMT.", // Friday
-               "Status: Saturday, Closed. Business hours: 08:00 – 18:00 GMT, Monday to Friday."]; // Saturday
-  var todaysHours = hours[dayOfWeek];
-  document.getElementById("hours_list").innerHTML = todaysHours;
-
-/***************************************** OPENING HOURS NAV *****************************************/
-
-  var dayOfWeek = (new Date).getDay();
-  var hours = ["Closed", // Sunday
-               "Open", // Monday
-               "Open", // Tuesday
-               "Open", // Wednesday
-               "Open", // Thursday
-               "Open", // Friday
-               "Closed"]; // Saturday
-  var todaysHours = hours[dayOfWeek];
-  document.getElementById("hours_list_nav").innerHTML = todaysHours;
+/***************************************** OPEN HOURS *****************************************/
+			if (hourday >= 1 && hourday < 6 || hour >= 8 && hour < 18) {
+				document.getElementById('hours_list').innerHTML = "Open. " + dayofweek + " business hours: 08:00 – 18:00 " + timezone + ".";
+			} else {
+				document.getElementById('hours_list').innerHTML = "Closed. " + dayofweek + ", we are open Monday - Friday: 08:00 – 18:00 " + timezone + ".";
+			}
+		})
+	}, 1000)
 
 /***************************************** IMAGE MOVER *****************************************/
 
@@ -1495,12 +1510,6 @@ run();
       } // end if 'enter' key pressed
     }); // end keyup function
   });
-</script>
-
-<script>
-/***************************************** COPYRIGHT *****************************************/
-
-  document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
 </script>
 
 <script>
