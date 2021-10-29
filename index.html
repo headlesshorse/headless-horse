@@ -692,14 +692,14 @@ headless.horse/
       console.log(timeandtimezone)
 
 /***************************************** CLOCK *****************************************/
-			if (hourday >= 1 && hourday < 6 || hour >= 8 && hour < 18) {
+			if (hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6) {
 				document.getElementById('clock').innerHTML = timeandtimezone + " Online";
 			} else {
 				document.getElementById('clock').innerHTML = timeandtimezone + " Offline";
 			}
 
 /***************************************** OPEN HOURS *****************************************/
-			if (hourday >= 1 && hourday < 6 || hour >= 8 && hour < 18) {
+			if (hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6) {
 				document.getElementById('hours_list').innerHTML = "Open. " + dayofweek + " business hours: 08:00 – 18:00 " + timezone + ".";
 			} else {
 				document.getElementById('hours_list').innerHTML = "Closed. " + dayofweek + ", we are open Monday - Friday: 08:00 – 18:00 " + timezone + ".";
