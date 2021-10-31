@@ -216,17 +216,21 @@ headless.horse/
       coords="868,2693,969,2636,984,2634,994,2644,993,2656,981,2664,980,2688,1106,2678,1106,2669,1148,2660,1187,2644,1246,2635,1279,2624,1292,2649,1284,2659,1283,2669,1312,2666,1360,2682,1360,2999,921,3039,892,3065,878,3065,801,3048,740,3040,673,3046,654,3051,647,3025,712,2991,823,2914,841,2899,831,2843,836,2801,848,2752,862,2724,878,2705,892,2696,892,2691,866,2700">
   </map>
 
-  <audio src="http://assets.headless.horse/audio/pad.wav?dl=0" id="background_loop" class="audiofile" loop="loop" type="audio/mpeg"></audio>
-  <audio src="http://assets.headless.horse/audio/select.mp3?dl=0" id="projectclick" class="audiofile" type="audio/mpeg"></audio>
-  <audio src="http://assets.headless.horse/audio/click.mp3?dl=0" id="linkclick" class="audiofile" type="audio/mpeg"></audio>
+  <audio src="http://asses.headless.horse/audio/pad.wav?dl=0" id="background_loop" class="audiofile" loop="loop" type="audio/mpeg"></audio>
+  <audio src="http://asses.headless.horse/audio/select.mp3?dl=0" id="projectclick" class="audiofile" type="audio/mpeg"></audio>
+  <audio src="http://asses.headless.horse/audio/click.mp3?dl=0" id="linkclick" class="audiofile" type="audio/mpeg"></audio>
 </body>
 
 </html>
 
 <style>
   html {
-    overflow-x: hidden;
-    overflow-y: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
   }
 
   body {
@@ -534,7 +538,6 @@ headless.horse/
     #terminal_content_frame {
       z-index: 6;
       overflow-x: hidden;
-      scrollbar-width: none;
       padding: 5px 10px;
       width: calc(100% - 20px);
       height: 100%;
@@ -552,9 +555,15 @@ headless.horse/
 
     #img_cover {
       display: none;
+      background: rgba(0, 0, 0, 0.6);
     }
 
-    img {
+    #img {
+      scrollbar-width: none;
+      touch-action: manipulation;
+    }
+
+    #tooltip {
       display: none;
     }
   }
@@ -646,8 +655,8 @@ headless.horse/
     });
 
     $(".project_link, .nav_link").click(function() {
-      $("#terminal").fadeIn(1000);
-      $("#img_cover").fadeIn(2000);
+      $("#terminal").fadeToggle(1000);
+      $("#img_cover").fadeToggle(2000);
     });
 
     $(".project_link").click(function() {
@@ -656,7 +665,7 @@ headless.horse/
 
     $(".nav_link").click(function() {
       $("#terminal_content").show();
-      $('#commandinput[type="text"]').focus();
+      $('#commandinput[type="text"]').toggleFocu();
       $('#commandinput[type="text"]').val('');
     });
   });
@@ -717,6 +726,15 @@ headless.horse/
 
 /***************************************** IMAGE MOVER *****************************************/
 
+function detectmob() {
+   if(window.innerWidth <= 800 && window.innerHeight <= 600) {
+     return true;
+   } else {
+     return false;
+   }
+}
+
+if(!detectmob()){
   // acceleration value between 0 and 1 smaller values = smoother motion
   var acceleration = 0.02;
 
@@ -798,6 +816,7 @@ headless.horse/
       mouse.y = event.clientY;
     }
   }
+}
 
 /***************************************** TOOLTIP + TITLES *****************************************/
 
@@ -1544,7 +1563,7 @@ run();
     var wh = new Date();
     if (lastvisit.getCookie("visit_record") == "") {
       lastvisit.setCookie("visit_record", wh, days);
-      document.getElementById("firstuse_message").innerHTML = "Type 'list' to see a list of commands, or close the terminal on desktop to begin.";
+      document.getElementById("firstuse_message").innerHTML = "Type 'list' to see a list of commands, or close the terminal to begin.";
 
     } else {
       var lv = lastvisit.getCookie("visit_record");
