@@ -1459,21 +1459,16 @@ function doclientSearch(textArea) {
     return x;
   }
 
-  const renderRow = ({id, Status, Location, Job, Contract, Close, Slug}) => html`
-    <p><a href="${Slug}" target="_blank">${Location}, ${Job}, ${Contract} – ${Status}.</a></p>
-  `;
-
   const tableTemplate = table => html`
-      ${table.map(renderRow)}
+      ${table.map(({id, Status, Location, Job, Contract, Close, Slug}) => html`
+        <p><a href="${Slug}" target="_blank">${Location}, ${Job}, ${Contract} – ${Status}.</a></p>
+      `)}
   `;
 
-  const firstRowTemplate = table => renderRow(table[0]);
-
-  const jobItem = fetch(URL)
+  const projectItem = fetch(URL)
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
- //    .then(tableTemplate) // Promise<TemplateResult>
-    .then(firstRowTemplate) // Promise<TemplateResult>
+    .then(tableTemplate) // Promise<TemplateResult>
 		.then(trace('template result is'))
     .then(result =>
 			render(result, document.getElementById('job_list')))
