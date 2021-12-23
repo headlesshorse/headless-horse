@@ -74,7 +74,7 @@
           </section>
 
           <section id="login">
-            <p>Please enter your password below.</p>
+            <p>Please enter your access code below. 'login AAA-001'</p>
           </section>
 
           <section id="jobs">
@@ -87,10 +87,6 @@
           </section>
 
           <section id="tweet">
-            <p>Loading...</p>
-          </section>
-
-          <section id="like">
             <p>Loading...</p>
           </section>
 
@@ -118,7 +114,6 @@ headless.horse/
 │   └── imprint
 └── SHARE/
     ├── tweet
-    ├── like
     └── email
           </pre>
           </section>
@@ -226,7 +221,6 @@ headless.horse/
 <style>
   html {
     -ms-overflow-style: none;
-    scrollbar-width: none;
     text-rendering: optimizeLegibility;
   }
 
@@ -560,7 +554,6 @@ headless.horse/
     }
 
     #img {
-      scrollbar-width: none;
       touch-action: manipulation;
     }
 
@@ -1441,9 +1434,9 @@ run();
 function doclientSearch(textArea) {
 	var value = textArea.value;
 
-  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === "uname") {
+  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === "login") {
 
-    window.open('https://dev.headless.horse/' + value.match('uname(.*)')[1].trim());
+    window.open('https://dev.headless.horse/' + value.match('login(.*)')[1].trim());
   }
 }
 </script>
@@ -1544,21 +1537,6 @@ run();
       if (inputVal == "tweet") {
         setTimeout(function(e) {
           window.open('https://twitter.com/intent/tweet?url=headless.horse&text=@headless__horse', '_blank');
-        }, 1000);
-      }
-    }
-  });
-</script>
-
-<script>
-/***************************************** SHARE LIKE *****************************************/
-
-  $(document).on("keypress", "input", function(e) {
-    if (e.which == 13) {
-      var inputVal = $(this).val();
-      if (inputVal == "like") {
-        setTimeout(function(e) {
-          window.open('https://www.facebook.com/sharer.php?href=https://headless.horse/', '_blank');
         }, 1000);
       }
     }
