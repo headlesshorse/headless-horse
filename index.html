@@ -299,41 +299,36 @@ headless.horse/
     background: #999999;
   }
 
-  .cookie-notice {
-    font-family: courier;
-    z-index: 1000;
-    box-sizing: border-box;
+  .cookie_notice {
     width: 100%;
-    background: #999999;
-
-    font-family: courier;
     padding: 5px 11px 5px 8px;
+    background: #999999;
   }
 
-  .cookie-notice-message>p {
-    margin: 0;
-    padding: 0;
+  .cookie_notice_message>p {
     width: 80%;
+    padding: 0;
+    margin: 0;
     color: #000000;
   }
 
-  .cookie-notice>button {
-    padding: 5px 11px 5px 8px;
-    border: 0;
+  .cookie_notice>a {
     position: absolute;
     top: 0;
     right: 0;
-    cursor: pointer;
+    padding: 5px 11px 5px 8px;
+    margin: 0;
     background: transparent;
-    color: #black;
+    color: #000000;
     font-family: courier, monospace;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-        text-align: right;
+    text-align: right;
+    cursor: pointer;
   }
 
-  .cookie-notice>button:hover::before {
+  .cookie_notice>a:hover::before {
     content: '● ';
   }
 
@@ -533,6 +528,15 @@ headless.horse/
     #loader_percentage {
       max-width: 70vw;
       height: 7px;
+    }
+
+    #cookie_notice{
+      position: fixed;
+      bottom: 0px;
+    }
+
+    .cookie_notice>a {
+      font-size: 10px;
     }
 
     #nav_bottom {
@@ -1811,7 +1815,7 @@ run();
     }
 
     function dismiss() {
-      var notice = document.getElementById('cookie-notice')
+      var notice = document.getElementById('cookie_notice')
       if (notice) notice.parentNode.removeChild(notice)
       window.localStorage.cookieNoticeDismissed = true
     }
@@ -1822,15 +1826,15 @@ run();
 
     function show() {
       var $div = document.createElement('div')
-      $div.className = 'cookie-notice'
-      $div.id = 'cookie-notice'
+      $div.className = 'cookie_notice'
+      $div.id = 'cookie_notice'
 
       var $message = document.createElement('div')
-      $message.className = 'cookie-notice-message'
+      $message.className = 'cookie_notice_message'
       $message.innerHTML = CookieNotice.options.message
       $div.appendChild($message)
 
-      var $dismiss = document.createElement('button')
+      var $dismiss = document.createElement('a')
       $dismiss.innerHTML = CookieNotice.options.dismiss
       $dismiss.onclick = dismiss
       $div.appendChild($dismiss)
@@ -1857,10 +1861,10 @@ run();
     return CookieNotice
   }));
 
-  /*
+/*
   CookieNotice.undismiss() // to always show cookie notice
   CookieNotice()
-   */
+*/
 </script>
 
 <div id="emailform">
