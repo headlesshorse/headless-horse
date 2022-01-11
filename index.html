@@ -2,6 +2,7 @@
 <html lang="en">
 
 <body style="background-color: #000000;">
+  <!--
   <div id="loader">
     <div id="loader_percentage"></div>
     <div id="loader_frame">
@@ -10,6 +11,7 @@
       </div>
     </div>
   </div>
+-->
 
   <ul id="nav_bottom">
     <li class="nav_link click_sound" title="Headless Horse"><a>●</a></li>
@@ -27,7 +29,8 @@
         <div id=terminal_content>
 
           <section id="home">
-            <p>Welcome <span id="welcome_back"></span>to Headless Horse.</p>
+            <p>Welcome <span id="welcome_back"></span>to Headless Horse a full-service creative studio.</p>
+            <p id="desktop_experience_message">This is a desktop experience.</p>
             <p id="lastvisit_message"></p>
             <p id="hours_list"></p>
             <br>
@@ -364,6 +367,10 @@ headless.horse/
     cursor: pointer !important;
   }
 
+  #desktop_experience_message{
+    display: none;
+  }
+
   #terminal {
     position: fixed;
     z-index: 5;
@@ -531,8 +538,7 @@ headless.horse/
     }
 
     #cookie_notice{
-      position: fixed;
-      bottom: 0px;
+      display: none;
     }
 
     .cookie_notice>a {
@@ -554,6 +560,10 @@ headless.horse/
 
     #notice_list {
       display: none;
+    }
+
+    #desktop_experience_message{
+      display: block;
     }
 
     #terminal {
@@ -596,7 +606,7 @@ headless.horse/
     }
 
     #img {
-      touch-action: manipulation;
+      display: none;
     }
 
     #tooltip {
@@ -1756,7 +1766,7 @@ run();
     var wh = new Date();
     if (lastvisit.getCookie("visit_record") == "") {
       lastvisit.setCookie("visit_record", wh, days);
-      document.getElementById("firstuse_message").innerHTML = "Type 'list' to see a list of commands, or close the terminal to begin.";
+      document.getElementById("firstuse_message").innerHTML = "Type 'list' to see a list of commands.";
 
     } else {
       var lv = lastvisit.getCookie("visit_record");
@@ -1861,10 +1871,11 @@ run();
     return CookieNotice
   }));
 
-/*
+  /*
   CookieNotice.undismiss() // to always show cookie notice
   CookieNotice()
-*/
+  /*
+
 </script>
 
 <div id="emailform">
