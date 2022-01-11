@@ -2,6 +2,7 @@
 <html lang="en">
 
 <body style="background-color: #000000;">
+  <!--
   <div id="loader">
     <div id="loader_percentage"></div>
     <div id="loader_frame">
@@ -9,7 +10,7 @@
         <div id="loader_bar"></div>
       </div>
     </div>
-  </div>
+  </div>-->
 
   <ul id="nav_bottom">
     <li class="nav_link click_sound" title="Headless Horse"><a>●</a></li>
@@ -297,6 +298,44 @@ headless.horse/
     width: 0%;
     height: 100%;
     background: #999999;
+  }
+
+  .cookie-notice {
+    font-family: courier;
+    z-index: 1000;
+    box-sizing: border-box;
+    width: 100%;
+    background: #999999;
+
+    font-family: courier;
+    padding: 5px 11px 5px 8px;
+  }
+
+  .cookie-notice-message>p {
+    margin: 0;
+    padding: 0;
+    width: 80%;
+    color: #000000;
+  }
+
+  .cookie-notice>button {
+    padding: 5px 11px 5px 8px;
+    border: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    background: transparent;
+    color: #black;
+    font-family: courier, monospace;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+        text-align: right;
+  }
+
+  .cookie-notice>button:hover::before {
+    content: '● ';
   }
 
   #nav_bottom {
@@ -1748,6 +1787,81 @@ run();
 
   }
   lastvisit.showmessage();
+</script>
+
+<script>
+/***************************************** COOKIE NOTICE *****************************************/
+
+  void(function(root, factory) {
+    if (typeof define === 'function' && define.amd) define(factory)
+    else if (typeof exports === 'object') module.exports = factory()
+    else root.CookieNotice = factory()
+  }(this, function() {
+    function CookieNotice() {
+      ready(run)
+    }
+
+    CookieNotice.options = {
+      message: '<p>This website uses cookies. By using this website you consent to our use of these cookies.</p>',
+      dismiss: 'Dismiss'
+    }
+
+    function run() {
+      if (window.localStorage.cookieNoticeDismissed) return
+      show()
+    }
+
+    function dismiss() {
+      var notice = document.getElementById('cookie-notice')
+      if (notice) notice.parentNode.removeChild(notice)
+      window.localStorage.cookieNoticeDismissed = true
+    }
+
+    function undismiss() {
+      delete window.localStorage.cookieNoticeDismissed
+    }
+
+    function show() {
+      var $div = document.createElement('div')
+      $div.className = 'cookie-notice'
+      $div.id = 'cookie-notice'
+
+      var $message = document.createElement('div')
+      $message.className = 'cookie-notice-message'
+      $message.innerHTML = CookieNotice.options.message
+      $div.appendChild($message)
+
+      var $dismiss = document.createElement('button')
+      $dismiss.innerHTML = CookieNotice.options.dismiss
+      $dismiss.onclick = dismiss
+      $div.appendChild($dismiss)
+
+      document.getElementById('nav_bottom').prepend($div)
+    }
+
+    function ready(fn) {
+      if (document.readyState === 'complete') {
+        return fn()
+      } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', fn)
+      } else {
+        document.attachEvent('onreadystatechange', function() {
+          if (document.readyState === 'interactive') fn()
+        })
+      }
+    }
+
+    CookieNotice.run = run
+    CookieNotice.dismiss = dismiss
+    CookieNotice.undismiss = undismiss
+
+    return CookieNotice
+  }));
+
+  /*
+  CookieNotice.undismiss() // to always show cookie notice
+  CookieNotice()
+   */
 </script>
 
 <div id="emailform">
