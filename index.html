@@ -21,8 +21,7 @@
 
   <div id="terminal">
     <div id="terminal_container">
-      <a id="terminal_close" class="terminal_close click_sound" onclick="clearframe(); pauseAudio()"></a>
-      <button id="terminal_button"><a>●</a></button>
+      <div id="terminal_close" class="click_sound" onclick="clearframe(); pauseAudio()"><a>●</a></div>
       <div id="terminal_title">Headless Horse</div>
       <iframe id="terminal_iframe" name="terminal_iframe" src="" frameborder="0"></iframe>
       <div id="terminal_content_frame">
@@ -74,10 +73,6 @@
             <p>MAILINGLIST</p>
             <p>Join our mailing list to be the first to receive updates on project launches, product releases and news.</p>
             <p id="validate_message"></p>
-          </section>
-
-          <section id="login">
-            <p>Please enter your access code below. 'login AAA-001'</p>
           </section>
 
           <section id="jobs">
@@ -223,6 +218,8 @@ headless.horse/
 
 <style>
   html {
+    overflow-x: hidden;
+    overflow-y: hidden;
     -ms-overflow-style: none;
     text-rendering: optimizeLegibility;
   }
@@ -350,7 +347,7 @@ headless.horse/
   }
 
   #nav_bottom>li {
-    padding: 5px 11px 5px 8px;
+    padding: 5px 11px 5px 9px;
     float: left;
   }
 
@@ -388,26 +385,15 @@ headless.horse/
 
   #terminal_close {
     position: absolute;
+    width: 26px;
     z-index: 4;
+    margin-top: -1px;
+    margin-right: -1px;
     top: 0;
     right: 0;
-    width: 26px;
-    height: 26px;
-    cursor: pointer !important;
-  }
-
-  #terminal_button {
-    position: absolute;
-    z-index: 3;
-    top: 0px;
-    right: -1px;
-    width: 26px;
-    height: 26px;
-    padding-top: 0px;
+    text-align: center;
+    padding: 5px 0px 5px 0px;
     border: 1px solid #999999;
-    margin-top: -1px;
-    background: rgba(0, 0, 0, 0.0);
-    color: #999999;
     cursor: pointer !important;
   }
 
@@ -472,6 +458,10 @@ headless.horse/
 
   #emailform {
     display: none;
+  }
+
+  #img {
+    overflow-x: hidden;
   }
 
   #img_cover {
@@ -578,7 +568,7 @@ headless.horse/
       height: 100%;
     }
 
-    #terminal_button {
+    #terminal_close {
       display: none;
     }
 
@@ -692,7 +682,7 @@ headless.horse/
   });
 
   $(document).ready(function() {
-    $(".terminal_close, #img_cover").click(function() {
+    $("#terminal_close, #img_cover").click(function() {
       $("#terminal").fadeOut(1000);
       $("#terminal_iframe").hide();
       $("#terminal_content").fadeOut(1000);
@@ -1873,8 +1863,8 @@ run();
 
   /*
   CookieNotice.undismiss() // to always show cookie notice
+  */
   CookieNotice()
-  /*
 
 </script>
 
