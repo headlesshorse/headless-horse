@@ -14,7 +14,7 @@
   <ul id="nav_bottom">
     <li class="nav_link click_sound" title="Headless Horse"><a>●</a></li>
     <li><span id="notice_list" class="click_sound"></span></li>
-    <li style="float: right"><span id="clock" data-tz="Europe/London"></span></li>
+    <li style="float: right"><span id="clock" data_tz="Europe/London" data_rollover="Edinburgh, Scotland UK."></span></li>
   </ul>
 
   <div id="terminal">
@@ -68,7 +68,7 @@
           </section>
 
           <section id="mailinglist">
-            <p>MAILINGLIST</p>
+            <p>MAILING LIST</p>
             <p>Join our mailing list to be the first to receive updates on project launches, product releases and news.</p>
             <p id="validate_message"></p>
           </section>
@@ -76,6 +76,10 @@
           <section id="jobs">
             <p>JOBS</p>
             <p id="job_list"></p>
+          </section>
+
+          <section id="alumni">
+            <p id="alumni_list"></p>
           </section>
 
           <section id="imprint">
@@ -86,7 +90,7 @@
             <p>Loading...</p>
           </section>
 
-          <section id="email">
+          <section id="mail">
             <p>Loading...</p>
           </section>
 
@@ -100,17 +104,18 @@ headless.horse/
 ├── PUBLIC/
 │   ├── follow
 │   ├── press
+│   ├── jobs
 │   ├── shop
 │   ├── lab
 │   └── mailinglist
 ├── PRIVATE/
 │   └── login
 ├── OTHER/
-│   ├── jobs
+│   ├── alumni
 │   └── imprint
 └── SHARE/
     ├── tweet
-    └── email
+    └── mail
           </pre>
           </section>
 
@@ -298,16 +303,17 @@ headless.horse/
   }
 
   .cookie_notice {
-    width: 100%;
     padding: 5px 11px 5px 8px;
     background: #999999;
+    color: #000000;
   }
 
-  .cookie_notice_message>p {
-    width: 80%;
-    padding: 0;
-    margin: 0;
+  .cookie_notice a {
     color: #000000;
+  }
+
+  .cookie_notice a:hover::before {
+    content: '● ';
   }
 
   .cookie_notice>a {
@@ -316,18 +322,7 @@ headless.horse/
     right: 0;
     padding: 5px 11px 5px 8px;
     margin: 0;
-    background: transparent;
-    color: #000000;
-    font-family: courier, monospace;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    text-align: right;
     cursor: pointer;
-  }
-
-  .cookie_notice>a:hover::before {
-    content: '● ';
   }
 
   #nav_bottom {
@@ -357,12 +352,16 @@ headless.horse/
     cursor: default !important;
   }
 
+  span:hover::before {
+    content: attr(data_rollover)' ';
+  }
+
   .nav_link {
     border-right: 1px solid #999999;
     cursor: pointer !important;
   }
 
-  #desktop_experience_message{
+  #desktop_experience_message {
     display: none;
   }
 
@@ -716,7 +715,7 @@ headless.horse/
 		locations.forEach(location => {
 
 			// https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-			const tz = location.getAttribute("data-tz")
+			const tz = location.getAttribute("data_tz")
 
 			// get the time in that timezone
 			const now = luxon.DateTime.now().setZone(tz)
@@ -749,13 +748,12 @@ headless.horse/
 				document.getElementById('clock').innerHTML = timeandtimezone + " Offline";
 			}
 
-/***************************************** OPEN HOURS *****************************************/
-
-			if (hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6) {
-				document.getElementById('hours_list').innerHTML = "Open. " + dayofweek + " business hours: 08:00 – 18:00 " + timezone + ".";
-			} else {
-				document.getElementById('hours_list').innerHTML = "Closed. " + dayofweek + ", we are open Monday - Friday: 08:00 – 18:00 " + timezone + ".";
-			}
+/***************************************** HOURS *****************************************/
+      if (hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6) {
+        document.getElementById('hours_list').innerHTML = "Open. " + dayofweek + " business hours: 08:00 – 18:00 " + timezone + ".";
+      } else {
+        document.getElementById('hours_list').innerHTML = "Closed. " + dayofweek + ", we are open Monday - Friday: 08:00 – 18:00 " + timezone + ".";
+      }
 		})
 	}, 1000)
 
@@ -1331,7 +1329,7 @@ run();
 
   const tableTemplate = table => html`
       ${table.map(({Site, Handle, Slug}) => html`
-        <p><a href="${Slug}${Handle}/" target="_blank">${Site} →</a></p>
+        <p><a href="${Slug}${Handle}/" target="_blank">${Site} @${Handle} →</a></p>
       `)}
   `;
 
@@ -1568,6 +1566,64 @@ console.log(blocks.map(x => x.type))
 run();
 </script>
 
+<script type="module">
+/***************************************** ALUMNI *****************************************/
+
+  import { html, render } from 'https://unpkg.com/lit?module';
+
+  const URL = "https://notion-api.splitbee.io/v1/page/5973e1cc89df455dbc0e9c4e517b3e9f";
+
+  const handleAsJson = response => response.json();
+
+  const trace = tag => x => {
+    console.log(tag, x);
+    return x;
+  }
+
+  function renderText(node) {
+    if (node.length === 1)
+      return node[0];
+
+    const [content, [[tagName, attr]]] = node;
+    if (tagName === 'a') {
+      return html`
+        <a href="${attr}" target="_blank">${content}</a>
+      `;
+    }
+    else return node;
+  }
+
+  async function run() {
+
+    const result = await fetch(URL).then(handleAsJson)
+
+    const page = Object.values(result).find(x => x.value.type === 'page');
+
+    const blocks = page.value.content.map(id => result[id].value);
+
+console.log(blocks.map(x => x.type))
+
+  const content = blocks.map(block => {
+    switch (block.type) {
+      case 'sub_header':
+        return html`<p style="text-transform: uppercase;">${block.properties.title}</p>`;
+      case 'divider':
+        return html`<br>`;
+      case 'text':
+        if (!block.properties) return '';
+        else {
+          return html`<p>${block.properties.title.map(renderText)}</p>`;
+        }
+        default:
+          return block.title;
+    }
+  });
+
+  render(content, document.getElementById('alumni_list'))
+}
+run();
+</script>
+
 <script>
 /***************************************** SHARE TWEET *****************************************/
 
@@ -1584,12 +1640,12 @@ run();
 </script>
 
 <script>
-/***************************************** SHARE EMAIL *****************************************/
+/***************************************** SHARE MAIL *****************************************/
 
   $(document).on("keypress", "input", function(e) {
     if (e.which == 13) {
       var inputVal = $(this).val();
-      if (inputVal == "email") {
+      if (inputVal == "mail") {
         setTimeout(function(e) {
           window.location.href = 'mailto:name@email.com?subject=Headless%20Horse&body=I%20thought%20you%20might%20like%20this:%20https://headless.horse/';
         }, 1000);
@@ -1803,8 +1859,8 @@ run();
     }
 
     CookieNotice.options = {
-      message: '<p>This website uses cookies. By using this website you consent to our use of these cookies.</p>',
-      dismiss: 'Dismiss'
+      message: 'This website uses cookies. <a href="https://headlesshorse.notion.site/Privacy-3da531bfce1d4f4094afa4e9c138a5ca">Privacy policy.',
+      dismiss: 'Accept'
     }
 
     function run() {
