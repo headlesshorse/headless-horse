@@ -707,27 +707,28 @@ headless.horse/
     document.getElementById("terminal_iframe").src = "about:blank";
   }
 
+<script>
 /***************************************** TIME *****************************************/
 
-	const locations = document.querySelectorAll("#clock")
+  const locations = document.querySelectorAll("#clock")
 
-	setInterval(function() {
-		// for each output tag
-		locations.forEach(location => {
+  setInterval(function() {
+    // for each output tag
+    locations.forEach(location => {
 
-			// https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-			const tz = location.getAttribute("data_tz")
+      // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      const tz = location.getAttribute("data_tz")
 
-			// get the time in that timezone
-			const now = luxon.DateTime.now().setZone(tz)
+      // get the time in that timezone
+      const now = luxon.DateTime.now().setZone(tz)
 
-			// hour in 24-hour time, no padding
-			const hour = parseInt(now.toFormat("H"), 10)
-			console.log(hour)
+      // hour in 24-hour time, no padding
+      const hour = parseInt(now.toFormat("H"), 10)
+      console.log(hour)
 
       // day of the week as number (Monday is 1, Sunday is 7)
-			const hourday = now.toFormat("c")
-			console.log(hourday)
+      const hourday = now.toFormat("c")
+      console.log(hourday)
 
       // day of the week 'Wednesday'
       const dayofweek = now.toFormat("cccc")
@@ -743,11 +744,11 @@ headless.horse/
 
 /***************************************** CLOCK *****************************************/
 
-			if (hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6) {
-				document.getElementById('clock').innerHTML = timeandtimezone + " Online";
-			} else {
-				document.getElementById('clock').innerHTML = timeandtimezone + " Offline";
-			}
+      if (hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6) {
+        document.getElementById('clock').innerHTML = timeandtimezone + " Online";
+      } else {
+        document.getElementById('clock').innerHTML = timeandtimezone + " Offline";
+      }
 
 /***************************************** HOURS *****************************************/
       if (hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6) {
@@ -755,8 +756,8 @@ headless.horse/
       } else {
         document.getElementById('hours_list').innerHTML = "Closed. " + dayofweek + ", we are open Monday - Friday: 08:00 – 18:00 " + timezone + ".";
       }
-		})
-	}, 1000)
+    })
+  }, 1000)
 
 /***************************************** IMAGE MOVER *****************************************/
 
