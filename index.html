@@ -22,80 +22,80 @@
       <div id="terminal_close" class="click_sound" onclick="clearframe(); pauseAudio()"><a>●</a></div>
       <div id="terminal_title">Headless Horse</div>
       <iframe id="terminal_iframe" name="terminal_iframe" src="" frameborder="0"></iframe>
-      <div id="terminal_content_frame">
-        <div id=terminal_content>
+      <div id=terminal_content>
+        <div id="left">
+          <div id="termainal_copy">
+            <section id="home">
+              <p>Welcome <span id="welcome_back"></span>to Headless Horse a full-service creative studio.</p>
+              <p id="desktop_experience_message">This is a desktop experience.</p>
+              <p id="lastvisit_message"></p>
+              <p id="hours_list"></p>
+              <br>
+              <p id="firstuse_message"></p>
+            </section>
 
-          <section id="home">
-            <p>Welcome <span id="welcome_back"></span>to Headless Horse a full-service creative studio.</p>
-            <p id="desktop_experience_message">This is a desktop experience.</p>
-            <p id="lastvisit_message"></p>
-            <p id="hours_list"></p>
-            <br>
-            <p id="firstuse_message"></p>
-          </section>
+            <section id="info">
+              <p id="info_list"></p>
+            </section>
 
-          <section id="info">
-            <p id="info_list"></p>
-          </section>
+            <section id="projects">
+              <p>CASE STUDIES</p>
+              <p id="project_list"></p>
+            </section>
 
-          <section id="projects">
-            <p>CASE STUDIES</p>
-            <p id="project_list"></p>
-          </section>
+            <section id="contact">
+              <p id="contact_list"></p>
+            </section>
 
-          <section id="contact">
-            <p id="contact_list"></p>
-          </section>
+            <section id="shop">
+              <p>Loading...</p>
+            </section>
 
-          <section id="shop">
-            <p>Loading...</p>
-          </section>
+            <section id="lab">
+              <p>LAB</p>
+              <p>A home for ideas, experiments and abandoned projects.</p>
+              <p id="lab_list"></p>
+            </section>
 
-          <section id="lab">
-            <p>LAB</p>
-            <p>A home for ideas, experiments and abandoned projects.</p>
-            <p id="lab_list"></p>
-          </section>
+            <section id="follow">
+              <p>FOLLOW</p>
+              <p id="follow_list"></p>
+            </section>
 
-          <section id="follow">
-            <p>FOLLOW</p>
-            <p id="follow_list"></p>
-          </section>
+            <section id="press">
+              <p>SELECTED FEATURES</p>
+              <p id="press_list"></p>
+            </section>
 
-          <section id="press">
-            <p>SELECTED FEATURES</p>
-            <p id="press_list"></p>
-          </section>
+            <section id="mailinglist">
+              <p>MAILING LIST</p>
+              <p>Join our mailing list to be the first to receive updates on project launches, product releases and news.</p>
+              <p id="validate_message"></p>
+            </section>
 
-          <section id="mailinglist">
-            <p>MAILING LIST</p>
-            <p>Join our mailing list to be the first to receive updates on project launches, product releases and news.</p>
-            <p id="validate_message"></p>
-          </section>
+            <section id="jobs">
+              <p>JOBS</p>
+              <p id="job_list"></p>
+            </section>
 
-          <section id="jobs">
-            <p>JOBS</p>
-            <p id="job_list"></p>
-          </section>
+            <section id="alumni">
+              <p id="alumni_list"></p>
+            </section>
 
-          <section id="alumni">
-            <p id="alumni_list"></p>
-          </section>
+            <section id="imprint">
+              <p id="imprint_list"></p>
+            </section>
 
-          <section id="imprint">
-            <p id="imprint_list"></p>
-          </section>
+            <section id="tweet">
+              <p>Loading...</p>
+            </section>
 
-          <section id="tweet">
-            <p>Loading...</p>
-          </section>
+            <section id="mail">
+              <p>Loading...</p>
+            </section>
 
-          <section id="mail">
-            <p>Loading...</p>
-          </section>
-
-          <section id="list">
-            <pre>
+            <section id="list">
+              <pre>
 headless.horse/
 ├── SITE/
 │   ├── info
@@ -117,15 +117,21 @@ headless.horse/
     ├── tweet
     └── mail
           </pre>
-          </section>
+            </section>
 
-          <section id="error">
-            <p>Error. Command not recognised.</p>
-            <br>
-            <p>Type 'list' to see a list of commands.</p>
-          </section>
-
-          <p id="command">root@hhorse:~# <input id="commandinput" type="text" autofocus autocorrect="off" autocomplete="off" autocapitalize="off" onkeyup="this.value = this.value.toLowerCase();"></p>
+            <section id="error">
+              <p>Error. Command not recognised.</p>
+              <br>
+              <p>Type 'list' to see a list of commands.</p>
+            </section>
+            <p id="command">root@hhorse:~# <input id="commandinput" type="text" autofocus autocorrect="off" autocomplete="off" autocapitalize="off" onkeyup="this.value = this.value.toLowerCase();"></p>
+          </div>
+        </div>
+        <div id="right">
+          <div id="vision">
+            <p>Inspiration, thoughts and works from the studio.</p>
+            <div id="feed"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -218,7 +224,6 @@ headless.horse/
 </body>
 
 </html>
-
 <style>
   html {
     overflow-x: hidden;
@@ -229,6 +234,28 @@ headless.horse/
 
   html::-webkit-scrollbar {
     display: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 25px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-left: 1px solid #999999;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #999999;
+  }
+
+  ::selection {
+    background: #999999;
+    color: #000000;
+  }
+
+  ::-moz-selection {
+    background: #999999;
+    color: #000000;
   }
 
   body {
@@ -334,7 +361,7 @@ headless.horse/
     padding: 0;
     border-top: 1px solid #999999;
     margin: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5);
     -webkit-backdrop-filter: blur(6px);
     list-style-type: none;
   }
@@ -372,7 +399,7 @@ headless.horse/
     top: 50%;
     left: 50%;
     border: 1px solid #999999;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5);
     -webkit-backdrop-filter: blur(6px);
   }
 
@@ -410,11 +437,13 @@ headless.horse/
     height: calc(100% - 25px);
   }
 
-  #terminal_content_frame {
+  #terminal_content {
     z-index: 6;
     overflow-x: auto;
-    width: 50%;
     height: 70vh;
+  }
+
+  #termainal_copy {
     padding: 10px 20px;
   }
 
@@ -449,6 +478,40 @@ headless.horse/
     content: '● ';
   }
 
+  #left {
+    float: left;
+    width: 50%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  #right {
+    float: left;
+    width: calc(100% - 50%);
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  figure {
+    position: relative;
+    margin: 0px;
+    margin-bottom: 100px;
+  }
+
+  #right img {
+    height: 500px;
+  }
+
+  #vision {
+    padding: 10px 20px;
+  }
+
+  figcaption {
+    width: 100%;
+  }
+
   .open {
     display: block;
   }
@@ -479,7 +542,7 @@ headless.horse/
     padding: 15px 20px;
     border: 1px solid #999999;
     margin-top: 15px;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5);
     -webkit-backdrop-filter: blur(6px);
   }
 
@@ -524,7 +587,7 @@ headless.horse/
       height: 7px;
     }
 
-    #cookie_notice{
+    #cookie_notice {
       display: none;
     }
 
@@ -549,7 +612,7 @@ headless.horse/
       display: none;
     }
 
-    #desktop_experience_message{
+    #desktop_experience_message {
       display: block;
     }
 
@@ -570,12 +633,22 @@ headless.horse/
       display: none;
     }
 
-    #terminal_content_frame {
+    #terminal_content {
       z-index: 6;
       overflow-x: hidden;
-      padding: 5px 10px;
-      width: calc(100% - 20px);
       height: 100%;
+    }
+
+    #left {
+      width: 100%;
+    }
+
+    #right {
+      display: none;
+    }
+
+    #termainal_copy {
+      padding: 5px 10px;
     }
 
     #command {
@@ -590,7 +663,7 @@ headless.horse/
 
     #img_cover {
       display: none;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.5);
     }
 
     #img {
@@ -683,7 +756,7 @@ headless.horse/
     $("#terminal_close, #img_cover").click(function() {
       $("#terminal").fadeOut(1000);
       $("#terminal_iframe").hide();
-      $("#terminal_content").fadeOut(1000);
+      $("#left, #right").fadeOut(1000);
       $("#img_cover").fadeOut(2000);
     });
 
@@ -697,7 +770,7 @@ headless.horse/
     });
 
     $(".nav_link").click(function() {
-      $("#terminal_content").show();
+      $("#left, #right").show();
       $('#commandinput[type="text"]').focus();
       $('#commandinput[type="text"]').val('');
     });
@@ -707,28 +780,27 @@ headless.horse/
     document.getElementById("terminal_iframe").src = "about:blank";
   }
 
-<script>
 /***************************************** TIME *****************************************/
 
-  const locations = document.querySelectorAll("#clock")
+	const locations = document.querySelectorAll("#clock")
 
-  setInterval(function() {
-    // for each output tag
-    locations.forEach(location => {
+	setInterval(function() {
+		// for each output tag
+		locations.forEach(location => {
 
-      // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-      const tz = location.getAttribute("data_tz")
+			// https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+			const tz = location.getAttribute("data_tz")
 
-      // get the time in that timezone
-      const now = luxon.DateTime.now().setZone(tz)
+			// get the time in that timezone
+			const now = luxon.DateTime.now().setZone(tz)
 
-      // hour in 24-hour time, no padding
-      const hour = parseInt(now.toFormat("H"), 10)
-      console.log(hour)
+			// hour in 24-hour time, no padding
+			const hour = parseInt(now.toFormat("H"), 10)
+			console.log(hour)
 
       // day of the week as number (Monday is 1, Sunday is 7)
-      const hourday = now.toFormat("c")
-      console.log(hourday)
+			const hourday = now.toFormat("c")
+			console.log(hourday)
 
       // day of the week 'Wednesday'
       const dayofweek = now.toFormat("cccc")
@@ -744,21 +816,20 @@ headless.horse/
 
 /***************************************** CLOCK *****************************************/
 
-      if (hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6) {
-        document.getElementById('clock').innerHTML = timeandtimezone + " Online";
-      } else {
-        document.getElementById('clock').innerHTML = timeandtimezone + " Offline";
-      }
+			if (hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6) {
+				document.getElementById('clock').innerHTML = timeandtimezone + " Online";
+			} else {
+				document.getElementById('clock').innerHTML = timeandtimezone + " Offline";
+			}
 
 /***************************************** HOURS *****************************************/
-
       if (hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6) {
         document.getElementById('hours_list').innerHTML = "Open. " + dayofweek + " business hours: 08:00 – 18:00 " + timezone + ".";
       } else {
         document.getElementById('hours_list').innerHTML = "Closed. " + dayofweek + ", we are open Monday - Friday: 08:00 – 18:00 " + timezone + ".";
       }
-    })
-  }, 1000)
+		})
+	}, 1000)
 
 /***************************************** IMAGE MOVER *****************************************/
 
@@ -1116,6 +1187,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
   document.onmousemove = _move_elem;
   document.onmouseup = _destroy;
 </script>
+
 
 <script type="module">
 /***************************************** NOTICE *****************************************/
@@ -1654,6 +1726,44 @@ run();
         }, 1000);
       }
     }
+  });
+</script>
+
+<script>
+/***************************************** ARE.NA *****************************************/
+
+  $.getJSON("https://api.are.na/v2/channels/vision-erp-0et3qn4?page=1&amp;per=500", function(data) {
+
+    var html = "",
+      el = document.getElementById("feed");
+
+    $.each(data.contents.reverse(), function(key, val) {
+
+      var title = "<p>" + val.title + "</p>";
+      var descr = "<figcaption>" + val.description + "</figcaption>";
+      var date = "<p>" + val.title + "</p>";
+
+      if (val.image) {
+        var image = "<img class='image' src='" + val.image.large.url + "'/>";
+        if (val.source) {
+          var url = "<br><a href='" + val.source.url + "'>Src: " + val.source.provider.name +" →</a>";
+          html += "<figure>" + image + title + descr +  url + "</figure>";
+        } else {
+          html += "<figure>" + image + title + descr + "</figure>";
+        }
+
+      } else if (val.content) {
+        var note = "<p>" + val.content + "</p>";
+        if (val.source) {
+          var url = "<br><a href='" + val.source.url + "'>Src: " + val.source.provider.name +" →</a>";
+          html += "<figure>" + title + note + descr + url + "</figure>";
+        } else {
+          html += "<figure>" + title + note + descr + "</figure>";
+        }
+      }
+    });
+
+    el.innerHTML = html;
   });
 </script>
 
