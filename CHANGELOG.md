@@ -1,6 +1,9 @@
 # Changes to Headless.Horse.
 
-### 2.2 (11.01.2022)
+### 2.3 (25.01.2022)
+* Add Are.na feed.
+
+### 2.2 (11.01.2022 - 24.01.2022)
 * Update cookie notice
 
 ### 2.1 (23.08.2021 - 09.01.2022)
