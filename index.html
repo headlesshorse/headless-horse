@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!--
 <body style="background-color: #000000;">
   <div id="loader">
     <div id="loader_percentage"></div>
@@ -10,7 +10,7 @@
       </div>
     </div>
   </div>
-
+-->
   <ul id="nav_bottom">
     <li class="nav_link click_sound" title="Headless Horse"><a>●</a></li>
     <li><span id="notice_list" class="click_sound"></span></li>
@@ -480,24 +480,24 @@ headless.horse/
 
   #left {
     float: left;
-    width: 50%;
-    height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    width: calc(50% - 1px);
+    height: 100%;
   }
 
   #right {
     float: left;
-    width: calc(100% - 50%);
-    height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    width: calc(100% - 50%);
+    height: 100%;
+    border-left: 1px solid #999999;
   }
 
   figure {
     position: relative;
-    margin: 0px;
-    margin-bottom: 100px;
+    margin: 0px 0px 100px 0px;
   }
 
   #right img {
