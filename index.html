@@ -496,11 +496,11 @@ headless.horse/
 
   figure {
     position: relative;
-    margin: 0px 0px 100px 0px;
+    margin: 0px 0px 50px 0px;
   }
 
-  #right img {
-    height: 500px;
+  .feed_image {
+    height: 450px;
   }
 
   #vision {
@@ -1729,7 +1729,7 @@ run();
 </script>
 
 <script>
-/***************************************** ARE.NA *****************************************/
+  /***************************************** ARE.NA *****************************************/
 
   $.getJSON("https://api.are.na/v2/channels/vision-erp-0et3qn4?page=1&amp;per=500", function(data) {
 
@@ -1743,10 +1743,10 @@ run();
       var date = "<p>" + val.title + "</p>";
 
       if (val.image) {
-        var image = "<img class='image' src='" + val.image.large.url + "'/>";
+        var image = "<img class='feed_image' src='" + val.image.large.url + "'/>";
         if (val.source) {
-          var url = "<br><a href='" + val.source.url + "'>Src: " + val.source.provider.name +" →</a>";
-          html += "<figure>" + image + title + descr +  url + "</figure>";
+          var url = "<br><a href='" + val.source.url + "'>Src: " + val.source.provider.name + " →</a>";
+          html += "<figure>" + image + title + descr + url + "</figure>";
         } else {
           html += "<figure>" + image + title + descr + "</figure>";
         }
@@ -1754,7 +1754,7 @@ run();
       } else if (val.content) {
         var note = "<p>" + val.content + "</p>";
         if (val.source) {
-          var url = "<br><a href='" + val.source.url + "'>Src: " + val.source.provider.name +" →</a>";
+          var url = "<br><a class='feed_source' href='" + val.source.url + "'>Src: " + val.source.provider.name + " →</a>";
           html += "<figure>" + title + note + descr + url + "</figure>";
         } else {
           html += "<figure>" + title + note + descr + "</figure>";
@@ -1763,6 +1763,12 @@ run();
     });
 
     el.innerHTML = html;
+  });
+
+  $(document).on('click', 'a', function(e) {
+    e.preventDefault();
+    var url = $(this).attr('href');
+    window.open(url, '_blank');
   });
 </script>
 
