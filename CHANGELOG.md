@@ -2,9 +2,11 @@
 
 ### 2.3 (25.01.2022)
 * Add Are.na feed.
+* Add scrolling title.
+
 
 ### 2.2 (11.01.2022 - 24.01.2022)
-* Update cookie notice
+* Update cookie notice.
 
 ### 2.1 (23.08.2021 - 09.01.2022)
 * Remove mob_nav.html file.
