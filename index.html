@@ -13,7 +13,7 @@
   <ul id="nav_bottom">
     <li class="nav_link click_sound" title="Headless Horse"><a>●</a></li>
     <li><span id="notice_list" class="click_sound"></span></li>
-    <li style="float: right"><span id="clock" data_tz="Europe/London" data_rollover="Edinburgh, Scotland UK."></span></li>
+    <li style="float: right"><span id="clock" data_tz="Europe/London"></span></li>
   </ul>
 
   <div id="terminal">
@@ -22,67 +22,81 @@
       <div id="terminal_title">Headless Horse</div>
       <iframe id="terminal_iframe" name="terminal_iframe" src="" frameborder="0"></iframe>
       <div id=terminal_content>
+
+        <div id="mobile_header">
+          <img id="mobile_header_image" src="https://d2w9rnfcy7mm78.cloudfront.net/15231971/original_04a05222d69d2e3e739b68e758bf267e.jpg?1645207050?bc=0">
+        </div>
+
         <div id="left">
-          <div id="termainal_copy">
+          <div id="terminal_copy">
+
             <section id="home">
               <p>Welcome <span id="welcome_back"></span>to Headless Horse a full-service creative studio.</p>
-              <p id="desktop_experience_message">This is a desktop experience.</p>
               <p id="lastvisit_message"></p>
-              <p id="hours_list"></p>
-              <br>
+              <p><span id="hours_list"></span></p>
               <p id="firstuse_message"></p>
             </section>
 
-            <section id="info">
+            <p class="accordion">Studio</p>
+            <section id="info" class="accordion-panel">
               <p id="info_list"></p>
+              <br>
             </section>
 
-            <section id="projects">
-              <p>CASE STUDIES</p>
+            <p class="accordion">Work</p>
+            <section id="projects" class="accordion-panel">
               <p id="project_list"></p>
+              <br>
             </section>
 
-            <section id="contact">
+            <p class="accordion">Contact</p>
+            <section id="contact" class="accordion-panel">
               <p id="contact_list"></p>
+              <br>
             </section>
 
-            <section id="shop">
-              <p>Loading...</p>
-            </section>
-
-            <section id="lab">
-              <p>LAB</p>
-              <p>A home for ideas, experiments and abandoned projects.</p>
+            <p class="accordion mobile_hide">Lab</p>
+            <section id="lab" class="accordion-panel">
               <p id="lab_list"></p>
+              <br>
             </section>
 
-            <section id="follow">
-              <p>FOLLOW</p>
+            <p class="accordion mobile_hide">Follow</p>
+            <section id="follow" class="accordion-panel">
               <p id="follow_list"></p>
+              <br>
             </section>
 
-            <section id="press">
-              <p>SELECTED FEATURES</p>
+            <p class="accordion">Features</p>
+            <section id="press" class="accordion-panel">
               <p id="press_list"></p>
+              <br>
             </section>
 
             <section id="mailinglist">
-              <p>MAILING LIST</p>
               <p>Join our mailing list to be the first to receive updates on project launches, product releases and news.</p>
               <p id="validate_message"></p>
             </section>
 
-            <section id="jobs">
-              <p>JOBS</p>
+            <p class="accordion">Jobs</p>
+            <section id="jobs" class="accordion-panel">
               <p id="job_list"></p>
+              <br>
             </section>
 
             <section id="alumni">
               <p id="alumni_list"></p>
+              <br>
             </section>
 
-            <section id="imprint">
+            <p class="accordion">Imprint</p>
+            <section id="imprint" class="accordion-panel">
               <p id="imprint_list"></p>
+              <br>
+            </section>
+
+            <section id="shop">
+              <p>Loading...</p>
             </section>
 
             <section id="tweet">
@@ -125,12 +139,16 @@ headless.horse/
             </section>
             <p id="command">root@hhorse:~# <input id="commandinput" type="text" autofocus autocorrect="off" autocomplete="off" autocapitalize="off" onkeyup="this.value = this.value.toLowerCase();"></p>
           </div>
+
+          <div class="mobile_footer">
+            <a href="mailto:mail@headless.horse" target="_blank">Mail</a>
+          </div>
+          <div class="mobile_footer">
+            <a href="https://www.instagram.com/headless.horse/" target="_blank">IG</a> / <a href="https://twitter.com/headless__horse" target="_blank">TW</a>
+          </div>
         </div>
         <div id="right">
-          <div id="vision">
-            <p>Inspiration, thoughts and works from the studio.</p>
-            <div id="feed"></div>
-          </div>
+          <div id="feed"></div>
         </div>
       </div>
     </div>
@@ -217,22 +235,27 @@ headless.horse/
       coords="868,2693,969,2636,984,2634,994,2644,993,2656,981,2664,980,2688,1106,2678,1106,2669,1148,2660,1187,2644,1246,2635,1279,2624,1292,2649,1284,2659,1283,2669,1312,2666,1360,2682,1360,2999,921,3039,892,3065,878,3065,801,3048,740,3040,673,3046,654,3051,647,3025,712,2991,823,2914,841,2899,831,2843,836,2801,848,2752,862,2724,878,2705,892,2696,892,2691,866,2700">
   </map>
 
+  <div id="emailform">
+    <form action="https://headlesshorse.us20.list-manage.com/subscribe/post?u=4792941058b6d3b4b6ea3b3f2&amp;id=6ac99d042c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <input type="email" value="" name="EMAIL" id="mce-EMAIL">
+      <input type="submit" value="Subscribe" id="mc-embedded-subscribe" disabled="disabled">
+    </form>
+  </div>
+
   <audio src="https://s3.eu-west-2.amazonaws.com/assets.headless.horse/audio/pad.wav?dl=0" id="backgroundpad" class="audiofile" loop="loop" type="audio/mpeg"></audio>
   <audio src="https://s3.eu-west-2.amazonaws.com/assets.headless.horse/audio/select.mp3?dl=0" id="projectclick" class="audiofile" type="audio/mpeg"></audio>
   <audio src="https://s3.eu-west-2.amazonaws.com/assets.headless.horse/audio/click.mp3?dl=0" id="linkclick" class="audiofile" type="audio/mpeg"></audio>
+
 </body>
 
 </html>
+
 <style>
   html {
     overflow-x: hidden;
     overflow-y: hidden;
     -ms-overflow-style: none;
     text-rendering: optimizeLegibility;
-  }
-
-  html::-webkit-scrollbar {
-    display: none;
   }
 
   ::-webkit-scrollbar {
@@ -367,8 +390,8 @@ headless.horse/
   }
 
   #nav_bottom>li {
-    padding: 5px 11px 5px 9px;
     float: left;
+    padding: 5px 11px 5px 9px;
   }
 
   #notice_list a:hover::before {
@@ -379,17 +402,9 @@ headless.horse/
     cursor: default !important;
   }
 
-  span:hover::before {
-    content: attr(data_rollover)' ';
-  }
-
   .nav_link {
     border-right: 1px solid #999999;
     cursor: pointer !important;
-  }
-
-  #desktop_experience_message {
-    display: none;
   }
 
   #terminal {
@@ -444,7 +459,7 @@ headless.horse/
     height: 70vh;
   }
 
-  #termainal_copy {
+  #terminal_copy {
     padding: 10px 20px;
   }
 
@@ -463,10 +478,6 @@ headless.horse/
 
   input[type="text"]:focus {
     outline: none;
-  }
-
-  section {
-    display: none;
   }
 
   #terminal_content a {
@@ -496,6 +507,10 @@ headless.horse/
     border-left: 1px solid #999999;
   }
 
+  #feed {
+    padding: 20px;
+  }
+
   figure {
     position: relative;
     margin: 0px 0px 50px 0px;
@@ -505,20 +520,8 @@ headless.horse/
     height: 450px;
   }
 
-  #vision {
-    padding: 10px 20px;
-  }
-
-  figcaption {
-    width: 100%;
-  }
-
   .open {
     display: block;
-  }
-
-  #emailform {
-    display: none;
   }
 
   #img {
@@ -562,25 +565,34 @@ headless.horse/
     color: #000000;
   }
 
-  @media screen and (max-width: 900px) {
+  #mobile_header,
+  #mobile_header_image,
+  section,
+  .accordion,
+  .mobile_footer,
+  #emailform {
+    display: none;
+  }
+
+  @media (max-width:1000px) {
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      border-left: 0px;
+    }
+
     body {
-      font-size: 10px;
+      font-size: 9px;
     }
 
     p {
-      font-size: 10px;
-    }
-
-    p+p {
-      margin-top: 10px
+      font-size: 9px;
     }
 
     a {
-      font-size: 10px;
-    }
-
-    #loader {
-      line-height: 47px;
+      font-size: 9px;
     }
 
     #loader_frame,
@@ -589,33 +601,8 @@ headless.horse/
       height: 7px;
     }
 
-    #cookie_notice {
-      display: none;
-    }
-
     .cookie_notice>a {
-      font-size: 10px;
-    }
-
-    #nav_bottom {
-      z-index: 8;
-      top: 0px;
-      height: 26px;
-      border-top: 0px;
-      background: 0;
-      -webkit-backdrop-filter: none;
-    }
-
-    .nav_link {
-      display: none;
-    }
-
-    #notice_list {
-      display: none;
-    }
-
-    #desktop_experience_message {
-      display: block;
+      font-size: 9px;
     }
 
     #terminal {
@@ -623,56 +610,135 @@ headless.horse/
       width: 100%;
       height: 100%;
       border: 0px;
-      -webkit-backdrop-filter: none;
+      background: #000000;
     }
 
     #terminal_container {
       width: 100%;
-      height: 100%;
-    }
-
-    #terminal_close {
-      display: none;
     }
 
     #terminal_content {
-      z-index: 6;
-      overflow-x: hidden;
       height: 100%;
+    }
+
+    #terminal_copy {
+      padding: 0px;
+    }
+
+    #feed {
+      padding: 10px;
+    }
+
+    .feed_image {
+      width: 100%;
+      height: auto;
+    }
+
+    section {
+      display: block;
+    }
+
+    .accordion {
+      display: block;
+      cursor: pointer;
+      padding: 15px 8px;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .accordion::after {
+      float: right;
+      transform: rotate(-45deg);
+      font-size: 12px;
+      content: '✕';
+      transition: .3s ease-out;
+    }
+
+    .active::after {
+      transform: rotate(0deg);
+      content: "✕";
+    }
+
+    .accordion-panel {
+      overflow: hidden;
+      max-height: 0;
+      padding: 0px 8px;
+      border-bottom: 1px solid #999;
+      transition: max-height 0.3s ease-out;
+    }
+
+    #terminal_close,
+    #terminal_title,
+    #nav_bottom,
+    #home,
+    #shop,
+    #alumni,
+    #mailinglist,
+    #tweet,
+    #mail,
+    #list,
+    #error,
+    #command,
+    #clock,
+    #img,
+    #tooltip {
+      display: none;
+    }
+  }
+
+  @media (max-width:700px) {
+    ::-webkit-scrollbar {
+      display: none;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    #mobile_header {
+      display: block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      padding: 40px;
+      text-align: center;
+    }
+
+    #mobile_header_image {
+      display: block;
+      width: 100%;
+      height: auto;
+      padding: 40px;
+      margin: 0 auto;
     }
 
     #left {
       width: 100%;
     }
 
-    #right {
-      display: none;
+    .accordion:first-of-type {
+      border-top: 1px solid #999999;
     }
 
-    #termainal_copy {
-      padding: 5px 10px;
+    * {
+      box-sizing: border-box;
     }
 
-    #command {
-      width: 100vw;
+    .mobile_footer {
+      display: block;
+      float: left;
+      width: 50%;
+      padding: 15px 8px;
+      text-transform: uppercase;
     }
 
-    input[type="text"] {
-      transform: scale(0.60);
-      margin-left: -40px;
-      font-size: 16px;
+    .mobile_footer:last-of-type {
+      text-align: right
     }
 
-    #img_cover {
-      display: none;
-      background: rgba(0, 0, 0, 0.5);
-    }
-
-    #img {
-      display: none;
-    }
-
-    #tooltip {
+    .mobile_hide,
+    #loader,
+    #right,
+    #follow,
+    #lab {
       display: none;
     }
   }
@@ -804,10 +870,6 @@ headless.horse/
 			const hourday = now.toFormat("c")
 			console.log(hourday)
 
-      // day of the week 'Wednesday'
-      const dayofweek = now.toFormat("cccc")
-      console.log(dayofweek)
-
       // timezone 'GMT'
       const timezone = now.toFormat("ZZZZ")
       console.log(timezone)
@@ -827,9 +889,9 @@ headless.horse/
 /***************************************** HOURS *****************************************/
 
       if (hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6) {
-        document.getElementById('hours_list').innerHTML = "Open. " + dayofweek + " business hours: 08:00 – 18:00 " + timezone + ".";
+        document.getElementById('hours_list').innerHTML = "Online. " + " Mo - Fr. 08:00 – 18:00 " + timezone + ".";
       } else {
-        document.getElementById('hours_list').innerHTML = "Closed. " + dayofweek + ", we are open Monday - Friday: 08:00 – 18:00 " + timezone + ".";
+        document.getElementById('hours_list').innerHTML = "Offline. "+ " Mo - Fr. 08:00 – 18:00 " + timezone + ".";
       }
 		})
 	}, 1000)
@@ -1320,7 +1382,7 @@ run();
 
   const tableTemplate = table => html`
       ${table.map(({id, Client, Project, Number, Status}) => html`
-        <p><a href="/project-${Number}" target="terminal_iframe">${Number}. ${Client} – ${Project}. ${Status}</a></p>
+        <p><a href="/project-${Number}" target="_blank"><span class="mobile_hide">${Number}.</span> ${Client} – ${Project}. ${Status}</a></p>
       `)}
   `;
 
@@ -1407,7 +1469,7 @@ run();
 
   const tableTemplate = table => html`
       ${table.map(({Site, Handle, Slug}) => html`
-        <p><a href="${Slug}${Handle}/" target="_blank">${Site} @${Handle} →</a></p>
+        <p><a href="${Slug}${Handle}/" target="_blank">${Site} <span class="mobile_hide">@${Handle}</span> →</a></p>
       `)}
   `;
 
@@ -1436,7 +1498,7 @@ run();
 
   const tableTemplate = table => html`
       ${table.map(({id, Recognition, Outlet, Project, Published, Status, Slug}) => html`
-        <p><a href="${Slug}" target="_blank">${Published} ${Recognition}, ${Outlet} – ${Project}. ${Status}</a></p>
+        <p><a href="${Slug}" target="_blank"><span class="mobile_hide">${Published} ${Recognition},</span> ${Outlet} – ${Project}. ${Status}</a></p>
       `)}
   `;
 
@@ -1733,7 +1795,7 @@ run();
 </script>
 
 <script>
-  /***************************************** ARE.NA *****************************************/
+/***************************************** ARE.NA *****************************************/
 
   $.getJSON("https://api.are.na/v2/channels/vision-erp-0et3qn4?page=1&amp;per=500", function(data) {
 
@@ -1744,7 +1806,6 @@ run();
 
       var title = "<p>" + val.title + "</p>";
       var descr = "<figcaption>" + val.description + "</figcaption>";
-      var date = "<p>" + val.title + "</p>";
 
       if (val.image) {
         var image = "<img class='feed_image' src='" + val.image.large.url + "'/>";
@@ -1779,6 +1840,7 @@ run();
 <script>
 /***************************************** TYPER *****************************************/
 
+if ($(window).width() > 1000) {
   (function(e) {
     "use strict";
     e.fn.textTyper = function(t) {
@@ -1849,11 +1911,13 @@ run();
       return this
     }
   })(jQuery)
+}
 </script>
 
 <script>
 /***************************************** TERMINAL OPEN *****************************************/
 
+if (window.screen.width > 1000) {
   $('#terminal').click(function() {
     $('#commandinput[type="text"]').focus();
   });
@@ -1906,6 +1970,7 @@ run();
       } // end if 'enter' key pressed
     }); // end keyup function
   });
+}
 </script>
 
 <script>
@@ -1966,6 +2031,43 @@ run();
 
   }
   lastvisit.showmessage();
+</script>
+
+<script>
+/***************************************** MOBILE *****************************************/
+
+  let accHeading = document.querySelectorAll(".accordion");
+  let accPanel = document.querySelectorAll(".accordion-panel");
+
+  for (let i = 0; i < accHeading.length; i++) {
+
+    accHeading[i].onclick = function() {
+      if (this.nextElementSibling.style.maxHeight) {
+        hidePanels();
+      } else {
+        showPanel(this);
+      }
+    };
+  }
+
+  function showPanel(elem) {
+    hidePanels();
+    elem.classList.add("active");
+    elem.nextElementSibling.style.maxHeight = elem.nextElementSibling.scrollHeight + "px";
+  }
+
+  function hidePanels() {
+    for (let i = 0; i < accPanel.length; i++) {
+      accPanel[i].style.maxHeight = null;
+      accHeading[i].classList.remove("active");
+    }
+  }
+
+  if ($(window).width() < 1000) {
+    $("#notice_list").insertAfter("#mobile_header_image");
+    $("#hours_list").insertBefore("#mobile_header_image");
+    $("#cookie_notice").insertAfter("#mobile_header");
+  }
 </script>
 
 <script>
@@ -2037,16 +2139,9 @@ run();
     return CookieNotice
   }));
 
-  /*
+/*
   CookieNotice.undismiss() // to always show cookie notice
-  */
+*/
+
   CookieNotice()
-
 </script>
-
-<div id="emailform">
-  <form action="https://headlesshorse.us20.list-manage.com/subscribe/post?u=4792941058b6d3b4b6ea3b3f2&amp;id=6ac99d042c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <input type="email" value="" name="EMAIL" id="mce-EMAIL">
-    <input type="submit" value="Subscribe" id="mc-embedded-subscribe" disabled="disabled">
-  </form>
-</div>
