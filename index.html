@@ -61,13 +61,12 @@
               <br>
             </section>
 
-            <p class="accordion mobile_hide">Follow</p>
-            <section id="follow" class="accordion-panel">
+            <section id="follow">
               <p id="follow_list"></p>
               <br>
             </section>
 
-            <p class="accordion">Features</p>
+            <p class="accordion">Press</p>
             <section id="press" class="accordion-panel">
               <p id="press_list"></p>
               <br>
@@ -78,9 +77,9 @@
               <p id="validate_message"></p>
             </section>
 
-            <p class="accordion">Jobs</p>
-            <section id="jobs" class="accordion-panel">
-              <p id="job_list"></p>
+            <p class="accordion">Careers</p>
+            <section id="Careers" class="accordion-panel">
+              <p id="Careers_list"></p>
               <br>
             </section>
 
@@ -117,7 +116,7 @@ headless.horse/
 ├── PUBLIC/
 │   ├── follow
 │   ├── press
-│   ├── jobs
+│   ├── Careers
 │   ├── shop
 │   ├── lab
 │   └── mailinglist
@@ -138,13 +137,6 @@ headless.horse/
               <p>Type 'list' to see a list of commands.</p>
             </section>
             <p id="command">root@hhorse:~# <input id="commandinput" type="text" autofocus autocorrect="off" autocomplete="off" autocapitalize="off" onkeyup="this.value = this.value.toLowerCase();"></p>
-          </div>
-
-          <div class="mobile_footer">
-            <a href="mailto:mail@headless.horse" target="_blank">Mail</a>
-          </div>
-          <div class="mobile_footer">
-            <a href="https://www.instagram.com/headless.horse/" target="_blank">IG</a> / <a href="https://twitter.com/headless__horse" target="_blank">TW</a>
           </div>
         </div>
         <div id="right">
@@ -351,29 +343,6 @@ headless.horse/
     background: #999999;
   }
 
-  .cookie_notice {
-    padding: 5px 11px 5px 8px;
-    background: #999999;
-    color: #000000;
-  }
-
-  .cookie_notice a {
-    color: #000000;
-  }
-
-  .cookie_notice a:hover::before {
-    content: '● ';
-  }
-
-  .cookie_notice>a {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 5px 11px 5px 8px;
-    margin: 0;
-    cursor: pointer;
-  }
-
   #nav_bottom {
     position: fixed;
     z-index: 8;
@@ -569,7 +538,6 @@ headless.horse/
   #mobile_header_image,
   section,
   .accordion,
-  .mobile_footer,
   #emailform {
     display: none;
   }
@@ -599,10 +567,6 @@ headless.horse/
     #loader_percentage {
       max-width: 70vw;
       height: 7px;
-    }
-
-    .cookie_notice>a {
-      font-size: 9px;
     }
 
     #terminal {
@@ -722,22 +686,9 @@ headless.horse/
       box-sizing: border-box;
     }
 
-    .mobile_footer {
-      display: block;
-      float: left;
-      width: 50%;
-      padding: 15px 8px;
-      text-transform: uppercase;
-    }
-
-    .mobile_footer:last-of-type {
-      text-align: right
-    }
-
     .mobile_hide,
     #loader,
     #right,
-    #follow,
     #lab {
       display: none;
     }
@@ -1620,7 +1571,7 @@ function doclientSearch(textArea) {
 </script>
 
 <script type="module">
-/***************************************** JOBS *****************************************/
+/***************************************** Careers *****************************************/
 
   import { html, render } from 'https://unpkg.com/lit?module';
 
@@ -1634,8 +1585,8 @@ function doclientSearch(textArea) {
   }
 
   const tableTemplate = table => html`
-      ${table.map(({id, Status, Location, Job, Contract, Close, Slug}) => html`
-        <p><a href="${Slug}" target="_blank">${Location}, ${Job}, ${Contract} – ${Status}.</a></p>
+      ${table.map(({id, Status, Location, Position, Contract, Close, Slug}) => html`
+        <p><a href="${Slug}" target="_blank">${Location}, ${Position}, ${Contract} – ${Status}.</a></p>
       `)}
   `;
 
@@ -1645,7 +1596,7 @@ function doclientSearch(textArea) {
     .then(tableTemplate) // Promise<TemplateResult>
 		.then(trace('template result is'))
     .then(result =>
-			render(result, document.getElementById('job_list')))
+			render(result, document.getElementById('Careers_list')))
 </script>
 
 <script type="module">
@@ -2066,82 +2017,8 @@ if (window.screen.width > 1000) {
   if ($(window).width() < 1000) {
     $("#notice_list").insertAfter("#mobile_header_image");
     $("#hours_list").insertBefore("#mobile_header_image");
-    $("#cookie_notice").insertAfter("#mobile_header");
+    $("#follow").insertAfter("#contact_list");
+    $("#nav_bottom").insertAfter("#mobile_header_image");
+
   }
-</script>
-
-<script>
-/***************************************** COOKIE NOTICE *****************************************/
-
-  void(function(root, factory) {
-    if (typeof define === 'function' && define.amd) define(factory)
-    else if (typeof exports === 'object') module.exports = factory()
-    else root.CookieNotice = factory()
-  }(this, function() {
-    function CookieNotice() {
-      ready(run)
-    }
-
-    CookieNotice.options = {
-      message: 'This website uses cookies. <a href="https://headlesshorse.notion.site/Privacy-3da531bfce1d4f4094afa4e9c138a5ca">Privacy policy.',
-      dismiss: 'Accept'
-    }
-
-    function run() {
-      if (window.localStorage.cookieNoticeDismissed) return
-      show()
-    }
-
-    function dismiss() {
-      var notice = document.getElementById('cookie_notice')
-      if (notice) notice.parentNode.removeChild(notice)
-      window.localStorage.cookieNoticeDismissed = true
-    }
-
-    function undismiss() {
-      delete window.localStorage.cookieNoticeDismissed
-    }
-
-    function show() {
-      var $div = document.createElement('div')
-      $div.className = 'cookie_notice'
-      $div.id = 'cookie_notice'
-
-      var $message = document.createElement('div')
-      $message.className = 'cookie_notice_message'
-      $message.innerHTML = CookieNotice.options.message
-      $div.appendChild($message)
-
-      var $dismiss = document.createElement('a')
-      $dismiss.innerHTML = CookieNotice.options.dismiss
-      $dismiss.onclick = dismiss
-      $div.appendChild($dismiss)
-
-      document.getElementById('nav_bottom').prepend($div)
-    }
-
-    function ready(fn) {
-      if (document.readyState === 'complete') {
-        return fn()
-      } else if (document.addEventListener) {
-        document.addEventListener('DOMContentLoaded', fn)
-      } else {
-        document.attachEvent('onreadystatechange', function() {
-          if (document.readyState === 'interactive') fn()
-        })
-      }
-    }
-
-    CookieNotice.run = run
-    CookieNotice.dismiss = dismiss
-    CookieNotice.undismiss = undismiss
-
-    return CookieNotice
-  }));
-
-/*
-  CookieNotice.undismiss() // to always show cookie notice
-*/
-
-  CookieNotice()
 </script>
