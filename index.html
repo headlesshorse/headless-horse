@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <body style="background-color: #000000;">
   <div id="loader">
     <div id="loader_percentage"></div>
@@ -24,7 +25,7 @@
       <div id=terminal_content>
 
         <div id="mobile_header">
-          <img id="mobile_header_image" src="https://d2w9rnfcy7mm78.cloudfront.net/15231971/original_04a05222d69d2e3e739b68e758bf267e.jpg?1645207050?bc=0">
+          <canvas id="mobile_header_image" width="1000" height="1000"></canvas>
         </div>
 
         <div id="left">
@@ -274,8 +275,8 @@ headless.horse/
   }
 
   body {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     color: #999999;
     font-family: courier, monospace;
     font-size: 12px;
@@ -339,7 +340,7 @@ headless.horse/
     top: 0;
     left: 0;
     overflow: hidden;
-    width: 0%;
+    width: 0;
     height: 100%;
     background: #999999;
   }
@@ -402,7 +403,7 @@ headless.horse/
     top: 0;
     right: 0;
     text-align: center;
-    padding: 5px 0px 5px 0px;
+    padding: 5px 0 5px 0;
     border: 1px solid #999999;
     cursor: pointer !important;
   }
@@ -483,7 +484,7 @@ headless.horse/
 
   figure {
     position: relative;
-    margin: 0px 0px 50px 0px;
+    margin: 0 0 50px 0;
   }
 
   .feed_image {
@@ -549,7 +550,7 @@ headless.horse/
     }
 
     ::-webkit-scrollbar-track {
-      border-left: 0px;
+      border-left: 0;
     }
 
     body {
@@ -564,17 +565,11 @@ headless.horse/
       font-size: 9px;
     }
 
-    #loader_frame,
-    #loader_percentage {
-      max-width: 70vw;
-      height: 7px;
-    }
-
     #terminal {
       transform: translate(-50%, -50%);
       width: 100%;
       height: 100%;
-      border: 0px;
+      border: 0;
       background: #000000;
     }
 
@@ -587,7 +582,7 @@ headless.horse/
     }
 
     #terminal_copy {
-      padding: 0px;
+      padding: 0;
     }
 
     #feed {
@@ -627,8 +622,8 @@ headless.horse/
     .accordion-panel {
       overflow: hidden;
       max-height: 0;
-      padding: 0px 8px;
-      border-bottom: 1px solid #999;
+      padding: 0 8px;
+      border-bottom: 1px solid #999999;
       transition: max-height 0.3s ease-out;
     }
 
@@ -689,8 +684,8 @@ headless.horse/
     }
 
     .mobile_hide,
-    #loader,
     #right,
+    #loader,
     #lab {
       display: none;
     }
@@ -2022,5 +2017,41 @@ if (window.screen.width > 1000) {
     $("#follow").insertAfter("#contact_list");
     $("#nav_bottom").insertAfter("#mobile_header_image");
 
+  }
+
+  var scale = {
+    value: 100
+  };
+
+  var canvas = document.querySelector("#mobile_header_image");
+  var ctx = canvas.getContext("2d");
+  ctx.imageSmoothingEnabled = false;
+
+  var cw = canvas.width;
+  var ch = canvas.height;
+
+  var img = new Image();
+  img.onload = init;
+  img.src = "https://d2w9rnfcy7mm78.cloudfront.net/15231971/original_04a05222d69d2e3e739b68e758bf267e.jpg?1645207050?bc=0";
+
+  function init() {
+
+    TweenMax.to(scale, 4, {
+      value: 1,
+      ease: Linear.easeNone,
+      onUpdate: update,
+      yoyo: true
+    });
+
+    update();
+  }
+
+  function update() {
+
+    var sw = (cw / scale.value) >> 0;
+    var sh = (ch / scale.value) >> 0;
+
+    ctx.drawImage(img, 0, 0, sw, sh);
+    ctx.drawImage(canvas, 0, 0, sw, sh, 0, 0, cw, ch);
   }
 </script>
