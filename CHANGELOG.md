@@ -3,6 +3,9 @@
 ### 2.3 (25.01.2022)
 * Add Are.na feed.
 * Add scrolling title.
+* Add mobile navigation with accordion.
+* Add mobile header pixelation animation.
+* Update to format of info, services and contact.
 
 
 ### 2.2 (11.01.2022 - 24.01.2022)
