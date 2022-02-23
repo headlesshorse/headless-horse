@@ -39,15 +39,19 @@
               <p id="firstuse_message"></p>
             </section>
 
-            <p class="accordion">Studio</p>
+            <p class="accordion">Info</p>
             <section id="info" class="accordion-panel">
               <p id="info_list"></p>
               <br>
+              <p id="clients_list"></p>
+              <br>
             </section>
 
-            <p class="accordion">Work</p>
-            <section id="projects" class="accordion-panel">
-              <p id="project_list"></p>
+            <p class="accordion">Services</p>
+            <section id="services" class="accordion-panel">
+              <p id="services_list"></p>
+              <br>
+              <p id="technology_list"></p>
               <br>
             </section>
 
@@ -57,8 +61,13 @@
               <br>
             </section>
 
-            <p class="accordion mobile_hide">Lab</p>
-            <section id="lab" class="accordion-panel">
+            <p class="accordion">Projects</p>
+            <section id="projects" class="accordion-panel">
+              <p id="project_list"></p>
+              <br>
+            </section>
+
+            <section id="lab">
               <p id="lab_list"></p>
               <br>
             </section>
@@ -113,8 +122,9 @@
 headless.horse/
 ├── SITE/
 │   ├── info
-│   ├── projects
-│   └── contact
+│   ├── services
+│   ├── contact
+│   └── projects
 ├── PUBLIC/
 │   ├── follow
 │   ├── press
@@ -288,6 +298,7 @@ headless.horse/
     color: #999999;
     font-family: courier, monospace;
     font-size: 12px;
+    line-height: 1.5;
     font-style: normal;
     font-weight: 400;
   }
@@ -469,6 +480,30 @@ headless.horse/
     height: 100%;
   }
 
+  #services_list span,
+  #technology_list span,
+  #clients_list span {
+    display: inline;
+  }
+
+  #services_List span:first-child,
+  #technology_List span:first-child,
+  #clients_list span:first-child {
+    text-transform: capitalize;
+  }
+
+  #services_list span::after,
+  #technology_list span::after,
+  #clients_list span::after {
+    content: ', ';
+  }
+
+  #services_list span:last-child:after,
+  #technology_list span:last-child:after,
+  #clients_list span:last-child:after {
+    content: '.';
+  }
+
   #right {
     float: left;
     overflow-y: auto;
@@ -540,7 +575,7 @@ headless.horse/
   #mobile_header_image,
   section,
   .accordion,
-  #emailform {
+  .mobile_footer {
     display: none;
   }
 
@@ -598,6 +633,38 @@ headless.horse/
       display: block;
     }
 
+    #clients_list>span,
+    #services_list>span,
+    #technology_list>span,
+    #press_list>span,
+    #project_list>span {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    #services_list span,
+    #technology_list span,
+    #clients_list span {
+      display: block;
+    }
+
+    #services_list span::after,
+    #technology_list span::after,
+    #clients_list span::after {
+      content: '';
+    }
+
+    #services_list span:last-child:after,
+    #technology_list span:last-child:after,
+    #clients_list span:last-child:after {
+      content: '';
+    }
+
+    #services_list span:first-letter {
+      text-transform: uppercase;
+    }
+
     .accordion {
       display: block;
       cursor: pointer;
@@ -617,7 +684,6 @@ headless.horse/
 
     .active::after {
       transform: rotate(0deg);
-      content: "✕";
     }
 
     .accordion-panel {
@@ -631,7 +697,9 @@ headless.horse/
     #terminal_close,
     #terminal_title,
     #nav_bottom,
+    #clock,
     #home,
+    #follow,
     #shop,
     #alumni,
     #mailinglist,
@@ -640,7 +708,6 @@ headless.horse/
     #list,
     #error,
     #command,
-    #clock,
     #img,
     #tooltip {
       display: none;
@@ -678,12 +745,14 @@ headless.horse/
       width: 100%;
     }
 
-    .accordion:first-of-type {
-      border-top: 1px solid #999999;
+    #clients_list,
+    #services_list,
+    #technology_list {
+      column-count: 2;
     }
 
-    * {
-      box-sizing: border-box;
+    .accordion:first-of-type {
+      border-top: 1px solid #999999;
     }
 
     .mobile_hide,
@@ -1318,6 +1387,93 @@ run();
 </script>
 
 <script type="module">
+/***************************************** CLIENTS *****************************************/
+
+  import { html, render } from 'https://unpkg.com/lit?module';
+
+  const URL = "https://notion-api.splitbee.io/v1/table/2879a5a7fb2e4341b79a7132b2d399ca";
+
+  const handleAsJson = response => response.json();
+
+  const trace = tag => x => {
+    console.log(tag, x);
+    return x;
+  }
+
+  const tableTemplate = table => html`
+      ${table.map(({Client}) => html`
+        <span>${Client}</span>
+      `)}
+  `;
+
+  const projectItem = fetch(URL)
+    .then(handleAsJson) // Promise<TableJson>
+    .then(trace('table is'))
+    .then(tableTemplate) // Promise<TemplateResult>
+		.then(trace('template result is'))
+    .then(result =>
+			render(result, document.getElementById('clients_list')))
+</script>
+
+<script type="module">
+/***************************************** SERVICES *****************************************/
+
+  import { html, render } from 'https://unpkg.com/lit?module';
+
+  const URL = "https://notion-api.splitbee.io/v1/table/152f1eda45414a1fa5a625b607a8915b";
+
+  const handleAsJson = response => response.json();
+
+  const trace = tag => x => {
+    console.log(tag, x);
+    return x;
+  }
+
+  const tableTemplate = table => html`
+      ${table.map(({Service}) => html`
+        <span>${Service}</span>
+      `)}
+  `;
+
+  const projectItem = fetch(URL)
+    .then(handleAsJson) // Promise<TableJson>
+    .then(trace('table is'))
+    .then(tableTemplate) // Promise<TemplateResult>
+		.then(trace('template result is'))
+    .then(result =>
+			render(result, document.getElementById('services_list')))
+</script>
+
+<script type="module">
+/***************************************** SERVICES *****************************************/
+
+  import { html, render } from 'https://unpkg.com/lit?module';
+
+  const URL = "https://notion-api.splitbee.io/v1/table/82c2793ce8b046db968bce3f1355c158";
+
+  const handleAsJson = response => response.json();
+
+  const trace = tag => x => {
+    console.log(tag, x);
+    return x;
+  }
+
+  const tableTemplate = table => html`
+      ${table.map(({Technology}) => html`
+        <span>${Technology}</span>
+      `)}
+  `;
+
+  const projectItem = fetch(URL)
+    .then(handleAsJson) // Promise<TableJson>
+    .then(trace('table is'))
+    .then(tableTemplate) // Promise<TemplateResult>
+		.then(trace('template result is'))
+    .then(result =>
+			render(result, document.getElementById('technology_list')))
+</script>
+
+<script type="module">
 /***************************************** PROJECTS *****************************************/
 
   import { html, render } from 'https://unpkg.com/lit?module';
@@ -1449,7 +1605,7 @@ run();
 
   const tableTemplate = table => html`
       ${table.map(({id, Recognition, Outlet, Project, Published, Status, Slug}) => html`
-        <p><a href="${Slug}" target="_blank"><span class="mobile_hide">${Published} ${Recognition},</span> ${Outlet} – ${Project}. ${Status}</a></p>
+        <p><a href="${Slug}" target="_blank"><span class="mobile_hide">${Published}</span>${Outlet}, ${Recognition} – ${Project}. ${Status}</a></p>
       `)}
   `;
 
@@ -2017,9 +2173,7 @@ if (window.screen.width > 1000) {
   if ($(window).width() < 1000) {
     $("#notice_list").insertAfter("#mobile_header_image");
     $("#hours_list").insertBefore("#mobile_header_image");
-    $("#follow").insertAfter("#contact_list");
     $("#nav_bottom").insertAfter("#mobile_header_image");
-
   }
 
   var scale = {
