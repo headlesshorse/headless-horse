@@ -151,6 +151,15 @@ headless.horse/
             </section>
             <p id="command">root@hhorse:~# <input id="commandinput" type="text" autofocus autocorrect="off" autocomplete="off" autocapitalize="off" onkeyup="this.value = this.value.toLowerCase();"></p>
           </div>
+
+          <div id="mobile_footer">
+            <div class="column">
+              <a href="https://headlesshorse.us20.list-manage.com/subscribe/post?u=4792941058b6d3b4b6ea3b3f2&amp;id=6ac99d042c" target="_blank">Newsletter</a>
+            </div>
+            <div class="column">
+              <a href="https://instagram.com/headless.horse" target="_blank">Instagram</a> / <a href="https://twitter.com/headless__horse" target="_blank">Twitter</a>
+            </div>
+          </div>
         </div>
         <div id="right">
           <div id="feed"></div>
@@ -160,7 +169,6 @@ headless.horse/
   </div>
 
   <div id="img_cover" onclick="clearframe()"></div>
-
   <img id="img" src="https://s3.eu-west-2.amazonaws.com/assets.headless.horse/images/wall_2020.jpg" width="4995" height="3958" draggable="false" oncontextmenu="return false;" usemap="#img-map" />
   <map name="img-map">
     <!--[20] Renderboxes: Identity-->
@@ -562,6 +570,7 @@ headless.horse/
 
   #mobile_header,
   #mobile_header_image,
+  #mobile_footer,
   section,
   .accordion,
   .mobile_footer {
@@ -577,14 +586,8 @@ headless.horse/
       border-left: 0;
     }
 
-    body {
-      font-size: 9px;
-    }
-
-    p {
-      font-size: 9px;
-    }
-
+    body,
+    p,
     a {
       font-size: 9px;
     }
@@ -744,6 +747,21 @@ headless.horse/
       box-sizing: border-box;
     }
 
+    #mobile_footer {
+      display: block;
+      text-transform: uppercase;
+    }
+
+    .column {
+      float: left;
+      width: 50%;
+      padding: 15px 8px;
+    }
+
+    .column:last-child {
+      text-align: right;
+    }
+
     .mobile_hide,
     #right,
     #loader,
@@ -752,6 +770,7 @@ headless.horse/
     }
   }
 </style>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.1.1/luxon.min.js"></script>
@@ -2119,7 +2138,7 @@ if (window.screen.width > 1000) {
 </script>
 
 <script>
-  /***************************************** MOBILE *****************************************/
+/***************************************** MOBILE *****************************************/
 
   let accHeading = document.querySelectorAll(".accordion");
   let accPanel = document.querySelectorAll(".accordion-panel");
