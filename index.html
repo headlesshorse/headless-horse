@@ -95,8 +95,8 @@
               <br>
             </section>
 
-            <section id="alumni">
-              <p id="alumni_list"></p>
+            <section id="Thanks">
+              <p id="thanks_list"></p>
               <br>
             </section>
 
@@ -136,7 +136,7 @@ headless.horse/
 ├── PRIVATE/
 │   └── login
 ├── OTHER/
-│   ├── alumni
+│   ├── thanks
 │   └── imprint
 └── SHARE/
     ├── tweet
@@ -689,7 +689,7 @@ headless.horse/
     #home,
     #follow,
     #shop,
-    #alumni,
+    #thanks,
     #mailinglist,
     #tweet,
     #mail,
@@ -1753,7 +1753,7 @@ function doclientSearch(textArea) {
 </script>
 
 <script type="module">
-/***************************************** ALUMNI *****************************************/
+/***************************************** THANKS *****************************************/
 
   import { html, render } from 'https://unpkg.com/lit?module';
 
@@ -1805,7 +1805,7 @@ console.log(blocks.map(x => x.type))
     }
   });
 
-  render(content, document.getElementById('alumni_list'))
+  render(content, document.getElementById('thanks_list'))
 }
 run();
 </script>
