@@ -84,8 +84,8 @@
               <br>
             </section>
 
-            <section id="mailinglist">
-              <p>Join our mailing list to be the first to receive updates on project launches, product releases and news.</p>
+            <section id="newsletter">
+              <p>Join our mailing list to be the first to receive studio updates. My email won't be shared with third parties.</p>
               <p id="validate_message"></p>
             </section>
 
@@ -132,7 +132,7 @@ headless.horse/
 │   ├── careers
 │   ├── shop
 │   ├── lab
-│   └── mailinglist
+│   └── newsletter
 ├── PRIVATE/
 │   └── login
 ├── OTHER/
@@ -154,10 +154,39 @@ headless.horse/
 
           <div id="mobile_footer">
             <div class="column">
-              <a href="https://headlesshorse.us20.list-manage.com/subscribe/post?u=4792941058b6d3b4b6ea3b3f2&amp;id=6ac99d042c" target="_blank">Newsletter</a>
+              <div class="subscribe">
+                <div class="subscribe_pre">
+                  <span class="subscribe_activate">Newsletter</span>
+                </div>
+
+                <!-- Begin Mailchimp Signup Form -->
+                <div class="subscribe_form">
+                  <div id="mc_embed_signup">
+                    <form action="https://headlesshorse.us20.list-manage.com/subscribe/post?u=4792941058b6d3b4b6ea3b3f2&amp;id=6ac99d042c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+                      target="_blank" novalidate>
+
+                      <div id="mc_embed_signup_scroll">
+
+                        <div class="mc-field-group">
+                          <input type="email" value="" name="EMAIL" id="mce-EMAIL" class="required email subscribe_email" placeholder="Enter your email">
+                          <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="subscribe_submit button" disabled="disabled">
+                        </div>
+
+                        <div id="mce-responses" class="clear">
+                          <div class="response" id="mce-error-response" style="display:none"></div>
+                          <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <!--End mc_embed_signup-->
+
+                <span class="subscribe_post">Merci</span>
+              </div>
             </div>
-            <div class="column">
-              <a href="https://instagram.com/headless.horse" target="_blank">Instagram</a> / <a href="https://twitter.com/headless__horse" target="_blank">Twitter</a>
+            <div id="follows" class="column">
+              <a href="https://instagram.com/headless.horse" target="_blank">IG</a> / <a href="https://twitter.com/headless__horse" target="_blank">TW</a>
             </div>
           </div>
         </div>
@@ -248,13 +277,6 @@ headless.horse/
       coords="868,2693,969,2636,984,2634,994,2644,993,2656,981,2664,980,2688,1106,2678,1106,2669,1148,2660,1187,2644,1246,2635,1279,2624,1292,2649,1284,2659,1283,2669,1312,2666,1360,2682,1360,2999,921,3039,892,3065,878,3065,801,3048,740,3040,673,3046,654,3051,647,3025,712,2991,823,2914,841,2899,831,2843,836,2801,848,2752,862,2724,878,2705,892,2696,892,2691,866,2700">
   </map>
 
-  <div id="emailform">
-    <form action="https://headlesshorse.us20.list-manage.com/subscribe/post?u=4792941058b6d3b4b6ea3b3f2&amp;id=6ac99d042c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-      <input type="email" value="" name="EMAIL" id="mce-EMAIL">
-      <input type="submit" value="Subscribe" id="mc-embedded-subscribe" disabled="disabled">
-    </form>
-  </div>
-
   <audio src="https://assets.headless.horse/Assets/Audio/pad.wav?dl=0" id="backgroundpad" class="audiofile" loop="loop" type="audio/mpeg"></audio>
   <audio src="https://assets.headless.horse/Assets/Audio/select.mp3?dl=0" id="projectclick" class="audiofile" type="audio/mpeg"></audio>
   <audio src="https://assets.headless.horse/Assets/Audio/click.mp3?dl=0" id="linkclick" class="audiofile" type="audio/mpeg"></audio>
@@ -339,7 +361,8 @@ headless.horse/
     width: 100%;
     height: 100%;
     background: #000000;
-    line-height: 50px;
+    line-height: 4;
+    cursor: default !important;
   }
 
   #loader_frame,
@@ -382,7 +405,8 @@ headless.horse/
 
   #nav_bottom>li {
     float: left;
-    padding: 5px 11px 5px 9px;
+    padding: 6px 11px 5px 9px;
+    line-height: 14px;
   }
 
   #notice_list a:hover::before {
@@ -499,6 +523,53 @@ headless.horse/
   #technology_list span:last-child:after,
   #clients_list span:last-child:after {
     content: '.';
+  }
+
+  .subscribe_form,
+  .subscribe_post,
+  .subscribe.active .subscribe_pre,
+  .subscribe.done .subscribe_pre,
+  .subscribe.done .subscribe_form {
+    display: none;
+  }
+
+  .subscribe_pre,
+  .subscribe.active .subscribe_form,
+  .subscribe.done .subscribe_post {
+    display: block;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+    outline: none;
+    -webkit-appearance: none
+  }
+
+  ::-webkit-input-placeholder,
+  :-ms-input-placeholder,
+  ::-moz-placeholder {
+    color: #999999;
+  }
+
+  .subscribe_activate {
+    cursor: pointer;
+  }
+
+  .subscribe_submit {
+    text-transform: uppercase;
+  }
+
+  .mc-field-group input {
+    border: 0;
+    margin: 0px;
+    background: rgba(0, 0, 0, 0.0);
+    color: #999999;
+    font-family: courier, monospace;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 400;
   }
 
   #right {
@@ -688,16 +759,36 @@ headless.horse/
       column-count: 2;
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    #mobile_footer {
+      display: block;
+      text-transform: uppercase;
+    }
+
+    .column {
+      float: left;
+      width: 70%;
+      padding: 15px 8px;
+    }
+
+    .column:last-child {
+      width: 30%;
+      text-align: right;
+    }
+
     #terminal_close,
     #terminal_title,
     #nav_bottom,
     #clock,
     #home,
     #follow,
+    #newsletter,
     #shop,
     #lab,
     #thanks,
-    #mailinglist,
     #tweet,
     #mail,
     #list,
@@ -742,25 +833,6 @@ headless.horse/
 
     .accordion:first-of-type {
       border-top: 1px solid #999999;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    #mobile_footer {
-      display: block;
-      text-transform: uppercase;
-    }
-
-    .column {
-      float: left;
-      width: 50%;
-      padding: 15px 8px;
-    }
-
-    .column:last-child {
-      text-align: right;
     }
 
     .mobile_hide,
@@ -828,7 +900,7 @@ headless.horse/
 
     var timer = setInterval(function() {
       current += increment;
-      $(obj).text(current + "% https://headless.horse/");
+      $(obj).text("Loading – " + current + "%");
       // obj.innerHTML = current;
       if (current == end) {
         clearInterval(timer);
@@ -1660,47 +1732,6 @@ run();
 </script>
 
 <script>
-/***************************************** MAILINGLIST *****************************************/
-
-  function showError(el, err) {
-    $("#mc-embedded-subscribe").attr("disabled", false);
-    $('#validate_message').html("Valid: press the enter key to subscribe.");
-    if (err) {
-      $("#mc-embedded-subscribe").attr("disabled", true)
-      $('#validate_message').html("Error: please input a valid email address.");
-    }
-  }
-
-  var isValidEmailAddress = function(emailAddress) {
-    var pattern = new RegExp( // regexes validate email
-      /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i
-    );
-    return pattern.test(emailAddress);
-  };
-
-  function validate_email(el, val) {
-    var err = !isValidEmailAddress(val);
-    showError(el, err);
-  }
-
-  $('#commandinput').on('keyup', function() {
-    validate_email(this, this.value);
-    $('#mce-EMAIL').val($(this).val()); // clone input val to hidden email address input
-  });
-
-  $(function() {
-    $(document).keydown(function(e) {
-      switch (e.which) {
-        case 13: // down key "Enter"
-          $('#commandinput[type="text"]').focus();
-          $("#mc-embedded-subscribe").trigger("click") // trigger hidden form submission
-          break;
-      }
-    });
-  });
-</script>
-
-<script>
 /***************************************** PRIVATE LOGIN *****************************************/
 
 (function() {
@@ -2206,4 +2237,58 @@ if (window.screen.width > 1000) {
       ctx.drawImage(canvas, 0, 0, sw, sh, 0, 0, cw, ch);
     }
   }
+</script>
+<script>
+/***************************************** NEWSLETTER *****************************************/
+
+  function showError(el, err) {
+    $("#mc-embedded-subscribe").attr("disabled", false);
+    $('#validate_message').html("Press the enter key to subscribe.");
+    if (err) {
+      $("#mc-embedded-subscribe").attr("disabled", true)
+      $('#validate_message').html("Error, must be a valid email.");
+    }
+  }
+
+  var isValidEmailAddress = function(emailAddress) {
+    var pattern = new RegExp( // regexes validate email
+      /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i
+    );
+    return pattern.test(emailAddress);
+  };
+
+  function validate_email(el, val) {
+    var err = !isValidEmailAddress(val);
+    showError(el, err);
+  }
+
+  $('#commandinput, #mce-EMAIL').on('keyup', function() {
+    validate_email(this, this.value);
+    $('#mce-EMAIL').val($(this).val()); // clone input val to hidden email address input
+  });
+
+  $(function() {
+    $(document).keydown(function(e) {
+      switch (e.which) {
+        case 13: // down key "Enter"
+          $('#commandinput[type="text"]').focus();
+          $("#mc-embedded-subscribe").trigger("click") // trigger hidden form submission
+          break;
+      }
+    });
+  });
+
+  $('.subscribe_activate')
+    .on('click', function() {
+      var $subscribe = $('.subscribe');
+      var $input = $('.subscribe_email');
+      $subscribe.addClass('active');
+      $input.focus();
+    })
+
+  $('.subscribe_form form')
+    .on('submit', function() {
+      var $subscribe = $('.subscribe');
+      $subscribe.removeClass('active').addClass('done');
+    })
 </script>
