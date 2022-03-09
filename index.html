@@ -1945,7 +1945,7 @@ run();
       if (val.image) {
         var image = "<img class='feed_image' src='" + val.image.large.url + "'/>";
         if (val.source) {
-          var url = "<br><a href='" + val.source.url + "'>Src: " + val.source.provider.name + " →</a>";
+          var url = "<br><a href='" + val.source.url + "'>Source: " + val.source.provider.name + " →</a>";
           html += "<figure>" + image + title + descr + url + "</figure>";
         } else {
           html += "<figure>" + image + title + descr + "</figure>";
@@ -1954,7 +1954,7 @@ run();
       } else if (val.content) {
         var note = "<p>" + val.content + "</p>";
         if (val.source) {
-          var url = "<br><a class='feed_source' href='" + val.source.url + "'>Src: " + val.source.provider.name + " →</a>";
+          var url = "<br><a class='feed_source' href='" + val.source.url + "'>Source: " + val.source.provider.name + " →</a>";
           html += "<figure>" + title + note + descr + url + "</figure>";
         } else {
           html += "<figure>" + title + note + descr + "</figure>";
