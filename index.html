@@ -555,6 +555,7 @@ headless.horse/
 
   .subscribe_submit {
     text-transform: uppercase;
+    cursor: pointer;
   }
 
   .mc-field-group input {
@@ -840,6 +841,7 @@ headless.horse/
     #right,
     #loader,
     /* Animation */
+    #mobile_header,
     .accordion,
     #mobile_footer {
       display: none;
@@ -879,6 +881,12 @@ headless.horse/
 <script>
 /***************************************** LOADER *****************************************/
 
+  ip = null;
+  $.getJSON("https://api.ipify.org?format=json",
+    function(data) {
+      ip = data.ip;
+    });
+
   width = 100,
     perfData = window.performance.timing,
     EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
@@ -904,7 +912,7 @@ headless.horse/
 
     var timer = setInterval(function() {
       current += increment;
-      $(obj).text("Loading – " + current + "%");
+      $(obj).text("IP." + ip + " Loading — " + current + "%");
       // obj.innerHTML = current;
       if (current == end) {
         clearInterval(timer);
@@ -2226,21 +2234,20 @@ if (window.screen.width > 1000) {
 
 /***************************************** MOBILE ANIMATE *****************************************/
 
-if ($(window).width() < 1000) {
-  $(function() {
-    chainAnim('.accordion, #mobile_footer', 300, '1');
-    chainAnim('figure', 300, '1');
-  });
-
-  function chainAnim(e, s, o) {
-    var $fade = $(e);
-    var code = function() {
-      console.log('Done.');
-    };
-    $fade.each(function(i) {
-      $(this).delay(i * s).fadeTo(s, o, code);
+  if ($(window).width() < 1000) {
+    $(function() {
+      chainAnim('#mobile_header, .accordion, #mobile_footer', 500, '1');
     });
-  }
+
+    function chainAnim(e, s, o) {
+      var $fade = $(e);
+      var code = function() {
+        console.log('Done.');
+      };
+      $fade.each(function(i) {
+        $(this).delay(i * s).fadeTo(s, o, code);
+      });
+    }
 
 /***************************************** MOBILE REORDER *****************************************/
 
