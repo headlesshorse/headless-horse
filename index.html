@@ -41,7 +41,7 @@
             </section>
 
             <p class="accordion">Info</p>
-            <section id="info" class="accordion-panel">
+            <section id="info" class="accordion_panel">
               <p id="info_list"></p>
               <br>
               <p id="clients_list"></p>
@@ -49,7 +49,7 @@
             </section>
 
             <p class="accordion">Services</p>
-            <section id="services" class="accordion-panel">
+            <section id="services" class="accordion_panel">
               <p id="services_list"></p>
               <br>
               <p id="technology_list"></p>
@@ -57,13 +57,13 @@
             </section>
 
             <p class="accordion">Contact</p>
-            <section id="contact" class="accordion-panel">
+            <section id="contact" class="accordion_panel">
               <p id="contact_list"></p>
               <br>
             </section>
 
             <p class="accordion">Projects</p>
-            <section id="projects" class="accordion-panel">
+            <section id="projects" class="accordion_panel">
               <p id="project_list"></p>
               <br>
             </section>
@@ -79,7 +79,7 @@
             </section>
 
             <p class="accordion">Press</p>
-            <section id="press" class="accordion-panel">
+            <section id="press" class="accordion_panel">
               <p id="press_list"></p>
               <br>
             </section>
@@ -90,7 +90,7 @@
             </section>
 
             <p class="accordion">Careers</p>
-            <section id="careers" class="accordion-panel">
+            <section id="careers" class="accordion_panel">
               <p id="Careers_list"></p>
               <br>
             </section>
@@ -101,7 +101,7 @@
             </section>
 
             <p class="accordion">Imprint</p>
-            <section id="imprint" class="accordion-panel">
+            <section id="imprint" class="accordion_panel">
               <p id="imprint_list"></p>
               <br>
             </section>
@@ -198,7 +198,7 @@ headless.horse/
   </div>
 
   <div id="img_cover" onclick="clearframe()"></div>
-  <img id="img" src="https://assets.headless.horse/Assets/Images/wall_2020.jpg" width="4995" height="3958" draggable="false" oncontextmenu="return false;" usemap="#img-map" />
+  <img id="img" src="https://assets.headless.horse/Assets/Images/wall_2020.jpg" width="4995" height="3958" oncontextmenu="return false;" usemap="#img-map" />
   <map name="img-map">
     <!--[20] Renderboxes: Identity-->
     <area href="/project-20/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" Title="Renderboxes: Identity" shape="poly"
@@ -428,14 +428,11 @@ headless.horse/
     transform: translate(-50%, calc(-50% - 13px));
     top: 50%;
     left: 50%;
+    width: 65vw;
     border: 1px solid #999999;
     background: rgba(0, 0, 0, 0.5);
     -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
-  }
-
-  #terminal_container {
-    width: 75vw;
   }
 
   #terminal_close {
@@ -458,7 +455,6 @@ headless.horse/
     padding: 5px 10px;
     border-bottom: 1px solid #999999;
     margin: 0;
-    cursor: grab !important;
   }
 
   #terminal_iframe {
@@ -726,10 +722,15 @@ headless.horse/
 
     .accordion {
       display: block;
+      border-top: 1px solid #999999;
       cursor: pointer;
       padding: 15px 8px;
       margin: 0;
       text-transform: uppercase;
+    }
+
+    .accordion:first-of-type {
+      border-top: 0;
     }
 
     .accordion::after {
@@ -745,11 +746,10 @@ headless.horse/
       transform: rotate(0deg);
     }
 
-    .accordion-panel {
+    .accordion_panel {
       overflow: hidden;
       max-height: 0;
       padding: 0 8px;
-      border-bottom: 1px solid #999999;
       transition: max-height 0.3s ease-out;
     }
 
@@ -765,6 +765,7 @@ headless.horse/
 
     #mobile_footer {
       display: block;
+      border-top: 1px solid #999999;
       text-transform: uppercase;
     }
 
@@ -837,7 +838,10 @@ headless.horse/
 
     .mobile_hide,
     #right,
-    #loader {
+    #loader,
+    /* Animation */
+    .accordion,
+    #mobile_footer {
       display: none;
     }
   }
@@ -1306,40 +1310,6 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
       $this.attr('alt', $this.attr('title'));
     }
   })
-
-/***************************************** DRAGGABLE *****************************************/
-
-  var selected = null,
-    x_pos = 0,
-    y_pos = 0,
-    x_elem = 0,
-    y_elem = 0;
-
-  function _drag_init(elem) {
-    selected = elem;
-    x_elem = x_pos - selected.offsetLeft;
-    y_elem = y_pos - selected.offsetTop;
-  }
-
-  function _move_elem(e) {
-    x_pos = document.all ? window.event.clientX : e.pageX;
-    y_pos = document.all ? window.event.clientY : e.pageY;
-    if (selected !== null) {
-      selected.style.left = (x_pos - x_elem) + 'px';
-      selected.style.top = (y_pos - y_elem) + 'px';
-    }
-  }
-
-  function _destroy() {
-    selected = null;
-  }
-
-  document.getElementById('terminal_title').onmousedown = function() {
-    _drag_init(terminal);
-    return false;
-  };
-  document.onmousemove = _move_elem;
-  document.onmouseup = _destroy;
 </script>
 
 
@@ -2168,76 +2138,7 @@ if (window.screen.width > 1000) {
   lastvisit.showmessage();
 </script>
 
-<script>
-/***************************************** MOBILE *****************************************/
 
-  let accHeading = document.querySelectorAll(".accordion");
-  let accPanel = document.querySelectorAll(".accordion-panel");
-
-  for (let i = 0; i < accHeading.length; i++) {
-
-    accHeading[i].onclick = function() {
-      if (this.nextElementSibling.style.maxHeight) {
-        hidePanels();
-      } else {
-        showPanel(this);
-      }
-    };
-  }
-
-  function showPanel(elem) {
-    hidePanels();
-    elem.classList.add("active");
-    elem.nextElementSibling.style.maxHeight = elem.nextElementSibling.scrollHeight + "px";
-  }
-
-  function hidePanels() {
-    for (let i = 0; i < accPanel.length; i++) {
-      accPanel[i].style.maxHeight = null;
-      accHeading[i].classList.remove("active");
-    }
-  }
-
-  if ($(window).width() < 1000) {
-    $("#notice_list").insertAfter("#mobile_header_image");
-    $("#hours_list").insertBefore("#mobile_header_image");
-    $("#nav_bottom").insertAfter("#mobile_header_image");
-
-    var scale = {
-      value: 100
-    };
-
-    var canvas = document.querySelector("#mobile_header_image");
-    var ctx = canvas.getContext("2d");
-    ctx.imageSmoothingEnabled = false;
-
-    var cw = canvas.width;
-    var ch = canvas.height;
-
-    var img = new Image();
-    img.onload = init;
-    img.src = "https://d2w9rnfcy7mm78.cloudfront.net/15231971/original_04a05222d69d2e3e739b68e758bf267e.jpg?1645207050?bc=0";
-
-    function init() {
-
-      TweenMax.to(scale, 4, {
-        value: 1,
-        onUpdate: update,
-      });
-
-      update();
-    }
-
-    function update() {
-
-      var sw = (cw / scale.value) >> 0;
-      var sh = (ch / scale.value) >> 0;
-
-      ctx.drawImage(img, 0, 0, sw, sh);
-      ctx.drawImage(canvas, 0, 0, sw, sh, 0, 0, cw, ch);
-    }
-  }
-</script>
 <script>
 /***************************************** NEWSLETTER *****************************************/
 
@@ -2291,4 +2192,94 @@ if (window.screen.width > 1000) {
       var $subscribe = $('.subscribe');
       $subscribe.removeClass('active').addClass('done');
     })
+</script>
+
+<script>
+/***************************************** MOBILE ACCORDION *****************************************/
+
+  let accHeading = document.querySelectorAll(".accordion");
+  let accPanel = document.querySelectorAll(".accordion_panel");
+
+  for (let i = 0; i < accHeading.length; i++) {
+
+    accHeading[i].onclick = function() {
+      if (this.nextElementSibling.style.maxHeight) {
+        hidePanels();
+      } else {
+        showPanel(this);
+      }
+    };
+  }
+
+  function showPanel(elem) {
+    hidePanels();
+    elem.classList.add("active");
+    elem.nextElementSibling.style.maxHeight = elem.nextElementSibling.scrollHeight + "px";
+  }
+
+  function hidePanels() {
+    for (let i = 0; i < accPanel.length; i++) {
+      accPanel[i].style.maxHeight = null;
+      accHeading[i].classList.remove("active");
+    }
+  }
+
+/***************************************** MOBILE ANIMATE *****************************************/
+
+if ($(window).width() < 1000) {
+  $(function() {
+    chainAnim('.accordion, #mobile_footer', 300, '1');
+    chainAnim('figure', 300, '1');
+  });
+
+  function chainAnim(e, s, o) {
+    var $fade = $(e);
+    var code = function() {
+      console.log('Done.');
+    };
+    $fade.each(function(i) {
+      $(this).delay(i * s).fadeTo(s, o, code);
+    });
+  }
+
+/***************************************** MOBILE REORDER *****************************************/
+
+    $("#notice_list").insertAfter("#mobile_header_image");
+    $("#hours_list").insertBefore("#mobile_header_image");
+
+/***************************************** MOBILE HEADER *****************************************/
+    var scale = {
+      value: 100
+    };
+
+    var canvas = document.querySelector("#mobile_header_image");
+    var ctx = canvas.getContext("2d");
+    ctx.imageSmoothingEnabled = false;
+
+    var cw = canvas.width;
+    var ch = canvas.height;
+
+    var img = new Image();
+    img.onload = init;
+    img.src = "https://d2w9rnfcy7mm78.cloudfront.net/15231971/original_04a05222d69d2e3e739b68e758bf267e.jpg?1645207050?bc=0";
+
+    function init() {
+
+      TweenMax.to(scale, 4, {
+        value: 1,
+        onUpdate: update,
+      });
+
+      update();
+    }
+
+    function update() {
+
+      var sw = (cw / scale.value) >> 0;
+      var sh = (ch / scale.value) >> 0;
+
+      ctx.drawImage(img, 0, 0, sw, sh);
+      ctx.drawImage(canvas, 0, 0, sw, sh, 0, 0, cw, ch);
+    }
+  }
 </script>
