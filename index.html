@@ -622,10 +622,6 @@ headless.horse/
     backdrop-filter: blur(6px);
   }
 
-  #tooltip:after {
-    content: ' →';
-  }
-
   ::selection {
     background: #999999;
     color: #000000;
@@ -646,13 +642,6 @@ headless.horse/
   }
 
   @media (max-width:1000px) {
-
-    html,
-    body {
-      width: auto !important;
-      overflow-x: hidden !important
-    }
-
     ::-webkit-scrollbar {
       width: 5px;
     }
@@ -834,6 +823,7 @@ headless.horse/
     #mobile_header {
       position: relative;
       display: block;
+      overflow: hidden;
       width: 100%;
       height: 345px;
     }
@@ -1362,7 +1352,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
     const [content, [[tagName, attr]]] = node;
     if (tagName === 'a') {
       return html`
-        <a href="${attr}" target="_blank">${content} →</a>
+        <a href="${attr}" target="_blank">${content}</a>
       `;
     }
     else return node;
@@ -1643,7 +1633,7 @@ run();
 
   const tableTemplate = table => html`
       ${table.map(({Site, Handle, Slug}) => html`
-        <p><a href="${Slug}${Handle}/" target="_blank">${Site} <span class="mobile_hide">@${Handle} </span>→</a></p>
+        <p><a href="${Slug}${Handle}/" target="_blank">${Site} <span class="mobile_hide">@${Handle} </span></a></p>
       `)}
   `;
 
@@ -1943,7 +1933,7 @@ run();
       if (val.image) {
         var image = "<img class='feed_image' src='" + val.image.large.url + "'/>";
         if (val.source) {
-          var url = "<br><a href='" + val.source.url + "'>Source: " + val.source.provider.name + " →</a>";
+          var url = "<br><a href='" + val.source.url + "'>Source: " + val.source.provider.name + "</a>";
           html += "<figure>" + image + title + descr + url + "</figure>";
         } else {
           html += "<figure>" + image + title + descr + "</figure>";
@@ -1952,7 +1942,7 @@ run();
       } else if (val.content) {
         var note = "<p>" + val.content + "</p>";
         if (val.source) {
-          var url = "<br><a class='feed_source' href='" + val.source.url + "'>Source: " + val.source.provider.name + " →</a>";
+          var url = "<br><a class='feed_source' href='" + val.source.url + "'>Source: " + val.source.provider.name + "</a>";
           html += "<figure>" + title + note + descr + url + "</figure>";
         } else {
           html += "<figure>" + title + note + descr + "</figure>";
