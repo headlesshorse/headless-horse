@@ -26,9 +26,7 @@
       <div id=terminal_content>
 
         <div id="mobile_header">
-
-                <pre id="target"></pre>
-
+          <pre id="mobile_header_image"></pre>
         </div>
 
         <div id="left">
@@ -811,44 +809,41 @@ headless.horse/
       scrollbar-width: none;
     }
 
-    #mobile_header {
+    #notice_list,
+    #hours_list {
       display: block;
       overflow: hidden;
+      padding: 10px 8px;
       white-space: nowrap;
-      padding: 40px;
       text-align: center;
       text-overflow: ellipsis;
       text-transform: uppercase;
     }
 
-    #notice_list, #hours_list{
+    #hours_list {
       margin-top: 20px;
-      padding: 0px 10px 0px 10px;
+    }
+
+    #mobile_header {
+      position: relative;
       display: block;
-      overflow: hidden;
-      white-space: nowrap;
-      text-align: center;
-      text-overflow: ellipsis;
-      text-transform: uppercase;
-    }
-
-    #mobile_header{
-       position: relative;
+      width: 100%;
       height: 345px;
-      width: 100%;
     }
 
-      #target{
-      width: 100%;
-      color: #999999;
-      font-family: Courier,monospace;
-    	font-size:9px;
-    	line-height:0.8;
-    	letter-spacing: 0.2em;
+    #mobile_header_image {
       position: absolute;
+      display: block;
+      transform: translate(-50%, -50%);
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      color: #999999;
+      font-family: courier, monospace;
+      font-size: 9px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 0.8;
+      letter-spacing: 0.2em;
     }
 
     #left {
@@ -857,8 +852,8 @@ headless.horse/
     }
 
     .accordion:first-of-type {
-    margin-top: 20px;
       border-top: 1px solid #999999;
+      margin-top: 10px;
     }
 
     .mobile_hide,
@@ -905,12 +900,6 @@ headless.horse/
 <script>
 /***************************************** LOADER *****************************************/
 
-  ip = null;
-  $.getJSON("https://api.ipify.org?format=json",
-    function(data) {
-      ip = data.ip;
-    });
-
   width = 100,
     perfData = window.performance.timing,
     EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
@@ -936,7 +925,7 @@ headless.horse/
 
     var timer = setInterval(function() {
       current += increment;
-      $(obj).text("IP." + ip + " Loading — " + current + "%");
+      $(obj).text(" Loading — " + current + "%");
       // obj.innerHTML = current;
       if (current == end) {
         clearInterval(timer);
@@ -1757,7 +1746,7 @@ function doclientSearch(textArea) {
 </script>
 
 <script type="module">
-/***************************************** Careers *****************************************/
+/***************************************** CAREERS *****************************************/
 
   import { html, render } from 'https://unpkg.com/lit?module';
 
@@ -2329,7 +2318,7 @@ if (window.screen.width > 1000) {
           return str;
         };
         var str = aa.getString();
-        document.getElementById("target").textContent = str;
+        document.getElementById("mobile_header_image").textContent = str;
       }, 100);
     };
     img.src =
@@ -2339,7 +2328,6 @@ if (window.screen.width > 1000) {
     this.image;
     this.lines = [];
     this.random = true;
-
   };
   AA.prototype = {
     init: function(image) {
