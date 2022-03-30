@@ -185,8 +185,7 @@ headless.horse/
                 <span class="subscribe_post">Merci</span>
               </div>
             </div>
-            <div id="follows" class="column">
-              <a href="https://instagram.com/headless.horse" target="_blank">IG</a> / <a href="https://twitter.com/headless__horse" target="_blank">TW</a>
+            <div id="follow_links" class="column">
             </div>
           </div>
         </div>
@@ -782,7 +781,19 @@ headless.horse/
 
     .column:last-child {
       width: 30%;
+    }
+
+    #follow {
+      padding: 15px 8px;
       text-align: right;
+    }
+
+    #follow p {
+      display: inline;
+    }
+
+    #follow_list p:nth-child(1)::after {
+      content: "/";
     }
 
     #terminal_close,
@@ -790,7 +801,6 @@ headless.horse/
     #nav_bottom,
     #clock,
     #home,
-    #follow,
     #newsletter,
     #shop,
     #lab,
@@ -801,7 +811,8 @@ headless.horse/
     #error,
     #command,
     #img,
-    #tooltip {
+    #tooltip,
+    .mobile_hide {
       display: none;
     }
   }
@@ -861,7 +872,6 @@ headless.horse/
       margin-top: 10px;
     }
 
-    .mobile_hide,
     #right,
     #loader,
     /* Animation */
@@ -2271,6 +2281,7 @@ if (window.screen.width > 1000) {
 
     $("#notice_list").insertAfter("#mobile_header");
     $("#hours_list").insertAfter("#mobile_header");
+    $("#follow").insertAfter("#follow_links");
   }
 
 /***************************************** MOBILE ASCII *****************************************/
