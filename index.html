@@ -1651,7 +1651,7 @@ run();
 
   const tableTemplate = table => html`
       ${table.map(({Site, Handle, Slug}) => html`
-        <p><a href="${Slug}${Handle}/" target="_blank">${Site} <span class="mobile_hide">@${Handle} </span></a></p>
+        <p><a href="${Slug}${Handle}/" target="_blank">${Site} <span class="mobile_hide">@${Handle}</span></a></p>
       `)}
   `;
 
