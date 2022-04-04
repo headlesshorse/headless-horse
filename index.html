@@ -2,7 +2,7 @@
 <html lang="en">
 
 <body style="background-color: #000000;">
-
+<!--
   <div id="loader">
     <div id="loader_percentage"></div>
     <div id="loader_frame">
@@ -11,7 +11,7 @@
       </div>
     </div>
   </div>
-
+-->
   <ul id="nav_bottom">
     <li class="nav_link click_sound" title="Headless Horse"><a>●</a></li>
     <li><span id="notice_list" class="click_sound"></span></li>
@@ -1945,7 +1945,7 @@ run();
 
     $.each(data.contents.reverse(), function(key, val) {
 
-      var title = "<p>" + val.title + "</p>";
+      var title = "<p>Reference. " + val.title + "</p>";
       var descr = "<figcaption>" + val.description + "</figcaption>";
 
       if (val.image) {
