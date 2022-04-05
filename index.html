@@ -2,7 +2,7 @@
 <html lang="en">
 
 <body style="background-color: #000000;">
-<!--
+
   <div id="loader">
     <div id="loader_percentage"></div>
     <div id="loader_frame">
@@ -11,7 +11,7 @@
       </div>
     </div>
   </div>
--->
+
   <ul id="nav_bottom">
     <li class="nav_link click_sound" title="Headless Horse"><a>●</a></li>
     <li><span id="notice_list" class="click_sound"></span></li>
@@ -1348,7 +1348,6 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
   })
 </script>
 
-
 <script type="module">
 /***************************************** NOTICE *****************************************/
 
@@ -1651,7 +1650,7 @@ run();
 
   const tableTemplate = table => html`
       ${table.map(({Site, Handle, Slug}) => html`
-        <p><a href="${Slug}${Handle}/" target="_blank">${Site} <span class="mobile_hide">@${Handle}</span></a></p>
+        <p><a href="${Slug}${Handle}/" target="_blank">${Site}<span class="mobile_hide"> @${Handle}</span></a></p>
       `)}
   `;
 
