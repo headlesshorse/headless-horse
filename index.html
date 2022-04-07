@@ -22,7 +22,7 @@
     <div id="terminal_container">
       <div id="terminal_close" class="click_sound" onclick="clearframe(); pauseAudio()"><a>●</a></div>
       <div id="terminal_title">Headless Horse</div>
-      <iframe id="terminal_iframe" name="terminal_iframe" src="" frameborder="0"></iframe>
+      <iframe id="terminal_iframe" name="terminal_iframe" src="" allowtransparency="true" frameborder="0"></iframe>
       <div id=terminal_content>
 
         <div id="mobile_header">
@@ -65,11 +65,6 @@
             <p class="accordion">Projects</p>
             <section id="projects" class="accordion_panel">
               <p id="project_list"></p>
-              <br>
-            </section>
-
-            <section id="lab">
-              <p id="lab_list"></p>
               <br>
             </section>
 
@@ -131,7 +126,6 @@ headless.horse/
 │   ├── press
 │   ├── careers
 │   ├── shop
-│   ├── lab
 │   └── newsletter
 ├── PRIVATE/
 │   └── login
@@ -399,6 +393,7 @@ headless.horse/
     background: rgba(0, 0, 0, 0.5);
     -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
+    text-transform: uppercase;
     list-style-type: none;
   }
 
@@ -454,6 +449,7 @@ headless.horse/
     padding: 5px 10px;
     border-bottom: 1px solid #999999;
     margin: 0;
+    text-transform: uppercase;
   }
 
   #terminal_iframe {
@@ -793,7 +789,7 @@ headless.horse/
     }
 
     #follow_list p:nth-child(1)::after {
-      content: "/";
+      content: " / ";
     }
 
     #terminal_close,
@@ -803,7 +799,6 @@ headless.horse/
     #home,
     #newsletter,
     #shop,
-    #lab,
     #thanks,
     #tweet,
     #mail,
@@ -1707,35 +1702,6 @@ run();
   });
 </script>
 
-<script type="module">
-/***************************************** LAB *****************************************/
-
-  import { html, render } from 'https://unpkg.com/lit?module';
-
-  const URL = "https://notion-api.splitbee.io/v1/table/2b84e2ba26354d04a6512d42d42ca711";
-
-  const handleAsJson = response => response.json();
-
-  const trace = tag => x => {
-    console.log(tag, x);
-    return x;
-  }
-
-  const tableTemplate = table => html`
-      ${table.map(({Project, Published, Status, Slug}) => html`
-        <p><a href="${Slug}" target="_blank">${Published} ${Project}. ${Status}</a></p>
-      `)}
-  `;
-
-  const projectItem = fetch(URL)
-    .then(handleAsJson) // Promise<TableJson>
-    .then(trace('table is'))
-    .then(tableTemplate) // Promise<TemplateResult>
-		.then(trace('template result is'))
-    .then(result =>
-			render(result, document.getElementById('lab_list')))
-</script>
-
 <script>
 /***************************************** PRIVATE LOGIN *****************************************/
 
@@ -2173,6 +2139,82 @@ if (window.screen.width > 1000) {
   lastvisit.showmessage();
 </script>
 
+
+<script>
+/***************************************** TEXT TICKER *****************************************/
+
+// Characters to be used to create effect
+const CHARACTER_STRING = "1234567890&%HEADLESSHORSE";
+
+// Duration for which shuffles occurs
+const SHUFFLE_DURATION = 400;
+
+// Number of shuffles that occurs during SHUFFLE_DURATION
+const SHUFFLE_COUNT = 6;
+
+// Interval time for newly random text to appear
+const SHUFFLE_INTERVAL = parseInt(SHUFFLE_DURATION / SHUFFLE_COUNT);
+
+const chars = CHARACTER_STRING.split("");
+let interval;
+let timeout;
+let original;
+let element;
+
+const textElement2 = document.getElementById("clock");
+const textElement1 = document.getElementById("terminal_title");
+
+let handleRandomizeText = e => {
+
+  // Clear any ongoing shuffle to avoid random text being persistent instead of original one
+  if (timeout) clearTimeout(timeout);
+  if (interval) clearInterval(interval);
+  if (element) element.innerText = original.join("");
+
+  element = e.target;
+
+  randomizeText();
+};
+
+// replaces the element's inner text with output from getRandomText() every 80ms for 400ms.
+function randomizeText() {
+  original = element.innerText.split("");
+  interval = setInterval(() => {
+    element.innerText = getRandomText(original.slice(0));
+  }, SHUFFLE_INTERVAL);
+
+  timeout = setTimeout(() => {
+    clearInterval(interval);
+    element.innerText = original.join("");
+    interval = null;
+    element = null;
+    original = null;
+    timeout = null;
+  }, SHUFFLE_DURATION);
+}
+
+// get random text where each char in string arr has equal chance of being replace or not
+function getRandomText(charArray) {
+  var i;
+  for (i in charArray) {
+    if (charArray[i] == "\n") continue;
+    if (getRandomBool()) charArray[i] = getRandomChar();
+  }
+
+  return charArray.join("");
+}
+
+function getRandomChar() {
+  return chars[Math.floor(Math.random() * chars.length)];
+}
+
+function getRandomBool() {
+  return Math.random() >= 0.5;
+}
+
+textElement1.addEventListener("mouseenter", handleRandomizeText);
+textElement2.addEventListener("mouseenter", handleRandomizeText);
+</script>
 
 <script>
 /***************************************** NEWSLETTER *****************************************/
