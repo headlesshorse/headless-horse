@@ -13,9 +13,9 @@
   </div>
 
   <ul id="nav_bottom">
-    <li class="nav_link click_sound" title="Headless Horse"><a>●</a></li>
-    <li><span id="notice_list" class="click_sound"></span></li>
-    <li style="float: right"><span id="clock" data_tz="Europe/London"></span></li>
+    <li id="terminal_open" class="nav_link click_sound" title="Headless Horse" onclick="clearframe(); pauseAudio()"><a>●</a></li>
+    <li id="notice_list" class="click_sound"></li>
+    <li id="clock" data_tz="Europe/London"></li>
   </ul>
 
   <div id="terminal">
@@ -408,6 +408,7 @@ headless.horse/
   }
 
   #clock {
+    float: right !important;
     cursor: default !important;
   }
 
@@ -974,6 +975,7 @@ headless.horse/
     });
 
     $(".project_link").click(function() {
+      $("#left, #right").hide();
       $("#terminal_iframe").show();
     });
 
