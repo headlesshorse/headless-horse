@@ -888,12 +888,54 @@
 </script>
 
 <script>
+/***************************************** TIME *****************************************/
+
+  const locations = document.querySelectorAll("#nav-top--clock")
+
+  setInterval(function() {
+    // for each output tag
+    locations.forEach(location => {
+
+      // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      const tz = location.getAttribute("data_tz")
+
+      // get the time in that timezone
+      const now = luxon.DateTime.now().setZone(tz)
+
+      // hour in 24-hour time, no padding
+      const hour = parseInt(now.toFormat("H"), 10)
+      console.log(hour)
+
+      // day of the week as number (Monday is 1, Sunday is 7)
+      const hourday = now.toFormat("c")
+      console.log(hourday)
+
+      // timezone 'GMT'
+      const timezone = now.toFormat("ZZZZ")
+      console.log(timezone)
+
+      // time with timezone '00:00:00 GMT'
+      const clock = now.toFormat("HH:mm:ss ZZZZ")
+      console.log(clock)
+
+/***************************************** HOURS *****************************************/
+
+      if (hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6) {
+        document.getElementById('nav-top--clock').innerHTML = "Online " + clock;
+        document.getElementById('hours-list').innerHTML = "The studio is open today from 08:00–18:00 " + timezone + ".";
+      } else {
+        document.getElementById('nav-top--clock').innerHTML = "Offline " + clock;
+        document.getElementById('hours-list').innerHTML = "The studio is now closed we are open Monday—Friday 08:00–18:00 " + timezone + ".";
+      }
+    })
+  }, 1000)
+
 /***************************************** LOADER *****************************************/
 
   width = 100,
     perfData = window.performance.timing,
     EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
-    time = parseInt((EstimatedTime / 1000) % 60) * 100 + 2000;
+    time = parseInt((EstimatedTime / 1000) % 60) * 100 + 4000;
 
   $("#nav-top--loader-bar").animate({
     width: width + "%"
@@ -1094,49 +1136,6 @@
       }); // end keyup function
     });
   }
-
-
-/***************************************** TIME *****************************************/
-
-  const locations = document.querySelectorAll("#nav-top--clock")
-
-  setInterval(function() {
-    // for each output tag
-    locations.forEach(location => {
-
-      // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-      const tz = location.getAttribute("data_tz")
-
-      // get the time in that timezone
-      const now = luxon.DateTime.now().setZone(tz)
-
-      // hour in 24-hour time, no padding
-      const hour = parseInt(now.toFormat("H"), 10)
-      console.log(hour)
-
-      // day of the week as number (Monday is 1, Sunday is 7)
-      const hourday = now.toFormat("c")
-      console.log(hourday)
-
-      // timezone 'GMT'
-      const timezone = now.toFormat("ZZZZ")
-      console.log(timezone)
-
-      // time with timezone '00:00:00 GMT'
-      const clock = now.toFormat("HH:mm:ss ZZZZ")
-      console.log(clock)
-
-/***************************************** HOURS *****************************************/
-
-      if (hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6) {
-        document.getElementById('nav-top--clock').innerHTML = "Online " + clock;
-        document.getElementById('hours-list').innerHTML = "The studio is open today from 08:00–18:00 " + timezone + ".";
-      } else {
-        document.getElementById('nav-top--clock').innerHTML = "Offline " + clock;
-        document.getElementById('hours-list').innerHTML = "The studio is now closed we are open Monday—Friday 08:00–18:00 " + timezone + ".";
-      }
-    })
-  }, 1000)
 
 /***************************************** IMAGE MOVER *****************************************/
 
