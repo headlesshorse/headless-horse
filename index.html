@@ -2,102 +2,80 @@
 <html lang="en">
 
 <body style="background-color: #000000;">
-
-  <div id="loader">
-    <div id="loader_percentage"></div>
-    <div id="loader_frame">
-      <div id="loader_trackbar">
-        <div id="loader_bar"></div>
+  <div class="scroll-snap--container">
+    <div id="main-section" class="scroll-snap--section">
+      <pre id="mobile--nav-top--image"></pre>
+      <div id="nav-top">
+        <div id="nav-top--loader-bar"></div>
+        <div id="nav-top--headless-horse" class="nav-link click-sound" onclick="clearframe(); pauseAudio()" alt="">Headless Horse<span id="nav-top--loader-percentage"></span></div>
+        <div id="nav-top--clock" data_tz="Europe/London"></div>
       </div>
-    </div>
-  </div>
+      <div id="nav-bottom">
+        <div id="nav-bottom--title"></div>
+        <div id="nav-bottom--close" class="click-sound" onclick="clearframe(); pauseAudio()" alt="">Close</div>
+      </div>
 
-  <ul id="nav_bottom">
-    <li id="terminal_open" class="nav_link click_sound" title="Headless Horse" onclick="clearframe(); pauseAudio()"><a>●</a></li>
-    <li id="notice_list" class="click_sound"></li>
-    <li id="clock" data_tz="Europe/London"></li>
-  </ul>
+      <div id="terminal">
+        <iframe id="terminal--iframe" name="terminal--iframe" src="" allowtransparency="true" frameborder="0"></iframe>
+        <div id=terminal--content>
+          <div id="terminal--copy">
 
-  <div id="terminal">
-    <div id="terminal_container">
-      <div id="terminal_close" class="click_sound" onclick="clearframe(); pauseAudio()"><a>●</a></div>
-      <div id="terminal_title">Headless Horse</div>
-      <iframe id="terminal_iframe" name="terminal_iframe" src="" allowtransparency="true" frameborder="0"></iframe>
-      <div id=terminal_content>
-
-        <div id="mobile_header">
-          <pre id="mobile_header_image"></pre>
-        </div>
-
-        <div id="left">
-          <div id="terminal_copy">
-
+            <!-- Begin Terminal Commands -->
             <section id="home">
-              <p>Welcome <span id="welcome_back"></span>to Headless Horse a full-service creative studio.</p>
-              <p id="lastvisit_message"></p>
-              <p><span id="hours_list"></span></p>
+              <p>Welcome <span id="welcome-back"></span>to Headless Horse a full-service creative studio.</p>
+              <p id="hours-list"></p>
+              <p id="lastvisit-message"></p>
+              <p id="firstuse-message"></p>
               <br>
-              <p id="firstuse_message"></p>
             </section>
 
             <p class="accordion">Info</p>
-            <section id="info" class="accordion_panel">
-              <p id="info_list"></p>
+            <section id="info" class="accordion--panel">
+              <p id="info-list"></p>
               <br>
-              <p id="clients_list"></p>
+              <p id="clients-list"></p>
               <br>
             </section>
 
             <p class="accordion">Services</p>
-            <section id="services" class="accordion_panel">
-              <p id="services_list"></p>
+            <section id="services" class="accordion--panel">
+              <p id="services-list"></p>
               <br>
-              <p id="technology_list"></p>
+              <p id="technology-list"></p>
+            </section>
+
+            <p class="accordion">Projects</p>
+            <section id="projects" class="accordion--panel">
+              <p id="project-list"></p>
               <br>
             </section>
 
             <p class="accordion">Contact</p>
-            <section id="contact" class="accordion_panel">
-              <p id="contact_list"></p>
-              <br>
-            </section>
-
-            <p class="accordion">Projects</p>
-            <section id="projects" class="accordion_panel">
-              <p id="project_list"></p>
-              <br>
-            </section>
-
-            <section id="follow">
-              <p id="follow_list"></p>
+            <section id="contact" class="accordion--panel">
+              <p id="contact-list"></p>
               <br>
             </section>
 
             <p class="accordion">Press</p>
-            <section id="press" class="accordion_panel">
-              <p id="press_list"></p>
+            <section id="press" class="accordion--panel">
+              <p id="press-list"></p>
               <br>
             </section>
 
-            <section id="newsletter">
-              <p>Join our mailing list to be the first to receive studio updates. My email won't be shared with third parties.</p>
-              <p id="validate_message"></p>
-            </section>
-
             <p class="accordion">Careers</p>
-            <section id="careers" class="accordion_panel">
-              <p id="Careers_list"></p>
+            <section id="careers" class="accordion--panel">
+              <p id="careers-list"></p>
               <br>
             </section>
 
             <section id="thanks">
-              <p id="thanks_list"></p>
+              <p id="thanks-list"></p>
               <br>
             </section>
 
             <p class="accordion">Imprint</p>
-            <section id="imprint" class="accordion_panel">
-              <p id="imprint_list"></p>
+            <section id="imprint" class="accordion--panel">
+              <p id="imprint-list"></p>
               <br>
             </section>
 
@@ -115,18 +93,15 @@
 
             <section id="list">
               <pre>
-headless.horse/
 ├── SITE/
 │   ├── info
 │   ├── services
-│   ├── contact
-│   └── projects
+│   ├── projects
+│   └── contact
 ├── PUBLIC/
-│   ├── follow
 │   ├── press
 │   ├── careers
-│   ├── shop
-│   └── newsletter
+│   └── shop
 ├── PRIVATE/
 │   └── login
 ├── OTHER/
@@ -143,132 +118,131 @@ headless.horse/
               <br>
               <p>Type 'list' to see a list of commands.</p>
             </section>
-            <p id="command">root@hhorse:~# <input id="commandinput" type="text" autofocus autocorrect="off" autocomplete="off" autocapitalize="off" onkeyup="this.value = this.value.toLowerCase();"></p>
+            <!-- End Terminal Commands -->
+
+            <p id="command">root@hhorse:~# <input id="command--input" type="text" autofocus autocorrect="off" autocomplete="off" autocapitalize="off" onkeyup="this.value = this.value.toLowerCase();"></p>
           </div>
-
-          <div id="mobile_footer">
-            <div class="column">
-              <div class="subscribe">
-                <div class="subscribe_pre">
-                  <span class="subscribe_activate">Newsletter</span>
-                </div>
-
-                <!-- Begin Mailchimp Signup Form -->
-                <div class="subscribe_form">
-                  <div id="mc_embed_signup">
-                    <form action="https://headlesshorse.us20.list-manage.com/subscribe/post?u=4792941058b6d3b4b6ea3b3f2&amp;id=6ac99d042c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
-                      target="_blank" novalidate>
-
-                      <div id="mc_embed_signup_scroll">
-
-                        <div class="mc-field-group">
-                          <input type="email" value="" name="EMAIL" id="mce-EMAIL" class="required email subscribe_email" placeholder="Enter your email">
-                          <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="subscribe_submit button" disabled="disabled">
-                        </div>
-
-                        <div id="mce-responses" class="clear">
-                          <div class="response" id="mce-error-response" style="display:none"></div>
-                          <div class="response" id="mce-success-response" style="display:none"></div>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                <!--End mc_embed_signup-->
-
-                <span class="subscribe_post">Merci</span>
-              </div>
-            </div>
-            <div id="follow_links" class="column">
-            </div>
-          </div>
-        </div>
-        <div id="right">
-          <div id="feed"></div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div id="img_cover" onclick="clearframe()"></div>
-  <img id="img" src="https://assets.headless.horse/Assets/Images/wall_2020.jpg" width="4995" height="3958" oncontextmenu="return false;" usemap="#img-map" />
-  <map name="img-map">
-    <!--[20] Renderboxes: Identity-->
-    <area href="/project-20/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" Title="Renderboxes: Identity" shape="poly"
-      coords="1410,1197,1424,1077,1641,1063,1636,960,1612,959,1625,643,1674,645,1675,626,1536,619,1309,628,1307,612,1289,612,1289,598,1162,600,1149,462,994,472,1004,601,998,602,994,569,767,576,775,770,764,955,927,960,924,1125,1011,1127,1302,1134,1298,1186">
-    <!--[19] Jordan Brand: Air Jordan 1-->
-    <area href="/project-19/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Jordan Brand: Air Jordan 1" shape="poly"
-      coords="3168,1033,2902,1029,2901,1276,2943,1278,2936,1372,3073,1373,3073,1306,3113,1302,3107,1204,3165,1200">
-    <!--[19] Jordan Brand: Air Jordan 1-->
-    <area href="/project-19/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Jordan Brand: Air Jordan 1" shape="poly"
-      coords="3566,954,3391,961,3389,1238,3359,1236,3329,1578,3624,1602,3628,1556,3574,1555,3585,1218,3727,1223,3728,1102,3713,1102,3713,1007,3566,1003">
-    <!--[18] Nike: Cortez, Blue Ribbon Sports-->
-    <area href="/project-18/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Nike: Cortez, Blue Ribbon Sports" shape="poly"
-      coords="3012,1807,2812,1798,2810,1833,2767,1833,2766,1555,2920,1566,2934,1403,3053,1404,3051,1536,3074,1540,3074,1625,3270,1627,3269,1859,3281,1859,3275,2005,3006,1957">
-    <!--[17] Nike: Studio of Dreams-->
-    <area href="/project-17/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Nike: Studio of Dreams" shape="poly"
-      coords="3340,430,3013,430,3013,450,3022,449,3024,641,3012,641,3011,727,3012,736,2991,737,2990,801,2894,802,2910,1009,2887,1010,2888,1029,3348,1033,3355,1014,3357,737,3334,736">
-    <!--[17] Nike: Studio of Dreams-->
-    <area href="/project-17/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Nike: Studio of Dreams" shape="poly"
-      coords="1470,3009,1440,2994,1448,2957,1537,2903,1655,2842,1668,2840,1686,2855,1706,2866,1733,2864,1757,2850,1780,2839,1791,2841,1798,2855,1797,2870,1836,2850,1853,2850,1863,2851,1872,2884,1880,2906,1880,2930,1879,2957,1879,2970,1859,2982,1855,2993,1808,2998,1780,2998,1764,2995,1752,2996,1730,3005,1721,3010,1722,3016,1721,3021,1697,3024,1663,3026,1639,3026,1615,3025,1567,3024,1542,3021,1510,3018,1486,3013">
-    <!--[16] Karl Lagerfeld: In Memoriam-->
-    <area href="/project-16/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Karl Lagerfeld: In Memoriam" shape="poly"
-      coords="2203,479,2204,537,2216,536,2228,728,2105,736,2106,824,2137,824,2136,1009,2327,1006,2327,1165,2652,1170,2656,856,2683,855,2699,827,2694,468,2358,469,2359,478">
-    <!--[15] LYMA: Super Supplement-->
-    <area href="/project-15/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="LYMA: Super Supplement" shape="poly"
-      coords="2169,1014,2137,1013,2136,1019,1798,1020,1797,969,1637,959,1643,1066,1507,1072,1498,1181,1415,1183,1413,1199,1281,1186,1280,1394,1381,1400,1370,1650,1426,1650,1420,1781,1572,1781,1572,1792,1419,1814,1516,1813,1520,2044,1426,2048,1441,2156,1632,2145,1631,2282,1789,2268,1790,2293,1850,2295,1863,2071,1941,2063,1939,1971,2067,1957,2067,1951,2212,1943,2221,1850,2312,1857,2327,1647,2431,1654,2443,1440,2546,1434,2547,1453,2727,1453,2734,1295,2699,1297,2699,1269,2563,1268,2557,1186,2322,1193,2324,1118,2264,1120,2265,1045,2170,1045">
-    <!--[15] LYMA: Super Supplement-->
-    <area href="/project-15/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="LYMA: Super Supplement" shape="poly" coords="3364,2557,3260,2554,3259,2684,3361,2685">
-    <!--[14] Nike: Air Max Day-->
-    <area href="/project-14/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Nike: Air Max Day" shape="poly" coords="3010,1807,2813,1798,2802,2010,2814,2011,2816,1973,3003,1980">
-    <!--[14] Nike: Air Max Day-->
-    <area href="/project-14/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Nike: Air Max Day" shape="poly"
-      coords="2942,1277,2919,1565,2724,1551,2734,1295,2700,1296,2698,1269,2566,1266,2560,1184,2503,1186,2502,1169,2653,1172,2656,1051,2704,1051,2706,992,2722,991,2701,807,2894,801,2910,1008,2887,1009,2887,1028,2900,1029,2900,1276">
-    <!--[14] Nike: Air Max Day-->
-    <area href="/project-14/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Nike: Air Max Day" shape="poly"
-      coords="3391,1018,3355,1016,3352,1034,3193,1031,3192,1203,3109,1205,3113,1307,3073,1306,3074,1624,3270,1630,3268,1861,3282,1861,3275,2008,3388,2000,3392,2027,3612,2032,3613,1852,3562,1850,3561,1844,3542,1844,3540,1632,3559,1632,3560,1599,3330,1578,3349,1310,3331,1307,3327,1238,3388,1236,3389,1019">
-    <!--[13] Nike: Alpha Menace Elite-->
-    <area href="/project-13/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Nike: Alpha Menace" shape="poly"
-      coords="3963,1866,3614,1863,3613,2030,3391,2029,3388,1999,3150,2017,3153,1988,2816,1975,2807,2279,3138,2292,3154,2291,3160,2437,3329,2434,3325,2280,3388,2277,3392,2364,3673,2362,3679,2459,4031,2450,4026,2372,4022,2372,4017,2183,4096,2182,4088,1911,3962,1909">
-    <!--[12] Nike: Nike Football Program Typeface-->
-    <area href="/project-12/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Nike: Nike Football Program Typeface" shape="poly"
-      coords="3934,940,3716,941,3713,1102,3728,1101,3727,1222,3837,1226,3826,1521,4114,1523,4117,1298,4323,1303,4330,1057,4240,1055,4241,1065,3932,1061">
-    <!--[11] The Apostles Tapestry-->
-    <area href="/project-11/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="The Apostles Tapestry" shape="poly"
-      coords="1423,1651,1239,1646,1233,1749,1095,1736,1087,1849,919,1861,865,1875,872,1916,734,1915,736,1877,625,1870,590,2246,737,2254,744,2385,883,2370,880,2525,984,2535,1044,2527,1045,2570,1350,2538,1332,2336,1348,2336,1340,2164,1369,2162,1374,2048,1519,2044,1517,1814,1417,1815">
-    <!--[10] Chanel: Nº5 Sculpture-->
-    <area href="/project-10/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Chanel: Nº5 Sculpture" shape="poly"
-      coords="1276,1155,976,1143,976,1137,923,1136,924,960,721,956,716,1132,679,1132,676,1507,700,1506,696,1725,898,1731,897,1747,742,1746,736,1913,870,1917,863,1876,915,1864,915,1841,1083,1834,1094,1736,1164,1741,1160,1704,1235,1704,1237,1647,1332,1649,1336,1549,1373,1543,1381,1400,1280,1393">
-    <!--[10] Chanel: Nº5 Sculpture-->
-    <area href="/project-10/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Chanel: Nº5 Sculpture" shape="poly"
-      coords="4138,2701,3750,2689,3740,2683,3633,2669,3628,2687,3175,2682,3176,3079,3368,3098,3409,3121,3403,3246,3418,3246,3417,3278,3427,3285,3430,3354,3398,3356,3386,3495,4164,3542">
-    <!--[09] Jordan Brand: Court Concept-->
-    <area href="/project-08/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Jordan Brand: Court Concept" shape="poly"
-      coords="4221,537,3818,537,3824,397,3532,396,3524,684,3730,684,3727,792,3939,792,3933,1061,4240,1065,4248,847,4179,849,4177,796,4214,795">
-    <!--[08] Nike: The Stands Cafe Identity-->
-    <area href="/project-08/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Nike: The Stands Cafe Identity" shape="poly" coords="3021,450,2735,455,2735,608,2705,607,2703,800,2990,800,2991,642,3024,639">
-    <!--[07] Nike: Kobe X, The Art of Attack-->
-    <area href="/project-07/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Nike: Kobe X, The Art of Attack" shape="poly"
-      coords="2614,2305,2745,2302,2753,2502,3090,2487,3079,2290,2808,2279,2803,2093,2511,2099,2508,2177,2483,2175,2491,2300,2469,2299,2468,2332,2279,2324,2277,2543,2612,2541">
-    <!--[06] Nike: Global Label System-->
-    <area href="/project-06/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Nike: Global Label System" shape="poly" coords="2785,1883,2556,1883,2559,2097,2786,2090">
-    <!--[05] Nike: Technology Logos-->
-    <area href="/project-05/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Nike: Technology Logos" shape="poly" coords="2759,1723,2494,1731,2501,1903,2556,1902,2555,1882,2766,1882">
-    <!--[04] Calvin Harris: Identity-->
-    <area href="/project-04/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Calvin Harris: Identity" shape="poly" coords="3559,751,3357,761,3358,735,3336,736,3337,587,3527,589,3524,684,3563,684">
-    <!--[03] Jordan Brand: Russell Westbrook Identity-->
-    <area href="/project-03/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Jordan Brand: Russell Westbrook Identity" shape="poly"
-      coords="2262,1952,2068,1951,2070,1958,1940,1970,1936,2164,1992,2165,1991,2187,2020,2186,2016,2402,2268,2410,2282,2170,2253,2170">
-    <!--[02] DC Shoes: Identity-->
-    <area href="/project-02/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="DC Shoes: Identity" shape="poly"
-      coords="3987,1533,3826,1530,3827,1561,3671,1557,3668,1635,3705,1635,3709,1847,3684,1848,3682,1865,3948,1867,3947,1729,3962,1730,3965,1633,3977,1632,3972,1542,3987,1542">
-    <!--[01] Nike: Los Fearless-->
-    <area href="/project-01/" class="project_link" onmouseenter="playMouseIn()" target="terminal_iframe" title="Nike: Los Fearless" shape="poly"
-      coords="2040,611,2044,825,2135,825,2135,1018,1798,1020,1798,968,1614,957,1625,643,1847,657,1848,578,1890,570,1922,576,1940,569,1982,585,2006,580">
-    <!--shop.headless.horse-->
-    <area href="https://shop.headless.horse/" class="click_sound" onmouseenter="playMouseIn()" target="_blank" title="shop.headless.horse" shape="poly"
-      coords="868,2693,969,2636,984,2634,994,2644,993,2656,981,2664,980,2688,1106,2678,1106,2669,1148,2660,1187,2644,1246,2635,1279,2624,1292,2649,1284,2659,1283,2669,1312,2666,1360,2682,1360,2999,921,3039,892,3065,878,3065,801,3048,740,3040,673,3046,654,3051,647,3025,712,2991,823,2914,841,2899,831,2843,836,2801,848,2752,862,2724,878,2705,892,2696,892,2691,866,2700">
-  </map>
+      <!-- Begin Wall Image Map -->
+      <div id="wall-image--cover" onclick="clearframe()"></div>
+      <img id="wall-image" class="wall-image--filter" src="https://assets.headless.horse/Assets/Images/wall_2020.jpg" width="4995" height="3958" oncontextmenu="return false;" usemap="#wall-image--map" />
+      <map name="wall-image--map">
+
+        <map name="img-map">
+          <!--[20] Renderboxes: Identity-->
+          <area href="https://headless.horse/project-20/" class="project-link" target="terminal--iframe" Title="Renderboxes: Identity" shape="poly"
+            coords="1410,1197,1424,1077,1641,1063,1636,960,1612,959,1625,643,1674,645,1675,626,1536,619,1309,628,1307,612,1289,612,1289,598,1162,600,1149,462,994,472,1004,601,998,602,994,569,767,576,775,770,764,955,927,960,924,1125,1011,1127,1302,1134,1298,1186">
+          <!--[19] Jordan Brand: Air Jordan 1-->
+          <area href="https://headless.horse/project-19/" class="project-link" target="terminal--iframe" title="Jordan Brand: Air Jordan 1" shape="poly" coords="3168,1033,2902,1029,2901,1276,2943,1278,2936,1372,3073,1373,3073,1306,3113,1302,3107,1204,3165,1200">
+          <!--[19] Jordan Brand: Air Jordan 1-->
+          <area href="https://headless.horse/project-19/" class="project-link" target="terminal--iframe" title="Jordan Brand: Air Jordan 1" shape="poly"
+            coords="3566,954,3391,961,3389,1238,3359,1236,3329,1578,3624,1602,3628,1556,3574,1555,3585,1218,3727,1223,3728,1102,3713,1102,3713,1007,3566,1003">
+          <!--[18] Nike: Cortez, Blue Ribbon Sports-->
+          <area href="https://headless.horse/project-18/" class="project-link" target="terminal--iframe" title="Nike: Cortez, Blue Ribbon Sports" shape="poly"
+            coords="3012,1807,2812,1798,2810,1833,2767,1833,2766,1555,2920,1566,2934,1403,3053,1404,3051,1536,3074,1540,3074,1625,3270,1627,3269,1859,3281,1859,3275,2005,3006,1957">
+          <!--[17] Nike: Studio of Dreams-->
+          <area href="https://headless.horse/project-17/" class="project-link" target="terminal--iframe" title="Nike: Studio of Dreams" shape="poly"
+            coords="3340,430,3013,430,3013,450,3022,449,3024,641,3012,641,3011,727,3012,736,2991,737,2990,801,2894,802,2910,1009,2887,1010,2888,1029,3348,1033,3355,1014,3357,737,3334,736">
+          <!--[17] Nike: Studio of Dreams-->
+          <area href="https://headless.horse/project-17/" class="project-link" target="terminal--iframe" title="Nike: Studio of Dreams" shape="poly"
+            coords="1470,3009,1440,2994,1448,2957,1537,2903,1655,2842,1668,2840,1686,2855,1706,2866,1733,2864,1757,2850,1780,2839,1791,2841,1798,2855,1797,2870,1836,2850,1853,2850,1863,2851,1872,2884,1880,2906,1880,2930,1879,2957,1879,2970,1859,2982,1855,2993,1808,2998,1780,2998,1764,2995,1752,2996,1730,3005,1721,3010,1722,3016,1721,3021,1697,3024,1663,3026,1639,3026,1615,3025,1567,3024,1542,3021,1510,3018,1486,3013">
+          <!--[16] Karl Lagerfeld: In Memoriam-->
+          <area href="https://headless.horse/project-16/" class="project-link" target="terminal--iframe" title="Karl Lagerfeld: In Memoriam" shape="poly"
+            coords="2203,479,2204,537,2216,536,2228,728,2105,736,2106,824,2137,824,2136,1009,2327,1006,2327,1165,2652,1170,2656,856,2683,855,2699,827,2694,468,2358,469,2359,478">
+          <!--[15] LYMA: Super Supplement-->
+          <area href="https://headless.horse/project-15/" class="project-link" target="terminal--iframe" title="LYMA: Super Supplement" shape="poly"
+            coords="2169,1014,2137,1013,2136,1019,1798,1020,1797,969,1637,959,1643,1066,1507,1072,1498,1181,1415,1183,1413,1199,1281,1186,1280,1394,1381,1400,1370,1650,1426,1650,1420,1781,1572,1781,1572,1792,1419,1814,1516,1813,1520,2044,1426,2048,1441,2156,1632,2145,1631,2282,1789,2268,1790,2293,1850,2295,1863,2071,1941,2063,1939,1971,2067,1957,2067,1951,2212,1943,2221,1850,2312,1857,2327,1647,2431,1654,2443,1440,2546,1434,2547,1453,2727,1453,2734,1295,2699,1297,2699,1269,2563,1268,2557,1186,2322,1193,2324,1118,2264,1120,2265,1045,2170,1045">
+          <!--[15] LYMA: Super Supplement-->
+          <area href="https://headless.horse/project-15/" class="project-link" target="terminal--iframe" title="LYMA: Super Supplement" shape="poly" coords="3364,2557,3260,2554,3259,2684,3361,2685">
+          <!--[14] Nike: Air Max Day-->
+          <area href="https://headless.horse/project-14/" class="project-link" target="terminal--iframe" title="Nike: Air Max Day" shape="poly" coords="3010,1807,2813,1798,2802,2010,2814,2011,2816,1973,3003,1980">
+          <!--[14] Nike: Air Max Day-->
+          <area href="https://headless.horse/project-14/" class="project-link" target="terminal--iframe" title="Nike: Air Max Day" shape="poly"
+            coords="2942,1277,2919,1565,2724,1551,2734,1295,2700,1296,2698,1269,2566,1266,2560,1184,2503,1186,2502,1169,2653,1172,2656,1051,2704,1051,2706,992,2722,991,2701,807,2894,801,2910,1008,2887,1009,2887,1028,2900,1029,2900,1276">
+          <!--[14] Nike: Air Max Day-->
+          <area href="https://headless.horse/project-14/" class="project-link" target="terminal--iframe" title="Nike: Air Max Day" shape="poly"
+            coords="3391,1018,3355,1016,3352,1034,3193,1031,3192,1203,3109,1205,3113,1307,3073,1306,3074,1624,3270,1630,3268,1861,3282,1861,3275,2008,3388,2000,3392,2027,3612,2032,3613,1852,3562,1850,3561,1844,3542,1844,3540,1632,3559,1632,3560,1599,3330,1578,3349,1310,3331,1307,3327,1238,3388,1236,3389,1019">
+          <!--[13] Nike: Alpha Menace Elite-->
+          <area href="https://headless.horse/project-13/" class="project-link" target="terminal--iframe" title="Nike: Alpha Menace" shape="poly"
+            coords="3963,1866,3614,1863,3613,2030,3391,2029,3388,1999,3150,2017,3153,1988,2816,1975,2807,2279,3138,2292,3154,2291,3160,2437,3329,2434,3325,2280,3388,2277,3392,2364,3673,2362,3679,2459,4031,2450,4026,2372,4022,2372,4017,2183,4096,2182,4088,1911,3962,1909">
+          <!--[12] Nike: Nike Football Program Typeface-->
+          <area href="https://headless.horse/project-12/" class="project-link" target="terminal--iframe" title="Nike: Nike Football Program Typeface" shape="poly"
+            coords="3934,940,3716,941,3713,1102,3728,1101,3727,1222,3837,1226,3826,1521,4114,1523,4117,1298,4323,1303,4330,1057,4240,1055,4241,1065,3932,1061">
+          <!--[11] The Apostles Tapestry-->
+          <area href="https://headless.horse/project-11/" class="project-link" target="terminal--iframe" title="The Apostles Tapestry" shape="poly"
+            coords="1423,1651,1239,1646,1233,1749,1095,1736,1087,1849,919,1861,865,1875,872,1916,734,1915,736,1877,625,1870,590,2246,737,2254,744,2385,883,2370,880,2525,984,2535,1044,2527,1045,2570,1350,2538,1332,2336,1348,2336,1340,2164,1369,2162,1374,2048,1519,2044,1517,1814,1417,1815">
+          <!--[10] Chanel: Nº5 Sculpture-->
+          <area href="https://headless.horse/project-10/" class="project-link" target="terminal--iframe" title="Chanel: Nº5 Sculpture" shape="poly"
+            coords="1276,1155,976,1143,976,1137,923,1136,924,960,721,956,716,1132,679,1132,676,1507,700,1506,696,1725,898,1731,897,1747,742,1746,736,1913,870,1917,863,1876,915,1864,915,1841,1083,1834,1094,1736,1164,1741,1160,1704,1235,1704,1237,1647,1332,1649,1336,1549,1373,1543,1381,1400,1280,1393">
+          <!--[10] Chanel: Nº5 Sculpture-->
+          <area href="https://headless.horse/project-10/" class="project-link" target="terminal--iframe" title="Chanel: Nº5 Sculpture" shape="poly"
+            coords="4138,2701,3750,2689,3740,2683,3633,2669,3628,2687,3175,2682,3176,3079,3368,3098,3409,3121,3403,3246,3418,3246,3417,3278,3427,3285,3430,3354,3398,3356,3386,3495,4164,3542">
+          <!--[09] Jordan Brand: Court Concept-->
+          <area href="https://headless.horse/project-08/" class="project-link" target="terminal--iframe" title="Jordan Brand: Court Concept" shape="poly"
+            coords="4221,537,3818,537,3824,397,3532,396,3524,684,3730,684,3727,792,3939,792,3933,1061,4240,1065,4248,847,4179,849,4177,796,4214,795">
+          <!--[08] Nike: The Stands Cafe Identity-->
+          <area href="https://headless.horse/project-08/" class="project-link" target="terminal--iframe" title="Nike: The Stands Cafe Identity" shape="poly" coords="3021,450,2735,455,2735,608,2705,607,2703,800,2990,800,2991,642,3024,639">
+          <!--[07] Nike: Kobe X, The Art of Attack-->
+          <area href="https://headless.horse/project-07/" class="project-link" target="terminal--iframe" title="Nike: Kobe X, The Art of Attack" shape="poly"
+            coords="2614,2305,2745,2302,2753,2502,3090,2487,3079,2290,2808,2279,2803,2093,2511,2099,2508,2177,2483,2175,2491,2300,2469,2299,2468,2332,2279,2324,2277,2543,2612,2541">
+          <!--[06] Nike: Global Label System-->
+          <area href="https://headless.horse/project-06/" class="project-link" target="terminal--iframe" title="Nike: Global Label System" shape="poly" coords="2785,1883,2556,1883,2559,2097,2786,2090">
+          <!--[05] Nike: Technology Logos-->
+          <area href="https://headless.horse/project-05/" class="project-link" target="terminal--iframe" title="Nike: Technology Logos" shape="poly" coords="2759,1723,2494,1731,2501,1903,2556,1902,2555,1882,2766,1882">
+          <!--[04] Calvin Harris: Identity-->
+          <area href="https://headless.horse/project-04/" class="project-link" target="terminal--iframe" title="Calvin Harris: Identity" shape="poly" coords="3559,751,3357,761,3358,735,3336,736,3337,587,3527,589,3524,684,3563,684">
+          <!--[03] Jordan Brand: Russell Westbrook Identity-->
+          <area href="https://headless.horse/project-03/" class="project-link" target="terminal--iframe" title="Jordan Brand: Russell Westbrook Identity" shape="poly"
+            coords="2262,1952,2068,1951,2070,1958,1940,1970,1936,2164,1992,2165,1991,2187,2020,2186,2016,2402,2268,2410,2282,2170,2253,2170">
+          <!--[02] DC Shoes: Identity-->
+          <area href="https://headless.horse//project-02/" class="project-link" target="terminal--iframe" title="DC Shoes: Identity" shape="poly"
+            coords="3987,1533,3826,1530,3827,1561,3671,1557,3668,1635,3705,1635,3709,1847,3684,1848,3682,1865,3948,1867,3947,1729,3962,1730,3965,1633,3977,1632,3972,1542,3987,1542">
+          <!--[01] Nike: Los Fearless-->
+          <area href="https://headless.horse//project-01/" class="project-link" target="terminal--iframe" title="Nike: Los Fearless" shape="poly"
+            coords="2040,611,2044,825,2135,825,2135,1018,1798,1020,1798,968,1614,957,1625,643,1847,657,1848,578,1890,570,1922,576,1940,569,1982,585,2006,580">
+          <!--shop.headless.horse-->
+          <area href="https://shop.headless.horse/" class="click-sound" target="_blank" title="shop.headless.horse" shape="poly"
+            coords="868,2693,969,2636,984,2634,994,2644,993,2656,981,2664,980,2688,1106,2678,1106,2669,1148,2660,1187,2644,1246,2635,1279,2624,1292,2649,1284,2659,1283,2669,1312,2666,1360,2682,1360,2999,921,3039,892,3065,878,3065,801,3048,740,3040,673,3046,654,3051,647,3025,712,2991,823,2914,841,2899,831,2843,836,2801,848,2752,862,2724,878,2705,892,2696,892,2691,866,2700">
+        </map>
+
+        <!-- End Wall Image Map -->
+    </div>
+
+    <footer id="footer" class="scroll-snap--section">
+      <div id="footer--top">
+        <img id="footer--top--logo" src="https://assets.headless.horse/Assets/Images/HH_logo.png"></img>
+      </div>
+      <div id="footer--bottom">
+        <a id="footer--bottom--site-links--contact" href="mailto:mail@headless.horse">Contact</a>
+        <a id="footer--bottom--site-links--privacy" href="https://headless.horse/privacy">Privacy</a>
+        <a id="footer--bottom--site-links--subscribe">
+          <!-- Begin Mailchimp Signup Form -->
+          <div id="mc_embed_signup">
+            <form action="https://headlesshorse.us20.list-manage.com/subscribe/post?u=4792941058b6d3b4b6ea3b3f2&amp;id=6ac99d042c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"
+              novalidate>
+              <div id="mc_embed_signup_scroll">
+                <div class="mc-field-group">
+                  <input type="email" value="" name="EMAIL" id="mce-EMAIL" class="required email subscribe_email" placeholder="Subscribe">
+                  <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="subscribe--submit button" disabled="disabled">
+                </div>
+                <div id="mce-responses" class="clear">
+                  <div class="response" id="mce-error-response" style="display:none"></div>
+                  <div class="response" id="mce-success-response" style="display:none"></div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!--End Mailchimp Signup Form-->
+        </a>
+      </div>
+      <div id="footer--bottom--follow-links">
+        <a href="https://instagram.com/headless.horse/" target="_blank">Instagram</a>
+        <a href="https://twitter.com/headless__horse/" target="_blank">Twitter</a>
+      </div>
+    </footer>
+  </div>
 
   <audio src="https://assets.headless.horse/Assets/Audio/pad.wav?dl=0" id="backgroundpad" class="audiofile" loop="loop" type="audio/mpeg"></audio>
   <audio src="https://assets.headless.horse/Assets/Audio/select.mp3?dl=0" id="projectclick" class="audiofile" type="audio/mpeg"></audio>
@@ -280,22 +254,14 @@ headless.horse/
 
 <style>
   html {
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: scroll;
     -ms-overflow-style: none;
+    scrollbar-width: none;
     text-rendering: optimizeLegibility;
   }
 
   ::-webkit-scrollbar {
-    width: 25px;
-  }
-
-  ::-webkit-scrollbar-track {
-    border-left: 1px solid #999999;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #999999;
+    display: none;
   }
 
   ::selection {
@@ -311,7 +277,6 @@ headless.horse/
   body {
     padding: 0;
     margin: 0;
-    color: #999999;
     font-family: courier, monospace;
     font-size: 12px;
     font-style: normal;
@@ -319,7 +284,6 @@ headless.horse/
   }
 
   p {
-    color: #999999;
     font-family: courier, monospace;
     font-size: 12px;
     line-height: 1.5;
@@ -327,151 +291,161 @@ headless.horse/
     font-weight: 400;
   }
 
-  a {
-    color: #999999;
+  a,
+  a:link,
+  a:visited,
+  a:hover,
+  a:focus {
     font-family: courier, monospace;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
+    text-decoration: none;
+    color: #999999;
   }
 
-  a:link,
-  a:visited {
-    color: #999999;
-    text-decoration: none;
+  a:active[target=_blank],
+  a:link[target=_blank],
+  a:visited[target=_blank],
+  a[target=_blank] {
+    cursor: ne-resize;
   }
 
   a:hover,
-  a:focus {
-    color: #999999;
+  .click-sound:hover {
+    -webkit-animation-name: hover-flicker;
+    animation-name: hover-flicker;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
   }
 
-  #loader {
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background: #000000;
-    line-height: 4;
-    cursor: default !important;
+  @-webkit-keyframes hover-flicker {
+
+    0%,
+    2%,
+    6%,
+    8%,
+    12%,
+    16%,
+    18%,
+    90% {
+      opacity: 1
+    }
+
+    3%,
+    5%,
+    9%,
+    11%,
+    15%,
+    17%,
+    to {
+      opacity: 0
+    }
   }
 
-  #loader_frame,
-  #loader_percentage {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    max-width: 40vw;
-    height: 7px;
-    border: 1px solid #999999;
-    margin: auto;
+  .scroll-snap--container {
+    overflow-y: scroll;
+    max-height: 100vh;
+    scroll-snap-type: y mandatory;
   }
 
-  #loader_bar {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .scroll-snap--section {
+    position: relative;
+    scroll-snap-align: end;
+  }
+
+  #main-section {
     overflow: hidden;
+    height: 100vh;
+  }
+
+  #nav-top {
+    position: fixed;
+    z-index: 5;
+    overflow: hidden;
+    top: 20;
+    left: 20;
+    right: 20;
+    height: 30px;
+    padding: 0;
+    margin: auto;
+    text-transform: uppercase;
+    color: #999999;
+    mix-blend-mode: difference;
+  }
+
+  #nav-top--loader-bar {
     width: 0;
-    height: 100%;
+    height: 1px;
     background: #999999;
   }
 
-  #nav_bottom {
-    position: fixed;
-    z-index: 8;
-    bottom: 0;
-    overflow: hidden;
-    width: 100%;
-    padding: 0;
-    border-top: 1px solid #999999;
-    margin: 0;
-    background: rgba(0, 0, 0, 0.4);
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-    text-transform: uppercase;
-    list-style-type: none;
+  #nav-top--headless-horse {
+    position: absolute;
+    top: 15;
+    left: 0;
+    cursor: pointer !important;
   }
 
-  #nav_bottom>li {
-    float: left;
-    padding: 6px 11px 5px 9px;
-    line-height: 14px;
-  }
-
-  #notice_list a:hover::before {
-    content: '● ';
-  }
-
-  #clock {
-    float: right !important;
+  #nav-top--clock {
+    position: absolute;
+    top: 15;
+    right: 0;
     cursor: default !important;
   }
 
-  .nav_link {
-    border-right: 1px solid #999999;
+  #nav-bottom {
+    position: absolute;
+    z-index: 5;
+    bottom: 20;
+    left: 20;
+    right: 20;
+    height: 30px;
+    overflow: hidden;
+    margin: auto;
+    text-transform: uppercase;
+    list-style-type: none;
+    color: #999999;
+  }
+
+  #nav-bottom--title {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    line-height: 14px;
+    cursor: pointer !important;
+  }
+
+  #nav-bottom--close {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: auto;
     cursor: pointer !important;
   }
 
   #terminal {
-    position: fixed;
-    z-index: 5;
-    transform: translate(-50%, calc(-50% - 13px));
-    top: 50%;
-    left: 50%;
-    width: 65vw;
-    border: 1px solid #999999;
-    background: rgba(0, 0, 0, 0.4);
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-  }
-
-  #terminal_close {
     position: absolute;
-    width: 24px;
-    z-index: 4;
-    margin-top: -1px;
-    margin-right: -1px;
-    top: 0;
-    right: 0;
-    text-align: center;
-    padding: 5px 0 5px 0;
-    border: 1px solid #999999;
-    cursor: pointer !important;
-  }
-
-  #terminal_title {
-    position: relative;
-    z-index: 2;
-    padding: 5px 10px;
-    border-bottom: 1px solid #999999;
-    margin: 0;
-    text-transform: uppercase;
-  }
-
-  #terminal_iframe {
-    position: absolute;
-    z-index: 7;
+    z-index: 3;
     width: 100%;
-    height: calc(100% - 25px);
+    height: 100%;
   }
 
-  #terminal_content {
-    z-index: 6;
-    overflow-x: auto;
-    height: 70vh;
+  #terminal--iframe {
+    z-index: 4;
+    position: absolute;
+    width: 100%;
+    height: 100%;
   }
 
-  #terminal_copy {
-    padding: 10px 20px;
-  }
-
-  #command {
-    display: block;
+  #terminal--copy {
+    position: fixed;
+    top: 50;
+    left: 20;
+    right: 20;
+    width: 50%;
+    color: #999999 !important;
   }
 
   input[type="text"] {
@@ -479,56 +453,128 @@ headless.horse/
     background: 0;
     color: #999999;
     font-family: courier, monospace;
-    font-size: 12px;
-    text-transform: lowercase;
+    color: #999999 !important;
   }
 
   input[type="text"]:focus {
     outline: none;
+    color: #999999 !important;
   }
 
-  #terminal_content a {
-    padding: 0;
-    margin: 0;
-    line-height: 10px;
-  }
-
-  #terminal_content a:hover::before {
-    content: '● ';
-  }
-
-  #left {
-    float: left;
-    overflow-y: auto;
-    overflow-x: hidden;
-    width: calc(50% - 1px);
-    height: 100%;
-  }
-
-  #services_list span::after,
-  #technology_list span::after,
-  #clients_list span::after {
+  #services-list span::after,
+  #technology-list span::after,
+  #clients-list span::after {
     content: ', ';
   }
 
-  #services_list span:last-child::after,
-  #technology_list span:last-child::after,
-  #clients_list span:last-child::after {
+  #services-list span:last-child::after,
+  #technology-list span:last-child::after,
+  #clients-list span:last-child::after {
     content: '.';
   }
 
-  .subscribe_form,
-  .subscribe_post,
-  .subscribe.active .subscribe_pre,
-  .subscribe.done .subscribe_pre,
-  .subscribe.done .subscribe_form {
-    display: none;
+  #wall-image--cover {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
 
-  .subscribe_pre,
-  .subscribe.active .subscribe_form,
-  .subscribe.done .subscribe_post {
-    display: block;
+  #wall-image {
+    overflow-x: hidden;
+    -webkit-transition: filter 2s;
+    -moz-transition: filter 2s;
+    -o-transition: filter 2s;
+    -ms-transition: filter 2s;
+    transition: filter 2s;
+  }
+
+  .wall-image--filter {
+    filter: grayscale(100%);
+  }
+
+  img.map,
+  map area {
+    outline: none;
+  }
+
+  #tooltip {
+    top: 100%;
+    min-width: 200px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 15px 10px;
+    border: 1px solid #999999;
+    margin-top: 15px;
+    color: #999999;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  #tooltip:after {
+    content: " \2192";
+  }
+
+  #footer {
+    z-index: 3;
+    position: relative;
+    height: 200px;
+    color: #999999;
+    text-transform: uppercase;
+  }
+
+  #footer--top--logo {
+    position: absolute;
+    top: 20;
+    left: 20;
+    height: 40px;
+    width: auto;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+
+  #footer a:not(:last-child) {
+    padding-right: 15px;
+  }
+
+  #footer--bottom {
+    position: absolute;
+    bottom: 20;
+    left: 20;
+  }
+
+  #footer--bottom--site-links--subscribe {
+    float: right;
+    padding-left: 10px;
+    height: 0;
+  }
+
+  #footer--bottom--follow-links {
+    position: absolute;
+    bottom: 20;
+    right: 20;
+  }
+
+  .mc-field-group input {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.0);
+    color: #999999;
+    font-family: courier, monospace;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    opacity: 1;
+    text-transform: uppercase;
+    width: auto;
   }
 
   input:focus,
@@ -539,205 +585,109 @@ headless.horse/
     -webkit-appearance: none
   }
 
-  ::-webkit-input-placeholder,
-  :-ms-input-placeholder,
-  ::-moz-placeholder {
-    color: #999999;
-  }
-
-  .subscribe_activate {
-    cursor: pointer;
-  }
-
-  .subscribe_submit {
+  .subscribe--submit {
     text-transform: uppercase;
     cursor: pointer;
   }
 
-  .mc-field-group input {
-    border: 0;
-    margin: 0;
-    background: rgba(0, 0, 0, 0.0);
+  ::placeholder {
     color: #999999;
-    font-family: courier, monospace;
-    font-size: 9px;
-    font-style: normal;
-    font-weight: 400;
   }
 
-  #right {
-    float: left;
-    overflow-y: auto;
-    overflow-x: hidden;
-    width: calc(100% - 50%);
-    height: 100%;
-    border-left: 1px solid #999999;
+  :-ms-input-placeholder {
+    color: #999999;
   }
 
-  #feed {
-    padding: 20px;
-  }
-
-  figure {
-    position: relative;
-    margin: 0 0 50px 0;
-  }
-
-  .feed_image {
-    max-width: 100%;
-    max-height: 450px;
-    -webkit-filter: grayscale(100%) brightness(1.1);
-    filter: grayscale(100%) brightness(1.1);
-  }
-
-  .feed_image:hover {
-    -webkit-filter: none;
-    filter: none;
+  ::-ms-input-placeholder {
+    color: #999999;
   }
 
   .open {
     display: block;
   }
 
-  #img {
-    overflow-x: hidden;
-  }
-
-  #img_cover {
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-  }
-
-  img.map,
-  map area {
-    outline: none;
-  }
-
-  #tooltip {
-    top: 100%;
-    padding: 15px 20px;
-    border: 1px solid #999999;
-    margin-top: 15px;
-    background: rgba(0, 0, 0, 0.4);
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-  }
-
-  ::selection {
-    background: #999999;
-    color: #000000;
-  }
-
-  ::-moz-selection {
-    background: #999999;
-    color: #000000;
-  }
-
-  #mobile_header,
-  #mobile_header_image,
+  #nav-top--clock,
+  #nav-bottom,
+  #terminal--iframe,
+  #command,
+  #mc-embedded-subscribe,
+  #wall-image,
+  #mobile-header,
+  #mobile--nav-top--image,
   #mobile_footer,
   section,
-  .accordion,
-  .mobile_footer {
+  .accordion {
     display: none;
   }
 
-  @media (max-width:1800px) {
-    #terminal {
-      width: 80vw;
-    }
-  }
-
-  @media (max-width:1000px) {
-    ::-webkit-scrollbar {
-      width: 5px;
-    }
-
-    ::-webkit-scrollbar-track {
-      border-left: 0;
+  @media (max-width:800px) {
+    .scroll-snap--container {
+      overflow-y: scroll;
+      max-height: auto;
+      height: auto;
+      scroll-snap-type: none;
     }
 
     body,
     p,
-    a {
-      font-size: 9px;
+    a,
+    .mc-field-group input {
+      font-size: 9px !important;
     }
 
-    #terminal {
-      transform: translate(-50%, -50%);
-      width: 100%;
-      height: 100%;
-      border: 0;
-      background: #000000;
-    }
-
-    #terminal_container {
-      width: 100%;
-    }
-
-    #terminal_content {
-      height: 100vh;
-    }
-
-    #terminal_copy {
-      padding: 0;
-    }
-
-    #feed {
-      padding: 10px;
-    }
-
-    .feed_image {
-      width: 100%;
+    #main-section {
       height: auto;
     }
 
-    section {
-      display: block;
+    #mobile--nav-top--image {
+      margin: auto;
+      width: 320px;
+      height: 360px;
+      color: #999999;
+      line-height: 0.8;
+      letter-spacing: 0.2em;
     }
 
-    #clients_list>span,
-    #services_list>span,
-    #technology_list>span,
-    #press_list>p,
-    #project_list>p {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+    #nav-top {
+      position: relative;
+      height: 45px;
+      top: 0;
+      left: 0;
+      right: 0;
     }
 
-    #services_list span,
-    #technology_list span,
-    #clients_list span {
-      display: block;
+    #nav-top--headless-horse {
+      top: 18;
+      left: 8;
     }
 
-    #services_list span::after,
-    #technology_list span::after,
-    #clients_list span::after {
-      content: '';
+    #nav-top--clock {
+      position: absolute;
+      top: 18;
+      right: 8;
     }
 
-    #services_list span:last-child:after,
-    #technology_list span:last-child:after,
-    #clients_list span:last-child:after {
-      content: '';
+    #terminal {
+      position: relative;
+      height: auto;
+    }
+
+    #terminal--copy {
+      position: relative;
+      height: auto;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
     }
 
     .accordion {
       display: block;
-      border-top: 1px solid #999999;
-      cursor: pointer;
       padding: 15px 8px;
+      border-top: 1px solid #999999;
       margin: 0;
       text-transform: uppercase;
-    }
-
-    .accordion:first-of-type {
-      border-top: 0;
+      cursor: pointer !important;
     }
 
     .accordion::after {
@@ -749,62 +699,92 @@ headless.horse/
       transition: .3s ease-out;
     }
 
+    .accordion:first-of-type {
+      border-top: 1px solid #999999;
+    }
+
     .active::after {
       transform: rotate(0deg);
     }
 
-    .accordion_panel {
+    .accordion--panel {
       overflow: hidden;
       max-height: 0;
       padding: 0 8px;
       transition: max-height 0.3s ease-out;
     }
 
-    #clients_list,
-    #services_list,
-    #technology_list {
+    #clients-list,
+    #services-list,
+    #technology-list {
       column-count: 2;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    #mobile_footer {
+    #services-list span,
+    #technology-list span,
+    #clients-list span {
       display: block;
+    }
+
+    #clients-list>span,
+    #services-list>span,
+    #technology-list>span,
+    #press-list>p,
+    #project-list>p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    #services-list span::after,
+    #technology-list span::after,
+    #clients-list span::after {
+      content: '';
+    }
+
+    #services-list span:last-child:after,
+    #technology-list span:last-child:after,
+    #clients-list span:last-child:after {
+      content: '';
+    }
+
+    section {
+      display: block;
+    }
+
+    #wall-image {
+      height: 0;
+    }
+
+    #footer {
       border-top: 1px solid #999999;
-      text-transform: uppercase;
+      height: 150px;
     }
 
-    .column {
-      float: left;
-      width: 70%;
-      padding: 15px 8px;
+    #footer--top--logo {
+      top: 15;
+      left: 8;
+      height: 30px;
     }
 
-    .column:last-child {
-      width: 30%;
+    #footer a:not(:last-child) {
+      padding-right: 10px;
     }
 
-    #follow {
-      padding: 15px 8px;
-      text-align: right;
+    #footer--bottom {
+      bottom: 15;
+      left: 8;
     }
 
-    #follow p {
-      display: inline;
+    #footer--bottom--follow-links {
+      bottom: 15;
+      right: 8;
     }
 
-    #follow_list p:nth-child(1)::after {
-      content: " / ";
-    }
-
-    #terminal_close,
-    #terminal_title,
-    #nav_bottom,
-    #clock,
+    #mobile--nav-top--image,
+    #nav-bottom--title,
+    #nav-bottom--close,
     #home,
-    #newsletter,
     #shop,
     #thanks,
     #tweet,
@@ -812,74 +792,10 @@ headless.horse/
     #list,
     #error,
     #command,
-    #img,
     #tooltip,
-    .mobile_hide {
-      display: none;
-    }
-  }
-
-  @media (max-width:500px) {
-    ::-webkit-scrollbar {
-      display: none;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    #notice_list,
-    #hours_list {
-      display: block;
-      overflow: hidden;
-      padding: 10px 8px;
-      white-space: nowrap;
-      text-align: center;
-      text-overflow: ellipsis;
-      text-transform: uppercase;
-    }
-
-    #hours_list {
-      margin-top: 20px;
-    }
-
-    #mobile_header {
-      position: relative;
-      display: block;
-      overflow: hidden;
-      width: 100%;
-      height: 345px;
-    }
-
-    #mobile_header_image {
-      position: absolute;
-      display: block;
-      transform: translate(-50%, -50%);
-      top: 50%;
-      left: 50%;
-      color: #999999;
-      font-family: courier, monospace;
-      font-size: 9px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 0.8;
-      letter-spacing: 0.2em;
-    }
-
-    #left {
-      width: 100%;
-      height: 10000px;
-    }
-
-    .accordion:first-of-type {
-      border-top: 1px solid #999999;
-      margin-top: 10px;
-    }
-
-    #right,
-    #loader,
-    /* Animation */
-    #mobile_header,
-    .accordion,
-    #mobile_footer {
+    #footer,
+    #footer--bottom--site-links--subscribe,
+    .accordion {
       display: none;
     }
   }
@@ -907,11 +823,11 @@ headless.horse/
 
   // audio project
   var s = document.getElementById("projectclick");
-  $('.project_link').click(() => s.play());
+  $('.project-link').click(() => s.play());
 
   // audio link
   var a = document.getElementById("linkclick");
-  $('.click_sound').click(() => a.play());
+  $('.click-sound').click(() => a.play());
 </script>
 
 <script>
@@ -920,13 +836,13 @@ headless.horse/
   width = 100,
     perfData = window.performance.timing,
     EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
-    time = parseInt((EstimatedTime / 1000) % 60) * 100 + 6000;
+    time = parseInt((EstimatedTime / 1000) % 60) * 100 + 2000;
 
-  $("#loader_bar").animate({
+  $("#nav-top--loader-bar").animate({
     width: width + "%"
   }, time);
 
-  var loader_percentageID = $("#loader_percentage"),
+  var loader_percentageID = $("#nav-top--loader-percentage"),
     start = 0,
     end = 100,
     durataion = time;
@@ -942,7 +858,7 @@ headless.horse/
 
     var timer = setInterval(function() {
       current += increment;
-      $(obj).text(" Loading — " + current + "%");
+      $(obj).text(" " + current + "%");
       // obj.innerHTML = current;
       if (current == end) {
         clearInterval(timer);
@@ -951,92 +867,219 @@ headless.horse/
   }
 
   setTimeout(function() {
-    $('#loader_frame, #loader_percentage').delay(1000).fadeOut(1000);
-    $('#loader').delay(2000).fadeOut(2000);
+    $('#nav-top--loader-percentage').delay(1000).fadeOut(2000);
+    $('#nav-top--clock, #nav-bottom').delay(2000).fadeIn(2000);
+    $('#wall-image').delay(3000).fadeIn(2000);
   }, time);
 
   $(document).ready(function() {
-    $("#terminal_content").fadeIn(1000);
-    $("#terminal_iframe").hide();
-    $("#img_cover").show();
-  });
-
-  $(document).ready(function() {
-    $("#terminal_close, #img_cover").click(function() {
-      $("#terminal").fadeOut(1000);
-      $("#terminal_iframe").hide();
-      $("#left, #right").fadeOut(1000);
-      $("#img_cover").fadeOut(2000);
+    $("#nav-bottom--close").click(function() {
+      $("#nav-bottom, #terminal, #wall-image--cover").fadeOut(2000);
+      $('#wall-image').fadeIn(2000, function() {
+        $('#wall-image').toggleClass('img--filter');
+      });
     });
 
-    $(".project_link, .nav_link").click(function() {
-      $("#terminal").fadeToggle(1000);
-      $("#img_cover").fadeToggle(2000);
+    $(".project-link, .nav-link").click(function() {
+      $("#nav-bottom, #terminal, #wall-image--cover").fadeToggle(2000);
+      $("#terminal--copy").hide();
+      $('#wall-image').fadeIn(2000, function() {
+        $('#wall-image').toggleClass('wall-image--filter');
+      });
     });
 
-    $(".project_link").click(function() {
-      $("#left, #right").hide();
-      $("#terminal_iframe").show();
+    $("#nav-top--headless-horse").click(function() {
+      $("#terminal--copy").show();
     });
 
-    $(".nav_link").click(function() {
-      $("#left, #right").show();
-      $('#commandinput[type="text"]').focus();
-      $('#commandinput[type="text"]').val('');
+    $(".project-link").click(function() {
+      $("#terminal--iframe").show();
+    });
+
+    $(".nav-link").click(function() {
+      $('#command--input[type="text"]').focus();
+      $('#command--input[type="text"]').val('');
     });
   });
 
   function clearframe() {
-    document.getElementById("terminal_iframe").src = "about:blank";
+    document.getElementById("terminal--iframe").src = "about:blank";
   }
+
+/***************************************** TYPER *****************************************/
+
+  if ($(window).width() > 800) {
+    (function(e) {
+      "use strict";
+      e.fn.textTyper = function(t) {
+        var n = {
+            typingClass: "typing",
+            beforeAnimation: function() {},
+            afterAnimation: function() {},
+            speed: 70,
+            nextLineDelay: 400,
+            startsFrom: 0,
+            repeatAnimation: false,
+            repeatDelay: 4e3,
+            repeatTimes: 1,
+            cursorHtml: '<span class="cursor">|</span>'
+          },
+          r = e.extend({}, n, t);
+        this.each(function() {
+          var t = e(this),
+            n = 1,
+            i = "typingCursor";
+          var s = t,
+            o = s.length,
+            u = [];
+          while (o--) {
+            u[o] = e.trim(e(s[o]).html());
+            e(s[o]).html("")
+          }
+          t.init = function(e) {
+            var n = r.beforeAnimation;
+            if (n) n();
+            t.animate(0)
+          };
+          t.animate = function(o) {
+            var a = s[o],
+              f = r.typingClass,
+              l = r.startsFrom;
+            e(a).addClass(f);
+            var c = setInterval(function() {
+              var f = r.cursorHtml;
+              f = e("<div>").append(e(f).addClass(i)).html();
+              e(a).html(u[o].substr(0, l) + f);
+              l++;
+              if (u[o].length < l) {
+                clearInterval(c);
+                o++;
+                if (s[o]) {
+                  setTimeout(function() {
+                    e(a).html(u[o - 1]);
+                    t.animate(o)
+                  }, r.nextLineDelay)
+                } else {
+                  e(a).find("." + i).remove();
+                  if (r.repeatAnimation && (r.repeatTimes == 0 || n < r.repeatTimes)) {
+                    setTimeout(function() {
+                      t.animate(0);
+                      n++
+                    }, r.repeatDelay)
+                  } else {
+                    var h = r.afterAnimation;
+                    if (h) h()
+                  }
+                }
+              }
+            }, r.speed)
+          };
+          t.init()
+        });
+        return this
+      }
+    })(jQuery)
+  }
+
+/***************************************** TERMINAL OPEN *****************************************/
+
+  if (window.screen.width > 800) {
+    $('#terminal').click(function() {
+      $('#command--input[type="text"]').focus();
+    });
+
+    $(document).ready(function() {
+      $('#command').hide();
+      $('#command--input[type="text"]').focus();
+      $('#home').addClass('open');
+      $('#home').textTyper({
+        speed: 20,
+        afterAnimation: function() {
+          $('#command').fadeIn();
+          $('#command--input[type="text"]').focus();
+          $('#command--input[type="text"]').val('');
+        }
+      });
+
+      // get array of section ids, that exist in DOM
+      var sectionArray = [];
+      $('section').each(function(i, e) {
+        // you can use e.id instead of $(e).attr('id')
+        sectionArray.push($(e).attr('id'));
+      });
+
+      // command input
+      $('#command--input[type="text"]').keyup(function(e) {
+
+        if (e.which == 13) {
+
+          $('#command').hide();
+          var destination = $('input[type="text"]').val();
+
+          // display section with id == destination
+          $('section[id="' + destination + '"]').addClass('open').siblings().removeClass('open');
+
+          // display error
+          if ($.inArray(destination, sectionArray) == -1) {
+            $('#error').addClass('open');
+            $('#error').siblings().removeClass('open');
+          }
+
+          $('.open').textTyper({
+            speed: 10,
+            afterAnimation: function() {
+              $('#command').fadeIn();
+              $('#command--input[type="text"]').focus();
+              $('#command--input[type="text"]').val('');
+            }
+          });
+        } // end if 'enter' key pressed
+      }); // end keyup function
+    });
+  }
+
 
 /***************************************** TIME *****************************************/
 
-	const locations = document.querySelectorAll("#clock")
+  const locations = document.querySelectorAll("#nav-top--clock")
 
-	setInterval(function() {
-		// for each output tag
-		locations.forEach(location => {
+  setInterval(function() {
+    // for each output tag
+    locations.forEach(location => {
 
-			// https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-			const tz = location.getAttribute("data_tz")
+      // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      const tz = location.getAttribute("data_tz")
 
-			// get the time in that timezone
-			const now = luxon.DateTime.now().setZone(tz)
+      // get the time in that timezone
+      const now = luxon.DateTime.now().setZone(tz)
 
-			// hour in 24-hour time, no padding
-			const hour = parseInt(now.toFormat("H"), 10)
-			console.log(hour)
+      // hour in 24-hour time, no padding
+      const hour = parseInt(now.toFormat("H"), 10)
+      console.log(hour)
 
       // day of the week as number (Monday is 1, Sunday is 7)
-			const hourday = now.toFormat("c")
-			console.log(hourday)
+      const hourday = now.toFormat("c")
+      console.log(hourday)
 
       // timezone 'GMT'
       const timezone = now.toFormat("ZZZZ")
       console.log(timezone)
 
       // time with timezone '00:00:00 GMT'
-      const timeandtimezone = now.toFormat("HH:mm:ss ZZZZ")
-      console.log(timeandtimezone)
-
-/***************************************** CLOCK *****************************************/
-
-			if (hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6) {
-				document.getElementById('clock').innerHTML = timeandtimezone + " Online";
-			} else {
-				document.getElementById('clock').innerHTML = timeandtimezone + " Offline";
-			}
+      const clock = now.toFormat("HH:mm:ss ZZZZ")
+      console.log(clock)
 
 /***************************************** HOURS *****************************************/
 
       if (hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6) {
-        document.getElementById('hours_list').innerHTML = "Online. " + " Mo–Fr. 08:00–18:00 " + timezone + ".";
+        document.getElementById('nav-top--clock').innerHTML = "Online " + clock;
+        document.getElementById('hours-list').innerHTML = "The studio is open today from 08:00–18:00 " + timezone + ".";
       } else {
-        document.getElementById('hours_list').innerHTML = "Offline. "+ " Mo–Fr. 08:00–18:00 " + timezone + ".";
+        document.getElementById('nav-top--clock').innerHTML = "Offline " + clock;
+        document.getElementById('hours-list').innerHTML = "The studio is now closed we are open Monday—Friday 08:00–18:00 " + timezone + ".";
       }
-		})
-	}, 1000)
+    })
+  }, 1000)
 
 /***************************************** IMAGE MOVER *****************************************/
 
@@ -1044,7 +1087,7 @@ headless.horse/
   // acceleration value between 0 and 1 smaller values = smoother motion
 
   var img = {
-    element: document.querySelector("#img"),
+    element: document.querySelector("#wall-image"),
     xMax: 0,
     yMax: 0,
     x: 0,
@@ -1124,180 +1167,186 @@ headless.horse/
 
 /***************************************** GREENSOCK MODIFIERS PLUGIN *****************************************/
 
-var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(global) !== "undefined") ? global : this || window; //helps ensure compatibility with AMD/RequireJS and CommonJS/Node
-(_gsScope._gsQueue || (_gsScope._gsQueue = [])).push( function() {
+  var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(global) !== "undefined") ? global : this || window; //helps ensure compatibility with AMD/RequireJS and CommonJS/Node
+  (_gsScope._gsQueue || (_gsScope._gsQueue = [])).push(function() {
 
-	"use strict";
+    "use strict";
 
-		var _cssRatioSetter = function(pt, cssp, mod) { //Takes an individual CSSPropTween and converts it into a type:2 that has a setRatio that does everything the regular CSSPlugin.setRatio() method does but applying the mod() too. We do this to keep the main CSSPlugin.setRatio() as fast as possible (the vast majority of times, no mod() will be necessary)
-				var type = pt.type,
-					oldSetRatio = pt.setRatio,
-					tween = cssp._tween,
-					target = cssp._target;
-				pt.type = 2;
-				pt.m = mod;
-				pt.setRatio = function(v) {
-					var min = 0.000001,
-						val, str, i;
-					if (v === 1 && (tween._time === tween._duration || tween._time === 0)) {
+    var _cssRatioSetter = function(pt, cssp,
+      mod) { //Takes an individual CSSPropTween and converts it into a type:2 that has a setRatio that does everything the regular CSSPlugin.setRatio() method does but applying the mod() too. We do this to keep the main CSSPlugin.setRatio() as fast as possible (the vast majority of times, no mod() will be necessary)
+        var type = pt.type,
+          oldSetRatio = pt.setRatio,
+          tween = cssp._tween,
+          target = cssp._target;
+        pt.type = 2;
+        pt.m = mod;
+        pt.setRatio = function(v) {
+          var min = 0.000001,
+            val, str, i;
+          if (v === 1 && (tween._time === tween._duration || tween._time === 0)) {
 
-						if (type !== 2) {
-							if (pt.r && type !== -1) {
-								val = Math.round(pt.s + pt.c);
-								if (!type) {
-									pt.t[pt.p] = mod.call(tween, val + pt.xs0, target, tween);
-								} else if (type === 1) {
-									str = pt.xs0 + val + pt.xs1;
-									for (i = 1; i < pt.l; i++) {
-										str += pt["xn"+i] + pt["xs"+(i+1)];
-									}
-									pt.t[pt.p] = mod.call(tween, str, target, tween);
-								}
-							} else {
-								pt.t[pt.p] = mod.call(tween, pt.e, target, tween);
-							}
-						} else {
-							oldSetRatio.call(pt, v);
-						}
+            if (type !== 2) {
+              if (pt.r && type !== -1) {
+                val = Math.round(pt.s + pt.c);
+                if (!type) {
+                  pt.t[pt.p] = mod.call(tween, val + pt.xs0, target, tween);
+                } else if (type === 1) {
+                  str = pt.xs0 + val + pt.xs1;
+                  for (i = 1; i < pt.l; i++) {
+                    str += pt["xn" + i] + pt["xs" + (i + 1)];
+                  }
+                  pt.t[pt.p] = mod.call(tween, str, target, tween);
+                }
+              } else {
+                pt.t[pt.p] = mod.call(tween, pt.e, target, tween);
+              }
+            } else {
+              oldSetRatio.call(pt, v);
+            }
 
-					} else if (v || !(tween._time === tween._duration || tween._time === 0) || tween._rawPrevTime === -0.000001) {
-						val = pt.c * v + pt.s;
-						if (pt.r) {
-							val = Math.round(val);
-						} else if (val < min) if (val > -min) {
-							val = 0;
-						}
-						if (!type) {
-							pt.t[pt.p] = mod.call(tween, val + pt.xs0, target, tween);
-						} else if (type === 1) {
-							str = pt.xs0 + val + pt.xs1;
-							for (i = 1; i < pt.l; i++) {
-								str += pt["xn"+i] + pt["xs"+(i+1)];
-							}
-							pt.t[pt.p] = mod.call(tween, str, target, tween);
+          } else if (v || !(tween._time === tween._duration || tween._time === 0) || tween._rawPrevTime === -0.000001) {
+            val = pt.c * v + pt.s;
+            if (pt.r) {
+              val = Math.round(val);
+            } else if (val < min)
+              if (val > -min) {
+                val = 0;
+              }
+            if (!type) {
+              pt.t[pt.p] = mod.call(tween, val + pt.xs0, target, tween);
+            } else if (type === 1) {
+              str = pt.xs0 + val + pt.xs1;
+              for (i = 1; i < pt.l; i++) {
+                str += pt["xn" + i] + pt["xs" + (i + 1)];
+              }
+              pt.t[pt.p] = mod.call(tween, str, target, tween);
 
-						} else if (type === -1) { //non-tweening value
-							pt.t[pt.p] = mod.call(tween, pt.xs0, target, tween);
+            } else if (type === -1) { //non-tweening value
+              pt.t[pt.p] = mod.call(tween, pt.xs0, target, tween);
 
-						} else if (oldSetRatio) {
-							oldSetRatio.call(pt, v);
-						}
+            } else if (oldSetRatio) {
+              oldSetRatio.call(pt, v);
+            }
 
-					} else {
-						if (type !== 2) {
-							pt.t[pt.p] = mod.call(tween, pt.b, target, tween);
-						} else {
-							oldSetRatio.call(pt, v);
-						}
-					}
-				};
-			},
-			_modCSS = function(lookup, cssp) {
-				var pt = cssp._firstPT,
-					hasBezier = (lookup.rotation && cssp._overwriteProps.join("").indexOf("bezier") !== -1); //when a Bezier tween is applying autoRotation, it's a very special case we need to handle differently.
-				if (lookup.scale) {
-					lookup.scaleX = lookup.scaleY = lookup.scale;
-				} else if (lookup.rotationZ) {
-					lookup.rotation = lookup.rotationZ;
-				}
-				while (pt) {
-					if (typeof(lookup[pt.p]) === "function") {
-						_cssRatioSetter(pt, cssp, lookup[pt.p]);
-					} else if (hasBezier && pt.n === "bezier" && pt.plugin._overwriteProps.join("").indexOf("rotation") !== -1) {
-						pt.data.mod = lookup.rotation;
-					}
-					pt = pt._next;
-				}
-			},
+          } else {
+            if (type !== 2) {
+              pt.t[pt.p] = mod.call(tween, pt.b, target, tween);
+            } else {
+              oldSetRatio.call(pt, v);
+            }
+          }
+        };
+      },
+      _modCSS = function(lookup, cssp) {
+        var pt = cssp._firstPT,
+          hasBezier = (lookup.rotation && cssp._overwriteProps.join("").indexOf("bezier") !== -1); //when a Bezier tween is applying autoRotation, it's a very special case we need to handle differently.
+        if (lookup.scale) {
+          lookup.scaleX = lookup.scaleY = lookup.scale;
+        } else if (lookup.rotationZ) {
+          lookup.rotation = lookup.rotationZ;
+        }
+        while (pt) {
+          if (typeof(lookup[pt.p]) === "function") {
+            _cssRatioSetter(pt, cssp, lookup[pt.p]);
+          } else if (hasBezier && pt.n === "bezier" && pt.plugin._overwriteProps.join("").indexOf("rotation") !== -1) {
+            pt.data.mod = lookup.rotation;
+          }
+          pt = pt._next;
+        }
+      },
 
-			ModifiersPlugin = _gsScope._gsDefine.plugin({
-				propName: "modifiers",
-				version: "0.0.4",
-				API: 2,
+      ModifiersPlugin = _gsScope._gsDefine.plugin({
+        propName: "modifiers",
+        version: "0.0.4",
+        API: 2,
 
-				//called when the tween renders for the first time. This is where initial values should be recorded and any setup routines should run.
-				init: function(target, value, tween) {
-					this._tween = tween;
-					this._vars = value;
-					return true;
-				},
+        //called when the tween renders for the first time. This is where initial values should be recorded and any setup routines should run.
+        init: function(target, value, tween) {
+          this._tween = tween;
+          this._vars = value;
+          return true;
+        },
 
-				initAll: function() {
-					var tween = this._tween,
-						lookup = this._vars,
-						mpt = this,
-						pt = tween._firstPT,
-						val, next;
-					//initAll() gets called for each and every ModifiersPlugin instance in a tween, so if there are multiple targets, there will be multiple instances. Since we're ripping through the whole tween (and all the PropTweens), we only need to run this code ONCE. So we're setting a toggle on the first PropTween that just tells us if we've done it already. We don't set it on the tween instance because if it gets invalidated, we don't want to have to track this property and reset it. PropTweens get blown away when a tween is invalidated.
-					if (pt._modInitted) {
-						return false;
-					} else {
-						pt._modInitted = 1;
-					}
-					while (pt) {
-						next = pt._next; //record here, because it may get removed
-						val = lookup[pt.n];
-						if (pt.pg) {
-							if (pt.t._propName === "css") { //handle CSSPlugin uniquely (for performance, due to the fact that the values almost always are a concatenation of numbers and strings, like suffixes, and we don't want to slow down the regular CSSPlugin setRatio() performance with conditional checks for if the value needs to be modded, so we pull any modding prop out and change it to a type:2 one that simply calls a setRatio() method where we encapsulate the modding and update all together. That way, it says in the main CSSProp linked list and just has some custom logic applied to it inside its setRatio())
-								_modCSS(lookup, pt.t);
-							} else if (pt.t !== mpt) { //don't run modProps on modProps :)
-								val = lookup[pt.t._propName];
-								pt.t._tween = tween;
-								pt.t._mod((typeof(val) === "object") ? val : lookup);
-							}
-						} else if (typeof(val) === "function") {
-							if (pt.f === 2 && pt.t) { //a blob (text containing multiple numeric values)
-								pt.t._applyPT.m = val;
-								pt.t._tween = tween;
-							} else {
-								this._add(pt.t, pt.p, pt.s, pt.c, val);
-								//remove from linked list
-								if (next) {
-									next._prev = pt._prev;
-								}
-								if (pt._prev) {
-									pt._prev._next = next;
-								} else if (tween._firstPT === pt) {
-									tween._firstPT = next;
-								}
-								pt._next = pt._prev = null;
-								tween._propLookup[pt.n] = mpt;
-							}
-						}
-						pt = next;
-					}
-					return false;
-				}
+        initAll: function() {
+          var tween = this._tween,
+            lookup = this._vars,
+            mpt = this,
+            pt = tween._firstPT,
+            val, next;
+          //initAll() gets called for each and every ModifiersPlugin instance in a tween, so if there are multiple targets, there will be multiple instances. Since we're ripping through the whole tween (and all the PropTweens), we only need to run this code ONCE. So we're setting a toggle on the first PropTween that just tells us if we've done it already. We don't set it on the tween instance because if it gets invalidated, we don't want to have to track this property and reset it. PropTweens get blown away when a tween is invalidated.
+          if (pt._modInitted) {
+            return false;
+          } else {
+            pt._modInitted = 1;
+          }
+          while (pt) {
+            next = pt._next; //record here, because it may get removed
+            val = lookup[pt.n];
+            if (pt.pg) {
+              if (pt.t._propName ===
+                "css") { //handle CSSPlugin uniquely (for performance, due to the fact that the values almost always are a concatenation of numbers and strings, like suffixes, and we don't want to slow down the regular CSSPlugin setRatio() performance with conditional checks for if the value needs to be modded, so we pull any modding prop out and change it to a type:2 one that simply calls a setRatio() method where we encapsulate the modding and update all together. That way, it says in the main CSSProp linked list and just has some custom logic applied to it inside its setRatio())
+                _modCSS(lookup, pt.t);
+              } else if (pt.t !== mpt) { //don't run modProps on modProps :)
+                val = lookup[pt.t._propName];
+                pt.t._tween = tween;
+                pt.t._mod((typeof(val) === "object") ? val : lookup);
+              }
+            } else if (typeof(val) === "function") {
+              if (pt.f === 2 && pt.t) { //a blob (text containing multiple numeric values)
+                pt.t._applyPT.m = val;
+                pt.t._tween = tween;
+              } else {
+                this._add(pt.t, pt.p, pt.s, pt.c, val);
+                //remove from linked list
+                if (next) {
+                  next._prev = pt._prev;
+                }
+                if (pt._prev) {
+                  pt._prev._next = next;
+                } else if (tween._firstPT === pt) {
+                  tween._firstPT = next;
+                }
+                pt._next = pt._prev = null;
+                tween._propLookup[pt.n] = mpt;
+              }
+            }
+            pt = next;
+          }
+          return false;
+        }
 
-			}),
-			p = ModifiersPlugin.prototype;
+      }),
+      p = ModifiersPlugin.prototype;
 
-		p._add = function(target, p, s, c, mod) {
-			this._addTween(target, p, s, s + c, p, mod);
-			this._overwriteProps.push(p);
-		};
+    p._add = function(target, p, s, c, mod) {
+      this._addTween(target, p, s, s + c, p, mod);
+      this._overwriteProps.push(p);
+    };
 
-	p = _gsScope._gsDefine.globals.TweenLite.version.split(".");
-	if (Number(p[0]) <= 1 && Number(p[1]) < 19 && _gsScope.console) {
-		console.log("ModifiersPlugin requires GSAP 1.19.0 or later.");
-	}
+    p = _gsScope._gsDefine.globals.TweenLite.version.split(".");
+    if (Number(p[0]) <= 1 && Number(p[1]) < 19 && _gsScope.console) {
+      console.log("ModifiersPlugin requires GSAP 1.19.0 or later.");
+    }
 
 
-}); if (_gsScope._gsDefine) { _gsScope._gsQueue.pop()(); }
+  });
+  if (_gsScope._gsDefine) {
+    _gsScope._gsQueue.pop()();
+  }
 
-//export to AMD/RequireJS and CommonJS/Node (precursor to full modular build system coming at a later date)
-(function(name) {
-	"use strict";
-	var getGlobal = function() {
-		return (_gsScope.GreenSockGlobals || _gsScope)[name];
-	};
-	if (typeof(module) !== "undefined" && module.exports) { //node
-		require("../TweenLite.js");
-		module.exports = getGlobal();
-	} else if (typeof(define) === "function" && define.amd) { //AMD
-		define(["TweenLite"], getGlobal);
-	}
-}("ModifiersPlugin"));
+  //export to AMD/RequireJS and CommonJS/Node (precursor to full modular build system coming at a later date)
+  (function(name) {
+    "use strict";
+    var getGlobal = function() {
+      return (_gsScope.GreenSockGlobals || _gsScope)[name];
+    };
+    if (typeof(module) !== "undefined" && module.exports) { //node
+      require("../TweenLite.js");
+      module.exports = getGlobal();
+    } else if (typeof(define) === "function" && define.amd) { //AMD
+      define(["TweenLite"], getGlobal);
+    }
+  }("ModifiersPlugin"));
 
 /***************************************** TOOLTIP + TITLES *****************************************/
 
@@ -1335,15 +1384,14 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
     }
   }());
 
-  // 'alt' of link to '#terminal_title'
-  $('.project_link, .nav_link').click(function() {
-    let TermTitle = $(this).attr('alt');
-    $('#terminal_title').html(TermTitle);
-
+  // 'alt' of link to '#terminal-title'
+  $('#nav-bottom--close, .project-link, .nav-link').click(function() {
+    let Termtitle = $(this).attr('alt');
+    $('#nav-bottom--title').html(Termtitle);
   });
 
   // makes 'alt' class == 'title' class
-  $('.project_link, .nav_link').hover(function() {
+  $('.project-link, .nav-link').hover(function() {
     $this = $(this);
     if (!$this.attr('alt') && $this.attr('title')) {
       $this.attr('alt', $this.attr('title'));
@@ -1400,7 +1448,7 @@ const content = blocks.map(block => {
   }
   });
 
-  render(content, document.getElementById('notice_list'))
+  render(content, document.getElementById('nav-bottom--title'))
 }
 run();
 </script>
@@ -1458,7 +1506,7 @@ console.log(blocks.map(x => x.type))
     }
   });
 
-  render(content, document.getElementById('info_list'))
+  render(content, document.getElementById('info-list'))
 }
 run();
 </script>
@@ -1489,7 +1537,7 @@ run();
     .then(tableTemplate) // Promise<TemplateResult>
 		.then(trace('template result is'))
     .then(result =>
-			render(result, document.getElementById('clients_list')))
+			render(result, document.getElementById('clients-list')))
 </script>
 
 <script type="module">
@@ -1518,7 +1566,7 @@ run();
     .then(tableTemplate) // Promise<TemplateResult>
 		.then(trace('template result is'))
     .then(result =>
-			render(result, document.getElementById('services_list')))
+			render(result, document.getElementById('services-list')))
 </script>
 
 <script type="module">
@@ -1547,7 +1595,7 @@ run();
     .then(tableTemplate) // Promise<TemplateResult>
 		.then(trace('template result is'))
     .then(result =>
-			render(result, document.getElementById('technology_list')))
+			render(result, document.getElementById('technology-list')))
 </script>
 
 <script type="module">
@@ -1566,7 +1614,7 @@ run();
 
   const tableTemplate = table => html`
       ${table.map(({id, Client, Project, Number, Status}) => html`
-        <p><a href="/project-${Number}" target="_blank"><span class="mobile_hide">${Number}.</span> ${Client} – ${Project}. ${Status}</a></p>
+        <p><a href="https://headless.horse/project-${Number}" class="project-link" target="terminal--iframe" alt="${Client} – ${Project}"><span class="mobile_hide">${Number}.</span> ${Client} – ${Project}. ${Status}</a></p>
       `)}
   `;
 
@@ -1576,7 +1624,7 @@ run();
     .then(tableTemplate) // Promise<TemplateResult>
 		.then(trace('template result is'))
     .then(result =>
-			render(result, document.getElementById('project_list')))
+			render(result, document.getElementById('project-list')))
 </script>
 
 <script type="module">
@@ -1600,7 +1648,7 @@ run();
     const [content, [[tagName, attr]]] = node;
     if (tagName === 'a') {
       return html`
-        <a href="${attr}" target="_blank">${content}</a>
+        <a href="${attr}">${content}</a>
       `;
     }
     else return node;
@@ -1632,38 +1680,9 @@ console.log(blocks.map(x => x.type))
     }
   });
 
-  render(content, document.getElementById('contact_list'))
+  render(content, document.getElementById('contact-list'))
 }
 run();
-</script>
-
-<script type="module">
-/***************************************** FOLLOW *****************************************/
-
-  import { html, render } from 'https://unpkg.com/lit?module';
-
-  const URL = "https://notion-api.splitbee.io/v1/table/b8c10ba180b64ad59d1e88e954592822";
-
-  const handleAsJson = response => response.json();
-
-  const trace = tag => x => {
-    console.log(tag, x);
-    return x;
-  }
-
-  const tableTemplate = table => html`
-      ${table.map(({Site, Handle, Slug}) => html`
-        <p><a href="${Slug}${Handle}/" target="_blank">${Site}<span class="mobile_hide"> @${Handle}</span></a></p>
-      `)}
-  `;
-
-  const projectItem = fetch(URL)
-    .then(handleAsJson) // Promise<TableJson>
-    .then(trace('table is'))
-    .then(tableTemplate) // Promise<TemplateResult>
-		.then(trace('template result is'))
-    .then(result =>
-			render(result, document.getElementById('follow_list')))
 </script>
 
 <script type="module">
@@ -1692,10 +1711,10 @@ run();
     .then(tableTemplate) // Promise<TemplateResult>
 		.then(trace('template result is'))
     .then(result =>
-			render(result, document.getElementById('press_list')))
+			render(result, document.getElementById('press-list')))
 </script>
 
-<script>
+<script type="module">
 /***************************************** SHOP *****************************************/
 
   $(document).on("keypress", "input", function(e) {
@@ -1710,11 +1729,11 @@ run();
   });
 </script>
 
-<script>
+<script type="module">
 /***************************************** PRIVATE LOGIN *****************************************/
 
 (function() {
-  var textArea = document.getElementById("commandinput");
+  var textArea = document.getElementById("command--input");
 
   textArea.addEventListener("keydown", function(e) {
     if (e.keyCode === 13) {
@@ -1759,7 +1778,7 @@ function doclientSearch(textArea) {
     .then(tableTemplate) // Promise<TemplateResult>
 		.then(trace('template result is'))
     .then(result =>
-			render(result, document.getElementById('Careers_list')))
+			render(result, document.getElementById('careers-list')))
 </script>
 
 <script type="module">
@@ -1815,7 +1834,7 @@ console.log(blocks.map(x => x.type))
     }
   });
 
-  render(content, document.getElementById('thanks_list'))
+  render(content, document.getElementById('thanks-list'))
 }
 run();
 </script>
@@ -1873,12 +1892,12 @@ console.log(blocks.map(x => x.type))
     }
   });
 
-  render(content, document.getElementById('imprint_list'))
+  render(content, document.getElementById('imprint-list'))
 }
 run();
 </script>
 
-<script>
+<script type="module">
 /***************************************** SHARE TWEET *****************************************/
 
   $(document).on("keypress", "input", function(e) {
@@ -1893,7 +1912,7 @@ run();
   });
 </script>
 
-<script>
+<script type="module">
 /***************************************** SHARE MAIL *****************************************/
 
   $(document).on("keypress", "input", function(e) {
@@ -1908,186 +1927,7 @@ run();
   });
 </script>
 
-<script>
-/***************************************** ARE.NA *****************************************/
-
-  $.getJSON("https://api.are.na/v2/channels/vision-erp-0et3qn4?page=1&amp;per=500", function(data) {
-
-    var html = "",
-      el = document.getElementById("feed");
-
-    $.each(data.contents.reverse(), function(key, val) {
-
-      var title = "<p>Reference. " + val.title + "</p>";
-      var descr = "<figcaption>" + val.description + "</figcaption>";
-
-      if (val.image) {
-        var image = "<img class='feed_image' src='" + val.image.large.url + "'/>";
-        if (val.source) {
-          var url = "<br><a href='" + val.source.url + "'>Source: " + val.source.provider.name + "</a>";
-          html += "<figure>" + image + title + descr + url + "</figure>";
-        } else {
-          html += "<figure>" + image + title + descr + "</figure>";
-        }
-
-      } else if (val.content) {
-        var note = "<p>" + val.content + "</p>";
-        if (val.source) {
-          var url = "<br><a class='feed_source' href='" + val.source.url + "'>Source: " + val.source.provider.name + "</a>";
-          html += "<figure>" + title + note + descr + url + "</figure>";
-        } else {
-          html += "<figure>" + title + note + descr + "</figure>";
-        }
-      }
-    });
-
-    el.innerHTML = html;
-  });
-
-  $('#right').on('click', 'a', function(e) {
-    e.preventDefault();
-    var url = $(this).attr('href');
-    window.open(url, '_blank');
-  });
-</script>
-
-<script>
-/***************************************** TYPER *****************************************/
-
-if ($(window).width() > 1000) {
-  (function(e) {
-    "use strict";
-    e.fn.textTyper = function(t) {
-      var n = {
-          typingClass: "typing",
-          beforeAnimation: function() {},
-          afterAnimation: function() {},
-          speed: 70,
-          nextLineDelay: 400,
-          startsFrom: 0,
-          repeatAnimation: false,
-          repeatDelay: 4e3,
-          repeatTimes: 1,
-          cursorHtml: '<span class="cursor">|</span>'
-        },
-        r = e.extend({}, n, t);
-      this.each(function() {
-        var t = e(this),
-          n = 1,
-          i = "typingCursor";
-        var s = t,
-          o = s.length,
-          u = [];
-        while (o--) {
-          u[o] = e.trim(e(s[o]).html());
-          e(s[o]).html("")
-        }
-        t.init = function(e) {
-          var n = r.beforeAnimation;
-          if (n) n();
-          t.animate(0)
-        };
-        t.animate = function(o) {
-          var a = s[o],
-            f = r.typingClass,
-            l = r.startsFrom;
-          e(a).addClass(f);
-          var c = setInterval(function() {
-            var f = r.cursorHtml;
-            f = e("<div>").append(e(f).addClass(i)).html();
-            e(a).html(u[o].substr(0, l) + f);
-            l++;
-            if (u[o].length < l) {
-              clearInterval(c);
-              o++;
-              if (s[o]) {
-                setTimeout(function() {
-                  e(a).html(u[o - 1]);
-                  t.animate(o)
-                }, r.nextLineDelay)
-              } else {
-                e(a).find("." + i).remove();
-                if (r.repeatAnimation && (r.repeatTimes == 0 || n < r.repeatTimes)) {
-                  setTimeout(function() {
-                    t.animate(0);
-                    n++
-                  }, r.repeatDelay)
-                } else {
-                  var h = r.afterAnimation;
-                  if (h) h()
-                }
-              }
-            }
-          }, r.speed)
-        };
-        t.init()
-      });
-      return this
-    }
-  })(jQuery)
-}
-</script>
-
-<script>
-/***************************************** TERMINAL OPEN *****************************************/
-
-if (window.screen.width > 1000) {
-  $('#terminal').click(function() {
-    $('#commandinput[type="text"]').focus();
-  });
-
-  $(document).ready(function() {
-    $('#command').hide();
-    $('#commandinput[type="text"]').focus();
-    $('#home').addClass('open');
-    $('#home').textTyper({
-      speed: 20,
-      afterAnimation: function() {
-        $('#command').fadeIn();
-        $('#commandinput[type="text"]').focus();
-        $('#commandinput[type="text"]').val('');
-      }
-    });
-
-    // get array of section ids, that exist in DOM
-    var sectionArray = [];
-    $('section').each(function(i, e) {
-      // you can use e.id instead of $(e).attr('id')
-      sectionArray.push($(e).attr('id'));
-    });
-
-    // command input
-    $('#commandinput[type="text"]').keyup(function(e) {
-
-      if (e.which == 13) {
-
-        $('#command').hide();
-        var destination = $('input[type="text"]').val();
-
-        // display section with id == destination
-        $('section[id="' + destination + '"]').addClass('open').siblings().removeClass('open');
-
-        // display error
-        if ($.inArray(destination, sectionArray) == -1) {
-          $('#error').addClass('open');
-          $('#error').siblings().removeClass('open');
-        }
-
-        $('.open').textTyper({
-          speed: 10,
-          afterAnimation: function() {
-            $('#command').fadeIn();
-            $('#commandinput[type="text"]').focus();
-            $('#commandinput[type="text"]').val('');
-          }
-        });
-      } // end if 'enter' key pressed
-    }); // end keyup function
-  });
-}
-</script>
-
-<script>
+<script type="module">
 /***************************************** LAST VISITED *****************************************/
 
   var days = 730; // the cookie will expire = 2 years
@@ -2111,7 +1951,7 @@ if (window.screen.width > 1000) {
     var wh = new Date();
     if (lastvisit.getCookie("visit_record") == "") {
       lastvisit.setCookie("visit_record", wh, days);
-      document.getElementById("firstuse_message").innerHTML = "Type 'list' to see a list of commands.";
+      document.getElementById("firstuse-message").innerHTML = "Type 'list' to see a list of commands.";
 
     } else {
       var lv = lastvisit.getCookie("visit_record");
@@ -2138,8 +1978,8 @@ if (window.screen.width > 1000) {
         mins = "0" + mins
       }
       var dispDate = dd + "." + mn + "." + yy + " at " + hh + ":" + mins
-      document.getElementById("welcome_back").innerHTML = "back ";
-      document.getElementById("lastvisit_message").innerHTML = "Your last visit was on " + dispDate + ".";
+      document.getElementById("welcome-back").innerHTML = "back ";
+      document.getElementById("lastvisit-message").innerHTML = "Your last visit was on " + dispDate + ".";
     }
     lastvisit.setCookie("visit_record", wh, days);
 
@@ -2147,92 +1987,15 @@ if (window.screen.width > 1000) {
   lastvisit.showmessage();
 </script>
 
-
-<script>
-/***************************************** TEXT TICKER *****************************************/
-
-// Characters to be used to create effect
-const CHARACTER_STRING = "1234567890&%HEADLESSHORSE";
-
-// Duration for which shuffles occurs
-const SHUFFLE_DURATION = 400;
-
-// Number of shuffles that occurs during SHUFFLE_DURATION
-const SHUFFLE_COUNT = 6;
-
-// Interval time for newly random text to appear
-const SHUFFLE_INTERVAL = parseInt(SHUFFLE_DURATION / SHUFFLE_COUNT);
-
-const chars = CHARACTER_STRING.split("");
-let interval;
-let timeout;
-let original;
-let element;
-
-const textElement2 = document.getElementById("clock");
-const textElement1 = document.getElementById("terminal_title");
-
-let handleRandomizeText = e => {
-
-  // Clear any ongoing shuffle to avoid random text being persistent instead of original one
-  if (timeout) clearTimeout(timeout);
-  if (interval) clearInterval(interval);
-  if (element) element.innerText = original.join("");
-
-  element = e.target;
-
-  randomizeText();
-};
-
-// replaces the element's inner text with output from getRandomText() every 80ms for 400ms.
-function randomizeText() {
-  original = element.innerText.split("");
-  interval = setInterval(() => {
-    element.innerText = getRandomText(original.slice(0));
-  }, SHUFFLE_INTERVAL);
-
-  timeout = setTimeout(() => {
-    clearInterval(interval);
-    element.innerText = original.join("");
-    interval = null;
-    element = null;
-    original = null;
-    timeout = null;
-  }, SHUFFLE_DURATION);
-}
-
-// get random text where each char in string arr has equal chance of being replace or not
-function getRandomText(charArray) {
-  var i;
-  for (i in charArray) {
-    if (charArray[i] == "\n") continue;
-    if (getRandomBool()) charArray[i] = getRandomChar();
-  }
-
-  return charArray.join("");
-}
-
-function getRandomChar() {
-  return chars[Math.floor(Math.random() * chars.length)];
-}
-
-function getRandomBool() {
-  return Math.random() >= 0.5;
-}
-
-textElement1.addEventListener("mouseenter", handleRandomizeText);
-textElement2.addEventListener("mouseenter", handleRandomizeText);
-</script>
-
-<script>
-/***************************************** NEWSLETTER *****************************************/
+<script type="module">
+  /***************************************** NEWSLETTER *****************************************/
 
   function showError(el, err) {
     $("#mc-embedded-subscribe").attr("disabled", false);
-    $('#validate_message').html("Press the enter key to subscribe.");
+    $("#mc-embedded-subscribe").css("display", "inline")
     if (err) {
       $("#mc-embedded-subscribe").attr("disabled", true)
-      $('#validate_message').html("Error, must be a valid email.");
+      $("#mc-embedded-subscribe").css("display", "none")
     }
   }
 
@@ -2248,42 +2011,16 @@ textElement2.addEventListener("mouseenter", handleRandomizeText);
     showError(el, err);
   }
 
-  $('#commandinput, #mce-EMAIL').on('keyup', function() {
+  $('#mce-EMAIL').on('keyup', function() {
     validate_email(this, this.value);
-    $('#mce-EMAIL').val($(this).val()); // clone input val to hidden email address input
   });
-
-  $(function() {
-    $(document).keydown(function(e) {
-      switch (e.which) {
-        case 13: // down key "Enter"
-          $('#commandinput[type="text"]').focus();
-          $("#mc-embedded-subscribe").trigger("click") // trigger hidden form submission
-          break;
-      }
-    });
-  });
-
-  $('.subscribe_activate')
-    .on('click', function() {
-      var $subscribe = $('.subscribe');
-      var $input = $('.subscribe_email');
-      $subscribe.addClass('active');
-      $input.focus();
-    })
-
-  $('.subscribe_form form')
-    .on('submit', function() {
-      var $subscribe = $('.subscribe');
-      $subscribe.removeClass('active').addClass('done');
-    })
 </script>
 
-<script>
+<script type="module">
 /***************************************** MOBILE ACCORDION *****************************************/
 
   let accHeading = document.querySelectorAll(".accordion");
-  let accPanel = document.querySelectorAll(".accordion_panel");
+  let accPanel = document.querySelectorAll(".accordion--panel");
 
   for (let i = 0; i < accHeading.length; i++) {
 
@@ -2313,7 +2050,7 @@ textElement2.addEventListener("mouseenter", handleRandomizeText);
 
   if ($(window).width() < 1000) {
     $(function() {
-      chainAnim('#mobile_header, .accordion, #mobile_footer', 500, '1');
+      chainAnim('#mobile--nav-top--image, .accordion, #footer', 500, '1');
     });
 
     function chainAnim(e, s, o) {
@@ -2325,12 +2062,6 @@ textElement2.addEventListener("mouseenter", handleRandomizeText);
         $(this).delay(i * s).fadeTo(s, o, code);
       });
     }
-
-/***************************************** MOBILE REORDER *****************************************/
-
-    $("#notice_list").insertAfter("#mobile_header");
-    $("#hours_list").insertAfter("#mobile_header");
-    $("#follow").insertAfter("#follow_links");
   }
 
 /***************************************** MOBILE ASCII *****************************************/
@@ -2383,7 +2114,7 @@ textElement2.addEventListener("mouseenter", handleRandomizeText);
           return str;
         };
         var str = aa.getString();
-        document.getElementById("mobile_header_image").textContent = str;
+        document.getElementById("mobile--nav-top--image").textContent = str;
       }, 100);
     };
     img.src =
