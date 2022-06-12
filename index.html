@@ -135,7 +135,8 @@
           <area href="https://headless.horse/project-20/" class="project-link" target="terminal--iframe" Title="Renderboxes: Identity" shape="poly"
             coords="1410,1197,1424,1077,1641,1063,1636,960,1612,959,1625,643,1674,645,1675,626,1536,619,1309,628,1307,612,1289,612,1289,598,1162,600,1149,462,994,472,1004,601,998,602,994,569,767,576,775,770,764,955,927,960,924,1125,1011,1127,1302,1134,1298,1186">
           <!--[19] Jordan Brand: Air Jordan 1-->
-          <area href="https://headless.horse/project-19/" class="project-link" target="terminal--iframe" title="Jordan Brand: Air Jordan 1" shape="poly" coords="3168,1033,2902,1029,2901,1276,2943,1278,2936,1372,3073,1373,3073,1306,3113,1302,3107,1204,3165,1200">
+          <area href="https://headless.horse/project-19/" class="project-link" target="terminal--iframe" title="Jordan Brand: Air Jordan 1" shape="poly"
+            coords="3168,1033,2902,1029,2901,1276,2943,1278,2936,1372,3073,1373,3073,1306,3113,1302,3107,1204,3165,1200">
           <!--[19] Jordan Brand: Air Jordan 1-->
           <area href="https://headless.horse/project-19/" class="project-link" target="terminal--iframe" title="Jordan Brand: Air Jordan 1" shape="poly"
             coords="3566,954,3391,961,3389,1238,3359,1236,3329,1578,3624,1602,3628,1556,3574,1555,3585,1218,3727,1223,3728,1102,3713,1102,3713,1007,3566,1003">
@@ -216,7 +217,7 @@
       </div>
       <div id="footer--bottom">
         <a id="footer--bottom--site-links--contact" href="mailto:mail@headless.horse">Contact</a>
-        <a id="footer--bottom--site-links--privacy" href="https://headlesshorse.notion.site/Privacy-3da531bfce1d4f4094afa4e9c138a5ca">Privacy</a>
+        <a id="footer--bottom--site-links--privacy" href="https://headlesshorse.notion.site/Privacy-3da531bfce1d4f4094afa4e9c138a5ca" target="_blank">Privacy</a>
         <a id="footer--bottom--site-links--subscribe">
           <!-- Begin Mailchimp Signup Form -->
           <div id="mc_embed_signup">
@@ -312,6 +313,8 @@
   }
 
   a:hover,
+  .cookie_notice a:hover,
+  .cookie_notice>button:hover,
   .click-sound:hover {
     -webkit-animation-name: hover-flicker;
     animation-name: hover-flicker;
@@ -343,6 +346,67 @@
     }
   }
 
+  .cookie_notice {
+    position: fixed;
+    z-index: 999999;
+    transform: translate3d(0, 0, 0);
+    bottom: 0px;
+    box-sizing: border-box;
+    width: 100%;
+    background: #000000;
+    font-family: courier, monospace;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: uppercase;
+    animation: cookie_notice-fadein 500ms ease;
+  }
+
+  @keyframes cookie_notice-fadein {
+    0% {
+      transform: translate3d(0, 100px, 0);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translate3d(0, 0, 0);
+      opacity: 100;
+    }
+  }
+
+  .cookie_notice_message>p {
+    width: 80%;
+    padding: 20px;
+    margin: 0;
+    color: #999999;
+  }
+
+  .cookie_notice a {
+    color: #999999;
+    text-decoration: none;
+  }
+
+  .cookie_notice>button {
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    right: 0px;
+    width: 20%;
+    padding: 0px 20px;
+    border: 0;
+    outline: none;
+    margin: 0;
+    background: transparent;
+    color: #999999;
+    font-family: courier, monospace;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: right;
+    cursor: pointer;
+  }
+
   .scroll-snap--container {
     overflow-y: scroll;
     max-height: 100vh;
@@ -357,15 +421,16 @@
   #main-section {
     overflow: hidden;
     height: 100vh;
+    background: #000000;
   }
 
   #nav-top {
     position: fixed;
     z-index: 5;
     overflow: hidden;
-    top: 20;
-    left: 20;
-    right: 20;
+    top: 20px;
+    left: 20px;
+    right: 20px;
     height: 30px;
     padding: 0;
     margin: auto;
@@ -382,14 +447,14 @@
 
   #nav-top--headless-horse {
     position: absolute;
-    top: 15;
+    top: 15px;
     left: 0;
     cursor: pointer !important;
   }
 
   #nav-top--clock {
     position: absolute;
-    top: 15;
+    top: 15px;
     right: 0;
     cursor: default !important;
   }
@@ -397,9 +462,9 @@
   #nav-bottom {
     position: absolute;
     z-index: 5;
-    bottom: 20;
-    left: 20;
-    right: 20;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
     height: 30px;
     overflow: hidden;
     margin: auto;
@@ -414,7 +479,7 @@
     bottom: 0;
     margin: auto;
     line-height: 14px;
-    cursor: pointer !important;
+    cursor: default !important;
   }
 
   #nav-bottom--close {
@@ -441,9 +506,9 @@
 
   #terminal--copy {
     position: fixed;
-    top: 50;
-    left: 20;
-    right: 20;
+    top: 50px;
+    left: 20px;
+    right: 20px;
     width: 50%;
     color: #999999 !important;
   }
@@ -451,9 +516,8 @@
   input[type="text"] {
     border: none;
     background: 0;
-    color: #999999;
-    font-family: courier, monospace;
     color: #999999 !important;
+    font-family: courier, monospace;
   }
 
   input[type="text"]:focus {
@@ -523,14 +587,15 @@
     z-index: 3;
     position: relative;
     height: 200px;
+    background: #000000;
     color: #999999;
     text-transform: uppercase;
   }
 
   #footer--top--logo {
     position: absolute;
-    top: 20;
-    left: 20;
+    top: 20px;
+    left: 20px;
     height: 40px;
     width: auto;
     -webkit-user-select: none;
@@ -546,8 +611,8 @@
 
   #footer--bottom {
     position: absolute;
-    bottom: 20;
-    left: 20;
+    bottom: 20px;
+    left: 20px;
   }
 
   #footer--bottom--site-links--subscribe {
@@ -558,8 +623,8 @@
 
   #footer--bottom--follow-links {
     position: absolute;
-    bottom: 20;
-    right: 20;
+    bottom: 20px;
+    right: 20px;
   }
 
   .mc-field-group input {
@@ -657,14 +722,14 @@
     }
 
     #nav-top--headless-horse {
-      top: 18;
-      left: 8;
+      top: 18px;
+      left: 8px;
     }
 
     #nav-top--clock {
       position: absolute;
-      top: 18;
-      right: 8;
+      top: 18px;
+      right: 8px;
     }
 
     #terminal {
@@ -762,8 +827,8 @@
     }
 
     #footer--top--logo {
-      top: 15;
-      left: 8;
+      top: 15px;
+      left: 8px;
       height: 30px;
     }
 
@@ -772,13 +837,13 @@
     }
 
     #footer--bottom {
-      bottom: 15;
-      left: 8;
+      bottom: 15px;
+      left: 8px;
     }
 
     #footer--bottom--follow-links {
-      bottom: 15;
-      right: 8;
+      bottom: 15px;
+      right: 8px;
     }
 
     #mobile--nav-top--image,
@@ -1648,7 +1713,7 @@ run();
     const [content, [[tagName, attr]]] = node;
     if (tagName === 'a') {
       return html`
-        <a href="${attr}">${content}</a>
+        <a href="${attr}" target="_blank">${content}</a>
       `;
     }
     else return node;
@@ -2262,3 +2327,80 @@ run();
     }
   };
 </script>
+
+<script>
+
+/***************************************** COOKIE NOTICE *****************************************/
+
+  void(function(root, factory) {
+    if (typeof define === 'function' && define.amd) define(factory)
+    else if (typeof exports === 'object') module.exports = factory()
+    else root.CookieNotice = factory()
+  }(this, function() {
+    function CookieNotice() {
+      ready(run)
+    }
+
+    CookieNotice.options = {
+      message: '<p>We use cookies to ensure that we give you the best functional experience on our website. We don’t use advertising or tracking cookies or any kind of cookies that pass your data on to third parties. <a href="https://headlesshorse.notion.site/Privacy-3da531bfce1d4f4094afa4e9c138a5ca" target="_blank">More info.</a></p>',
+      dismiss: 'Accept'
+    }
+
+    function run() {
+      if (window.localStorage.cookieNoticeDismissed) return
+      show()
+    }
+
+    function dismiss() {
+      var notice = document.getElementById('cookie_notice')
+      if (notice) notice.parentNode.removeChild(notice)
+      window.localStorage.cookieNoticeDismissed = true
+    }
+
+    function undismiss() {
+      delete window.localStorage.cookieNoticeDismissed
+    }
+
+    function show() {
+      var $div = document.createElement('div')
+      $div.className = 'cookie_notice'
+      $div.id = 'cookie_notice'
+
+      var $message = document.createElement('div')
+      $message.className = 'cookie_notice_message'
+      $message.innerHTML = CookieNotice.options.message
+      $div.appendChild($message)
+
+      var $dismiss = document.createElement('button')
+      $dismiss.innerHTML = CookieNotice.options.dismiss
+      $dismiss.onclick = dismiss
+      $div.appendChild($dismiss)
+
+      document.body.appendChild($div)
+    }
+
+    function ready(fn) {
+      if (document.readyState === 'complete') {
+        return fn()
+      } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', fn)
+      } else {
+        document.attachEvent('onreadystatechange', function() {
+          if (document.readyState === 'interactive') fn()
+        })
+      }
+    }
+
+    CookieNotice.run = run
+    CookieNotice.dismiss = dismiss
+    CookieNotice.undismiss = undismiss
+
+    return CookieNotice
+  }));
+
+  /*
+    CookieNotice.undismiss() // just so it always shows
+  */
+
+  CookieNotice()
+  </script>

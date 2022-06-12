@@ -58,6 +58,27 @@ _     _ _______ _______ ______         _______ _______ _______   _     _  _____ 
 </head>
 
 <style>
+  html {
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  ::selection {
+    background: #999999;
+    color: #000000;
+  }
+
+  ::-moz-selection {
+    background: #999999;
+    color: #000000;
+  }
+
   body {
     background-color: transparent !important;
   }
@@ -72,103 +93,6 @@ _     _ _______ _______ ______         _______ _______ _______   _     _  _____ 
   .page-fixed-bg-container {
     display: none !important;
   }
-
-  .cookie_notice {
-    position: fixed;
-    z-index: 999999;
-    transform: translate3d(0, 0, 0);
-    bottom: 0px;
-    box-sizing: border-box;
-    width: 100%;
-    border-top: 1px solid #999999;
-    background: #000000;
-    font-family: courier, monospace;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    text-transform: uppercase;
-    animation: cookie_notice-fadein 500ms ease;
-  }
-
-  @keyframes cookie_notice-fadein {
-    0% {
-      transform: translate3d(0, 100px, 0);
-      opacity: 0;
-    }
-
-    100% {
-      transform: translate3d(0, 0, 0);
-      opacity: 100;
-    }
-  }
-
-  .cookie_notice_message>p {
-    width: 80%;
-    padding: 10px;
-    margin: 0;
-    color: #999999;
-  }
-
-  .cookie_notice a {
-    color: #999999;
-    text-decoration: none;
-  }
-
-  .cookie_notice a:hover::before {
-    content: '● ';
-  }
-
-  .cookie_notice>button {
-    position: absolute;
-    top: 10px;
-    bottom: 10px;
-    right: 0px;
-    width: 20%;
-    padding: 0px 10px;
-    border: 0;
-    outline: none;
-    margin: 0;
-    background: transparent;
-    color: #999999;
-    font-family: courier, monospace;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    text-transform: uppercase;
-    text-align: right;
-    cursor: pointer;
-  }
-
-  .cookie_notice>button:hover::before {
-    content: '● ';
-  }
-
-  ::-webkit-scrollbar {
-    width: 25px;
-  }
-
-  ::-webkit-scrollbar-track {
-    border-left: 1px solid #999999;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #999999;
-  }
-
-  ::selection {
-    background: #999999;
-    color: #000000;
-  }
-
-  ::-moz-selection {
-    background: #999999;
-    color: #000000;
-
-    @media (max-width:1000px) {
-      ::-webkit-scrollbar {
-        width: 0px;
-      }
-    }
 </style>
 
 <script>
@@ -191,78 +115,4 @@ _     _ _______ _______ ______         _______ _______ _______   _     _  _____ 
   }
 
   initScrollTitle();
-
-/***************************************** COOKIE NOTICE *****************************************/
-
-  void(function(root, factory) {
-    if (typeof define === 'function' && define.amd) define(factory)
-    else if (typeof exports === 'object') module.exports = factory()
-    else root.CookieNotice = factory()
-  }(this, function() {
-    function CookieNotice() {
-      ready(run)
-    }
-
-    CookieNotice.options = {
-      message: '<p>We use cookies to ensure that we give you the best functional experience on our website. We don’t use advertising or tracking cookies or any kind of cookies that pass your data on to third parties. <a href="https://headlesshorse.notion.site/Privacy-3da531bfce1d4f4094afa4e9c138a5ca">More info.</a></p>',
-      dismiss: 'Accept'
-    }
-
-    function run() {
-      if (window.localStorage.cookieNoticeDismissed) return
-      show()
-    }
-
-    function dismiss() {
-      var notice = document.getElementById('cookie_notice')
-      if (notice) notice.parentNode.removeChild(notice)
-      window.localStorage.cookieNoticeDismissed = true
-    }
-
-    function undismiss() {
-      delete window.localStorage.cookieNoticeDismissed
-    }
-
-    function show() {
-      var $div = document.createElement('div')
-      $div.className = 'cookie_notice'
-      $div.id = 'cookie_notice'
-
-      var $message = document.createElement('div')
-      $message.className = 'cookie_notice_message'
-      $message.innerHTML = CookieNotice.options.message
-      $div.appendChild($message)
-
-      var $dismiss = document.createElement('button')
-      $dismiss.innerHTML = CookieNotice.options.dismiss
-      $dismiss.onclick = dismiss
-      $div.appendChild($dismiss)
-
-      document.body.appendChild($div)
-    }
-
-    function ready(fn) {
-      if (document.readyState === 'complete') {
-        return fn()
-      } else if (document.addEventListener) {
-        document.addEventListener('DOMContentLoaded', fn)
-      } else {
-        document.attachEvent('onreadystatechange', function() {
-          if (document.readyState === 'interactive') fn()
-        })
-      }
-    }
-
-    CookieNotice.run = run
-    CookieNotice.dismiss = dismiss
-    CookieNotice.undismiss = undismiss
-
-    return CookieNotice
-  }));
-
-  /*
-    CookieNotice.undismiss() // just so it always shows
-  */
-
-  CookieNotice()
 </script>
