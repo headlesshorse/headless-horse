@@ -83,6 +83,10 @@
               <p>Loading...</p>
             </section>
 
+            <section id="login">
+              <p>Please type your 'LOGIN' into the Headless Horse website terminal to enter.</p>
+            </section>
+
             <section id="tweet">
               <p>Loading...</p>
             </section>
@@ -104,6 +108,7 @@
 │   └── shop
 ├── PRIVATE/
 │   └── login
+│       └── uname
 ├── OTHER/
 │   ├── thanks
 │   └── imprint
@@ -843,6 +848,7 @@
     #nav-bottom--close,
     #home,
     #shop,
+    #login,
     #thanks,
     #tweet,
     #mail,
@@ -1384,7 +1390,6 @@
       console.log("ModifiersPlugin requires GSAP 1.19.0 or later.");
     }
 
-
   });
   if (_gsScope._gsDefine) {
     _gsScope._gsQueue.pop()();
@@ -1801,9 +1806,9 @@ run();
 function doclientSearch(textArea) {
 	var value = textArea.value;
 
-  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === "login") {
+  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === "uname") {
 
-    window.open('https://dev.headless.horse/' + value.match('login(.*)')[1].trim());
+    window.open('https://dev.headless.horse/' + value.match('uname(.*)')[1].trim());
   }
 }
 </script>
