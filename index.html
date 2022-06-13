@@ -310,7 +310,7 @@
   }
 
   a:hover,
-  .cookie_notice a:hover,
+  .cookie_notice>a:hover,
   .cookie_notice>button:hover,
   .click-sound:hover {
     -webkit-animation-name: hover-flicker;
@@ -378,7 +378,7 @@
     color: #999999;
   }
 
-  .cookie_notice a {
+  .cookie_notice>a {
     color: #999999;
     text-decoration: none;
   }
@@ -522,15 +522,15 @@
     color: #999999 !important;
   }
 
-  #services-list span::after,
-  #technology-list span::after,
-  #clients-list span::after {
+  #services-list>span::after,
+  #technology-list>span::after,
+  #clients-list>span::after {
     content: ', ';
   }
 
-  #services-list span:last-child::after,
-  #technology-list span:last-child::after,
-  #clients-list span:last-child::after {
+  #services-list>span:last-child::after,
+  #technology-list>span:last-child::after,
+  #clients-list>span:last-child::after {
     content: '.';
   }
 
@@ -558,7 +558,7 @@
   }
 
   img.map,
-  map area {
+  map>area {
     outline: none;
   }
 
@@ -576,7 +576,7 @@
     -webkit-backdrop-filter: blur(6px);
   }
 
-  #tooltip:after {
+  #tooltip::after {
     content: " \2192";
   }
 
@@ -602,7 +602,7 @@
     user-select: none;
   }
 
-  #footer a:not(:last-child) {
+  #footer>a:not(:last-child) {
     padding-right: 15px;
   }
 
@@ -624,7 +624,7 @@
     right: 20px;
   }
 
-  #mc_embed_signup input {
+  #mc_embed_signup>input {
     padding: 0;
     border: 0;
     margin: 0;
@@ -693,6 +693,7 @@
     body,
     p,
     a,
+    .cookie_notice button,
     .mc-field-group input {
       font-size: 9px !important;
     }
@@ -798,15 +799,15 @@
       white-space: nowrap;
     }
 
-    #services-list span::after,
-    #technology-list span::after,
-    #clients-list span::after {
+    #services-list>span::after,
+    #technology-list>span::after,
+    #clients-list>span::after {
       content: '';
     }
 
-    #services-list span:last-child:after,
-    #technology-list span:last-child:after,
-    #clients-list span:last-child:after {
+    #services-list>span:last-child:after,
+    #technology-list>span:last-child:after,
+    #clients-list>span:last-child:after {
       content: '';
     }
 
