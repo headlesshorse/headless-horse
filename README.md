@@ -2,6 +2,6 @@
 
 FULL-SERVICE CREATIVE STUDIO
 
-Version 2.3
+Version 3.0
 
 [headless.horse](https://headless.horse/)
