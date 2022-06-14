@@ -262,11 +262,7 @@
     display: none;
   }
 
-  ::selection {
-    background: #999999;
-    color: #000000;
-  }
-
+  ::selection,
   ::-moz-selection {
     background: #999999;
     color: #000000;
@@ -401,7 +397,7 @@
     font-weight: 400;
     text-transform: uppercase;
     text-align: right;
-    cursor: pointer;
+    cursor: pointer !important;
   }
 
   .scroll-snap--container {
@@ -475,7 +471,7 @@
     left: 0;
     bottom: 0;
     margin: auto;
-    line-height: 14px;
+    line-height: 14px; /* to support emojis */
     cursor: default !important;
   }
 
@@ -636,7 +632,6 @@
     font-weight: 400;
     opacity: 1;
     text-transform: uppercase;
-    width: auto;
   }
 
   input:focus,
@@ -801,7 +796,6 @@
     }
 
     #footer {
-      z-index: 1;
       height: 150px;
     }
 
