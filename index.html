@@ -620,11 +620,6 @@
     left: var(--hh-spacing-4x);
     height: 40px;
     width: auto;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -o-user-select: none;
-    user-select: none;
   }
 
   #footer a:not(:last-child) {
@@ -2113,7 +2108,7 @@ run();
 
 /***************************************** MOBILE ANIMATE *****************************************/
 
-  if ($(window).width() < 1000) {
+  if ($(window).width() < 800) {
     $(function() {
       chainAnim('#mobile--nav-top--image, .accordion, #footer', 500, '1');
     });
