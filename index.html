@@ -295,8 +295,7 @@
   }
 
   p,
-  body,
-  pre {
+  body {
     font-size: var(--hh-font-body-1-font-size);
     line-height: var(--hh-font-body-1-line-height);
     font-weight: var(--hh-font-body-1-font-weight);
@@ -510,11 +509,14 @@
   }
 
   #terminal--copy {
+    top: 60px;
     position: fixed;
-    top: 50px;
+    overflow: scroll;
     left: var(--hh-spacing-4x);
     right: var(--hh-spacing-4x);
     width: 100%;
+    height: auto;
+    max-height: calc(100% - 320px);
     color: var(--hh-color-slate);
   }
 
@@ -551,13 +553,14 @@
   ol li span {
     display: inline-block;
     overflow: hidden;
-    width: 19%;
+    width: calc(20% - var(--hh-spacing-4x));
+    padding-right: var(--hh-spacing-4x);
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
-  ol li {
-    padding-bottom: var(--hh-spacing-2x);
+  ol li span:last-child {
+    width: auto;
   }
 
   #wall-image--cover {
@@ -603,7 +606,7 @@
   }
 
   #footer {
-    z-index: var(--hh-z-index-3);
+    z-index: var(--hh-z-index-4);
     position: relative;
     height: 200px;
     background: var(--hh-color-black);
@@ -869,6 +872,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.1.1/luxon.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.js"></script>
+
+
+<script>
+var divToChange = $('#terminal--copy');
+var lastScroll = 0;
+$(document).scroll(function(event){
+    var st = $(this).scrollTop();
+    var divHeight = 400-st;
+    var divWidth = 400-st;
+    divToChange.css({height:divHeight});
+});
+
+
+</script>
 
 <script>
 /***************************************** AUDIO *****************************************/
@@ -1676,7 +1693,7 @@ run();
 
   const tableTemplate = table => html`
       ${table.map(({id, Client, Project, Date, Status, StatusCaseStudy, SlugCaseStudy, StatusPress, SlugPress}) => html`
-        <li><span>${Client}</span> <span>${Project}</span> <span>${Date}</span> <span>${Status}</span> <span><a href="${SlugCaseStudy}">${StatusCaseStudy}</a> <a href="${SlugPress}" target="_blank">${StatusPress}</a></span></li>
+        <li><span>${Client}</span><span>${Project}</span><span>${Date}</span><span>${Status}</span><span><a href="${SlugCaseStudy}">${StatusCaseStudy}</a> <a href="${SlugPress}" target="_blank">${StatusPress}</a></span></li>
       `)}
   `;
 
