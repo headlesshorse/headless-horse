@@ -44,7 +44,6 @@
             <section id="services" class="accordion--panel">
               <p id="services-list"></p>
               <br>
-              <p id="technology-list"></p>
             </section>
 
             <p class="accordion">Projects</p>
@@ -508,6 +507,10 @@
     mix-blend-mode: difference;
   }
 
+  .terminal--mix-blend-mode {
+    mix-blend-mode: difference;
+  }
+
   #terminal--iframe {
     z-index: var(--hh-z-index-5);
     position: absolute;
@@ -542,13 +545,11 @@
   }
 
   #services-list>span::after,
-  #technology-list>span::after,
   #clients-list>span::after {
     content: ', ';
   }
 
   #services-list>span:last-child::after,
-  #technology-list>span:last-child::after,
   #clients-list>span:last-child::after {
     content: '.';
   }
@@ -786,20 +787,17 @@
     }
 
     #clients-list,
-    #services-list,
-    #technology-list {
+    #services-list {
       column-count: 2;
     }
 
     #services-list>span,
-    #technology-list>span,
     #clients-list>span {
       display: block;
     }
 
     #clients-list>span,
     #services-list>span,
-    #technology-list>span,
     #press-list>p {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -807,13 +805,11 @@
     }
 
     #services-list>span::after,
-    #technology-list>span::after,
     #clients-list>span::after {
       content: '';
     }
 
     #services-list>span:last-child:after,
-    #technology-list>span:last-child:after,
     #clients-list>span:last-child:after {
       content: '';
     }
@@ -987,21 +983,27 @@
       $('#wall-image').toggleClass('wall-image--filter');
     });
 
-  $('#nav-top--close').click(function() {
-    $('#nav-top--close--status').html($('#nav-top--close--status').html() == 'Open' ? 'Close' : 'Open');
-    $('#terminal--copy, #nav-bottom--new-project').delay(200).fadeIn(2000);
-    $('#terminal--iframe').delay(200).fadeOut(2000);
-  });
+    $('#nav-top--close').click(function() {
+      $('#nav-top--close--status').html($('#nav-top--close--status').html() == 'Open' ? 'Close' : 'Open');
+      $('#terminal--copy, #nav-bottom--new-project').delay(200).fadeIn(2000);
+      $('#terminal--iframe').delay(200).fadeOut(2000);
+      $('#terminal').addClass('terminal--mix-blend-mode');
+    });
 
-  $('#nav-bottom--new-project, .project-link').click(function() {
-    $('#nav-top--close--status').html('Close');
-    $('#terminal--iframe, #terminal, #wall-image--cover').delay(200).fadeIn(2000);
-    $('#terminal--copy').delay(200).fadeOut(2000);
-  });
+    $('#nav-bottom--new-project, .project-link').click(function() {
+      $('#nav-top--close--status').html('Close');
+      $('#terminal--iframe, #terminal, #wall-image--cover').delay(200).fadeIn(2000);
+      $('#terminal--copy').delay(200).fadeOut(2000);
+    });
 
-  $('#nav-bottom--new-project').click(function() {
-    $('#nav-bottom--new-project').delay(200).fadeOut(2000);
-  });
+    $('#nav-bottom--new-project').click(function() {
+      $('#nav-bottom--new-project').delay(200).fadeOut(2000);
+      $('#terminal').addClass('terminal--mix-blend-mode');
+    });
+
+    $('.project-link').click(function() {
+      $('#terminal').removeClass('terminal--mix-blend-mode');
+    });
   });
 
 /***************************************** TYPER *****************************************/
@@ -1621,35 +1623,6 @@ run();
 		.then(trace('template result is'))
     .then(result =>
 			render(result, document.getElementById('services-list')))
-</script>
-
-<script type="module">
-/***************************************** SERVICES *****************************************/
-
-  import { html, render } from 'https://unpkg.com/lit?module';
-
-  const URL = "https://notion-api.splitbee.io/v1/table/82c2793ce8b046db968bce3f1355c158";
-
-  const handleAsJson = response => response.json();
-
-  const trace = tag => x => {
-    console.log(tag, x);
-    return x;
-  }
-
-  const tableTemplate = table => html`
-      ${table.map(({Technology}) => html`
-        <span>${Technology}</span>
-      `)}
-  `;
-
-  const projectItem = fetch(URL)
-    .then(handleAsJson) // Promise<TableJson>
-    .then(trace('table is'))
-    .then(tableTemplate) // Promise<TemplateResult>
-		.then(trace('template result is'))
-    .then(result =>
-			render(result, document.getElementById('technology-list')))
 </script>
 
 <script type="module">
