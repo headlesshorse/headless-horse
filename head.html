@@ -71,10 +71,14 @@ _     _ _______ _______ ______         _______ _______ _______   _     _  _____ 
     display: none;
   }
 
-  ::selection,
+  ::selection {
+    background: var(--hh-color-slate);
+    color: var(--hh-color-black);
+  }
+
   ::-moz-selection {
-    background: #999999;
-    color: #000000;
+    background: var(--hh-color-slate);
+    color: var(--hh-color-black);
   }
 
   body {

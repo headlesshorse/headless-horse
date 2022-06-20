@@ -286,7 +286,11 @@
     display: none;
   }
 
-  ::selection,
+  ::selection {
+    background: var(--hh-color-slate);
+    color: var(--hh-color-black);
+  }
+
   ::-moz-selection {
     background: var(--hh-color-slate);
     color: var(--hh-color-black);
