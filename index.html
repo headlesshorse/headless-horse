@@ -3,6 +3,7 @@
 
 <body style="background-color: #000000;">
   <div class="scroll-snap--container">
+    <div id="screensaver"></div>
     <div id="main-section" class="scroll-snap--section">
       <nav id="nav">
         <pre id="mobile--nav-top--image"></pre>
@@ -243,9 +244,9 @@
 
 <style>
   :root {
-    --hh-z-index_0: 0;
-    --hh-z-index_1: 100;
-    --hh-z-index_2: 200;
+    --hh-z-index-0: 0;
+    --hh-z-index-1: 100;
+    --hh-z-index-2: 200;
     --hh-z-index-3: 300;
     --hh-z-index-4: 400;
     --hh-z-index-5: 500;
@@ -414,6 +415,20 @@
     cursor: pointer !important;
   }
 
+  #screensaver {
+    z-index: var(--hh-z-index-top);
+    position: fixed;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://assets.headless.horse/images/hh-center-2560x1440.jpg");
+    background: var(--hh-color-black);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: none !important;
+  }
+
   .scroll-snap--container {
     overflow-y: scroll;
     max-height: 100vh;
@@ -433,7 +448,7 @@
 
   #nav-top,
   #nav-bottom {
-    z-index: var(--hh-z-index-5);
+    z-index: var(--hh-z-index-4);
     overflow: hidden;
     left: var(--hh-spacing-4x);
     right: var(--hh-spacing-4x);
@@ -500,7 +515,7 @@
 
   #terminal {
     position: absolute;
-    z-index: var(--hh-z-index-4);
+    z-index: var(--hh-z-index-3);
     width: 100%;
     height: 100%;
     mix-blend-mode: difference;
@@ -511,7 +526,7 @@
   }
 
   #terminal--iframe {
-    z-index: var(--hh-z-index-5);
+    z-index: var(--hh-z-index-4);
     position: absolute;
     width: 100%;
     height: 100%;
@@ -573,7 +588,7 @@
 
   #wall-image--cover {
     position: absolute;
-    z-index: var(--hh-z-index-3);
+    z-index: var(--hh-z-index-2);
     width: 100%;
     height: 100%;
     background: var(--hh-color-black-with-alpha);
@@ -613,7 +628,7 @@
   }
 
   #footer {
-    z-index: var(--hh-z-index-4);
+    z-index: var(--hh-z-index-3);
     position: relative;
     height: 200px;
     background: var(--hh-color-black);
@@ -674,7 +689,7 @@
 
   .subscribe--submit {
     text-transform: uppercase;
-    cursor: pointer;
+    cursor: pointer !important;
   }
 
   ::placeholder {
@@ -950,6 +965,8 @@
     $('#wall-image').delay(3000).fadeIn(2000);
   }, time);
 
+/***************************************** NAVIGATION *****************************************/
+
   $(document).ready(function() {
     $('#nav-top--close, .project-link').click(function() {
       $('#terminal, #wall-image--cover').delay(200).fadeToggle(2000);
@@ -977,6 +994,16 @@
     $('.project-link').click(function() {
       $('#terminal').removeClass('terminal--mix-blend-mode');
     });
+  });
+
+/***************************************** SCREENSAVER *****************************************/
+
+  $('#screensaver').hide();
+  var i = null;
+  $('body').mousemove(function() {
+    clearTimeout(i);
+    $('#screensaver').fadeOut();
+    i = setTimeout('$("#screensaver").fadeIn(2000);', 2000);
   });
 
 /***************************************** TYPER *****************************************/
