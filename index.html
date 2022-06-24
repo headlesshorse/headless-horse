@@ -422,7 +422,6 @@
     width: 100vw;
     height: 100vh;
     background-image: url("https://assets.headless.horse/images/hh-center-2560x1440.jpg");
-    background: var(--hh-color-black);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -1003,7 +1002,7 @@
   $('body').mousemove(function() {
     clearTimeout(i);
     $('#screensaver').fadeOut();
-    i = setTimeout('$("#screensaver").fadeIn(2000);', 2000);
+    i = setTimeout('$("#screensaver").fadeIn(2000);', 20000);
   });
 
 /***************************************** TYPER *****************************************/
