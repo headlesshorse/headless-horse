@@ -29,7 +29,7 @@
             <section id="home">
               <p>Welcome <span id="welcome-back"></span>to Headless Horse a full-service creative studio.</p>
               <p id="lastvisit-message"></p>
-              <p id="hours-list"></p>
+              <span id="hours-list"></span>
               <p id="firstuse-message"></p>
               <br>
             </section>
@@ -56,7 +56,15 @@
 
             <p class="accordion">Contact</p>
             <section id="contact" class="accordion--panel">
-              <p id="contact-list"></p>
+              <p><a href="mailto:mail@headless.horse">Email: mail@headless.horse</a></p>
+              <p><a href="tel:+443334446773">Phone: +44 (0)333 44 HORSE</a></p>
+              <p><a href="http://maps.apple.com/?q=38+Castle+Terrace+Edinburgh" target="_blank">Office: 38 Castle Terrace Edinburgh EH3 9SJ</a></p>
+              <br>
+              <p><a href="https://form.typeform.com/to/tCghka2O" target="_blank">Starting a new project?</a></p>
+              <br>
+              <p><a href="https://instagram.com/headless.horse/" target="_blank">Instagram</a></p>
+              <p><a href="https://twitter.com/headless__horse/" target="_blank">Twitter</a></p>
+              <p><a href="https://pinterest.co.uk/headless_horse/_saved/" target="_blank">Pinterest</a></p>
               <br>
             </section>
 
@@ -215,15 +223,12 @@
           <a href="tel:+443334446773">Phone</a>
           <a href="http://maps.apple.com/?q=38+Castle+Terrace+Edinburgh" target="_blank">Office</a>
           <a href="https://headlesshorse.notion.site/Privacy-3da531bfce1d4f4094afa4e9c138a5ca" target="_blank">Privacy</a>
-          <a id="footer--bottom--site-links--subscribe">
+          <a id="footer--bottom--site-links--newsletter">
             <!-- Begin Mailchimp Signup Form -->
-            <div id="mc_embed_signup">
-              <form action="https://headlesshorse.us20.list-manage.com/subscribe/post?u=4792941058b6d3b4b6ea3b3f2&amp;id=6ac99d042c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"
-                novalidate>
-                <input type="email" id="mce-EMAIL" class="required email subscribe_email" value="" name="EMAIL" placeholder="Subscribe">
-                <input type="submit" id="mc-embedded-subscribe" class="subscribe--submit button" value="Subscribe" name="subscribe" disabled="disabled">
-              </form>
-            </div>
+            <form action="https://headlesshorse.us20.list-manage.com/subscribe/post?u=4792941058b6d3b4b6ea3b3f2&amp;id=6ac99d042c" method="post" name="mc-embedded-subscribe-form" target="_blank">
+              <input id="newsletter--email" type="email" name="EMAIL" placeholder="Newsletter">
+              <input id="newsletter--subscribe" type="submit" value="Subscribe" disabled="disabled">
+            </form>
             <!--End Mailchimp Signup Form-->
           </a>
         </div>
@@ -454,8 +459,8 @@
     overflow: hidden;
     left: var(--hh-spacing-4x);
     right: var(--hh-spacing-4x);
-    height: var(--hh-spacing-6x);
     margin: auto;
+    height: var(--hh-spacing-6x);
     text-transform: uppercase;
     color: var(--hh-color-slate);
     mix-blend-mode: difference;
@@ -657,20 +662,15 @@
     left: var(--hh-spacing-4x);
   }
 
-  #footer--bottom--site-links--subscribe {
+  #footer--bottom--site-links--newsletter {
     float: right;
-    height: 0;
+    height: var(--hh-spacing-3x);
   }
 
-  #footer--bottom--follow-links {
-    position: absolute;
-    float: right;
-    bottom: var(--hh-spacing-4x);
-    right: var(--hh-spacing-4x);
-  }
-
-  #mc_embed_signup input {
+  #footer--bottom--site-links--newsletter input {
     border: 0;
+    padding: 0;
+    margin: 0;
     background: var(--hh-color-transparent);
     color: var(--hh-color-slate);
     font-size: var(--hh-font-body-1-font-size);
@@ -680,20 +680,17 @@
     text-transform: uppercase;
   }
 
+  #newsletter--subscribe {
+    text-transform: uppercase;
+    cursor: pointer !important;
+  }
+
   input:focus,
   select:focus,
   textarea:focus,
   button:focus {
     outline: none;
     -webkit-appearance: none
-  }
-
-  #mc-embedded-subscribe {
-    padding: 0;
-    border: 0;
-    margin: 0;
-    text-transform: uppercase;
-    cursor: pointer !important;
   }
 
   ::placeholder {
@@ -708,6 +705,13 @@
     color: var(--hh-color-slate);
   }
 
+  #footer--bottom--follow-links {
+    position: absolute;
+    float: right;
+    bottom: var(--hh-spacing-4x);
+    right: var(--hh-spacing-4x);
+  }
+
   .open {
     display: block;
   }
@@ -718,9 +722,8 @@
   #mobile-image,
   #terminal--iframe,
   #command,
-  #mc-embeded-subscribe,
+  #newsletter--subscribe,
   #wall-image,
-  #mobile_footer,
   section,
   .accordion {
     display: none;
@@ -741,20 +744,12 @@
       overflow: scroll;
     }
 
-    #nav {
-      height: 600px;
-    }
-
-    #nav-top,
-    #nav-bottom {
+    #nav-top {
       position: absolute;
+      top: var(--hh-spacing-1x);
       left: var(--hh-spacing-1x);
       right: var(--hh-spacing-1x);
       height: var(--hh-spacing-5x);
-    }
-
-    #nav-top {
-      top: 0;
     }
 
     #nav-top--hh {
@@ -765,20 +760,16 @@
       float: right;
     }
 
-    #nav-top--close {
-      height: 0;
-    }
-
     #mobile-image {
-      display: block;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 600px;
+      height: 500px;
       margin: 0 auto;
     }
 
     #mobile--ascii {
+      height: auto;
       color: var(--hh-color-slate);
       line-height: 0.9;
       letter-spacing: 0.3em;
@@ -859,13 +850,14 @@
     }
 
     #wall-image,
-    #screensaver {
-      height: 0;
+    #screensaver,
+    #nav-top--close,
+    #nav-bottom {
       width: 0;
+      height: 0;
     }
 
-    #screensaver,
-    #nav-top--close>span,
+    #nav,
     #home,
     #shop,
     #login,
@@ -1672,64 +1664,6 @@ run();
 </script>
 
 <script type="module">
-/***************************************** CONTACT *****************************************/
-
-  import { html, render } from 'https://unpkg.com/lit?module';
-
-  const URL = "https://notion-api.splitbee.io/v1/page/483f6b9565e246b4aaedafdf98483e5d";
-
-  const handleAsJson = response => response.json();
-
-  const trace = tag => x => {
-    console.log(tag, x);
-    return x;
-  }
-
-  function renderText(node) {
-    if (node.length === 1)
-      return node[0];
-
-    const [content, [[tagName, attr]]] = node;
-    if (tagName === 'a') {
-      return html`
-        <a href="${attr}" target="_blank">${content}</a>
-      `;
-    }
-    else return node;
-  }
-
-  async function run() {
-
-    const result = await fetch(URL).then(handleAsJson)
-
-    const page = Object.values(result).find(x => x.value.type === 'page');
-
-    const blocks = page.value.content.map(id => result[id].value);
-
-console.log(blocks.map(x => x.type))
-
-  const content = blocks.map(block => {
-    switch (block.type) {
-      case 'sub_header':
-        return html`<p style="text-transform: uppercase;">${block.properties.title}</p>`;
-      case 'divider':
-        return html`<br>`;
-      case 'text':
-        if (!block.properties) return '';
-        else {
-          return html`<p>${block.properties.title.map(renderText)}</p>`;
-        }
-        default:
-          return block.title;
-    }
-  });
-
-  render(content, document.getElementById('contact-list'))
-}
-run();
-</script>
-
-<script type="module">
 /***************************************** PRESS *****************************************/
 
   import { html, render } from 'https://unpkg.com/lit?module';
@@ -2035,11 +1969,11 @@ run();
 /***************************************** NEWSLETTER *****************************************/
 
   function showError(el, err) {
-    $("#mc-embedded-subscribe").attr("disabled", false);
-    $("#mc-embedded-subscribe").css("display", "inline")
+    $("#newsletter--subscribe").attr("disabled", false);
+    $("#newsletter--subscribe").css("display", "inline")
     if (err) {
-      $("#mc-embedded-subscribe").attr("disabled", true)
-      $("#mc-embedded-subscribe").css("display", "none")
+      $("#newsletter--subscribe").attr("disabled", true)
+      $("#newsletter--subscribe").css("display", "none")
     }
   }
 
@@ -2055,7 +1989,7 @@ run();
     showError(el, err);
   }
 
-  $('#mce-EMAIL').on('keyup', function() {
+  $('#newsletter--email').on('keyup', function() {
     validate_email(this, this.value);
   });
 </script>
@@ -2094,7 +2028,7 @@ run();
 
   if ($(window).width() < 800) {
     $(function() {
-      chainAnim('.accordion', 500, '1');
+      chainAnim('#nav, #mobile-image, .accordion', 500, '1');
     });
 
     function chainAnim(e, s, o) {
