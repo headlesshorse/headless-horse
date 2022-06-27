@@ -582,7 +582,7 @@
   ol li span {
     display: inline-block;
     overflow: hidden;
-    width: calc(20% - var(--hh-spacing-4x));
+    width: calc(25% - var(--hh-spacing-4x));
     padding-right: var(--hh-spacing-4x);
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -713,7 +713,7 @@
   }
 
   .open {
-    display: block;
+    display: block
   }
 
   #nav-top--hh--clock,
@@ -725,7 +725,8 @@
   #newsletter--subscribe,
   #wall-image,
   section,
-  .accordion {
+  .accordion,
+  .mobile-hide {
     display: none;
   }
 
@@ -829,6 +830,7 @@
 
     #clients-list>span,
     #services-list>span,
+    #project-list>p,
     #press-list>p {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -857,6 +859,10 @@
       height: 0;
     }
 
+    .mobile-hide{
+      display: block;
+    }
+
     #nav,
     #home,
     #shop,
@@ -870,7 +876,8 @@
     #tooltip,
     #wall-image,
     #footer,
-    .accordion {
+    .accordion,
+    .desktop-hide {
       display: none;
     }
   }
@@ -1649,8 +1656,9 @@ run();
   }
 
   const tableTemplate = table => html`
-      ${table.map(({id, Client, Project, Date, Status, StatusCaseStudy, SlugCaseStudy, StatusPress, SlugPress}) => html`
-        <li><span>${Client}</span><span>${Project}</span><span>${Date}</span><span>${Status}</span><span><a href="${SlugCaseStudy}">${StatusCaseStudy}</a> <a href="${SlugPress}" target="_blank">${StatusPress}</a></span></li>
+      ${table.map(({id, Project, Date, Status, StatusCaseStudy, SlugCaseStudy, StatusPress, SlugPress}) => html`
+        <li class="desktop-hide"><span>${Project}</span><span>${Date}</span><span>${Status}</span><span><a href="${SlugCaseStudy}">${StatusCaseStudy}</a> <a href="${SlugPress}" target="_blank">${StatusPress}</a></span></li>
+        <p class="mobile-hide"><a href="${SlugCaseStudy}" target="_blank">${Project}, ${Date} — ${Status}.</a></p>
       `)}
   `;
 
@@ -1679,7 +1687,8 @@ run();
 
   const tableTemplate = table => html`
       ${table.map(({id, Recognition, Outlet, Project, Published, Slug}) => html`
-        <li><span>${Outlet}</span><span>${Recognition} – ${Project}</span><span>${Published}</span></a><span><a href="${Slug}" target="_blank">Link</a></span></li>
+        <li class="desktop-hide"><span>${Outlet}</span><span>${Recognition}, ${Project}</span><span>${Published}</span></a><span><a href="${Slug}" target="_blank">Link</a></span></li>
+        <p class="mobile-hide"><a href="${Slug}" target="_blank">${Outlet} – ${Recognition}, ${Project} — ${Published}.</a></p>
       `)}
   `;
 
