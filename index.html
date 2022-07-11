@@ -305,6 +305,38 @@ _  _ ____ ____ ___  _    ____ ____ ____    _  _ ____ ____ ____ ____
 <script src="https://assets.headless.horse/assets/js/greensock.js"></script>
 <script src="https://assets.headless.horse/assets/js/cookienotice.js"></script>
 
+<script>
+  $(document).ready(function() {
+    var audioElement3 = document.createElement('audio');
+    audioElement3.setAttribute('src', 'https://assets.headless.horse/assets/media/audio/pad.wav');
+    audioElement3.setAttribute('autoplay', 'autoplay', );
+    audioElement3.setAttribute('loop', 'loop', );
+    audioElement3.addEventListener("load", function() {
+      audioElement3.play();
+    }, true);
+
+    var audioProject = document.createElement('audio');
+    audioProject.setAttribute('src', 'https://assets.headless.horse/assets/media/audio/select.mp3');
+    audioProject.addEventListener("load", function() {
+      audioProject.play();
+    }, true);
+
+    var audioClick = document.createElement('audio');
+    audioClick.setAttribute('src', 'https://assets.headless.horse/assets/media/audio/click.mp3');
+    audioClick.addEventListener("load", function() {
+      audioClick.play();
+    }, true);
+
+    $('.projectclick').click(function() {
+      audioProject.play();
+    });
+
+    $('.linkclick').click(function() {
+      audioClick.play();
+    });
+  });
+  </script>
+  
 <script type="module">
 /***************************************** NOTICE *****************************************/
 
