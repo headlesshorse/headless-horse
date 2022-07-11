@@ -353,10 +353,6 @@ if (window.screen.width > 800) {
 
 /***************************************** IMAGE MOVER *****************************************/
 
-$("#wall").on("contextmenu", "img", function(e) {
-  return false;
-});
-
 var acceleration = 0.02;
 // acceleration value between 0 and 1 smaller values = smoother motion
 
