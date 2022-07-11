@@ -55,8 +55,8 @@ body {
   margin: 0;
 }
 
-p,
 body,
+p,
 pre {
   font-family: var(--hh-font-body-1-font-family);
   font-size: var(--hh-font-body-1-font-size);
