@@ -1,42 +1,57 @@
 /***************************************** SITE TITLE *****************************************/
 
-  function initScrollTitle() {
-    var space = ' | ';
-    var pos = 0;
-    var msg = 'HEADLESS HORSE | FULL-SERVICE CREATIVE STUDIO';
+function initScrollTitle() {
+  var space = ' | ';
+  var pos = 0;
+  var msg = 'HEADLESS HORSE | FULL-SERVICE CREATIVE STUDIO';
 
-    function title_scroll() {
-      document.title = msg.substring(pos, msg.length) + space + msg.substring(0, pos);
-      pos++;
-      if (pos > msg.length) pos = 0;
-      setTimeout(function() {
-        requestAnimationFrame(title_scroll);
-      }, 300);
-    }
-    title_scroll();
+  function title_scroll() {
+    document.title = msg.substring(pos, msg.length) + space + msg.substring(0, pos);
+    pos++;
+    if (pos > msg.length) pos = 0;
+    setTimeout(function() {
+      requestAnimationFrame(title_scroll);
+    }, 300);
   }
+  title_scroll();
+}
 
-  initScrollTitle();
+initScrollTitle();
 
 /***************************************** AUDIO *****************************************/
 
-window.onload = function() {
-  document.getElementById("backgroundpad").play();
-}
-
 $(document).ready(function() {
-  $("#backgroundpad")[0].volume = 0;
-  $("#backgroundpad").animate({
-    volume: 0.2
-  }, 20000);
+  var audioElement3 = document.createElement('audio');
+  audioElement3.setAttribute('src', 'https://assets.headless.horse/assets/media/audio/pad.wav');
+  audioElement3.setAttribute('autoplay', 'autoplay', );
+  audioElement3.setAttribute('loop', 'loop', );
+  audioElement3.addEventListener("load", function() {
+    audioElement3.play();
+  }, true);
+
+
+  var audioProject = document.createElement('audio');
+  audioProject.setAttribute('src', 'https://assets.headless.horse/assets/media/audio/select.mp3');
+  audioProject.addEventListener("load", function() {
+    audioProject.play();
+  }, true);
+
+
+  var audioClick = document.createElement('audio');
+  audioClick.setAttribute('src', 'https://assets.headless.horse/assets/media/audio/click.mp3');
+  audioClick.addEventListener("load", function() {
+    audioClick.play();
+  }, true);
+
+
+  $('.projectclick').click(function() {
+    audioProject.play();
+  });
+
+  $('.linkclick').click(function() {
+    audioClick.play();
+  });
 });
-
-var s = document.getElementById("projectclick");
-$('.project-link').click(() => s.play());
-
-// audio link
-var a = document.getElementById("linkclick");
-$('.click-sound').click(() => a.play());
 
 /***************************************** SCREENSAVER *****************************************/
 
