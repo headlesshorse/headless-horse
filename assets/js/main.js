@@ -353,7 +353,7 @@ if (window.screen.width > 800) {
 
 /***************************************** IMAGE MOVER *****************************************/
 
-$("#wall-image").on("contextmenu", "img", function(e) {
+$("#wall").on("contextmenu", "img", function(e) {
   return false;
 });
 
