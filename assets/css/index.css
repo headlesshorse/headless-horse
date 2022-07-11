@@ -31,9 +31,14 @@
 html {
   overflow-y: scroll;
   -ms-overflow-style: none;
-  scrollbar-width: none;
-  text-rendering: optimizeLegibility;
   background: var(--hh-color-black);
+    text-rendering: optimizeLegibility;
+      scrollbar-width: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 ::-webkit-scrollbar {
