@@ -2,7 +2,6 @@
 
 ### 3.0 (14.06.2022)
 * Add new site layout and structure
-* Add ASCII mobile header animation
 * Add new site footer with scroll-snap
 * Remove and optimise code CSS
 * Update to site navigation
