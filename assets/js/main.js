@@ -29,20 +29,17 @@ $(document).ready(function() {
     audioElement3.play();
   }, true);
 
-
   var audioProject = document.createElement('audio');
   audioProject.setAttribute('src', 'https://assets.headless.horse/assets/media/audio/select.mp3');
   audioProject.addEventListener("load", function() {
     audioProject.play();
   }, true);
 
-
   var audioClick = document.createElement('audio');
   audioClick.setAttribute('src', 'https://assets.headless.horse/assets/media/audio/click.mp3');
   audioClick.addEventListener("load", function() {
     audioClick.play();
   }, true);
-
 
   $('.projectclick').click(function() {
     audioProject.play();
