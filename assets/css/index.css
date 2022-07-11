@@ -56,7 +56,8 @@ body {
 }
 
 p,
-body {
+body,
+pre {
   font-family: var(--hh-font-body-1-font-family);
   font-size: var(--hh-font-body-1-font-size);
   line-height: var(--hh-font-body-1-line-height);
@@ -298,7 +299,6 @@ a:hover,
   height: auto;
   max-height: calc(100% - 320px);
   color: var(--hh-color-slate);
-  font-family: var(--hh-font-body-1-font-family);
 }
 
 input[type="text"] {
