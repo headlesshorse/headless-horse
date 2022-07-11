@@ -1,6 +1,25 @@
+/***************************************** SITE TITLE *****************************************/
+
+  function initScrollTitle() {
+    var space = ' | ';
+    var pos = 0;
+    var msg = 'HEADLESS HORSE | FULL-SERVICE CREATIVE STUDIO';
+
+    function title_scroll() {
+      document.title = msg.substring(pos, msg.length) + space + msg.substring(0, pos);
+      pos++;
+      if (pos > msg.length) pos = 0;
+      setTimeout(function() {
+        requestAnimationFrame(title_scroll);
+      }, 300);
+    }
+    title_scroll();
+  }
+
+  initScrollTitle();
+
 /***************************************** AUDIO *****************************************/
 
-// audio pad
 window.onload = function() {
   document.getElementById("backgroundpad").play();
 }
@@ -12,7 +31,6 @@ $(document).ready(function() {
   }, 20000);
 });
 
-// audio project
 var s = document.getElementById("projectclick");
 $('.project-link').click(() => s.play());
 
