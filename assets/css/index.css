@@ -18,14 +18,14 @@
   --hh-spacing-4x: 20px;
   --hh-spacing-5x: 25px;
   --hh-spacing-6x: 30px;
+  --hh-font-body-1-font-family: courier, monospace;
   --hh-font-body-1-font-size: 12px;
   --hh-font-body-1-line-height: 1.3;
   --hh-font-body-1-font-weight: 400;
-  --hh-font-body-1-font-family: courier, monospace;
+  --hh-font-body-2-font-family: courier, monospace;
   --hh-font-body-2-font-size: 9px;
   --hh-font-body-2-line-height: 1.3;
   --hh-font-body-2-font-weight: 400;
-  --hh-font-body-2-font-family: courier, monospace;
 }
 
 html {
@@ -57,10 +57,10 @@ body {
 
 p,
 body {
+  font-family: var(--hh-font-body-1-font-family);
   font-size: var(--hh-font-body-1-font-size);
   line-height: var(--hh-font-body-1-line-height);
   font-weight: var(--hh-font-body-1-font-weight);
-  font-family: var(--hh-font-body-1-font-family);
 }
 
 a,
@@ -121,9 +121,9 @@ a:hover,
   bottom: 0px;
   width: 100%;
   background: var(--hh-color-black);
+  font-family: var(--hh-font-body-1-font-family);
   font-size: var(--hh-font-body-1-font-size);
   font-weight: var(--hh-font-body-1-font-weight);
-  font-family: var(--hh-font-body-1-font-family);
   text-transform: uppercase;
   animation: cookie-notice-fadein 500ms ease;
 }
@@ -164,9 +164,9 @@ a:hover,
   margin: 0;
   background: var(--hh-color-transparent);
   color: var(--hh-color-slate);
+  font-family: var(--hh-font-body-1-font-family);
   font-size: var(--hh-font-body-1-font-size);
   font-weight: var(--hh-font-body-1-font-weight);
-  font-family: var(--hh-font-body-1-font-family);
   text-transform: uppercase;
   text-align: right;
   cursor: pointer !important;
@@ -298,14 +298,15 @@ a:hover,
   height: auto;
   max-height: calc(100% - 320px);
   color: var(--hh-color-slate);
+  font-family: var(--hh-font-body-1-font-family);
 }
 
 input[type="text"] {
   border: none;
   background: 0;
   color: var(--hh-color-slate);
-  font-size: var(--hh-font-body-1-font-size);
   font-family: var(--hh-font-body-1-font-family);
+  font-size: var(--hh-font-body-1-font-size);
 }
 
 input[type="text"]:focus {
@@ -422,9 +423,9 @@ map area {
   margin: 0;
   background: var(--hh-color-transparent);
   color: var(--hh-color-slate);
+  font-family: var(--hh-font-body-1-font-family);
   font-size: var(--hh-font-body-1-font-size);
   font-weight: var(--hh-font-body-1-font-weight);
-  font-family: var(--hh-font-body-1-font-family);
   opacity: 1;
   text-transform: uppercase;
 }
