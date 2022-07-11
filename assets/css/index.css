@@ -19,11 +19,11 @@
   --hh-spacing-5x: 25px;
   --hh-spacing-6x: 30px;
   --hh-font-body-1-font-family: courier, monospace;
-  --hh-font-body-1-font-size: 0.75em;
+  --hh-font-body-1-font-size: 12px;
   --hh-font-body-1-line-height: 1.3;
   --hh-font-body-1-font-weight: 400;
   --hh-font-body-2-font-family: courier, monospace;
-  --hh-font-body-2-font-size: 0.56em;
+  --hh-font-body-2-font-size: 9px;
   --hh-font-body-2-line-height: 1.3;
   --hh-font-body-2-font-weight: 400;
 }
