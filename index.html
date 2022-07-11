@@ -3,7 +3,6 @@ _  _ ____ ____ ___  _    ____ ____ ____    _  _ ____ ____ ____ ____
 |__| |___ |__| |  \ |    |___ [__  [__     |__| |  | |__/ [__  |___
 |  | |___ |  | |__/ |___ |___ ___] ___]    |  | |__| |  \ ___] |___
 -->
-<!-- WEBSITE BY HEADLESS.HORSE -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -312,9 +311,12 @@ _  _ ____ ____ ___  _    ____ ____ ____    _  _ ____ ____ ____ ____
 <script src="https://assets.headless.horse/assets/js/cookienotice.js"></script>
 
 <script type="module">
-/***************************************** NOTICE *****************************************/
+  /***************************************** NOTICE *****************************************/
 
-  import { html, render } from 'https://unpkg.com/lit?module';
+  import {
+    html,
+    render
+  } from 'https://unpkg.com/lit?module';
 
   const URL = "https://notion-api.splitbee.io/v1/page/f97f1af964fe48989650aae62609bf37";
 
@@ -329,13 +331,14 @@ _  _ ____ ____ ___  _    ____ ____ ____    _  _ ____ ____ ____ ____
     if (node.length === 1)
       return node[0];
 
-    const [content, [[tagName, attr]]] = node;
+    const [content, [
+      [tagName, attr]
+    ]] = node;
     if (tagName === 'a') {
       return html`
         <a href="${attr}" target="_blank">${content}</a>
       `;
-    }
-    else return node;
+    } else return node;
   }
 
   async function run() {
@@ -346,29 +349,32 @@ _  _ ____ ____ ___  _    ____ ____ ____    _  _ ____ ____ ____ ____
 
     const blocks = page.value.content.map(id => result[id].value);
 
-console.log(blocks.map(x => x.type))
+    console.log(blocks.map(x => x.type))
 
-const content = blocks.map(block => {
-  switch (block.type) {
-    case 'text':
-      if (!block.properties) return '';
-      else {
-        return html`<span>${block.properties.title.map(renderText)}</span>`;
+    const content = blocks.map(block => {
+      switch (block.type) {
+        case 'text':
+          if (!block.properties) return '';
+          else {
+            return html`<span>${block.properties.title.map(renderText)}</span>`;
+          }
+          default:
+            return block.title;
       }
-      default:
-        return block.title;
-  }
-  });
+    });
 
-  render(content, document.getElementById('nav-bottom--notice'))
-}
-run();
+    render(content, document.getElementById('nav-bottom--notice'))
+  }
+  run();
 </script>
 
 <script type="module">
-/***************************************** INFO *****************************************/
+  /***************************************** INFO *****************************************/
 
-  import { html, render } from 'https://unpkg.com/lit?module';
+  import {
+    html,
+    render
+  } from 'https://unpkg.com/lit?module';
 
   const URL = "https://notion-api.splitbee.io/v1/page/a1f6fd4a910349c0ad29c9d8ee428780";
 
@@ -383,13 +389,14 @@ run();
     if (node.length === 1)
       return node[0];
 
-    const [content, [[tagName, attr]]] = node;
+    const [content, [
+      [tagName, attr]
+    ]] = node;
     if (tagName === 'a') {
       return html`
         <a href="${attr}" target="_blank">${content}</a>
       `;
-    }
-    else return node;
+    } else return node;
   }
 
   async function run() {
@@ -400,33 +407,36 @@ run();
 
     const blocks = page.value.content.map(id => result[id].value);
 
-console.log(blocks.map(x => x.type))
+    console.log(blocks.map(x => x.type))
 
-  const content = blocks.map(block => {
-    switch (block.type) {
-      case 'sub_header':
-        return html`<p style="text-transform: uppercase;">${block.properties.title}</p>`;
-      case 'divider':
-        return html`<br>`;
-      case 'text':
-        if (!block.properties) return '';
-        else {
-          return html`<p>${block.properties.title.map(renderText)}</p>`;
-        }
-        default:
-          return block.title;
-    }
-  });
+    const content = blocks.map(block => {
+      switch (block.type) {
+        case 'sub_header':
+          return html`<p style="text-transform: uppercase;">${block.properties.title}</p>`;
+        case 'divider':
+          return html`<br>`;
+        case 'text':
+          if (!block.properties) return '';
+          else {
+            return html`<p>${block.properties.title.map(renderText)}</p>`;
+          }
+          default:
+            return block.title;
+      }
+    });
 
-  render(content, document.getElementById('info-list'))
-}
-run();
+    render(content, document.getElementById('info-list'))
+  }
+  run();
 </script>
 
 <script type="module">
-/***************************************** CLIENTS *****************************************/
+  /***************************************** CLIENTS *****************************************/
 
-  import { html, render } from 'https://unpkg.com/lit?module';
+  import {
+    html,
+    render
+  } from 'https://unpkg.com/lit?module';
 
   const URL = "https://notion-api.splitbee.io/v1/table/2879a5a7fb2e4341b79a7132b2d399ca";
 
@@ -438,24 +448,29 @@ run();
   }
 
   const tableTemplate = table => html`
-      ${table.map(({Client}) => html`
-        <span>${Client}</span>
-      `)}
+      ${table.map(({Client}) => html` <
+    span > $ {
+      Client
+    } < /span>
+  `)}
   `;
 
   const projectItem = fetch(URL)
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
     .then(tableTemplate) // Promise<TemplateResult>
-		.then(trace('template result is'))
+    .then(trace('template result is'))
     .then(result =>
-			render(result, document.getElementById('clients-list')))
+      render(result, document.getElementById('clients-list')))
 </script>
 
 <script type="module">
-/***************************************** SERVICES *****************************************/
+  /***************************************** SERVICES *****************************************/
 
-  import { html, render } from 'https://unpkg.com/lit?module';
+  import {
+    html,
+    render
+  } from 'https://unpkg.com/lit?module';
 
   const URL = "https://notion-api.splitbee.io/v1/table/152f1eda45414a1fa5a625b607a8915b";
 
@@ -467,24 +482,29 @@ run();
   }
 
   const tableTemplate = table => html`
-      ${table.map(({Service}) => html`
-        <span>${Service}</span>
-      `)}
+      ${table.map(({Service}) => html` <
+    span > $ {
+      Service
+    } < /span>
+  `)}
   `;
 
   const projectItem = fetch(URL)
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
     .then(tableTemplate) // Promise<TemplateResult>
-		.then(trace('template result is'))
+    .then(trace('template result is'))
     .then(result =>
-			render(result, document.getElementById('services-list')))
+      render(result, document.getElementById('services-list')))
 </script>
 
 <script type="module">
-/***************************************** PROJECTS *****************************************/
+  /***************************************** PROJECTS *****************************************/
 
-  import { html, render } from 'https://unpkg.com/lit?module';
+  import {
+    html,
+    render
+  } from 'https://unpkg.com/lit?module';
 
   const URL = "https://notion-api.splitbee.io/v1/table/40ee05b104644055b139eefafd9ae800";
 
@@ -496,24 +516,34 @@ run();
   }
 
   const tableTemplate = table => html`
-      ${table.map(({id, Project, Date, Status, StatusCaseStudy, SlugCaseStudy, StatusPress, SlugPress}) => html`
-        <li><span>${Project}</span><span>${Date}</span><span>${Status}</span><span><a href="${SlugCaseStudy}">${StatusCaseStudy}</a> <a href="${SlugPress}" target="_blank">${StatusPress}</a></span></li>
-      `)}
+      ${table.map(({id, Project, Date, Status, StatusCaseStudy, SlugCaseStudy, StatusPress, SlugPress}) => html` <
+    li > < span > $ {
+      Project
+    } < /span><span>${Date}</span > < span > $ {
+      Status
+    } < /span><span><a href="${SlugCaseStudy}">${StatusCaseStudy}</a > < a href = "${SlugPress}"
+  target = "_blank" > $ {
+    StatusPress
+  } < /a></span > < /li>
+  `)}
   `;
 
   const projectItem = fetch(URL)
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
     .then(tableTemplate) // Promise<TemplateResult>
-		.then(trace('template result is'))
+    .then(trace('template result is'))
     .then(result =>
-			render(result, document.getElementById('project-list')))
+      render(result, document.getElementById('project-list')))
 </script>
 
 <script type="module">
-/***************************************** PRESS *****************************************/
+  /***************************************** PRESS *****************************************/
 
-  import { html, render } from 'https://unpkg.com/lit?module';
+  import {
+    html,
+    render
+  } from 'https://unpkg.com/lit?module';
 
   const URL = "https://notion-api.splitbee.io/v1/table/cd48ac8833464607818ff47ee43fb791";
 
@@ -525,22 +555,27 @@ run();
   }
 
   const tableTemplate = table => html`
-      ${table.map(({id, Recognition, Outlet, Project, Published, Slug}) => html`
-        <li><span>${Outlet}</span><span>${Recognition}, ${Project}</span><span>${Published}</span></a><span><a href="${Slug}" target="_blank">Link</a></span></li>
-      `)}
+      ${table.map(({id, Recognition, Outlet, Project, Published, Slug}) => html` <
+    li > < span > $ {
+      Outlet
+    } < /span><span>${Recognition}, ${Project}</span > < span > $ {
+      Published
+    } < /span></a > < span > < a href = "${Slug}"
+  target = "_blank" > Link < /a></span > < /li>
+  `)}
   `;
 
   const pressItem = fetch(URL)
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
     .then(tableTemplate) // Promise<TemplateResult>
-		.then(trace('template result is'))
+    .then(trace('template result is'))
     .then(result =>
-			render(result, document.getElementById('press-list')))
+      render(result, document.getElementById('press-list')))
 </script>
 
 <script type="module">
-/***************************************** SHOP *****************************************/
+  /***************************************** SHOP *****************************************/
 
   $(document).on("keypress", "input", function(e) {
     if (e.which == 13) {
@@ -555,32 +590,35 @@ run();
 </script>
 
 <script type="module">
-/***************************************** PRIVATE LOGIN *****************************************/
+  /***************************************** PRIVATE LOGIN *****************************************/
 
-(function() {
-  var textArea = document.getElementById("command--input");
+  (function() {
+    var textArea = document.getElementById("command--input");
 
-  textArea.addEventListener("keydown", function(e) {
-    if (e.keyCode === 13) {
-      doclientSearch(textArea);
+    textArea.addEventListener("keydown", function(e) {
+      if (e.keyCode === 13) {
+        doclientSearch(textArea);
+      }
+    });
+  })();
+
+  function doclientSearch(textArea) {
+    var value = textArea.value;
+
+    if (value.match(/^([\w\-]+)/)[1].toLowerCase() === "uname") {
+
+      window.open('https://dev.headless.horse/' + value.match('uname(.*)')[1].trim());
     }
-  });
-})();
-
-function doclientSearch(textArea) {
-	var value = textArea.value;
-
-  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === "uname") {
-
-    window.open('https://dev.headless.horse/' + value.match('uname(.*)')[1].trim());
   }
-}
 </script>
 
 <script type="module">
-/***************************************** CAREERS *****************************************/
+  /***************************************** CAREERS *****************************************/
 
-  import { html, render } from 'https://unpkg.com/lit?module';
+  import {
+    html,
+    render
+  } from 'https://unpkg.com/lit?module';
 
   const URL = "https://notion-api.splitbee.io/v1/table/c87900ce8abc4ed28c77222beebebeac";
 
@@ -592,24 +630,37 @@ function doclientSearch(textArea) {
   }
 
   const tableTemplate = table => html`
-      ${table.map(({id, Status, Location, Position, Contract, close, Slug}) => html`
-        <p><a href="${Slug}" target="_blank">${Location}, ${Position}, ${Contract} – ${Status}.</a></p>
-      `)}
+      ${table.map(({id, Status, Location, Position, Contract, close, Slug}) => html` <
+    p > < a href = "${Slug}"
+  target = "_blank" > $ {
+    Location
+  }, $ {
+    Position
+  }, $ {
+    Contract
+  }–
+  $ {
+    Status
+  }. < /a></p >
+  `)}
   `;
 
   const projectItem = fetch(URL)
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
     .then(tableTemplate) // Promise<TemplateResult>
-		.then(trace('template result is'))
+    .then(trace('template result is'))
     .then(result =>
-			render(result, document.getElementById('careers-list')))
+      render(result, document.getElementById('careers-list')))
 </script>
 
 <script type="module">
-/***************************************** THANKS *****************************************/
+  /***************************************** THANKS *****************************************/
 
-  import { html, render } from 'https://unpkg.com/lit?module';
+  import {
+    html,
+    render
+  } from 'https://unpkg.com/lit?module';
 
   const URL = "https://notion-api.splitbee.io/v1/page/5973e1cc89df455dbc0e9c4e517b3e9f";
 
@@ -624,13 +675,14 @@ function doclientSearch(textArea) {
     if (node.length === 1)
       return node[0];
 
-    const [content, [[tagName, attr]]] = node;
+    const [content, [
+      [tagName, attr]
+    ]] = node;
     if (tagName === 'a') {
       return html`
         <a href="${attr}" target="_blank">${content}</a>
       `;
-    }
-    else return node;
+    } else return node;
   }
 
   async function run() {
@@ -641,33 +693,36 @@ function doclientSearch(textArea) {
 
     const blocks = page.value.content.map(id => result[id].value);
 
-console.log(blocks.map(x => x.type))
+    console.log(blocks.map(x => x.type))
 
-  const content = blocks.map(block => {
-    switch (block.type) {
-      case 'sub_header':
-        return html`<p style="text-transform: uppercase;">${block.properties.title}</p>`;
-      case 'divider':
-        return html`<br>`;
-      case 'text':
-        if (!block.properties) return '';
-        else {
-          return html`<p>${block.properties.title.map(renderText)}</p>`;
-        }
-        default:
-          return block.title;
-    }
-  });
+    const content = blocks.map(block => {
+      switch (block.type) {
+        case 'sub_header':
+          return html`<p style="text-transform: uppercase;">${block.properties.title}</p>`;
+        case 'divider':
+          return html`<br>`;
+        case 'text':
+          if (!block.properties) return '';
+          else {
+            return html`<p>${block.properties.title.map(renderText)}</p>`;
+          }
+          default:
+            return block.title;
+      }
+    });
 
-  render(content, document.getElementById('thanks-list'))
-}
-run();
+    render(content, document.getElementById('thanks-list'))
+  }
+  run();
 </script>
 
 <script type="module">
-/***************************************** IMPRINT *****************************************/
+  /***************************************** IMPRINT *****************************************/
 
-  import { html, render } from 'https://unpkg.com/lit?module';
+  import {
+    html,
+    render
+  } from 'https://unpkg.com/lit?module';
 
   const URL = "https://notion-api.splitbee.io/v1/page/314869ae00f14b728bd642c732f70915";
 
@@ -682,13 +737,14 @@ run();
     if (node.length === 1)
       return node[0];
 
-    const [content, [[tagName, attr]]] = node;
+    const [content, [
+      [tagName, attr]
+    ]] = node;
     if (tagName === 'a') {
       return html`
         <a href="${attr}" target="_blank">${content}</a>
       `;
-    }
-    else return node;
+    } else return node;
   }
 
   async function run() {
@@ -699,31 +755,31 @@ run();
 
     const blocks = page.value.content.map(id => result[id].value);
 
-console.log(blocks.map(x => x.type))
+    console.log(blocks.map(x => x.type))
 
-  const content = blocks.map(block => {
-    switch (block.type) {
-      case 'sub_header':
-        return html`<p style="text-transform: uppercase;">${block.properties.title}</p>`;
-      case 'divider':
-        return html`<br>`;
-      case 'text':
-        if (!block.properties) return '';
-        else {
-          return html`<p>${block.properties.title.map(renderText)}</p>`;
-        }
-        default:
-          return block.title;
-    }
-  });
+    const content = blocks.map(block => {
+      switch (block.type) {
+        case 'sub_header':
+          return html`<p style="text-transform: uppercase;">${block.properties.title}</p>`;
+        case 'divider':
+          return html`<br>`;
+        case 'text':
+          if (!block.properties) return '';
+          else {
+            return html`<p>${block.properties.title.map(renderText)}</p>`;
+          }
+          default:
+            return block.title;
+      }
+    });
 
-  render(content, document.getElementById('imprint-list'))
-}
-run();
+    render(content, document.getElementById('imprint-list'))
+  }
+  run();
 </script>
 
 <script type="module">
-/***************************************** SHARE TWEET *****************************************/
+  /***************************************** SHARE TWEET *****************************************/
 
   $(document).on("keypress", "input", function(e) {
     if (e.which == 13) {
@@ -738,7 +794,7 @@ run();
 </script>
 
 <script type="module">
-/***************************************** SHARE MAIL *****************************************/
+  /***************************************** SHARE MAIL *****************************************/
 
   $(document).on("keypress", "input", function(e) {
     if (e.which == 13) {

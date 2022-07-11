@@ -32,7 +32,7 @@ html {
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
-      text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
   background: var(--hh-color-black);
 }
 
@@ -478,6 +478,7 @@ section {
 }
 
 @media (max-width:800px) {
+
   body,
   p,
   a,
