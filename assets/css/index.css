@@ -61,6 +61,7 @@ body {
 
 body,
 p,
+a,
 pre {
   font-family: var(--hh-font-body-1-font-family);
   font-size: var(--hh-font-body-1-font-size);
@@ -200,7 +201,7 @@ a:hover,
   scroll-snap-align: end;
 }
 
-#main-section {
+#main {
   overflow: hidden;
   height: 100vh;
   background: var(--hh-color-black);
