@@ -523,9 +523,8 @@ $('#newsletter--email').on('keyup', function() {
   validate_email(this, this.value);
 });
 
-/***************************************** MOBILE *****************************************/
+/***************************************** MOBILE ACCORDION *****************************************/
 
-if ($(window).width() < 800) {
   let accHeading = document.querySelectorAll(".accordion");
   let accPanel = document.querySelectorAll(".accordion--panel");
 
@@ -540,30 +539,33 @@ if ($(window).width() < 800) {
     };
   }
 
-function showPanel(elem) {
-  hidePanels();
-  elem.classList.add("active");
-  elem.nextElementSibling.style.maxHeight = elem.nextElementSibling.scrollHeight + "px";
-}
-
-function hidePanels() {
-  for (let i = 0; i < accPanel.length; i++) {
-    accPanel[i].style.maxHeight = null;
-    accHeading[i].classList.remove("active");
+  function showPanel(elem) {
+    hidePanels();
+    elem.classList.add("active");
+    elem.nextElementSibling.style.maxHeight = elem.nextElementSibling.scrollHeight + "px";
   }
-}
 
-$(function() {
-  chainAnim('.accordion', 500, '1');
-});
+  function hidePanels() {
+    for (let i = 0; i < accPanel.length; i++) {
+      accPanel[i].style.maxHeight = null;
+      accHeading[i].classList.remove("active");
+    }
+  }
 
-function chainAnim(e, s, o) {
-  var $fade = $(e);
-  var code = function() {
-    console.log('Done.');
-  };
-  $fade.each(function(i) {
-    $(this).delay(i * s).fadeTo(s, o, code);
-  });
-}
-}
+/***************************************** MOBILE ANIMATE *****************************************/
+
+  if ($(window).width() < 800) {
+    $(function() {
+      chainAnim('.accordion', 500, '1');
+    });
+
+    function chainAnim(e, s, o) {
+      var $fade = $(e);
+      var code = function() {
+        console.log('Done.');
+      };
+      $fade.each(function(i) {
+        $(this).delay(i * s).fadeTo(s, o, code);
+      });
+    }
+  }
