@@ -39,7 +39,7 @@ _  _ ____ ____ ___  _    ____ ____ ____    _  _ ____ ____ ____ ____
   <meta name="msapplication-TileColor" content="#000000">
   <meta name="msapplication-config" content="https://assets.headless.horse/assets/site/browserconfig.xml">
   <meta name="theme-color" content="#000000">
-  <link rel="stylesheet" href="https://assets.headless.horse/assets/css/index.css">
+  <link rel="stylesheet" href="/Users/m/Documents/Work/Headless Horse/HeadlessHorse_website/assets/css/index.css">
   <!-- noscript -->
   <noscript>Headless Horse. Enable JavaScript to run this app.</noscript>
   <!-- analytics -->
@@ -62,7 +62,7 @@ _  _ ____ ____ ___  _    ____ ____ ____    _  _ ____ ____ ____ ____
         <div id="nav-top">
           <div id="nav-top--loader-bar"></div>
           <div id="nav-top--hh">Headless Horse<span id="nav-top--hh--percentage"></span><span id="nav-top--hh--clock" data_tz="Europe/London"></span></div>
-          <div id="nav-top--close" class="click-sound" alt="Terminal"><span id="nav-top--close--title">Terminal</span><span id="nav-top--close--status">close</span></div>
+          <div id="nav-top--close" class="click-sound" alt="Menu"><span id="nav-top--close--title">Menu</span><span id="nav-top--close--status">close</span></div>
         </div>
         <div id="nav-bottom">
           <div id="nav-bottom--notice"></div>
@@ -81,13 +81,15 @@ _  _ ____ ____ ___  _    ____ ____ ____    _  _ ____ ____ ____ ____
               <p id="lastvisit-message"></p>
               <span id="hours-list"></span>
               <p id="firstuse-message"></p>
+              <br>
             </section>
 
-            <p class="accordion">Headless Horse</p>
+            <p class="accordion">Info</p>
             <section id="info" class="accordion--panel">
               <p id="info-list"></p>
               <br>
               <p id="clients-list"></p>
+              <br>
             </section>
 
             <p class="accordion">Contact</p>
@@ -101,35 +103,42 @@ _  _ ____ ____ ___  _    ____ ____ ____    _  _ ____ ____ ____ ____
               <p><a href="https://instagram.com/headless.horse/" target="_blank">Instagram</a></p>
               <p><a href="https://twitter.com/headless__horse/" target="_blank">Twitter</a></p>
               <p><a href="https://pinterest.co.uk/headless_horse/_saved/" target="_blank">Pinterest</a></p>
+              <br>
             </section>
 
             <p class="accordion">Services</p>
             <section id="services" class="accordion--panel">
               <p id="services-list"></p>
+              <br>
             </section>
 
-            <p class="accordion">Case Studies</p>
+            <p class="accordion">Projects</p>
             <section id="projects" class="accordion--panel">
               <ol id="project-list"></ol>
+              <br>
             </section>
 
             <p class="accordion">Press</p>
             <section id="press" class="accordion--panel">
               <ol id="press-list"></ol>
+              <br>
             </section>
 
             <p class="accordion">Careers</p>
             <section id="careers" class="accordion--panel">
               <p id="careers-list"></p>
+              <br>
             </section>
 
             <p class="accordion">Imprint</p>
             <section id="imprint" class="accordion--panel">
               <p id="imprint-list"></p>
+              <br>
             </section>
 
             <section id="thanks">
               <p id="thanks-list"></p>
+              <br>
             </section>
 
             <section id="shop">
@@ -298,7 +307,7 @@ _  _ ____ ____ ___  _    ____ ____ ____    _  _ ____ ____ ____ ____
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.1.1/luxon.min.js"></script>
-<script src="https://assets.headless.horse/assets/js/main.js"></script>
+<script src="/Users/m/Documents/Work/Headless Horse/HeadlessHorse_website/assets/js/main.js"></script>
 <script src="https://assets.headless.horse/assets/js/greensock.js"></script>
 <script src="https://assets.headless.horse/assets/js/cookienotice.js"></script>
 
@@ -742,251 +751,3 @@ run();
     }
   });
 </script>
-
-
-
-
-
-
-
-
-<style>
-    @media (max-width:800px) {
-      .scroll-snap--container {
-  overflow-y: scroll;
-  max-height: auto;
-  height: auto;
-  scroll-snap-type: none;
-}
-
-#main {
-  overflow: hidden;
-  height: 100vh;
-  background: var(--hh-color-black);
-}
-
-      #nav-top,
-      #nav-bottom {
-        display: block;
-      }
-
-#wall-image--cover{
-  display: none;
-}
-
-      #terminal--copy {
-        position: relative;
-        top: 0 !important;
-        left: 0;
-        right: 0;
-        width: 100%;
-
-      }
-
-      .accordion {
-        padding: var(--hh-spacing-3x) var(--hh-spacing-2x);
-        border-top: 1px solid var(--hh-color-slate);
-        margin: 0;
-        text-transform: uppercase;
-        cursor: pointer !important;
-      }
-
-      .accordion::after {
-        float: right;
-        font-size: 12px;
-        content: "+";
-      }
-
-      .accordion:first-of-type {
-        border-top: 1px solid var(--hh-color-slate);
-      }
-
-      .active::after {
-        content: "-";
-      }
-
-      .accordion--panel {
-        overflow: hidden;
-        max-height: 0;
-        padding: 0 var(--hh-spacing-2x);
-        transition: max-height 0.3s ease-out;
-      }
-
-      #clients-list,
-      #services-list {
-        column-count: 2;
-      }
-
-      #services-list>span,
-      #clients-list>span {
-        display: block;
-      }
-
-      #clients-list>span,
-      #services-list>span,
-      #press-list>p {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-
-      #services-list>span::after,
-      #clients-list>span::after {
-        content: '';
-      }
-
-      #services-list>span:last-child:after,
-      #clients-list>span:last-child:after {
-        content: '';
-      }
-
-      section {
-        display: block;
-      }
-
-#wall-image{
-  display: block;
-}
-
-#footer{
-  display: absolute;
-  height: 300px;
-  z-index: 11000;
-  top: 0;
-}
-
-#screensaver, #command{
-  height: 0px;
-}
-
-      #home,
-      #shop,
-      #login,
-      #thanks,
-      #tweet,
-      #mail,
-      #list,
-      #error,
-      #preload,
-      #tooltip,
-      .accordion {
-        display: none;
-      }
-
-      #nav-top,
-      #nav-bottom {
-
-        z-index: var(--hh-z-index-4);
-        overflow: hidden;
-        margin: auto;
-        height: var(--hh-spacing-6x);
-        color: var(--hh-color-slate);
-        text-transform: uppercase;
-        mix-blend-mode: difference;
-      }
-
-      #nav-top span {
-        padding-left: var(--hh-spacing-4x);
-      }
-
-      #nav-top--loader-bar {
-        position: relative;
-        height: 0px;
-      }
-
-      #nav-top--hh {
-        position: absolute;
-        top: var(--hh-spacing-3x);
-        left: 0;
-        cursor: default !important;
-      }
-
-      #nav-top--hh--percentage {
-        display: none;
-      }
-
-      #nav-top--close {
-        display: none;
-      }
-
-      #nav-bottom {
-        position: absolute;
-        bottom: var(--hh-spacing-4x);
-      }
-
-      #nav-bottom--notice {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        margin: auto;
-        font-family: var(--hh-font-body-1-line-height);
-        cursor: default !important;
-      }
-
-      #nav-bottom--new-project {
-        display: none;
-      }
-
-      #footer{
-        display: none !important;
-      }
-    }
-
-
-  </style>
-
-
-  <script type="module">
-  /***************************************** MOBILE ACCORDION *****************************************/
-
-    let accHeading = document.querySelectorAll(".accordion");
-    let accPanel = document.querySelectorAll(".accordion--panel");
-
-    for (let i = 0; i < accHeading.length; i++) {
-
-      accHeading[i].onclick = function() {
-        if (this.nextElementSibling.style.maxHeight) {
-          hidePanels();
-        } else {
-          showPanel(this);
-        }
-      };
-    }
-
-    function showPanel(elem) {
-      hidePanels();
-      elem.classList.add("active");
-      elem.nextElementSibling.style.maxHeight = elem.nextElementSibling.scrollHeight + "px";
-    }
-
-    function hidePanels() {
-      for (let i = 0; i < accPanel.length; i++) {
-        accPanel[i].style.maxHeight = null;
-        accHeading[i].classList.remove("active");
-      }
-    }
-
-  /***************************************** MOBILE ANIMATE *****************************************/
-
-    if ($(window).width() < 800) {
-      $(function() {
-        chainAnim('#wall-image, .accordion', 500, '1');
-      });
-
-      function chainAnim(e, s, o) {
-        var $fade = $(e);
-        var code = function() {
-          console.log('Done.');
-        };
-        $fade.each(function(i) {
-          $(this).delay(i * s).fadeTo(s, o, code);
-        });
-      }
-    }
-</script>
-
-<script>
-  $("#terminal--copy").insertAfter("#main");
-
-
-  </script>
