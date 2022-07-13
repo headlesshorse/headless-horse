@@ -516,6 +516,7 @@ section,
     left: 0;
     z-index: var(--hh-z-index-top);
     width: 100%;
+    max-height: 100%;
   }
 
   .accordion {
