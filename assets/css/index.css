@@ -511,10 +511,10 @@ section,
   }
 
   #terminal--copy {
-    z-index: var(--hh-z-index-top);
     top: 45px;
     right: 0;
     left: 0;
+    z-index: var(--hh-z-index-top);
     width: 100%;
   }
 
