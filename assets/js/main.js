@@ -525,47 +525,47 @@ $('#newsletter--email').on('keyup', function() {
 
 /***************************************** MOBILE ACCORDION *****************************************/
 
-  let accHeading = document.querySelectorAll(".accordion");
-  let accPanel = document.querySelectorAll(".accordion--panel");
+let accHeading = document.querySelectorAll(".accordion");
+let accPanel = document.querySelectorAll(".accordion--panel");
 
-  for (let i = 0; i < accHeading.length; i++) {
+for (let i = 0; i < accHeading.length; i++) {
 
-    accHeading[i].onclick = function() {
-      if (this.nextElementSibling.style.maxHeight) {
-        hidePanels();
-      } else {
-        showPanel(this);
-      }
-    };
-  }
-
-  function showPanel(elem) {
-    hidePanels();
-    elem.classList.add("active");
-    elem.nextElementSibling.style.maxHeight = elem.nextElementSibling.scrollHeight + "px";
-  }
-
-  function hidePanels() {
-    for (let i = 0; i < accPanel.length; i++) {
-      accPanel[i].style.maxHeight = null;
-      accHeading[i].classList.remove("active");
+  accHeading[i].onclick = function() {
+    if (this.nextElementSibling.style.maxHeight) {
+      hidePanels();
+    } else {
+      showPanel(this);
     }
+  };
+}
+
+function showPanel(elem) {
+  hidePanels();
+  elem.classList.add("active");
+  elem.nextElementSibling.style.maxHeight = elem.nextElementSibling.scrollHeight + "px";
+}
+
+function hidePanels() {
+  for (let i = 0; i < accPanel.length; i++) {
+    accPanel[i].style.maxHeight = null;
+    accHeading[i].classList.remove("active");
   }
+}
 
 /***************************************** MOBILE ANIMATE *****************************************/
 
-  if ($(window).width() < 800) {
-    $(function() {
-      chainAnim('.accordion', 500, '1');
-    });
+if ($(window).width() < 800) {
+  $(function() {
+    chainAnim('.accordion', 500, '1');
+  });
 
-    function chainAnim(e, s, o) {
-      var $fade = $(e);
-      var code = function() {
-        console.log('Done.');
-      };
-      $fade.each(function(i) {
-        $(this).delay(i * s).fadeTo(s, o, code);
-      });
-    }
+  function chainAnim(e, s, o) {
+    var $fade = $(e);
+    var code = function() {
+      console.log('Done.');
+    };
+    $fade.each(function(i) {
+      $(this).delay(i * s).fadeTo(s, o, code);
+    });
   }
+}
