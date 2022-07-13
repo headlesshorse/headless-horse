@@ -539,7 +539,6 @@ if ($(window).width() < 800) {
       }
     };
   }
-}
 
 function showPanel(elem) {
   hidePanels();
@@ -566,4 +565,5 @@ function chainAnim(e, s, o) {
   $fade.each(function(i) {
     $(this).delay(i * s).fadeTo(s, o, code);
   });
+}
 }
