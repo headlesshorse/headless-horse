@@ -530,6 +530,10 @@ section,
     cursor: pointer !important;
   }
 
+  .accordion:first-of-type {
+    border-top: 0;
+  }
+
   .accordion::after {
     float: right;
     content: "+";
