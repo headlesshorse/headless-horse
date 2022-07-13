@@ -81,17 +81,17 @@ _  _ ____ ____ ___  _    ____ ____ ____    _  _ ____ ____ ____ ____
               <p id="lastvisit-message"></p>
               <span id="hours-list"></span>
               <p id="firstuse-message"></p>
-              <br>
             </section>
 
-            <section id="info">
+            <p class="accordion">Headless Horse</p>
+            <section id="info" class="accordion--panel">
               <p id="info-list"></p>
               <br>
               <p id="clients-list"></p>
-              <br>
             </section>
 
-            <section id="contact">
+            <p class="accordion">Contact</p>
+            <section id="contact" class="accordion--panel">
               <p><a href="mailto:mail@headless.horse">Email: mail@headless.horse</a></p>
               <p><a href="tel:+443334446773">Phone: +44 (0)333 44 HORSE</a></p>
               <p><a href="http://maps.apple.com/?q=38+Castle+Terrace+Edinburgh" target="_blank">Office: 38 Castle Terrace Edinburgh EH3 9SJ</a></p>
@@ -101,37 +101,35 @@ _  _ ____ ____ ___  _    ____ ____ ____    _  _ ____ ____ ____ ____
               <p><a href="https://instagram.com/headless.horse/" target="_blank">Instagram</a></p>
               <p><a href="https://twitter.com/headless__horse/" target="_blank">Twitter</a></p>
               <p><a href="https://pinterest.co.uk/headless_horse/_saved/" target="_blank">Pinterest</a></p>
-              <br>
             </section>
 
-            <section id="services">
+            <p class="accordion">Services</p>
+            <section id="services" class="accordion--panel">
               <p id="services-list"></p>
-              <br>
             </section>
 
-            <section id="projects">
+            <p class="accordion">Case Studies</p>
+            <section id="projects" class="accordion--panel">
               <ol id="project-list"></ol>
-              <br>
             </section>
 
-            <section id="press">
+            <p class="accordion">Press</p>
+            <section id="press" class="accordion--panel">
               <ol id="press-list"></ol>
-              <br>
             </section>
 
-            <section id="careers">
+            <p class="accordion">Careers</p>
+            <section id="careers" class="accordion--panel">
               <p id="careers-list"></p>
-              <br>
+            </section>
+
+            <p class="accordion">Imprint</p>
+            <section id="imprint" class="accordion--panel">
+              <p id="imprint-list"></p>
             </section>
 
             <section id="thanks">
               <p id="thanks-list"></p>
-              <br>
-            </section>
-
-            <section id="imprint">
-              <p id="imprint-list"></p>
-              <br>
             </section>
 
             <section id="shop">
@@ -165,8 +163,8 @@ _  _ ____ ____ ___  _    ____ ____ ____    _  _ ____ ____ ____ ____
 │   └── login
 │       └── uname
 ├── OTHER/
-│   ├── thanks
-│   └── imprint
+│   ├── imprint
+│   └── thanks
 └── SHARE/
     ├── tweet
     └── mail
@@ -276,7 +274,7 @@ _  _ ____ ____ ___  _    ____ ____ ____    _  _ ____ ____ ____ ____
           <a href="mailto:mail@headless.horse">Email</a>
           <a href="tel:+443334446773">Phone</a>
           <a href="http://maps.apple.com/?q=38+Castle+Terrace+Edinburgh" target="_blank">Office</a>
-          <a href="https://headlesshorse.notion.site/Privacy-3da531bfce1d4f4094afa4e9c138a5ca" target="_blank">Privacy</a>
+          <a href="https://headlesshorse.notion.site/Privacy-3da531bfce1d4f4094afa4e9c138a5ca" target="_blank">Legal</a>
           <a id="footer--bottom--site-links--newsletter">
             <!-- Begin Mailchimp Signup Form -->
             <form action="https://headlesshorse.us20.list-manage.com/subscribe/post?u=4792941058b6d3b4b6ea3b3f2&amp;id=6ac99d042c" method="post" name="mc-embedded-subscribe-form" target="_blank">
@@ -744,3 +742,65 @@ run();
     }
   });
 </script>
+
+
+
+
+
+
+
+
+  <script type="module">
+  /***************************************** MOBILE ACCORDION *****************************************/
+
+    let accHeading = document.querySelectorAll(".accordion");
+    let accPanel = document.querySelectorAll(".accordion--panel");
+
+    for (let i = 0; i < accHeading.length; i++) {
+
+      accHeading[i].onclick = function() {
+        if (this.nextElementSibling.style.maxHeight) {
+          hidePanels();
+        } else {
+          showPanel(this);
+        }
+      };
+    }
+
+    function showPanel(elem) {
+      hidePanels();
+      elem.classList.add("active");
+      elem.nextElementSibling.style.maxHeight = elem.nextElementSibling.scrollHeight + "px";
+    }
+
+    function hidePanels() {
+      for (let i = 0; i < accPanel.length; i++) {
+        accPanel[i].style.maxHeight = null;
+        accHeading[i].classList.remove("active");
+      }
+    }
+
+  /***************************************** MOBILE ANIMATE *****************************************/
+
+    if ($(window).width() < 800) {
+      $(function() {
+        chainAnim('#wall-image, .accordion', 500, '1');
+      });
+
+      function chainAnim(e, s, o) {
+        var $fade = $(e);
+        var code = function() {
+          console.log('Done.');
+        };
+        $fade.each(function(i) {
+          $(this).delay(i * s).fadeTo(s, o, code);
+        });
+      }
+    }
+</script>
+
+<script>
+  $("#terminal--copy").insertAfter("#main");
+
+
+  </script>
