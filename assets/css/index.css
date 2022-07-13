@@ -493,6 +493,7 @@ section,
     top: var(--hh-spacing-3x);
     right: 0;
     left: 0;
+    border-bottom: 1px solid var(--hh-color-slate);
   }
 
   #nav-top--hh {
@@ -515,8 +516,8 @@ section,
     right: 0;
     left: 0;
     z-index: var(--hh-z-index-top);
-    width: 100%;
     max-height: 100%;
+    width: 100%;
   }
 
   .accordion {
@@ -527,10 +528,6 @@ section,
     border-top: 1px solid var(--hh-color-slate);
     text-transform: uppercase;
     cursor: pointer !important;
-  }
-
-  .accordion:first-of-type {
-    border-top: 1px solid var(--hh-color-slate);
   }
 
   .accordion::after {
