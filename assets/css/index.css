@@ -511,6 +511,7 @@ section,
   }
 
   #terminal--copy {
+    z-index: var(--hh-z-index-top);
     top: 45px;
     right: 0;
     left: 0;
@@ -522,7 +523,6 @@ section,
     padding: var(--hh-spacing-3x) var(--hh-spacing-2x);
     border-top: 1px solid var(--hh-color-slate);
     text-transform: uppercase;
-    cursor: pointer !important;
   }
 
   .accordion:first-of-type {
