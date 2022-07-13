@@ -577,6 +577,10 @@ section,
     display: block;
   }
 
+  #wall-image {
+    display: none !important;
+  }
+
   #screensaver {
     height: 0;
   }
