@@ -519,10 +519,13 @@ section,
   }
 
   .accordion {
+    display: block;
+    overflow: hidden;
     margin: 0;
     padding: var(--hh-spacing-3x) var(--hh-spacing-2x);
     border-top: 1px solid var(--hh-color-slate);
     text-transform: uppercase;
+    cursor: pointer !important;
   }
 
   .accordion:first-of-type {
