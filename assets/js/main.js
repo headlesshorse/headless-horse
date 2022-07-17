@@ -22,7 +22,7 @@ initScrollTitle();
 
 $(document).ready(function() {
   var audioElement3 = document.createElement('audio');
-  audioElement3.setAttribute('src', 'https://assets.headless.horse/assets/media/audio/pad.wav');
+  audioElement3.setAttribute('src', 'https://headless.horse/assets/media/audio/pad.wav');
   audioElement3.setAttribute('autoplay', 'autoplay', );
   audioElement3.setAttribute('loop', 'loop', );
   audioElement3.addEventListener("load", function() {
@@ -30,13 +30,13 @@ $(document).ready(function() {
   }, true);
 
   var audioProject = document.createElement('audio');
-  audioProject.setAttribute('src', 'https://assets.headless.horse/assets/media/audio/select.mp3');
+  audioProject.setAttribute('src', 'https://headless.horse/assets/media/audio/select.mp3');
   audioProject.addEventListener("load", function() {
     audioProject.play();
   }, true);
 
   var audioClick = document.createElement('audio');
-  audioClick.setAttribute('src', 'https://assets.headless.horse/assets/media/audio/click.mp3');
+  audioClick.setAttribute('src', 'https://headless.horse/assets/media/audio/click.mp3');
   audioClick.addEventListener("load", function() {
     audioClick.play();
   }, true);
@@ -448,6 +448,7 @@ function moveAction(event) {
 }
 
 /***************************************** TOOLTIPS *****************************************/
+
 window.addEventListener("load", init);
 
 (function() {
