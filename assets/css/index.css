@@ -493,6 +493,10 @@ section,
     scroll-snap-type: none;
   }
 
+  .cookie-notice {
+    top: 0px;
+  }
+
   #nav-top {
     position: fixed;
     top: var(--hh-spacing-3x);
