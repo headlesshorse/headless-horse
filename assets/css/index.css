@@ -497,6 +497,16 @@ section,
     top: 0px;
   }
 
+  .cookie-notice-message>p {
+    padding: var(--hh-spacing-2x);
+  }
+
+  .cookie-notice>button {
+    top: var(--hh-spacing-2x);
+    bottom: var(--hh-spacing-2x);
+    padding: 0px var(--hh-spacing-2x);
+  }
+
   #nav-top {
     position: fixed;
     top: var(--hh-spacing-3x);
