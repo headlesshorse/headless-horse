@@ -493,10 +493,6 @@ section,
     scroll-snap-type: none;
   }
 
-  .cookie-notice {
-    top: 0px;
-  }
-
   .cookie-notice-message>p {
     padding: var(--hh-spacing-2x);
   }
