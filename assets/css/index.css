@@ -36,6 +36,8 @@ html {
   scrollbar-width: none;
 }
 
+html, body {margin: 0; height: 100%; overflow: hidden}
+
 ::-webkit-scrollbar {
   display: none;
 }
