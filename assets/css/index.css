@@ -25,7 +25,10 @@
 }
 
 html {
+  overflow: hidden;
   overflow-y: scroll;
+  margin: 0;
+  height: 100%;
   background: var(--hh-color-black);
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -35,8 +38,6 @@ html {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
-html, body {margin: 0; height: 100%; overflow: hidden}
 
 ::-webkit-scrollbar {
   display: none;
@@ -53,8 +54,10 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 }
 
 body {
+  overflow: hidden;
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 body,
