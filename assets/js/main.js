@@ -365,7 +365,7 @@ if (window.screen.width > 800) {
 
 /***************************************** IMAGE MOVER *****************************************/
 
-var acceleration = 0.02;
+var acceleration = 0.01;
 // acceleration value between 0 and 1 smaller values = smoother motion
 
 var img = {
