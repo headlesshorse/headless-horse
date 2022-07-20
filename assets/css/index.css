@@ -298,7 +298,7 @@ a:hover,
 
 #terminal--copy {
   position: fixed;
-  top: var(--hh-spacing-5x);
+  top: 60px;
   right: var(--hh-spacing-4x);
   left: var(--hh-spacing-4x);
   overflow: scroll;
