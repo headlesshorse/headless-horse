@@ -162,10 +162,10 @@ a:hover,
 .cookie-notice>button {
   position: absolute;
   top: var(--hh-spacing-4x);
-  right: 0px;
+  right: 0;
   bottom: var(--hh-spacing-4x);
   margin: 0;
-  padding: 0px var(--hh-spacing-4x);
+  padding: 0 var(--hh-spacing-4x);
   width: 20%;
   outline: none;
   border: 0;
@@ -298,7 +298,7 @@ a:hover,
 
 #terminal--copy {
   position: fixed;
-  top: 60px;
+  top: var(--hh-spacing-5x);
   right: var(--hh-spacing-4x);
   left: var(--hh-spacing-4x);
   overflow: scroll;
