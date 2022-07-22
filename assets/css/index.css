@@ -481,7 +481,8 @@ button:focus {
 #newsletter--subscribe,
 #wall-image,
 section,
-.accordion {
+.accordion,
+.mobile-hide {
   display: none;
 }
 
@@ -593,7 +594,7 @@ section,
     content: '';
   }
 
-  #wall-image, section {
+  #wall-image, section, .mobile-hide {
     display: block;
   }
 
@@ -620,7 +621,8 @@ section,
   #wall-image--map,
   #tooltip,
   #footer,
-  .accordion {
+  .accordion,
+  .desktop-hide {
     display: none;
   }
 }
