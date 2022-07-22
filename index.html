@@ -488,9 +488,8 @@ run();
   }
 
   const tableTemplate = table => html`
-      ${table.map(({id, Project, Date, Status, StatusCaseStudy, SlugCaseStudy, StatusPress, SlugPress}) => html`
-        <li class="mobile-hide"><span>${Project}</span><span>${Date}</span><span>${Status}</span><span><a href="${SlugCaseStudy}">${StatusCaseStudy}</a> <a href="${SlugPress}" target="_blank">${StatusPress}</a></span></li>
-        <li class="desktop-hide"><a href="${SlugCaseStudy}" target="_blank">${Project}, ${Date} — ${Status}</a></li>
+      ${table.map(({id, Project, Date, Status, Slug}) => html`
+        <li><a href="${Slug}" target="_blank"><span>${Project}</span><span>${Date}</span><span>${Status}</span></a></li>
       `)}
   `;
 
@@ -519,8 +518,7 @@ run();
 
   const tableTemplate = table => html`
       ${table.map(({id, Recognition, Outlet, Project, Published, Slug}) => html`
-        <li class="mobile-hide"><span>${Outlet}</span><span>${Recognition}, ${Project}</span><span>${Published}</span></a><span><a href="${Slug}" target="_blank">Link</a></span></li>
-        <li class="desktop-hide"><a href="${Slug}" target="_blank">${Outlet}, ${Recognition}, ${Project} — ${Published}</a></li>
+        <li><a href="${Slug}" target="_blank"><span>${Outlet}</span><span>${Recognition}</span><span>${Project}</span><span>${Published}</span></a></li>
       `)}
   `;
 

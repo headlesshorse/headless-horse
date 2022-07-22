@@ -481,8 +481,7 @@ button:focus {
 #newsletter--subscribe,
 #wall-image,
 section,
-.accordion,
-.mobile-hide {
+.accordion {
   display: none;
 }
 
@@ -594,6 +593,15 @@ section,
     content: '';
   }
 
+  ol li span {
+    display: inline;
+    padding-right: 0;
+  }
+
+  ol li span:not(:last-child):after{
+    content: ", "
+  }
+
   #wall-image, section, .mobile-hide {
     display: block;
   }
@@ -621,8 +629,7 @@ section,
   #wall-image--map,
   #tooltip,
   #footer,
-  .accordion,
-  .desktop-hide {
+  .accordion {
     display: none;
   }
 }
