@@ -150,7 +150,7 @@ lastvisit.showmessage = function() {
   var wh = new Date();
   if (lastvisit.getCookie("visit_record") == "") {
     lastvisit.setCookie("visit_record", wh, days);
-    document.getElementById("firstuse-message").innerHTML = "Type 'list' to see a list of commands.";
+    document.getElementById("firstuse-message").innerHTML = "To see a list of index commands of type 'list'.";
 
   } else {
     var lv = lastvisit.getCookie("visit_record");
