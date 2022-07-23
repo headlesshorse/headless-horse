@@ -21,12 +21,12 @@ initScrollTitle();
 /***************************************** AUDIO *****************************************/
 
 $(document).ready(function() {
-  var audioElement3 = document.createElement('audio');
-  audioElement3.setAttribute('src', 'https://headless.horse/assets/media/audio/pad.wav');
-  audioElement3.setAttribute('autoplay', 'autoplay', );
-  audioElement3.setAttribute('loop', 'loop', );
-  audioElement3.addEventListener("load", function() {
-    audioElement3.play();
+  var audioPad = document.createElement('audio');
+  audioPad.setAttribute('src', 'https://headless.horse/assets/media/audio/pad.wav');
+  audioPad.setAttribute('autoplay', 'autoplay', );
+  audioPad.setAttribute('loop', 'loop', );
+  audioPad.addEventListener("load", function() {
+    audioPad.play();
   }, true);
 
   var audioProject = document.createElement('audio');
@@ -41,11 +41,11 @@ $(document).ready(function() {
     audioClick.play();
   }, true);
 
-  $('.projectclick').click(function() {
+  $('.project-link').click(function() {
     audioProject.play();
   });
 
-  $('.linkclick').click(function() {
+  $('.click-sound').click(function() {
     audioClick.play();
   });
 });
@@ -311,7 +311,7 @@ if (window.screen.width > 800) {
     $('#command--input[type="text"]').focus();
     $('#preload').addClass('open');
     $('#preload').textTyper({
-      speed: 10,
+      speed: 0,
       afterAnimation: function() {
         $('#preload').removeClass('open');
         $('#home').addClass('open');
