@@ -551,11 +551,12 @@ section,
 
   .accordion::after {
     float: right;
-    content: "+";
+    content: '+';
+
   }
 
   .active::after {
-    content: "-";
+    content: '';
   }
 
   .accordion--panel {
@@ -598,8 +599,8 @@ section,
     padding-right: 0;
   }
 
-  ol li span:not(:last-child):after{
-    content: ", "
+  ol li span:not(:last-child):after {
+    content: ", ";
   }
 
   #wall-image, section, .mobile-hide {
