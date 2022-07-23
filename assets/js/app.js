@@ -69,14 +69,14 @@ $(document).ready(function() {
   });
 
   $('#nav-top--close').click(function() {
-    $('#nav-top--close--status').html($('#nav-top--close--status').html() == 'Open' ? 'Close' : 'Open');
+    $('#nav-top--close--status').html($('#nav-top--close--status').html() == '[+]' ? '[-]' : '[+]');
     $('#terminal--copy, #nav-bottom--new-project').delay(200).fadeIn(2000);
     $('#terminal--iframe').delay(200).fadeOut(2000);
     $('#terminal').addClass('terminal--mix-blend-mode');
   });
 
   $('#nav-bottom--new-project, .project-link').click(function() {
-    $('#nav-top--close--status').html('Close');
+    $('#nav-top--close--status').html('[-]');
     $('#terminal--iframe, #terminal, #wall-image--cover').delay(200).fadeIn(2000);
     $('#terminal--copy').delay(200).fadeOut(2000);
   });
