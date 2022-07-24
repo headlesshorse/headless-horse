@@ -87,7 +87,7 @@ Inforun();
       `)}
   `;
 
-  const projectItem = fetch("https://notion-api.splitbee.io/v1/table/2879a5a7fb2e4341b79a7132b2d399ca")
+    fetch("https://notion-api.splitbee.io/v1/table/2879a5a7fb2e4341b79a7132b2d399ca")
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
     .then(ClientstableTemplate) // Promise<TemplateResult>
@@ -107,7 +107,7 @@ Inforun();
       `)}
   `;
 
-  const projectItem = fetch("https://notion-api.splitbee.io/v1/table/152f1eda45414a1fa5a625b607a8915b")
+    fetch("https://notion-api.splitbee.io/v1/table/152f1eda45414a1fa5a625b607a8915b")
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
     .then(ServicestableTemplate) // Promise<TemplateResult>
@@ -127,7 +127,7 @@ Inforun();
       `)}
   `;
 
-  const projectItem = fetch("https://notion-api.splitbee.io/v1/table/40ee05b104644055b139eefafd9ae800")
+    fetch("https://notion-api.splitbee.io/v1/table/40ee05b104644055b139eefafd9ae800")
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
     .then(ProjectstableTemplate) // Promise<TemplateResult>
@@ -147,7 +147,7 @@ Inforun();
       `)}
   `;
 
-  const pressItem = fetch("ttps://notion-api.splitbee.io/v1/table/cd48ac8833464607818ff47ee43fb791")
+    fetch("ttps://notion-api.splitbee.io/v1/table/cd48ac8833464607818ff47ee43fb791")
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
     .then(PresstableTemplate) // Promise<TemplateResult>
@@ -211,7 +211,7 @@ function doclientSearch(textArea) {
       `)}
   `;
 
-  const projectItem = fetch("https://notion-api.splitbee.io/v1/table/c87900ce8abc4ed28c77222beebebeac")
+    fetch("https://notion-api.splitbee.io/v1/table/c87900ce8abc4ed28c77222beebebeac")
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
     .then(CareerstableTemplate) // Promise<TemplateResult>
@@ -255,7 +255,6 @@ console.log(blocks.map(x => x.type))
   render(content, document.getElementById('thanks-list'))
 }
 Thanksrun();
-
 
 
 
