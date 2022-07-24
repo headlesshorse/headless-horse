@@ -138,7 +138,7 @@ Inforun();
       `)}
   `;
 
-    fetch("ttps://notion-api.splitbee.io/v1/table/cd48ac8833464607818ff47ee43fb791")
+    fetch("https://notion-api.splitbee.io/v1/table/cd48ac8833464607818ff47ee43fb791")
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
     .then(PresstableTemplate) // Promise<TemplateResult>
