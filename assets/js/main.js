@@ -47,7 +47,7 @@ Noticerun();
 
 
 
-  async function Info() {
+  async function Inforun() {
 
     const result = await fetch("https://notion-api.splitbee.io/v1/page/a1f6fd4a910349c0ad29c9d8ee428780").then(handleAsJson)
 
