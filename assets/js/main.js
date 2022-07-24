@@ -1,5 +1,14 @@
 /*****************************************  *****************************************/
 
+import { html, render } from 'https://unpkg.com/lit?module';
+
+const handleAsJson = response => response.json();
+
+const trace = tag => x => {
+  console.log(tag, x);
+  return x;
+}
+
 function renderText(node) {
   if (node.length === 1)
     return node[0];
