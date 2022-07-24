@@ -1,3 +1,5 @@
+/*****************************************  *****************************************/
+
 function renderText(node) {
   if (node.length === 1)
     return node[0];
@@ -11,9 +13,7 @@ function renderText(node) {
   else return node;
 }
 
-
-
-/***************************************** NOTICE *****************************************/
+/***************************************** COMMAND — NOTICE *****************************************/
 
   async function Noticerun() {
 
@@ -41,11 +41,7 @@ const content = blocks.map(block => {
 }
 Noticerun();
 
-
-
-/***************************************** INFO *****************************************/
-
-
+/***************************************** COMMAND — INFO *****************************************/
 
   async function Inforun() {
 
@@ -77,9 +73,7 @@ console.log(blocks.map(x => x.type))
 }
 Inforun();
 
-
-/***************************************** CLIENTS *****************************************/
-
+/***************************************** COMMAND - CLIENTS *****************************************/
 
   const ClientstableTemplate = table => html`
       ${table.map(({Client}) => html`
@@ -95,11 +89,7 @@ Inforun();
     .then(result =>
 			render(result, document.getElementById('clients-list')))
 
-
-
-/***************************************** SERVICES *****************************************/
-
-
+/***************************************** COMMAND - SERVICES *****************************************/
 
   const ServicestableTemplate = table => html`
       ${table.map(({Service}) => html`
@@ -115,11 +105,7 @@ Inforun();
     .then(result =>
 			render(result, document.getElementById('services-list')))
 
-
-
-/***************************************** PROJECTS *****************************************/
-
-
+/***************************************** COMMAND - PROJECTS *****************************************/
 
   const ProjectstableTemplate = table => html`
       ${table.map(({id, Project, Date, Status, Slug}) => html`
@@ -135,11 +121,7 @@ Inforun();
     .then(result =>
 			render(result, document.getElementById('project-list')))
 
-
-
-/***************************************** PRESS *****************************************/
-
-
+/***************************************** COMMAND — PRESS *****************************************/
 
   const PresstableTemplate = table => html`
       ${table.map(({id, Recognition, Outlet, Project, Published, Slug}) => html`
@@ -155,14 +137,7 @@ Inforun();
     .then(result =>
 			render(result, document.getElementById('press-list')))
 
-
-
-
-
-
-
-
-/***************************************** SHOP *****************************************/
+/***************************************** COMMAND - SHOP *****************************************/
 
   $(document).on("keypress", "input", function(e) {
     if (e.which == 13) {
@@ -175,11 +150,7 @@ Inforun();
     }
   });
 
-
-
-
-
-/***************************************** PRIVATE LOGIN *****************************************/
+/***************************************** COMMAND - LOGIN *****************************************/
 
 (function() {
   var textArea = document.getElementById("command--input");
@@ -200,10 +171,7 @@ function doclientSearch(textArea) {
   }
 }
 
-
-
-/***************************************** CAREERS *****************************************/
-
+/***************************************** COMMAND - CAREERS *****************************************/
 
   const CareerstableTemplate = table => html`
       ${table.map(({id, Status, Location, Position, Contract, close, Slug}) => html`
@@ -219,12 +187,7 @@ function doclientSearch(textArea) {
     .then(result =>
 			render(result, document.getElementById('careers-list')))
 
-
-
-
-/***************************************** THANKS *****************************************/
-
-
+/***************************************** COMMAND - THANKS *****************************************/
 
   async function Thanksrun() {
 
@@ -256,12 +219,7 @@ console.log(blocks.map(x => x.type))
 }
 Thanksrun();
 
-
-
-
-/***************************************** IMPRINT *****************************************/
-
-
+/***************************************** COMMAND - IMPRINT *****************************************/
 
   async function Imprintrun() {
 
@@ -292,3 +250,29 @@ console.log(blocks.map(x => x.type))
   render(content, document.getElementById('imprint-list'))
 }
 Imprintrun();
+
+/***************************************** COMMAND — SHARE TWEET *****************************************/
+
+  $(document).on("keypress", "input", function(e) {
+    if (e.which == 13) {
+      var inputVal = $(this).val();
+      if (inputVal == "tweet") {
+        setTimeout(function(e) {
+          window.open('https://twitter.com/intent/tweet?url=headless.horse&text=@headless__horse', '_blank');
+        }, 1000);
+      }
+    }
+  });
+
+/***************************************** COMMAND — SHARE EMAIL *****************************************/
+
+  $(document).on("keypress", "input", function(e) {
+    if (e.which == 13) {
+      var inputVal = $(this).val();
+      if (inputVal == "mail") {
+        setTimeout(function(e) {
+          window.location.href = 'mailto:name@email.com?subject=Headless%20Horse&body=I%20thought%20you%20might%20like%20this:%20https://headless.horse/';
+        }, 1000);
+      }
+    }
+  });
