@@ -146,12 +146,12 @@ lastvisit.setCookie = function(name, value, days) {
 
 lastvisit.showmessage = function() {
   var wh = new Date();
-  if (lastvisit.getCookie("visit_record") == "") {
-    lastvisit.setCookie("visit_record", wh, days);
+  if (lastvisit.getCookie("visit-record") == "") {
+    lastvisit.setCookie("visit-record", wh, days);
     document.getElementById("firstuse-message").innerHTML = "To see a list of index commands of type 'list'.";
 
   } else {
-    var lv = lastvisit.getCookie("visit_record");
+    var lv = lastvisit.getCookie("visit-record");
     var lvp = Date.parse(lv);
     var now = new Date();
     now.setTime(lvp);
@@ -178,7 +178,7 @@ lastvisit.showmessage = function() {
     document.getElementById("welcome-back").innerHTML = "back ";
     document.getElementById("lastvisit-message").innerHTML = "Your last visit was on " + dispDate + ".";
   }
-  lastvisit.setCookie("visit_record", wh, days);
+  lastvisit.setCookie("visit-record", wh, days);
 
 }
 lastvisit.showmessage();
