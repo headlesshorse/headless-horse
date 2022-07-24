@@ -117,13 +117,11 @@ setInterval(function() {
     const timezone = now.toFormat("ZZZZ")
     console.log(timezone)
 
-    if (hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6) {
-      document.getElementById('nav-top--hh--clock').innerHTML = "Online";
-      document.getElementById('hours-list').innerHTML = "The studio is open today from 08:00–18:00 " + timezone + ".";
-    } else {
-      document.getElementById('nav-top--hh--clock').innerHTML = "Out of office";
-      document.getElementById('hours-list').innerHTML = "The studio is now closed we are open Monday—Friday 08:00–18:00 " + timezone + ".";
-    }
+    const clock = document.getElementById('nav-top--hh--clock');
+    const list = document.getElementById('hours-list');
+    const open = hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6
+    if (clock) clock.innerHTML = open ? "Online" :  "Out of office";
+    if (list) list.innerHTML = open ? `The studio is open today from 08:00–18:00 ${timezone}.` : `The studio is now closed we are open Monday—Friday 08:00–18:00 ${timezone}.`;
   })
 }, 1000)
 
