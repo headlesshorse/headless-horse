@@ -184,7 +184,7 @@ a:hover,
   z-index: var(--hh-z-index-top);
   width: 100vw;
   height: 100vh;
-  background-image: url("https://headless.horse/assets/media/images/hh-center-2560x1440.jpg");
+  background-image: url("/assets/media/images/hh-center-2560x1440.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
