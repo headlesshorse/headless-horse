@@ -581,7 +581,7 @@ void(function(root, factory) {
   }
 
   CookieNotice.options = {
-    message: '<p>We use cookies to ensure that we give you the best functional experience on our website. We don’t use advertising or tracking cookies or any kind of cookies that pass your data on to third parties. <a href="https://headlesshorse.notion.site/Privacy-3da531bfce1d4f4094afa4e9c138a5ca" target="_blank">More info.</a></p>',
+    message: '<p>We use cookies to ensure that we give you the best functional experience on our website. We don’t use advertising or tracking cookies that pass your data on to third parties. <a href="https://headlesshorse.notion.site/Privacy-3da531bfce1d4f4094afa4e9c138a5ca" target="_blank">More info.</a></p>',
     dismiss: 'Accept'
   }
 
