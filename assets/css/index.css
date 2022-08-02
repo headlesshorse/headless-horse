@@ -552,7 +552,6 @@ section,
   .accordion::after {
     float: right;
     content: '[+]';
-
   }
 
   .active::after {
