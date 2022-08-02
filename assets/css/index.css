@@ -556,7 +556,7 @@ section,
   }
 
   .active::after {
-    content: '';
+    content: '-';
   }
 
   .accordion--panel {
