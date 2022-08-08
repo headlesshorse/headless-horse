@@ -102,18 +102,18 @@ setInterval(function() {
     // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
     const tz = location.getAttribute("data_tz")
 
-    // get the time in that timezone
+    // get the time in that timezone.
     const now = luxon.DateTime.now().setZone(tz)
 
-    // hour in 24-hour time, no padding
+    // hour in 24-hour time, no padding.
     const hour = parseInt(now.toFormat("H"), 10)
     console.log(hour)
 
-    // day of the week as number (Monday is 1, Sunday is 7)
+    // day of the week as number. Monday is 1, Sunday is 7.
     const hourday = now.toFormat("c")
     console.log(hourday)
 
-    // timezone 'GMT'
+    // timezone. GMT.
     const timezone = now.toFormat("ZZZZ")
     console.log(timezone)
 
