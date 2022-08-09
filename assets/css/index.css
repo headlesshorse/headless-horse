@@ -528,7 +528,6 @@ section,
   }
 
   #terminal {
-    overflow-y: scroll;
     background: var(--hh-color-black);
     mix-blend-mode: normal !important;
   }
