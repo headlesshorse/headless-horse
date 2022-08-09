@@ -525,11 +525,6 @@ section,
     display: block;
   }
 
-  #terminal {
-    background: var(--hh-color-black);
-    mix-blend-mode: normal !important;
-  }
-
   #terminal--copy {
     top: 45px;
     right: 0;
