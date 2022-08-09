@@ -20,7 +20,7 @@
   --hh-spacing-6x: 30px;
   --hh-font-body-1-font-family: courier, monospace;
   --hh-font-body-1-font-size: 12px;
-  --hh-font-body-1-line-height: 1.3;
+  --hh-font-body-1-line-height: 1.5;
   --hh-font-body-1-font-weight: 400;
 }
 
@@ -526,6 +526,12 @@ section,
     display: block;
   }
 
+  #terminal {
+    overflow-y: scroll;
+    background: var(--hh-color-black);
+    mix-blend-mode: normal !important;
+  }
+
   #terminal--copy {
     top: 45px;
     right: 0;
@@ -577,7 +583,8 @@ section,
 
   #clients-list>span,
   #services-list>span,
-  #press-list>p {
+  #project-list>li,
+  #press-list>li {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -606,11 +613,11 @@ section,
     display: block;
   }
 
-  #screensaver {
+  #screensaver,
+  #nav-bottom--new-project,
+  #nav-bottom--notice,
+  #command {
     height: 0;
-  }
-
-  #command, #nav-bottom--new-project, #nav-bottom--notice {
     opacity: 0;
   }
 
