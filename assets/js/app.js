@@ -615,7 +615,7 @@ void(function(root, factory) {
     $dismiss.onclick = dismiss
     $div.appendChild($dismiss)
 
-    document.getElementById("terminal").after($div)
+    document.body.appendChild($div)
   }
 
   function ready(fn) {
