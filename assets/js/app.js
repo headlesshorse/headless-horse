@@ -466,18 +466,18 @@ window.addEventListener("load", init);
       }).show();
     };
 
-  $(document).on("mouseenter", "*[title]", function(e) {
+  $('#wall-image--map').on("mouseenter", "*[title]", function(e) {
     $(this).data(DATA, $(this).attr("title"));
     $(this).removeAttr("title").addClass(CLS_ON);
     $("<div id='" + ID + "' />").appendTo("body");
     showAt(e);
   });
-  $(document).on("mouseleave", "." + CLS_ON, function(e) {
+  $('#wall-image--map').on("mouseleave", "." + CLS_ON, function(e) {
     $(this).attr("title", $(this).data(DATA)).removeClass(CLS_ON);
     $("#" + ID).remove();
   });
   if (FOLLOW) {
-    $(document).on("mousemove", "." + CLS_ON, showAt);
+    $('#wall-image--map').on("mousemove", "." + CLS_ON, showAt);
   }
 }());
 
