@@ -24,7 +24,8 @@
   --hh-font-body-1-font-weight: 400;
 }
 
-html {
+html,
+body {
   overflow: hidden;
   overflow-y: scroll;
   margin: 0;
