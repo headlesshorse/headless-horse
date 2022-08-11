@@ -28,6 +28,7 @@ html,
 body {
   overflow: hidden;
   margin: 0;
+  padding: 0;
   height: 100%;
   background: var(--hh-color-black);
   -webkit-user-select: none;
@@ -629,8 +630,7 @@ section,
   #preload,
   #wall-image--map,
   #tooltip,
-  #footer,
-  .accordion {
+  #footer {
     display: none;
   }
 }

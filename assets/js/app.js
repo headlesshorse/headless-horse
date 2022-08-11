@@ -551,24 +551,6 @@ function hidePanels() {
   }
 }
 
-/***************************************** MOBILE ANIMATE *****************************************/
-
-if ($(window).width() < 800) {
-  $(function() {
-    chainAnim('.accordion', 500, '1');
-  });
-
-  function chainAnim(e, s, o) {
-    var $fade = $(e);
-    var code = function() {
-      console.log('Done.');
-    };
-    $fade.each(function(i) {
-      $(this).delay(i * s).fadeTo(s, o, code);
-    });
-  }
-}
-
 /***************************************** COOKIE NOTICE *****************************************/
 
 void(function(root, factory) {
