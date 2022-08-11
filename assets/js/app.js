@@ -20,34 +20,32 @@ initScrollTitle();
 
 /***************************************** AUDIO *****************************************/
 
-$(document).ready(function() {
-  var audioPad = document.createElement('audio');
-  audioPad.setAttribute('src', 'https://headless.horse/assets/media/audio/pad.wav');
-  audioPad.setAttribute('autoplay', 'autoplay', );
-  audioPad.setAttribute('loop', 'loop', );
-  audioPad.addEventListener("load", function() {
-    audioPad.play();
-  }, true);
+var audioPad = document.createElement('audio');
+audioPad.setAttribute('src', 'https://headless.horse/assets/media/audio/pad.wav');
+audioPad.setAttribute('autoplay', 'autoplay', );
+audioPad.setAttribute('loop', 'loop', );
+audioPad.addEventListener("load", function() {
+  audioPad.play();
+}, true);
 
-  var audioProject = document.createElement('audio');
-  audioProject.setAttribute('src', 'https://headless.horse/assets/media/audio/select.mp3');
-  audioProject.addEventListener("load", function() {
-    audioProject.play();
-  }, true);
+var audioProject = document.createElement('audio');
+audioProject.setAttribute('src', 'https://headless.horse/assets/media/audio/select.mp3');
+audioProject.addEventListener("load", function() {
+  audioProject.play();
+}, true);
 
-  var audioClick = document.createElement('audio');
-  audioClick.setAttribute('src', 'https://headless.horse/assets/media/audio/click.mp3');
-  audioClick.addEventListener("load", function() {
-    audioClick.play();
-  }, true);
+var audioClick = document.createElement('audio');
+audioClick.setAttribute('src', 'https://headless.horse/assets/media/audio/click.mp3');
+audioClick.addEventListener("load", function() {
+  audioClick.play();
+}, true);
 
-  $('.project-link').click(function() {
-    audioProject.play();
-  });
+$('.project-link').click(function() {
+  audioProject.play();
+});
 
-  $('.click-sound').click(function() {
-    audioClick.play();
-  });
+$('.click-sound').click(function() {
+  audioClick.play();
 });
 
 /***************************************** SCREENSAVER *****************************************/
@@ -62,33 +60,31 @@ $('body, #screensaver').mousemove(function() {
 
 /***************************************** NAVIGATION *****************************************/
 
-$(document).ready(function() {
-  $('#nav-top--close, .project-link').click(function() {
-    $('#terminal, #wall-image--cover').delay(200).fadeToggle(2000);
-    $('#wall-image').toggleClass('wall-image--filter');
-  });
+$('#nav-top--close, .project-link').click(function() {
+  $('#terminal, #wall-image--cover').delay(200).fadeToggle(2000);
+  $('#wall-image').toggleClass('wall-image--filter');
+});
 
-  $('#nav-top--close').click(function() {
-    $('#nav-top--close--status').html($('#nav-top--close--status').html() == '[+]' ? '[-]' : '[+]');
-    $('#terminal--copy, #nav-bottom--new-project').delay(200).fadeIn(2000);
-    $('#terminal--iframe').delay(200).fadeOut(2000);
-    $('#terminal').addClass('terminal--mix-blend-mode');
-  });
+$('#nav-top--close').click(function() {
+  $('#nav-top--close--status').html($('#nav-top--close--status').html() == '[+]' ? '[-]' : '[+]');
+  $('#terminal--copy, #nav-bottom--new-project').delay(200).fadeIn(2000);
+  $('#terminal--iframe').delay(200).fadeOut(2000);
+  $('#terminal').addClass('terminal--mix-blend-mode');
+});
 
-  $('#nav-bottom--new-project, .project-link').click(function() {
-    $('#nav-top--close--status').html('[-]');
-    $('#terminal--iframe, #terminal, #wall-image--cover').delay(200).fadeIn(2000);
-    $('#terminal--copy').delay(200).fadeOut(2000);
-  });
+$('#nav-bottom--new-project, .project-link').click(function() {
+  $('#nav-top--close--status').html('[-]');
+  $('#terminal--iframe, #terminal, #wall-image--cover').delay(200).fadeIn(2000);
+  $('#terminal--copy').delay(200).fadeOut(2000);
+});
 
-  $('#nav-bottom--new-project').click(function() {
-    $('#nav-bottom--new-project').delay(200).fadeOut(2000);
-    $('#terminal').addClass('terminal--mix-blend-mode');
-  });
+$('#nav-bottom--new-project').click(function() {
+  $('#nav-bottom--new-project').delay(200).fadeOut(2000);
+  $('#terminal').addClass('terminal--mix-blend-mode');
+});
 
-  $('.project-link').click(function() {
-    $('#terminal').removeClass('terminal--mix-blend-mode');
-  });
+$('.project-link').click(function() {
+  $('#terminal').removeClass('terminal--mix-blend-mode');
 });
 
 /***************************************** CLOCK *****************************************/
