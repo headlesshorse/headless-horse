@@ -40,10 +40,6 @@ body {
   scrollbar-width: none;
 }
 
-* {
-  outline: 1px solid green;
-}
-
 ::-webkit-scrollbar {
   display: none;
 }
