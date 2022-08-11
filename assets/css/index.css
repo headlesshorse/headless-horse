@@ -54,16 +54,11 @@ body {
   color: var(--hh-color-black);
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
 body,
 p,
 a,
-pre {
+pre,
+li {
   font-weight: var(--hh-font-body-1-font-weight);
   font-size: var(--hh-font-body-1-font-size);
   font-family: var(--hh-font-body-1-font-family);
@@ -486,6 +481,10 @@ section,
 }
 
 @media (max-width:800px) {
+
+  *{
+    outline: green 1px solid;
+  }
   .scroll-snap--container {
     overflow-y: scroll;
     max-height: auto;
