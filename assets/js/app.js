@@ -190,9 +190,6 @@ width = 100,
   EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
   time = parseInt((EstimatedTime / 1000) % 60) * 100 + 4000;
 
-$('#terminal').css({
-  cursor: 'wait'
-});
 $("#nav-top--loader-bar").animate({
   width: width + "%"
 }, time);
@@ -225,9 +222,6 @@ setTimeout(function() {
   $('#nav-top--hh--percentage').fadeOut(2000);
   $('#nav-top--hh--clock, #nav-top--close, #nav-bottom, #terminal--copy').delay(1000).fadeIn(2000);
   $('#wall-image').delay(3000).fadeIn(2000);
-  $('#terminal').css({
-    cursor: 'default'
-  });
 }, time);
 
 /***************************************** TERMINAL TYPE *****************************************/
