@@ -120,7 +120,7 @@ setInterval(function() {
     const clock = document.getElementById('nav-top--hh--clock');
     const list = document.getElementById('hours-list');
     const open = hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6
-    if (clock) clock.innerHTML = open ? "Online" :  "Out of office";
+    if (clock) clock.innerHTML = open ? "Online" : "Out of office";
     if (list) list.innerHTML = open ? `The studio is open today from 08:00–18:00 ${timezone}.` : `The studio is now closed. We are open Monday—Friday 08:00–18:00 ${timezone}.`;
   })
 }, 1000)
@@ -190,6 +190,9 @@ width = 100,
   EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
   time = parseInt((EstimatedTime / 1000) % 60) * 100 + 4000;
 
+$('body').css({
+  cursor: 'wait'
+});
 $("#nav-top--loader-bar").animate({
   width: width + "%"
 }, time);
@@ -222,6 +225,9 @@ setTimeout(function() {
   $('#nav-top--hh--percentage').fadeOut(2000);
   $('#nav-top--hh--clock, #nav-top--close, #nav-bottom, #terminal--copy').delay(1000).fadeIn(2000);
   $('#wall-image').delay(3000).fadeIn(2000);
+  $('body').css({
+    cursor: 'default'
+  });
 }, time);
 
 /***************************************** TERMINAL TYPE *****************************************/

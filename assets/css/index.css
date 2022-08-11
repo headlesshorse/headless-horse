@@ -20,7 +20,7 @@
   --hh-spacing-6x: 30px;
   --hh-font-body-1-font-family: courier, monospace;
   --hh-font-body-1-font-size: 12px;
-  --hh-font-body-1-line-height: 1.5;
+  --hh-font-body-1-line-height: 1.4;
   --hh-font-body-1-font-weight: 400;
 }
 
@@ -38,6 +38,10 @@ body {
   user-select: none;
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+* {
+  outline: 1px solid green;
 }
 
 ::-webkit-scrollbar {
@@ -275,6 +279,7 @@ a:hover,
 #terminal {
   position: absolute;
   z-index: var(--hh-z-index-3);
+  padding: var(--hh-spacing-4x);
   width: 100%;
   height: 100%;
   mix-blend-mode: difference;
@@ -297,8 +302,7 @@ a:hover,
   right: var(--hh-spacing-4x);
   left: var(--hh-spacing-4x);
   overflow: scroll;
-  max-height: calc(100% - 320px);
-  height: auto;
+  max-height: calc(100% - 360px);
   color: var(--hh-color-slate);
 }
 
@@ -387,6 +391,7 @@ map area {
 #footer {
   position: relative;
   z-index: var(--hh-z-index-3);
+  padding: var(--hh-spacing-4x);
   height: 200px;
   background: var(--hh-color-black);
   color: var(--hh-color-slate);
@@ -394,9 +399,6 @@ map area {
 }
 
 #footer--top--logo {
-  position: absolute;
-  top: var(--hh-spacing-4x);
-  left: var(--hh-spacing-4x);
   width: auto;
   height: 40px;
 }
