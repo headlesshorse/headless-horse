@@ -296,10 +296,6 @@ setTimeout(function() {
 /***************************************** TERMINAL COMMAND *****************************************/
 
 if (window.screen.width > 800) {
-  $('#terminal').click(function() {
-    $('#command--input[type="text"]').focus();
-  });
-
   $(document).ready(function() {
     $('#terminal').css('cursor', 'wait');
     $('#command').hide();
@@ -316,6 +312,9 @@ if (window.screen.width > 800) {
             $('#command').fadeIn();
             $('#command--input[type="text"]').focus();
             $('#command--input[type="text"]').val('');
+            $('#terminal').click(function() {
+              $('#command--input[type="text"]').focus();
+            });
           }
         });
       }
