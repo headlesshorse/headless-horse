@@ -295,6 +295,10 @@ setTimeout(function() {
 
 /***************************************** TERMINAL COMMAND *****************************************/
 
+window.onload = function() {
+  document.getElementById('#command--input[type="text"]').focus();
+};
+
 if (window.screen.width > 800) {
   $('#terminal').click(function() {
     $('#command--input[type="text"]').focus();
