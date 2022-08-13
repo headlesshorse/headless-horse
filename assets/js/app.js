@@ -296,6 +296,10 @@ setTimeout(function() {
 /***************************************** TERMINAL COMMAND *****************************************/
 
 if (window.screen.width > 800) {
+  $('#terminal').click(function() {
+    $('#command--input[type="text"]').focus();
+  });
+
   $(document).ready(function() {
     $('#terminal').css('cursor', 'wait');
     $('#command').hide();
