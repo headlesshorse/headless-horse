@@ -519,6 +519,12 @@ $('#newsletter--email').on('keyup', function() {
   validate_email(this, this.value);
 });
 
+/***************************************** TRANSLATE *****************************************/
+
+function Translate(elm) {
+  window.location = 'https://translate.google.com/translate?sl=en&tl=' + elm.value + '&u=https://headless.horse';
+}
+
 /***************************************** MOBILE ACCORDION *****************************************/
 
 let accHeading = document.querySelectorAll(".accordion");
