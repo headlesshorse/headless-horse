@@ -296,7 +296,7 @@ setTimeout(function() {
 /***************************************** TERMINAL COMMAND *****************************************/
 
 window.onload = function() {
-  document.getElementById('#command--input[type="text"]').focus();
+  document.getElementById('#command--input').focus();
 };
 
 if (window.screen.width > 800) {
