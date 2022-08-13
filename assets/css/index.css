@@ -174,10 +174,6 @@ a:hover,
   cursor: pointer !important;
 }
 
-.skiptranslate {
-    display: none;
-}
-
 #screensaver {
   position: fixed;
   z-index: var(--hh-z-index-top);
