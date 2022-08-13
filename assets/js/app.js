@@ -300,10 +300,6 @@ window.onload = function() {
 };
 
 if (window.screen.width > 800) {
-  $('#terminal').click(function() {
-    $('#command--input[type="text"]').focus();
-  });
-
   $(document).ready(function() {
     $('#command').hide();
     $('#command--input[type="text"]').focus();
