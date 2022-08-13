@@ -196,38 +196,6 @@ function doclientSearch(textArea) {
     .then(result =>
 			render(result, document.getElementById('careers-list')))
 
-/***************************************** COMMAND - THANKS *****************************************/
-
-  async function Thanksrun() {
-
-    const result = await fetch("https://notion-api.splitbee.io/v1/page/5973e1cc89df455dbc0e9c4e517b3e9f").then(handleAsJson)
-
-    const page = Object.values(result).find(x => x.value.type === 'page');
-
-    const blocks = page.value.content.map(id => result[id].value);
-
-console.log(blocks.map(x => x.type))
-
-  const content = blocks.map(block => {
-    switch (block.type) {
-      case 'sub_header':
-        return html`<p style="text-transform: uppercase;">${block.properties.title}</p>`;
-      case 'divider':
-        return html`<br>`;
-      case 'text':
-        if (!block.properties) return '';
-        else {
-          return html`<p>${block.properties.title.map(renderText)}</p>`;
-        }
-        default:
-          return block.title;
-    }
-  });
-
-  render(content, document.getElementById('thanks-list'))
-}
-Thanksrun();
-
 /***************************************** COMMAND - IMPRINT *****************************************/
 
   async function Imprintrun() {
@@ -259,6 +227,59 @@ console.log(blocks.map(x => x.type))
   render(content, document.getElementById('imprint-list'))
 }
 Imprintrun();
+
+/***************************************** COMMAND — TRANSLATE *****************************************/
+
+(function() {
+  var textArea = document.getElementById("command--input");
+
+  textArea.addEventListener("keydown", function(e) {
+    if (e.keyCode === 13) {
+      doclientSearch(textArea);
+    }
+  });
+})();
+
+function doclientSearch(textArea) {
+	var value = textArea.value;
+
+  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === "translate") {
+
+    window.open('http://translate.google.com/translate?sl=en&tl=' + value.match('uname(.*)')[1].trim() + '&u=http://headless.horse');
+  }
+}
+
+/***************************************** COMMAND - THANKS *****************************************/
+
+  async function Thanksrun() {
+
+    const result = await fetch("https://notion-api.splitbee.io/v1/page/5973e1cc89df455dbc0e9c4e517b3e9f").then(handleAsJson)
+
+    const page = Object.values(result).find(x => x.value.type === 'page');
+
+    const blocks = page.value.content.map(id => result[id].value);
+
+console.log(blocks.map(x => x.type))
+
+  const content = blocks.map(block => {
+    switch (block.type) {
+      case 'sub_header':
+        return html`<p style="text-transform: uppercase;">${block.properties.title}</p>`;
+      case 'divider':
+        return html`<br>`;
+      case 'text':
+        if (!block.properties) return '';
+        else {
+          return html`<p>${block.properties.title.map(renderText)}</p>`;
+        }
+        default:
+          return block.title;
+    }
+  });
+
+  render(content, document.getElementById('thanks-list'))
+}
+Thanksrun();
 
 /***************************************** COMMAND — SHARE TWEET *****************************************/
 
