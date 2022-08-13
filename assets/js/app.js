@@ -308,13 +308,10 @@ if (window.screen.width > 800) {
         $('#home').textTyper({
           speed: 20,
           afterAnimation: function() {
-            $('#terminal').css('cursor', 'default');
             $('#command').fadeIn();
-            $('#command--input[type="text"]').focus();
+            $('#terminal').css('cursor', 'default');
             $('#command--input[type="text"]').val('');
-            $('#terminal').click(function() {
-              $('#command--input[type="text"]').focus();
-            });
+            $('#command--input[type="text"]').focus();
           }
         });
       }
@@ -348,14 +345,18 @@ if (window.screen.width > 800) {
           speed: 10,
           afterAnimation: function() {
             $('#command').fadeIn();
-            $('#command--input[type="text"]').focus();
             $('#command--input[type="text"]').val('');
+            $('#command--input[type="text"]').focus();
           }
         });
       } // end if 'enter' key pressed
     }); // end keyup function
   });
 }
+
+$('#terminal').click(function() {
+  $('#command--input[type="text"]').focus();
+});
 
 /***************************************** WALL IMAGE *****************************************/
 
