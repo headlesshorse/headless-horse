@@ -295,14 +295,9 @@ setTimeout(function() {
 
 /***************************************** TERMINAL COMMAND *****************************************/
 
-window.onload = function() {
-  document.getElementById('#command--input').focus();
-};
-
 if (window.screen.width > 800) {
   $(document).ready(function() {
     $('#command').hide();
-    $('#command--input[type="text"]').focus();
     $('#preload').addClass('open');
     $('#preload').textTyper({
       speed: 0,
