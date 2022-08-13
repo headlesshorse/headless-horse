@@ -525,8 +525,8 @@ function Translate(elm) {
   window.location = 'https://translate.google.com/translate?sl=en&tl=' + elm.value + '&u=https://headless.horse';
 }
 
-if(document.getElementsByClassName('goog-te-banner-frame skiptranslate')[0] !== undefined) {
-  document.getElementsByClassName('goog-te-banner-frame skiptranslate')[0].style.display  = 'none';
+if(document.getElementById('gt-nvframe')[0] !== undefined) {
+  document.getElementById('ggt-nvframe')[0].style.display  = 'none';
   document.body.style.top = '0px';
 }
 
