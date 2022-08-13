@@ -245,7 +245,7 @@ function doclientSearch(textArea) {
 
   if (value.match(/^([\w\-]+)/)[1].toLowerCase() === "translate") {
 
-    window.open('http://translate.google.com/translate?sl=en&tl=' + value.match('translate(.*)')[1].trim() + '&u=http://headless.horse');
+    window.open('https://translate.google.com/translate?sl=en&tl=' + value.match('translate(.*)')[1].trim() + '&u=https://headless.horse');
   }
 }
 
