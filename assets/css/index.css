@@ -84,7 +84,8 @@ a[target=_blank] {
 a:hover,
 .cookie-notice>a:hover,
 .cookie-notice>button:hover,
-.click-sound:hover {
+.click-sound:hover,
+#footer--bottom--site-links--translate:hover {
   -webkit-animation-name: hover-flicker;
   animation-name: hover-flicker;
   -webkit-animation-duration: 2s;
