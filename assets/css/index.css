@@ -180,11 +180,26 @@ a:hover,
   z-index: var(--hh-z-index-top);
   width: 100vw;
   height: 100vh;
-  background-image: url("https://headless.horse/assets/media/images/hh-center-2560x1440.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: var(--hh-color-black);
   cursor: none !important;
+}
+
+#pinterest-board {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#pinterest-board>li {
+  float: left;
+  margin: 1vw;
+  width: 8vw;
+  height: 10vh;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: grayscale(50%) contrast(0.8) brightness(0.9);
 }
 
 .scroll-snap--container {

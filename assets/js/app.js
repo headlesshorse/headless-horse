@@ -58,6 +58,89 @@ $('body, #screensaver').mousemove(function() {
   i = setTimeout('$("#screensaver").fadeIn(2000);', 20000);
 });
 
+class PinterestFeed {
+  constructor(...slug) {
+    this.slugs = [];
+    this.feed = [];
+    this.getFeeds();
+  }
+  reflect(promise) {
+    return promise.then(v => v.pins).catch(e => e);
+  }
+  getFeed(slug) {
+    const api = `https://widgets.pinterest.com/v3/pidgets/boards/${slug}/pins/`;
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        dataType: 'jsonp',
+        type: 'GET',
+        url: api
+      }).done((response) => {
+        resolve(response.data);
+      }).fail((error) => {
+        reject(error);
+      });
+    });
+  }
+  getFeeds(...slug) {
+    return Promise.all(slug.map(v => this.reflect(this.getFeed(v))));
+  }
+}
+
+const list = document.querySelector('#pinterest-board');
+const board1 = 'headless_horse/direction';
+const board2 = 'headless_horse/fashion';
+const board3 = 'headless_horse/space';
+const feed = new PinterestFeed();
+let feedItems = [];
+
+feed.getFeeds(board1, board2, board3).then((response) => {
+  feedItems = response.flat();
+  feedItems.forEach(item => {
+    const description = item.description;
+    const imageUrl = item.images['237x'].url;
+    const li = document.createElement('li');
+    const div = document.createElement('div');
+    const a = document.createElement('a');
+    li.style.backgroundImage = `url(${imageUrl})`;
+    list.appendChild(li);
+  });
+
+  function htmlShuffle(elem) {
+    function shuffle(arr) {
+      var len = arr.length;
+      var d = len;
+      var array = [];
+      var k, i;
+      for (i = 0; i < d; i++) {
+        k = Math.floor(Math.random() * len);
+        array.push(arr[k]);
+        arr.splice(k, 1);
+        len = arr.length;
+      }
+      for (i = 0; i < d; i++) {
+        arr[i] = array[i];
+      }
+      return arr;
+    }
+    var el = document.querySelectorAll(elem + " *");
+    document.querySelector(elem).innerHTML = "";
+
+    let pos = [];
+    for (let i = 0; i < el.length; i++) {
+      pos.push(i);
+    }
+
+    pos = shuffle(pos);
+    for (let i = 0; i < pos.length; i++) {
+      document.querySelector(elem).appendChild(el[pos[i]]);
+    }
+  }
+  htmlShuffle("ul");
+
+}).catch((error) => {
+  console.log(error);
+});
+
 /***************************************** NAVIGATION *****************************************/
 
 $('#nav-top--close, .project-link').click(function() {
