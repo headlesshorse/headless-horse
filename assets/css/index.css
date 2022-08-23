@@ -276,7 +276,6 @@ a:hover,
 #terminal {
   position: absolute;
   z-index: var(--hh-z-index-3);
-  padding: var(--hh-spacing-4x);
   width: 100%;
   height: 100%;
   mix-blend-mode: difference;
@@ -388,7 +387,6 @@ map area {
 #footer {
   position: relative;
   z-index: var(--hh-z-index-3);
-  padding: var(--hh-spacing-4x);
   height: 200px;
   background: var(--hh-color-black);
   color: var(--hh-color-slate);
@@ -396,6 +394,9 @@ map area {
 }
 
 #footer--top--logo {
+  position: absolute;
+  top: var(--hh-spacing-4x);
+  left: var(--hh-spacing-4x);
   width: auto;
   height: 40px;
 }
