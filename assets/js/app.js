@@ -96,11 +96,8 @@ let feedItems = [];
 feed.getFeeds(board1, board2, board3).then((response) => {
   feedItems = response.flat();
   feedItems.forEach(item => {
-    const description = item.description;
     const imageUrl = item.images['237x'].url;
     const li = document.createElement('li');
-    const div = document.createElement('div');
-    const a = document.createElement('a');
     li.style.backgroundImage = `url(${imageUrl})`;
     list.appendChild(li);
   });
@@ -122,8 +119,8 @@ feed.getFeeds(board1, board2, board3).then((response) => {
       }
       return arr;
     }
-    var el = document.querySelectorAll(elem + " *");
-    document.querySelector(elem).innerHTML = "";
+
+    var el = document.querySelectorAll("li");
 
     let pos = [];
     for (let i = 0; i < el.length; i++) {
