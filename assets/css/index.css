@@ -178,6 +178,7 @@ a:hover,
 #screensaver {
   position: fixed;
   z-index: var(--hh-z-index-top);
+  display: block !important;
   width: 100vw;
   height: 100vh;
   background: var(--hh-color-black);
@@ -193,7 +194,9 @@ a:hover,
 
 #pinterest-board>li {
   float: left;
-  margin: 1vw;
+  margin-right: 1vw;
+  margin-bottom: 2vw;
+  margin-left: 1vw;
   width: 8vw;
   height: 10vh;
   background-position: center;
