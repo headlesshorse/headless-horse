@@ -203,7 +203,7 @@ setInterval(function() {
 
 /***************************************** LOG VISIT *****************************************/
 
-var days = 730; // the cookie will expire = 2 years
+var days = 365; // the cookie will expire = 2 years
 var lastvisit = new Object();
 
 lastvisit.getCookie = function(Name) {
@@ -222,12 +222,12 @@ lastvisit.setCookie = function(name, value, days) {
 
 lastvisit.showmessage = function() {
   var wh = new Date();
-  if (lastvisit.getCookie("visit-record") == "") {
-    lastvisit.setCookie("visit-record", wh, days);
+  if (lastvisit.getCookie("HHvisitrecord") == "") {
+    lastvisit.setCookie("HHvisitrecord", wh, days);
     document.getElementById("firstuse-message").innerHTML = "To see a list of index commands of type 'list'.";
 
   } else {
-    var lv = lastvisit.getCookie("visit-record");
+    var lv = lastvisit.getCookie("HHvisitrecord");
     var lvp = Date.parse(lv);
     var now = new Date();
     now.setTime(lvp);
@@ -254,7 +254,7 @@ lastvisit.showmessage = function() {
     document.getElementById("welcome-back").innerHTML = "back ";
     document.getElementById("lastvisit-message").innerHTML = "Your last visit was on " + dispDate + ".";
   }
-  lastvisit.setCookie("visit-record", wh, days);
+  lastvisit.setCookie("HHvisitrecord", wh, days);
 
 }
 lastvisit.showmessage();
@@ -644,36 +644,36 @@ void(function(root, factory) {
   }
 
   CookieNotice.options = {
-    message: '<p>We use cookies to ensure that we give you the best functional experience on our website. We don’t use advertising or tracking cookies that pass your data on to third parties. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">More info.</a></p>',
+    message: 'We use cookies to ensure that we give you the best functional experience on our website. We don’t use advertising or tracking cookies that pass your data on to third parties. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">More info.</a>',
     dismiss: 'Accept'
   }
 
   function run() {
-    if (window.localStorage.cookieNoticeDismissed) return
+    if (window.localStorage.HHcookienotice) return
     show()
   }
 
   function dismiss() {
     var notice = document.getElementById('cookie-notice')
     if (notice) notice.parentNode.removeChild(notice)
-    window.localStorage.cookieNoticeDismissed = true
+    window.localStorage.HHcookienotice = true
   }
 
   function undismiss() {
-    delete window.localStorage.cookieNoticeDismissed
+    delete window.localStorage.HHcookienotice
   }
 
   function show() {
     var $div = document.createElement('div')
-    $div.className = 'cookie-notice'
     $div.id = 'cookie-notice'
 
-    var $message = document.createElement('div')
-    $message.className = 'cookie-notice-message'
+    var $message = document.createElement('p')
+    $message.id = 'cookie-notice-message'
     $message.innerHTML = CookieNotice.options.message
     $div.appendChild($message)
 
     var $dismiss = document.createElement('button')
+    $dismiss.id = 'cookie-notice-dismiss'
     $dismiss.innerHTML = CookieNotice.options.dismiss
     $dismiss.onclick = dismiss
     $div.appendChild($dismiss)

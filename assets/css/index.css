@@ -82,9 +82,8 @@ a[target=_blank] {
 }
 
 a:hover,
-.cookie-notice>a:hover,
-.cookie-notice>button:hover,
 .click-sound:hover,
+#cookie-notice-dismiss:hover,
 #footer--bottom--site-links--translate:hover {
   -webkit-animation-name: hover-flicker;
   animation-name: hover-flicker;
@@ -116,13 +115,14 @@ a:hover,
   }
 }
 
-.cookie-notice {
+#cookie-notice {
   position: absolute;
   bottom: 0;
   z-index: var(--hh-z-index-top);
   box-sizing: border-box;
   width: 100%;
   background: var(--hh-color-black);
+  color: var(--hh-color-slate);
   text-transform: uppercase;
   font-weight: var(--hh-font-body-1-font-weight);
   font-size: var(--hh-font-body-1-font-size);
@@ -143,19 +143,13 @@ a:hover,
   }
 }
 
-.cookie-notice-message>p {
+#cookie-notice-message {
   margin: 0;
   padding: var(--hh-spacing-4x);
   width: 80%;
-  color: var(--hh-color-slate);
 }
 
-.cookie-notice>a {
-  color: var(--hh-color-slate);
-  text-decoration: none;
-}
-
-.cookie-notice>button {
+#cookie-notice-dismiss {
   position: absolute;
   top: var(--hh-spacing-4x);
   right: 0;
@@ -520,11 +514,11 @@ section,
     scroll-snap-type: none;
   }
 
-  .cookie-notice-message>p {
+  #cookie-notice-message {
     padding: var(--hh-spacing-2x);
   }
 
-  .cookie-notice>button {
+  #cookie-notice-dismiss {
     top: var(--hh-spacing-2x);
     bottom: var(--hh-spacing-2x);
     padding: 0px var(--hh-spacing-2x);
