@@ -1,4 +1,4 @@
-/*****************************************  NOTION RENDER  *****************************************/
+/*****************************************  Notion Render  *****************************************/
 
 import { html, render } from 'https://unpkg.com/lit?module';
 
@@ -22,7 +22,7 @@ function renderText(node) {
   else return node;
 }
 
-/***************************************** COMMAND — NOTICE *****************************************/
+/***************************************** Notice *****************************************/
 
   async function Noticerun() {
 
@@ -50,7 +50,7 @@ const content = blocks.map(block => {
 }
 Noticerun();
 
-/***************************************** COMMAND — INFO *****************************************/
+/***************************************** Info *****************************************/
 
   async function Inforun() {
 
@@ -82,7 +82,7 @@ console.log(blocks.map(x => x.type))
 }
 Inforun();
 
-/***************************************** COMMAND - CLIENTS *****************************************/
+/***************************************** Clients *****************************************/
 
   const ClientstableTemplate = table => html`
       ${table.map(({Client}) => html`
@@ -98,7 +98,7 @@ Inforun();
     .then(result =>
 			render(result, document.getElementById('clients-list')))
 
-/***************************************** COMMAND - SERVICES *****************************************/
+/***************************************** Services *****************************************/
 
   const ServicestableTemplate = table => html`
       ${table.map(({Service}) => html`
@@ -114,7 +114,7 @@ Inforun();
     .then(result =>
 			render(result, document.getElementById('services-list')))
 
-/***************************************** COMMAND - PROJECTS *****************************************/
+/***************************************** Projects *****************************************/
 
   const ProjectstableTemplate = table => html`
       ${table.map(({id, Project, Date, Status, Slug}) => html`
@@ -130,7 +130,7 @@ Inforun();
     .then(result =>
 			render(result, document.getElementById('project-list')))
 
-/***************************************** COMMAND — PRESS *****************************************/
+/***************************************** Press *****************************************/
 
   const PresstableTemplate = table => html`
       ${table.map(({id, Recognition, Outlet, Project, Published, Slug}) => html`
@@ -146,7 +146,7 @@ Inforun();
     .then(result =>
 			render(result, document.getElementById('press-list')))
 
-/***************************************** COMMAND - SHOP *****************************************/
+/***************************************** Shop *****************************************/
 
   $(document).on("keypress", "input", function(e) {
     if (e.which == 13) {
@@ -159,7 +159,7 @@ Inforun();
     }
   });
 
-/***************************************** COMMAND - LOGIN *****************************************/
+/***************************************** Login *****************************************/
 
 (function() {
   var textArea = document.getElementById("command--input");
@@ -180,7 +180,7 @@ function doclientSearch(textArea) {
   }
 }
 
-/***************************************** COMMAND - CAREERS *****************************************/
+/***************************************** Careers *****************************************/
 
   const CareerstableTemplate = table => html`
       ${table.map(({id, Status, Location, Position, Contract, close, Slug}) => html`
@@ -196,7 +196,7 @@ function doclientSearch(textArea) {
     .then(result =>
 			render(result, document.getElementById('careers-list')))
 
-/***************************************** COMMAND - IMPRINT *****************************************/
+/***************************************** Imprint *****************************************/
 
   async function Imprintrun() {
 
@@ -228,7 +228,7 @@ console.log(blocks.map(x => x.type))
 }
 Imprintrun();
 
-/***************************************** COMMAND — TRANSLATE *****************************************/
+/***************************************** Translate *****************************************/
 
 (function() {
   var textArea = document.getElementById("command--input");
@@ -249,7 +249,7 @@ function doclientSearch(textArea) {
   }
 }
 
-/***************************************** COMMAND - THANKS *****************************************/
+/***************************************** Thanks *****************************************/
 
   async function Thanksrun() {
 
@@ -281,7 +281,7 @@ console.log(blocks.map(x => x.type))
 }
 Thanksrun();
 
-/***************************************** COMMAND — SHARE TWEET *****************************************/
+/***************************************** Share Tweet *****************************************/
 
   $(document).on("keypress", "input", function(e) {
     if (e.which == 13) {
@@ -294,7 +294,7 @@ Thanksrun();
     }
   });
 
-/***************************************** COMMAND — SHARE EMAIL *****************************************/
+/***************************************** Share Email *****************************************/
 
   $(document).on("keypress", "input", function(e) {
     if (e.which == 13) {

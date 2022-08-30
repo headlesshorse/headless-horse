@@ -1,4 +1,4 @@
-/***************************************** SITE TITLE *****************************************/
+/***************************************** Site Title *****************************************/
 
 function initScrollTitle() {
   var space = ' | ';
@@ -18,7 +18,7 @@ function initScrollTitle() {
 
 initScrollTitle();
 
-/***************************************** AUDIO *****************************************/
+/***************************************** Audio *****************************************/
 
 var audioPad = document.createElement('audio');
 audioPad.setAttribute('src', 'https://headless.horse/assets/media/audio/pad.wav');
@@ -48,7 +48,7 @@ $('.click-sound').click(function() {
   audioClick.play();
 });
 
-/***************************************** SCREENSAVER *****************************************/
+/***************************************** Screensaver *****************************************/
 
 $('#screensaver').hide();
 var i = null;
@@ -138,7 +138,7 @@ feed.getFeeds(board1, board2, board3).then((response) => {
   console.log(error);
 });
 
-/***************************************** NAVIGATION *****************************************/
+/***************************************** Navigation *****************************************/
 
 $('#nav-top--close, .project-link').click(function() {
   $('#terminal, #wall-image--cover').delay(200).fadeToggle(2000);
@@ -167,7 +167,7 @@ $('.project-link').click(function() {
   $('#terminal').removeClass('terminal--mix-blend-mode');
 });
 
-/***************************************** CLOCK *****************************************/
+/***************************************** Clock *****************************************/
 
 const locations = document.querySelectorAll("#nav-top--hh--clock")
 
@@ -201,9 +201,9 @@ setInterval(function() {
   })
 }, 1000)
 
-/***************************************** LOG VISIT *****************************************/
+/***************************************** Cookie Visit Record *****************************************/
 
-var days = 365; // the cookie will expire = 2 years
+var days = 365; // when the cookie will expire
 var lastvisit = new Object();
 
 lastvisit.getCookie = function(Name) {
@@ -259,7 +259,7 @@ lastvisit.showmessage = function() {
 }
 lastvisit.showmessage();
 
-/***************************************** LOADER BAR *****************************************/
+/***************************************** Loader *****************************************/
 
 width = 100,
   perfData = window.performance.timing,
@@ -300,7 +300,7 @@ setTimeout(function() {
   $('#wall-image').delay(3000).fadeIn(2000);
 }, time);
 
-/***************************************** TERMINAL TYPE *****************************************/
+/***************************************** Typing *****************************************/
 
 (function(e) {
   "use strict";
@@ -373,7 +373,7 @@ setTimeout(function() {
   }
 })(jQuery)
 
-/***************************************** TERMINAL COMMAND *****************************************/
+/***************************************** Terminal Command *****************************************/
 
 if (window.screen.width > 800) {
   $(document).ready(function() {
@@ -436,10 +436,9 @@ $('#terminal').click(function() {
   $('#command--input[type="text"]').focus();
 });
 
-/***************************************** WALL IMAGE *****************************************/
+/***************************************** Wall Image *****************************************/
 
-var acceleration = 0.01;
-// acceleration value between 0 and 1 smaller values = smoother motion
+var acceleration = 0.01; // acceleration value between 0 and 1 smaller values = smoother motion
 
 var img = {
   element: document.querySelector("#wall-image"),
@@ -488,7 +487,7 @@ function init() {
   window.addEventListener("resize", resize);
 }
 
-/**
+/*
  * @param {number} x value to map
  * @param {number} a source min value
  * @param {number} b source max value
@@ -520,7 +519,7 @@ function moveAction(event) {
   }
 }
 
-/***************************************** TOOLTIP *****************************************/
+/***************************************** Tooltip *****************************************/
 
 window.addEventListener("load", init);
 
@@ -556,13 +555,11 @@ window.addEventListener("load", init);
   }
 }());
 
-// 'alt' of link to '#terminal-title'
 $('#nav-top--close, #nav-bottom--new-project, .project-link').click(function() {
   let Termtitle = $(this).attr('alt');
   $('#nav-top--close--title').html(Termtitle);
 });
 
-// makes 'alt' class == 'title' class
 $('.project-link').hover(function() {
   $this = $(this);
   if (!$this.attr('alt') && $this.attr('title')) {
@@ -570,7 +567,7 @@ $('.project-link').hover(function() {
   }
 })
 
-/***************************************** NEWSLETTER *****************************************/
+/***************************************** Newsletter *****************************************/
 
 function showError(el, err) {
   $("#newsletter--subscribe").attr("disabled", false);
@@ -597,13 +594,13 @@ $('#newsletter--email').on('keyup', function() {
   validate_email(this, this.value);
 });
 
-/***************************************** TRANSLATE *****************************************/
+/***************************************** Translate *****************************************/
 
 function Translate(elm) {
   window.location = 'https://translate.google.com/translate?sl=en&tl=' + elm.value + '&u=https://headless.horse';
 }
 
-/***************************************** MOBILE ACCORDION *****************************************/
+/***************************************** Mobile Accordion *****************************************/
 
 let accHeading = document.querySelectorAll(".accordion");
 let accPanel = document.querySelectorAll(".accordion--panel");
@@ -632,7 +629,7 @@ function hidePanels() {
   }
 }
 
-/***************************************** COOKIE NOTICE *****************************************/
+/***************************************** Cookie Notice *****************************************/
 
 void(function(root, factory) {
   if (typeof define === 'function' && define.amd) define(factory)
@@ -701,7 +698,7 @@ void(function(root, factory) {
 }));
 
 /*
-  CookieNotice.undismiss() // just so it always shows
+  CookieNotice.undismiss() // just to make it always show
 */
 
 CookieNotice()
