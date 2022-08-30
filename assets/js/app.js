@@ -120,7 +120,7 @@ feed.getFeeds(board1, board2, board3).then((response) => {
       return arr;
     }
 
-    var el = document.querySelectorAll("li");
+    var el = document.querySelectorAll('#pinterest-board > li');
 
     let pos = [];
     for (let i = 0; i < el.length; i++) {
@@ -132,7 +132,7 @@ feed.getFeeds(board1, board2, board3).then((response) => {
       document.querySelector(elem).appendChild(el[pos[i]]);
     }
   }
-  htmlShuffle("ul");
+  htmlShuffle('#pinterest-board');
 
 }).catch((error) => {
   console.log(error);
