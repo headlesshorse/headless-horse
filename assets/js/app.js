@@ -668,12 +668,12 @@ void(function(root, factory) {
     $div.id = 'cookie-notice'
 
     var $message = document.createElement('p')
-    $message.id = 'cookie-notice-message'
+    $message.id = 'cookie-notice--message'
     $message.innerHTML = CookieNotice.options.message
     $div.appendChild($message)
 
     var $dismiss = document.createElement('button')
-    $dismiss.id = 'cookie-notice-dismiss'
+    $dismiss.id = 'cookie-notice--dismiss'
     $dismiss.innerHTML = CookieNotice.options.dismiss
     $dismiss.onclick = dismiss
     $div.appendChild($dismiss)

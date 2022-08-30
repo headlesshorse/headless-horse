@@ -83,7 +83,7 @@ a[target=_blank] {
 
 a:hover,
 .click-sound:hover,
-#cookie-notice-dismiss:hover,
+#cookie-notice--dismiss:hover,
 #footer--bottom--site-links--translate:hover {
   -webkit-animation-name: hover-flicker;
   animation-name: hover-flicker;
@@ -143,13 +143,13 @@ a:hover,
   }
 }
 
-#cookie-notice-message {
+#cookie-notice--message {
   margin: 0;
   padding: var(--hh-spacing-4x);
   width: 80%;
 }
 
-#cookie-notice-dismiss {
+#cookie-notice--dismiss {
   position: absolute;
   top: var(--hh-spacing-4x);
   right: 0;
@@ -514,11 +514,11 @@ section,
     scroll-snap-type: none;
   }
 
-  #cookie-notice-message {
+  #cookie-notice--message {
     padding: var(--hh-spacing-2x);
   }
 
-  #cookie-notice-dismiss {
+  #cookie-notice--dismiss {
     top: var(--hh-spacing-2x);
     bottom: var(--hh-spacing-2x);
     padding: 0px var(--hh-spacing-2x);
