@@ -377,7 +377,6 @@ setTimeout(function() {
 
 if (window.screen.width > 800) {
   $(document).ready(function() {
-    $('#terminal').css('cursor', 'wait');
     $('#command').hide();
     $('#preload').addClass('open');
     $('#preload').textTyper({
@@ -389,7 +388,6 @@ if (window.screen.width > 800) {
           speed: 20,
           afterAnimation: function() {
             $('#command').fadeIn();
-            $('#terminal').css('cursor', 'default');
             $('#command--input[type="text"]').val('');
             $('#command--input[type="text"]').focus();
           }
