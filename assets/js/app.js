@@ -259,6 +259,20 @@ lastvisit.showmessage = function() {
 }
 lastvisit.showmessage();
 
+/***************************************** Github *****************************************/
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    let repos = JSON.parse(this.responseText);
+    repos.forEach((repo) => {
+      document.head.innerHTML = `<!-- Last Updated: ${new Date(repo.pushed_at)} -->`;
+    });
+  }
+};
+xhttp.open("GET", "https://api.github.com/users/headlesshorse/repos", true);
+xhttp.send();
+
 /***************************************** Loader *****************************************/
 
 width = 100,
