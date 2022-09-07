@@ -266,7 +266,7 @@ xhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     let repos = JSON.parse(this.responseText);
     repos.forEach((repo) => {
-      document.head.innerHTML = `<!-- Last Updated: ${new Date(repo.pushed_at)} -->`;
+      document.head.innerHTML =+ `<!-- Last Updated: ${new Date(repo.pushed_at)} -->`;
     });
   }
 };
