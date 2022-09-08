@@ -166,7 +166,7 @@ Inforun();
 
   textArea.addEventListener("keydown", function(e) {
     if (e.keyCode === 13) {
-      doclientSearch(textArea);
+      login(textArea);
     }
   });
 })();
@@ -235,7 +235,7 @@ Imprintrun();
 
   textArea.addEventListener("keydown", function(e) {
     if (e.keyCode === 13) {
-      doclientSearch(textArea);
+      translate(textArea);
     }
   });
 })();
