@@ -201,6 +201,32 @@ setInterval(function() {
   })
 }, 1000)
 
+/***************************************** Github Last Updated *****************************************/
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    let repos = JSON.parse(this.responseText);
+    repos.forEach((repo) => {
+      document.getElementById('preload').innerHTML += `
+        <p>Finished early booting sequence.</p>
+        <p>Repo Name: ${repo.name}.</p>
+        <p>Repo html_url: ${repo.html_url}.</p>
+        <p>Last Updated: ${new Date(repo.pushed_at)}.</p>
+        <p>Repo Size: ${repo.size}kb.</p>
+        <br>
+        <p>Searching for assets, this might take a few seconds...</p>
+        <br>
+        <p>Begin: Running /assets/images... done.</p>
+        <p>Begin: Running /assets/audio... done.</p>
+        <p>Begin: Running /assets/js... done.</p>
+        `;
+    });
+  }
+};
+xhttp.open("GET", "https://api.github.com/users/headlesshorse/repos", true);
+xhttp.send();
+
 /***************************************** Cookie Visit Record *****************************************/
 
 var days = 365; // when the cookie will expire
@@ -258,20 +284,6 @@ lastvisit.showmessage = function() {
 
 }
 lastvisit.showmessage();
-
-/***************************************** Github *****************************************/
-
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    let repos = JSON.parse(this.responseText);
-    repos.forEach((repo) => {
-      document.head.innerHTML += `<!-- Last Updated: ${new Date(repo.pushed_at)} -->`;
-    });
-  }
-};
-xhttp.open("GET", "https://api.github.com/users/headlesshorse/repos", true);
-xhttp.send();
 
 /***************************************** Loader *****************************************/
 
