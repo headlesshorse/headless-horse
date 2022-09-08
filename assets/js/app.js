@@ -201,7 +201,7 @@ setInterval(function() {
   })
 }, 1000)
 
-/***************************************** Github Last Updated *****************************************/
+/***************************************** Preload Github API *****************************************/
 
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
@@ -209,11 +209,14 @@ xhttp.onreadystatechange = function() {
     let repos = JSON.parse(this.responseText);
     repos.forEach((repo) => {
       document.getElementById('preload').innerHTML += `
+        <p>Initialising... ${repo.homepage}.</p>
+        <br>
+        <p>Connecting address: ${repo.html_url}.</p>
+        <p>Repo name... ${repo.name}.</p>
+        <br>
+        <p>Website last updated: ${new Date(repo.pushed_at)}.</p>
+        <p>Total size downloading: ${repo.size}kb... done.</p>
         <p>Finished early booting sequence.</p>
-        <p>Repo Name: ${repo.name}.</p>
-        <p>Repo html_url: ${repo.html_url}.</p>
-        <p>Last Updated: ${new Date(repo.pushed_at)}.</p>
-        <p>Repo Size: ${repo.size}kb.</p>
         <br>
         <p>Searching for assets, this might take a few seconds...</p>
         <br>
