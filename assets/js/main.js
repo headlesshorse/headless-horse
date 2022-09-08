@@ -171,7 +171,7 @@ Inforun();
   });
 })();
 
-function doclientSearch(textArea) {
+function login(textArea) {
 	var value = textArea.value;
 
   if (value.match(/^([\w\-]+)/)[1].toLowerCase() === "uname") {
@@ -240,7 +240,7 @@ Imprintrun();
   });
 })();
 
-function doclientSearch(textArea) {
+function translate(textArea) {
 	var value = textArea.value;
 
   if (value.match(/^([\w\-]+)/)[1].toLowerCase() === "translate") {
