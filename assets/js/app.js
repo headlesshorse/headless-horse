@@ -146,7 +146,7 @@ $('#nav-top--close, .project-link').click(function() {
 });
 
 $('#nav-top--close').click(function() {
-  $('#nav-top--close--status').html($('#nav-top--close--status').html() == '[+]' ? '[-]' : '[+]');
+  $('#nav-top--close--status').html($('#nav-top--close--status').html() == 'Open' ? 'Close' : 'Open');
   $('#terminal--copy, #nav-bottom--new-project').delay(200).fadeIn(2000);
   $('#terminal--iframe').delay(200).fadeOut(2000);
   $('#terminal').addClass('terminal--mix-blend-mode');
