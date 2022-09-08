@@ -406,7 +406,7 @@ if (window.screen.width > 800) {
     $('#command').hide();
     $('#preload').addClass('open');
     $('#preload').textTyper({
-      speed: 0,
+      speed: 10,
       afterAnimation: function() {
         $('#preload').removeClass('open');
         $('#home').addClass('open');
