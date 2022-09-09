@@ -10,7 +10,17 @@
 
 ![Website](https://img.shields.io/website?down_color=lightgrey&down_message=down&label=headless.horse&style=flat-square&up_color=green&up_message=up&url=https%3A%2F%2Fheadless.horse)
 
+## About
+
 The website of Headless Horse: an independent, Edinburgh-based, full-service creative studio working at the intersection of art, design and technology.
+
+### Design
+
+The site was designed to showcase all past works together in equal hierarchy; to allow viewers to spend time to investigate the studio’s body of work. Headless Horse looks to meld modern and traditional processes; we communicated this through employing the use of a still life featuring past works from imagery, sculpture and other studio properties. The photograph is an interaction point whereby moving a cursor around the wall you can discover project titles, that once selected open full length case studies in a window-like modal.
+
+### Documentation
+
+- [Changelog](CHANGELOG.md)
 
 ## The Stack
 
