@@ -212,9 +212,9 @@ xhttp.onreadystatechange = function() {
         <p>Initialising... ${repo.homepage}.</p>
         <br>
         <p>Connecting address: ${repo.html_url}.</p>
-        <p>Repo name... ${repo.name}.</p>
+        <p>Repo name: ${repo.name}.</p>
         <br>
-        <p>Website last updated: ${new Date(repo.pushed_at)}.</p>
+        <p>Last updated: ${new Date(repo.pushed_at)}.</p>
         <p>Total size downloading: ${repo.size}kb... done.</p>
         <p>Finished early booting sequence.</p>
         <br>
