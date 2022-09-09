@@ -68,7 +68,7 @@ class PinterestFeed {
     return promise.then(v => v.pins).catch(e => e);
   }
   getFeed(slug) {
-    const api = 'https://widgets.pinterest.com/v3/pidgets/boards/${slug}/pins/';
+    const api = `https://widgets.pinterest.com/v3/pidgets/boards/${slug}/pins/`;
     return new Promise((resolve, reject) => {
       $.ajax({
         dataType: 'jsonp',
@@ -98,7 +98,7 @@ feed.getFeeds(board1, board2, board3).then((response) => {
   feedItems.forEach(item => {
     const imageUrl = item.images['237x'].url;
     const li = document.createElement('li');
-    li.style.backgroundImage = 'url(${imageUrl})';
+    li.style.backgroundImage = `url(${imageUrl})`;
     list.appendChild(li);
   });
 
