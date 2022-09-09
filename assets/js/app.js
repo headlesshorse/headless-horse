@@ -197,7 +197,7 @@ setInterval(function() {
     const list = document.getElementById('hours-list');
     const open = hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6
     if (clock) clock.innerHTML = open ? 'Online' : 'Out of office';
-    if (list) list.innerHTML = open ? 'The studio is open today from 08:00–18:00 ${timezone}.' : 'The studio is now closed. We are open Monday—Friday 08:00–18:00 ${timezone}.';
+    if (list) list.innerHTML = open ? `The studio is open today from 08:00–18:00 ${timezone}.` : `The studio is now closed. We are open Monday—Friday 08:00–18:00 ${timezone}.`;
   })
 }, 1000)
 
