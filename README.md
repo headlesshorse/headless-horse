@@ -26,4 +26,5 @@ Here are the major frameworks, programming languages, software and libraries we 
 
 ## License
 Copyright Headless Horse Ltd., All rights reserved.
+
 Our website is freely distributable under the terms of the [MIT License](https://choosealicense.com/licenses/mit).
