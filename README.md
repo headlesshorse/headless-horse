@@ -1,5 +1,6 @@
 <div align="center">
-  <img src="./assets/media/images/hh-logo.png" alt="Headless Horse" width="50" height="50"/>
+  <br>
+  <a href="https://headless.horse" target="_blank"><img src="./assets/media/images/hh-logo.png" alt="Headless Horse" width="100" height="100"/></a>
   <br>
   <h3><a href="https://headless.horse">HEADLESS HORSE</a></h1>
   <p>FULL-SERVICE DESIGN STUDIO</p>
