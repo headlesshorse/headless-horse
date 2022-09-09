@@ -1,39 +1,41 @@
 <div align="center">
-  <img src="./assets/media/images/hh-logo.png" alt="Headless Horse" width="100" height="100"/>
- <br>
- <br>
- <h3><a href="https://headless.horse">HEADLESS HORSE</a></h1>
- <p>FULL-SERVICE DESIGN STUDIO</p>
- </p>
+  <img src="./assets/media/images/hh-logo.png" alt="Headless Horse" width="50" height="50"/>
+  <br>
+  <h3><a href="https://headless.horse">HEADLESS HORSE</a></h1>
+  <p>FULL-SERVICE DESIGN STUDIO</p>
 </div>
 
--------
+* * *
 
 ![Website](https://img.shields.io/website?down_color=lightgrey&down_message=down&label=headless.horse&style=flat-square&up_color=green&up_message=up&url=https%3A%2F%2Fheadless.horse)
 
 The website of Headless Horse: an independent, Edinburgh-based, full-service creative studio working at the intersection of art, design and technology.
 
 ## The Stack
+
 Here are the major frameworks, programming languages, software and libraries we are using on this project:
 
 ### Dev
-- [JQuery](https://jquery.com)
-- [Greensock](https://greensock.com)
-- [TweenMax](https://greensock.com/tweenmax)
-- [Luxon](https://github.com/moment/luxon)
-- [Lit](https://lit.dev)
+
+-   [JQuery](https://jquery.com)
+-   [Greensock](https://greensock.com)
+-   [TweenMax](https://greensock.com/tweenmax)
+-   [Luxon](https://github.com/moment/luxon)
+-   [Lit](https://lit.dev)
 
 ### Tools
-- [Github Pages](https://docs.github.com/en/pages): Hosting.
-- [Readymag](https://readymag.com): No code site builder used for case study pages.
-- [Notion API](https://developers.notion.com): Notion API as site CMS.
-- [Pinterest API](https://developers.pinterest.com/docs/api): Pinterest API to feature boards on the site screensaver.
-- [Panelbear](https://panelbear.com): Cookieless analytics and frontend monitoring.
-- [Typeform](https://typeform.com): Enquiry form.
-- [Mailchimp](https://mailchimp.com): Subscription sign-up.
-- [Iubenda](https://iubenda.com): Privacy policy and cookie notice.
+
+-   [Github Pages](https://docs.github.com/en/pages): Hosting.
+-   [Readymag](https://readymag.com): No code site builder used for case study pages.
+-   [Notion API](https://developers.notion.com): Notion API as site CMS.
+-   [Pinterest API](https://developers.pinterest.com/docs/api): Pinterest API to feature boards on the site screensaver.
+-   [Panelbear](https://panelbear.com): Cookieless analytics and frontend monitoring.
+-   [Typeform](https://typeform.com): Enquiry form.
+-   [Mailchimp](https://mailchimp.com): Subscription sign-up.
+-   [Iubenda](https://iubenda.com): Privacy policy and cookie notice.
 
 ## License
+
 Copyright Headless Horse Ltd., All rights reserved.
 
 Our website is freely distributable under the terms of the [MIT License](https://choosealicense.com/licenses/mit).
