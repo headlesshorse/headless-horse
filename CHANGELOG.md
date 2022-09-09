@@ -1,4 +1,12 @@
-# Changes to Headless.Horse.
+<div align="center">
+  <br>
+  <a href="https://headless.horse"><img src="./assets/media/images/hh-logo.png" alt="Headless Horse" width="100" height="100"/></a>
+  <br>
+  <h3><a href="https://headless.horse">HEADLESS HORSE</a></h1>
+  <p>FULL-SERVICE DESIGN STUDIO</p>
+</div>
+
+* * *
 
 ### 3.0 (14.06.2022)
 * Add new site layout and structure
