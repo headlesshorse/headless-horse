@@ -21,7 +21,7 @@ initScrollTitle();
 /***************************************** Audio *****************************************/
 
 var audioPad = document.createElement('audio');
-audioPad.setAttribute('src', 'https://headless.horse/assets/media/audio/pad.wav');
+audioPad.setAttribute('src', './assets/media/audio/pad.wav');
 audioPad.setAttribute('autoplay', 'autoplay', );
 audioPad.setAttribute('loop', 'loop', );
 audioPad.addEventListener('load', function() {
@@ -29,13 +29,13 @@ audioPad.addEventListener('load', function() {
 }, true);
 
 var audioProject = document.createElement('audio');
-audioProject.setAttribute('src', 'https://headless.horse/assets/media/audio/select.mp3');
+audioProject.setAttribute('src', './assets/media/audio/select.mp3');
 audioProject.addEventListener('load', function() {
   audioProject.play();
 }, true);
 
 var audioClick = document.createElement('audio');
-audioClick.setAttribute('src', 'https://headless.horse/assets/media/audio/click.mp3');
+audioClick.setAttribute('src', './assets/media/audio/click.mp3');
 audioClick.addEventListener('load', function() {
   audioClick.play();
 }, true);
