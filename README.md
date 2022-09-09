@@ -1,8 +1,6 @@
 # [Headless Horse](http://headless.horse)
 
 ![Website](https://img.shields.io/website?down_color=lightgrey&down_message=down&label=headless.horse&style=flat-square&up_color=green&up_message=up&url=https%3A%2F%2Fheadless.horse)
-[![MIT License][license-image]][license-url]
-
 
 ### About
 The website of Headless Horse: an independent, Edinburgh-based, full-service creative studio working at the intersection of art, design and technology.
