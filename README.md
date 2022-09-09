@@ -17,7 +17,7 @@ Here are the major frameworks, programming languages, software and libraries we 
 ### Tools
 - [Github Pages](https://docs.github.com/en/pages): Hosting.
 - [Readymag](https://readymag.com): No code site builder used for case study pages.
-- [Notion API](https://notion.so): Notion API as site CMS.
+- [Notion API](https://developers.notion.com): Notion API as site CMS.
 - [Pinterest API](https://developers.pinterest.com/docs/api): Pinterest API to feature boards on the site screensaver.
 - [Panelbear](https://panelbear.com): Cookieless analytics and frontend monitoring.
 - [Typeform](https://typeform.com): Enquiry form.
