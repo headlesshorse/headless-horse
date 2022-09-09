@@ -24,19 +24,19 @@ var audioPad = document.createElement('audio');
 audioPad.setAttribute('src', 'https://headless.horse/assets/media/audio/pad.wav');
 audioPad.setAttribute('autoplay', 'autoplay', );
 audioPad.setAttribute('loop', 'loop', );
-audioPad.addEventListener("load", function() {
+audioPad.addEventListener('load', function() {
   audioPad.play();
 }, true);
 
 var audioProject = document.createElement('audio');
 audioProject.setAttribute('src', 'https://headless.horse/assets/media/audio/select.mp3');
-audioProject.addEventListener("load", function() {
+audioProject.addEventListener('load', function() {
   audioProject.play();
 }, true);
 
 var audioClick = document.createElement('audio');
 audioClick.setAttribute('src', 'https://headless.horse/assets/media/audio/click.mp3');
-audioClick.addEventListener("load", function() {
+audioClick.addEventListener('load', function() {
   audioClick.play();
 }, true);
 
@@ -68,7 +68,7 @@ class PinterestFeed {
     return promise.then(v => v.pins).catch(e => e);
   }
   getFeed(slug) {
-    const api = `https://widgets.pinterest.com/v3/pidgets/boards/${slug}/pins/`;
+    const api = 'https://widgets.pinterest.com/v3/pidgets/boards/${slug}/pins/';
     return new Promise((resolve, reject) => {
       $.ajax({
         dataType: 'jsonp',
@@ -98,7 +98,7 @@ feed.getFeeds(board1, board2, board3).then((response) => {
   feedItems.forEach(item => {
     const imageUrl = item.images['237x'].url;
     const li = document.createElement('li');
-    li.style.backgroundImage = `url(${imageUrl})`;
+    li.style.backgroundImage = 'url(${imageUrl})';
     list.appendChild(li);
   });
 
@@ -169,35 +169,35 @@ $('.project-link').click(function() {
 
 /***************************************** Clock *****************************************/
 
-const locations = document.querySelectorAll("#nav-top--hh--clock")
+const locations = document.querySelectorAll('#nav-top--hh--clock')
 
 setInterval(function() {
   // for each output tag
   locations.forEach(location => {
 
     // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-    const tz = location.getAttribute("data_tz")
+    const tz = location.getAttribute('data_tz')
 
     // get the time in that timezone.
     const now = luxon.DateTime.now().setZone(tz)
 
     // hour in 24-hour time, no padding.
-    const hour = parseInt(now.toFormat("H"), 10)
+    const hour = parseInt(now.toFormat('H'), 10)
     console.log(hour)
 
     // day of the week as number. Monday is 1, Sunday is 7.
-    const hourday = now.toFormat("c")
+    const hourday = now.toFormat('c')
     console.log(hourday)
 
     // timezone. GMT.
-    const timezone = now.toFormat("ZZZZ")
+    const timezone = now.toFormat('ZZZZ')
     console.log(timezone)
 
     const clock = document.getElementById('nav-top--hh--clock');
     const list = document.getElementById('hours-list');
     const open = hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6
-    if (clock) clock.innerHTML = open ? "Online" : "Out of office";
-    if (list) list.innerHTML = open ? `The studio is open today from 08:00–18:00 ${timezone}.` : `The studio is now closed. We are open Monday—Friday 08:00–18:00 ${timezone}.`;
+    if (clock) clock.innerHTML = open ? 'Online' : 'Out of office';
+    if (list) list.innerHTML = open ? 'The studio is open today from 08:00–18:00 ${timezone}.' : 'The studio is now closed. We are open Monday—Friday 08:00–18:00 ${timezone}.';
   })
 }, 1000)
 
@@ -227,7 +227,7 @@ xhttp.onreadystatechange = function() {
     });
   }
 };
-xhttp.open("GET", "https://api.github.com/users/headlesshorse/repos", true);
+xhttp.open('GET', 'https://api.github.com/users/headlesshorse/repos', true);
 xhttp.send();
 
 /***************************************** Cookie Visit Record *****************************************/
@@ -236,9 +236,9 @@ var days = 365; // when the cookie will expire
 var lastvisit = new Object();
 
 lastvisit.getCookie = function(Name) {
-  var re = new RegExp(Name + "=[^;]+", "i");
+  var re = new RegExp(Name + '=[^;]+', 'i');
   if (document.cookie.match(re))
-    return document.cookie.match(re)[0].split("=")[1];
+    return document.cookie.match(re)[0].split('=')[1];
   return '';
 }
 
@@ -246,24 +246,24 @@ lastvisit.setCookie = function(name, value, days) {
   var expireDate = new Date();
 
   var expstring = expireDate.setDate(expireDate.getDate() + parseInt(days));
-  document.cookie = name + "=" + value + "; expires=" + expireDate.toGMTString() + "; path=/";
+  document.cookie = name + '=' + value + '; expires=' + expireDate.toGMTString() + '; path=/';
 }
 
 lastvisit.showmessage = function() {
   var wh = new Date();
-  if (lastvisit.getCookie("HHvisitrecord") == "") {
-    lastvisit.setCookie("HHvisitrecord", wh, days);
-    document.getElementById("firstuse-message").innerHTML = "To see a list of index commands of type 'list'.";
+  if (lastvisit.getCookie('HHvisitrecord') == '') {
+    lastvisit.setCookie('HHvisitrecord', wh, days);
+    document.getElementById('firstuse-message').innerHTML = "To see a list of index commands of type 'list'.";
 
   } else {
-    var lv = lastvisit.getCookie("HHvisitrecord");
+    var lv = lastvisit.getCookie('HHvisitrecord');
     var lvp = Date.parse(lv);
     var now = new Date();
     now.setTime(lvp);
-    var month = new Array("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12");
+    var month = new Array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12');
     var dd = now.getDate();
     if (dd < 10) {
-      dd = "0" + dd
+      dd = '0' + dd
     }
     var mn = now.getMonth();
     mn = month[mn];
@@ -273,17 +273,17 @@ lastvisit.showmessage = function() {
       hh = 12
     }
     if (hh < 10) {
-      hh = "0" + hh
+      hh = '0' + hh
     };
     var mins = now.getMinutes();
     if (mins < 10) {
-      mins = "0" + mins
+      mins = '0' + mins
     }
-    var dispDate = dd + "." + mn + "." + yy + " at " + hh + ":" + mins
-    document.getElementById("welcome-back").innerHTML = "back ";
-    document.getElementById("lastvisit-message").innerHTML = "Your last visit was on " + dispDate + ".";
+    var dispDate = dd + '.' + mn + '.' + yy + ' at ' + hh + ':' + mins
+    document.getElementById('welcome-back').innerHTML = 'back ';
+    document.getElementById('lastvisit-message').innerHTML = 'Your last visit was on ' + dispDate + '.';
   }
-  lastvisit.setCookie("HHvisitrecord", wh, days);
+  lastvisit.setCookie('HHvisitrecord', wh, days);
 
 }
 lastvisit.showmessage();
@@ -295,11 +295,11 @@ width = 100,
   EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
   time = parseInt((EstimatedTime / 1000) % 60) * 100 + 4000;
 
-$("#nav-top--loader-bar").animate({
-  width: width + "%"
+$('#nav-top--loader-bar').animate({
+  width: width + '%'
 }, time);
 
-var loader_percentageID = $("#nav-top--hh--percentage"),
+var loader_percentageID = $('#nav-top--hh--percentage'),
   start = 0,
   end = 100,
   durataion = time;
@@ -315,7 +315,7 @@ function animateValue(id, start, end, duration) {
 
   var timer = setInterval(function() {
     current += increment;
-    $(obj).text(" " + current + "%");
+    $(obj).text(' ' + current + '%');
     // obj.innerHTML = current;
     if (current == end) {
       clearInterval(timer);
@@ -332,10 +332,10 @@ setTimeout(function() {
 /***************************************** Typing *****************************************/
 
 (function(e) {
-  "use strict";
+  'use strict';
   e.fn.textTyper = function(t) {
     var n = {
-        typingClass: "typing",
+        typingClass: 'typing',
         beforeAnimation: function() {},
         afterAnimation: function() {},
         speed: 50,
@@ -350,13 +350,13 @@ setTimeout(function() {
     this.each(function() {
       var t = e(this),
         n = 1,
-        i = "typingCursor";
+        i = 'typingCursor';
       var s = t,
         o = s.length,
         u = [];
       while (o--) {
         u[o] = e.trim(e(s[o]).html());
-        e(s[o]).html("")
+        e(s[o]).html('')
       }
       t.init = function(e) {
         var n = r.beforeAnimation;
@@ -370,7 +370,7 @@ setTimeout(function() {
         e(a).addClass(f);
         var c = setInterval(function() {
           var f = r.cursorHtml;
-          f = e("<div>").append(e(f).addClass(i)).html();
+          f = e('<div>').append(e(f).addClass(i)).html();
           e(a).html(u[o].substr(0, l) + f);
           l++;
           if (u[o].length < l) {
@@ -382,7 +382,7 @@ setTimeout(function() {
                 t.animate(o)
               }, r.nextLineDelay)
             } else {
-              e(a).find("." + i).remove();
+              e(a).find('.' + i).remove();
               if (r.repeatAnimation && (r.repeatTimes == 0 || n < r.repeatTimes)) {
                 setTimeout(function() {
                   t.animate(0);
@@ -470,7 +470,7 @@ $('#terminal').click(function() {
 var acceleration = 0.01; // acceleration value between 0 and 1 smaller values = smoother motion
 
 var img = {
-  element: document.querySelector("#wall-image"),
+  element: document.querySelector('#wall-image'),
   xMax: 0,
   yMax: 0,
   x: 0,
@@ -511,9 +511,9 @@ function init() {
     }
   });
 
-  window.addEventListener("mousemove", moveAction);
-  window.addEventListener("touchmove", moveAction);
-  window.addEventListener("resize", resize);
+  window.addEventListener('mousemove', moveAction);
+  window.addEventListener('touchmove', moveAction);
+  window.addEventListener('resize', resize);
 }
 
 /*
@@ -550,37 +550,37 @@ function moveAction(event) {
 
 /***************************************** Tooltip *****************************************/
 
-window.addEventListener("load", init);
+window.addEventListener('load', init);
 
 (function() {
-  var ID = "tooltip",
-    CLS_ON = "tooltip_ON",
+  var ID = 'tooltip',
+    CLS_ON = 'tooltip_ON',
     FOLLOW = true,
-    DATA = "_tooltip",
+    DATA = '_tooltip',
     OFFSET_X = 20,
     OFFSET_Y = 10,
     showAt = function(e) {
       var ntop = e.pageY + OFFSET_Y,
         nleft = e.pageX + OFFSET_X;
-      $("#" + ID).html($(e.target).data(DATA)).css({
-        position: "absolute",
+      $('#' + ID).html($(e.target).data(DATA)).css({
+        position: 'absolute',
         top: ntop,
         left: nleft
       }).show();
     };
 
-  $('#wall-image--map').on("mouseenter", "*[title]", function(e) {
-    $(this).data(DATA, $(this).attr("title"));
-    $(this).removeAttr("title").addClass(CLS_ON);
-    $("<div id='" + ID + "' />").appendTo("body");
+  $('#wall-image--map').on('mouseenter', '*[title]', function(e) {
+    $(this).data(DATA, $(this).attr('title'));
+    $(this).removeAttr('title').addClass(CLS_ON);
+    $('<div id="' + ID + '" />').appendTo('body');
     showAt(e);
   });
-  $('#wall-image--map').on("mouseleave", "." + CLS_ON, function(e) {
-    $(this).attr("title", $(this).data(DATA)).removeClass(CLS_ON);
-    $("#" + ID).remove();
+  $('#wall-image--map').on('mouseleave', '.' + CLS_ON, function(e) {
+    $(this).attr('title', $(this).data(DATA)).removeClass(CLS_ON);
+    $('#' + ID).remove();
   });
   if (FOLLOW) {
-    $('#wall-image--map').on("mousemove", "." + CLS_ON, showAt);
+    $('#wall-image--map').on('mousemove', '.' + CLS_ON, showAt);
   }
 }());
 
@@ -599,11 +599,11 @@ $('.project-link').hover(function() {
 /***************************************** Newsletter *****************************************/
 
 function showError(el, err) {
-  $("#newsletter--subscribe").attr("disabled", false);
-  $("#newsletter--subscribe").css("display", "inline")
+  $('#newsletter--subscribe').attr('disabled', false);
+  $('#newsletter--subscribe').css('display', 'inline')
   if (err) {
-    $("#newsletter--subscribe").attr("disabled", true)
-    $("#newsletter--subscribe").css("display", "none")
+    $('#newsletter--subscribe').attr('disabled', true)
+    $('#newsletter--subscribe').css('display', 'none')
   }
 }
 
@@ -631,8 +631,8 @@ function Translate(elm) {
 
 /***************************************** Mobile Accordion *****************************************/
 
-let accHeading = document.querySelectorAll(".accordion");
-let accPanel = document.querySelectorAll(".accordion--panel");
+let accHeading = document.querySelectorAll('.accordion');
+let accPanel = document.querySelectorAll('.accordion--panel');
 
 for (let i = 0; i < accHeading.length; i++) {
 
@@ -647,14 +647,14 @@ for (let i = 0; i < accHeading.length; i++) {
 
 function showPanel(elem) {
   hidePanels();
-  elem.classList.add("active");
-  elem.nextElementSibling.style.maxHeight = elem.nextElementSibling.scrollHeight + "px";
+  elem.classList.add('active');
+  elem.nextElementSibling.style.maxHeight = elem.nextElementSibling.scrollHeight + 'px';
 }
 
 function hidePanels() {
   for (let i = 0; i < accPanel.length; i++) {
     accPanel[i].style.maxHeight = null;
-    accHeading[i].classList.remove("active");
+    accHeading[i].classList.remove('active');
   }
 }
 

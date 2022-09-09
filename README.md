@@ -1,7 +1,29 @@
-# HeadlessHorse_website
+# Headless Horse Website
 
-FULL-SERVICE CREATIVE STUDIO
+![Website](https://img.shields.io/website?down_color=lightgrey&down_message=down&label=headless.horse&style=flat-square&up_color=green&up_message=up&url=https%3A%2F%2Fheadless.horse)
 
-Version 3.0
+### About
+The website of [Headless Horse](https://headless.horse): an independent, Edinburgh-based, full-service creative studio working at the intersection of art, design and technology.
 
-[headless.horse](https://headless.horse/)
+## The Stack
+Here are the major frameworks, programming languages, software and libraries we are using on this project:
+
+### Dev
+- [JQuery](https://jquery.com)
+- [Greensock](https://greensock.com/)
+- [TweenMax](https://greensock.com/tweenmax)
+- [Luxon](https://github.com/moment/luxon)
+- [Lit](https://lit.dev)
+
+### Tools
+- [Readymag](https://readymag.com): No code site builder used for case study pages.
+- [Notion](https://notion.so): Notion API as site CMS.
+- [Pinterest](ttps://developers.pinterest.com/docs/api/): Pinterest API to feature boards on the site screensaver.
+- [Panelbear](https://panelbear.com): Cookieless analytics and frontend monitoring.
+- [Typeform](https://typeform.com): Enquiry form.
+- [Mailchimp](https://mailchimp.com/): Subscription sign-up.
+- [Iubenda](https://iubenda.com): Privacy policy and cookie notice.
+
+## License
+Copyright Headless Horse Ltd., All rights reserved.
+[MIT License](https://choosealicense.com/licenses/mit/)

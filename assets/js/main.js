@@ -26,7 +26,7 @@ function renderText(node) {
 
   async function Noticerun() {
 
-    const result = await fetch("https://notion-api.splitbee.io/v1/page/f97f1af964fe48989650aae62609bf37").then(handleAsJson)
+    const result = await fetch('https://notion-api.splitbee.io/v1/page/f97f1af964fe48989650aae62609bf37').then(handleAsJson)
 
     const page = Object.values(result).find(x => x.value.type === 'page');
 
@@ -54,7 +54,7 @@ Noticerun();
 
   async function Inforun() {
 
-    const result = await fetch("https://notion-api.splitbee.io/v1/page/a1f6fd4a910349c0ad29c9d8ee428780").then(handleAsJson)
+    const result = await fetch('https://notion-api.splitbee.io/v1/page/a1f6fd4a910349c0ad29c9d8ee428780').then(handleAsJson)
 
     const page = Object.values(result).find(x => x.value.type === 'page');
 
@@ -90,7 +90,7 @@ Inforun();
       `)}
   `;
 
-    fetch("https://notion-api.splitbee.io/v1/table/2879a5a7fb2e4341b79a7132b2d399ca")
+    fetch('https://notion-api.splitbee.io/v1/table/2879a5a7fb2e4341b79a7132b2d399ca')
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
     .then(ClientstableTemplate) // Promise<TemplateResult>
@@ -106,7 +106,7 @@ Inforun();
       `)}
   `;
 
-    fetch("https://notion-api.splitbee.io/v1/table/152f1eda45414a1fa5a625b607a8915b")
+    fetch('https://notion-api.splitbee.io/v1/table/152f1eda45414a1fa5a625b607a8915b')
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
     .then(ServicestableTemplate) // Promise<TemplateResult>
@@ -122,7 +122,7 @@ Inforun();
       `)}
   `;
 
-    fetch("https://notion-api.splitbee.io/v1/table/40ee05b104644055b139eefafd9ae800")
+    fetch('https://notion-api.splitbee.io/v1/table/40ee05b104644055b139eefafd9ae800')
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
     .then(ProjectstableTemplate) // Promise<TemplateResult>
@@ -138,7 +138,7 @@ Inforun();
       `)}
   `;
 
-    fetch("https://notion-api.splitbee.io/v1/table/cd48ac8833464607818ff47ee43fb791")
+    fetch('https://notion-api.splitbee.io/v1/table/cd48ac8833464607818ff47ee43fb791')
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
     .then(PresstableTemplate) // Promise<TemplateResult>
@@ -148,10 +148,10 @@ Inforun();
 
 /***************************************** Shop *****************************************/
 
-  $(document).on("keypress", "input", function(e) {
+  $(document).on('keypress', 'input', function(e) {
     if (e.which == 13) {
       var inputVal = $(this).val();
-      if (inputVal == "shop") {
+      if (inputVal == 'shop') {
         setTimeout(function(e) {
           window.open('https://shop.headless.horse/', '_blank');
         }, 1000);
@@ -162,9 +162,9 @@ Inforun();
 /***************************************** Login *****************************************/
 
 (function() {
-  var textArea = document.getElementById("command--input");
+  var textArea = document.getElementById('command--input');
 
-  textArea.addEventListener("keydown", function(e) {
+  textArea.addEventListener('keydown', function(e) {
     if (e.keyCode === 13) {
       login(textArea);
     }
@@ -174,7 +174,7 @@ Inforun();
 function login(textArea) {
 	var value = textArea.value;
 
-  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === "uname") {
+  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === 'uname') {
 
     window.open('https://dev.headless.horse/' + value.match('uname(.*)')[1].trim());
   }
@@ -188,7 +188,7 @@ function login(textArea) {
       `)}
   `;
 
-    fetch("https://notion-api.splitbee.io/v1/table/c87900ce8abc4ed28c77222beebebeac")
+    fetch('https://notion-api.splitbee.io/v1/table/c87900ce8abc4ed28c77222beebebeac')
     .then(handleAsJson) // Promise<TableJson>
     .then(trace('table is'))
     .then(CareerstableTemplate) // Promise<TemplateResult>
@@ -200,7 +200,7 @@ function login(textArea) {
 
   async function Imprintrun() {
 
-    const result = await fetch("https://notion-api.splitbee.io/v1/page/314869ae00f14b728bd642c732f70915").then(handleAsJson)
+    const result = await fetch('https://notion-api.splitbee.io/v1/page/314869ae00f14b728bd642c732f70915').then(handleAsJson)
 
     const page = Object.values(result).find(x => x.value.type === 'page');
 
@@ -231,9 +231,9 @@ Imprintrun();
 /***************************************** Translate *****************************************/
 
 (function() {
-  var textArea = document.getElementById("command--input");
+  var textArea = document.getElementById('command--input');
 
-  textArea.addEventListener("keydown", function(e) {
+  textArea.addEventListener('keydown', function(e) {
     if (e.keyCode === 13) {
       translate(textArea);
     }
@@ -243,7 +243,7 @@ Imprintrun();
 function translate(textArea) {
 	var value = textArea.value;
 
-  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === "translate") {
+  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === 'translate') {
 
     window.open('https://translate.google.com/translate?sl=en&tl=' + value.match('translate(.*)')[1].trim() + '&u=https://headless.horse');
   }
@@ -253,7 +253,7 @@ function translate(textArea) {
 
   async function Thanksrun() {
 
-    const result = await fetch("https://notion-api.splitbee.io/v1/page/5973e1cc89df455dbc0e9c4e517b3e9f").then(handleAsJson)
+    const result = await fetch('https://notion-api.splitbee.io/v1/page/5973e1cc89df455dbc0e9c4e517b3e9f').then(handleAsJson)
 
     const page = Object.values(result).find(x => x.value.type === 'page');
 
@@ -283,10 +283,10 @@ Thanksrun();
 
 /***************************************** Share Tweet *****************************************/
 
-  $(document).on("keypress", "input", function(e) {
+  $(document).on('keypress', 'input', function(e) {
     if (e.which == 13) {
       var inputVal = $(this).val();
-      if (inputVal == "tweet") {
+      if (inputVal == 'tweet') {
         setTimeout(function(e) {
           window.open('https://twitter.com/intent/tweet?url=headless.horse&text=@headless__horse', '_blank');
         }, 1000);
@@ -296,10 +296,10 @@ Thanksrun();
 
 /***************************************** Share Email *****************************************/
 
-  $(document).on("keypress", "input", function(e) {
+  $(document).on('keypress', 'input', function(e) {
     if (e.which == 13) {
       var inputVal = $(this).val();
-      if (inputVal == "mail") {
+      if (inputVal == 'mail') {
         setTimeout(function(e) {
           window.location.href = 'mailto:name@email.com?subject=Headless%20Horse&body=I%20thought%20you%20might%20like%20this:%20https://headless.horse/';
         }, 1000);
