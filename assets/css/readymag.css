@@ -1,0 +1,67 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+::selection {
+  background: #999999;
+  color: #000000;
+}
+
+::-moz-selection {
+  background: #999999;
+  color: #000000;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+a:active[target=_blank],
+a:link[target=_blank],
+a:visited[target=_blank],
+a[target=_blank] {
+  cursor: ne-resize;
+}
+
+a:hover {
+  -webkit-animation-name: hover-flicker;
+  animation-name: hover-flicker;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+@-webkit-keyframes hover-flicker {
+  0%, 2%, 6%, 8%, 12%, 16%, 18%, 90% {
+    opacity: 1;
+  }
+
+  3%, 5%, 9%, 11%, 15%, 17%,
+  to {
+    opacity: 0;
+  }
+}
+
+/* Readymag Navigation Arrows */
+.right>.sprite, .left>.sprite {
+  background-image: none !important;
+}
+
+.navigation-arrow {
+  width: 10px !important;
+  color: var(--hh-color-slate) !important;
+  text-transform: uppercase !important;
+  font-size: 16px !important;
+  mix-blend-mode: difference !important;
+}
+
+.left:after {
+  content: '<' !important;
+}
+
+.right:after {
+  content: '>' !important;
+}
