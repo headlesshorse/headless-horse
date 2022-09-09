@@ -25,5 +25,4 @@ Here are the major frameworks, programming languages, software and libraries we 
 - [Iubenda](https://iubenda.com): Privacy policy and cookie notice.
 
 ## License
-Copyright Headless Horse Ltd., All rights reserved.
-[MIT License](https://choosealicense.com/licenses/mit/)
+Copyright Headless Horse Ltd., All rights reserved. [MIT License](https://choosealicense.com/licenses/mit/)
