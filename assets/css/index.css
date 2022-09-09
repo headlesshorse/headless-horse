@@ -395,7 +395,6 @@ map area {
   left: var(--hh-spacing-4x);
   width: auto;
   height: 40px;
-  cursor: help !important;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
