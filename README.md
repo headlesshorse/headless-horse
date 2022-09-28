@@ -2,7 +2,7 @@
   <br>
   <a href="https://headless.horse"><img src="./assets/media/images/hh-logo.png" alt="Headless Horse" width="100" height="100"/></a>
   <br>
-  <h3><a href="https://headless.horse">HEADLESS HORSE</a></h1>
+  <h3><a href="https://headless.horse">HEADLESS HORSE</a></h3>
   <p>FULL-SERVICE DESIGN STUDIO</p>
 </div>
 
@@ -12,7 +12,7 @@
 
 ## About
 
-The website of Headless Horse: an independent, Edinburgh-based, full-service creative studio working at the intersection of art, design and technology.
+Website of Headless Horse: an independent, full-service creative studio.
 
 ### Documentation
 
