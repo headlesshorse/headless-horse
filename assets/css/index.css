@@ -356,6 +356,11 @@ ol li span:last-child {
   -o-transition: filter 2s;
   -ms-transition: filter 2s;
   transition: filter 2s;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
 }
 
 .wall-image--filter {
