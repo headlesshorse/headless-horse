@@ -289,7 +289,7 @@ Thanksrun();
       if (inputVal == 'tweet') {
         setTimeout(function(e) {
           window.open('https://twitter.com/intent/tweet?url=headless.horse&text=@headless__horse', '_blank');
-        }, 1000);
+        });
       }
     }
   });
@@ -302,7 +302,7 @@ Thanksrun();
       if (inputVal == 'mail') {
         setTimeout(function(e) {
           window.location.href = 'mailto:name@email.com?subject=Headless%20Horse&body=I%20thought%20you%20might%20like%20this:%20https://headless.horse/';
-        }, 1000);
+        });
       }
     }
   });
