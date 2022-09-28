@@ -52,7 +52,7 @@ a:hover {
 
 .navigation-arrow {
   width: 10px !important;
-  color: var(--hh-color-slate) !important;
+  color: #000000 !important;
   text-transform: uppercase !important;
   font-size: 16px !important;
   mix-blend-mode: difference !important;
