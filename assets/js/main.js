@@ -154,7 +154,7 @@ Inforun();
       if (inputVal == 'shop') {
         setTimeout(function(e) {
           window.open('https://shop.headless.horse/', '_blank');
-        }, 1000);
+        });
       }
     }
   });
