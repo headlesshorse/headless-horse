@@ -24,7 +24,7 @@ Here are the major frameworks, programming languages, software and libraries we 
 
 ### Dev
 
--   [JQuery](https://jquery.com)
+-   [jQuery](https://jquery.com)
 -   [Greensock](https://greensock.com)
 -   [TweenMax](https://greensock.com/tweenmax)
 -   [Luxon](https://github.com/moment/luxon)
