@@ -23,10 +23,10 @@
 * Add mobile header pixelation animation.
 * Update to format of info, services and contact.
 
-### 2.2 (11.01.2022 - 24.01.2022)
+### 2.2 (11.01.2022)
 * Update cookie notice.
 
-### 2.1 (23.08.2021 - 09.01.2022)
+### 2.1 (23.08.2021)
 * Add animated favicon.
 * Add new pages imprint with company details and colophon.
 * Add live business hours to welcome message.
@@ -37,7 +37,7 @@
 * Update copy for info and services.
 * Update to terminal structure to support breakpoint for mobile.
 
-### 2.0 (05.06.2021 - 22.08.2021)
+### 2.0 (05.06.2021)
 
 * Add sign up mailing list via terminal.
 * Add client login for accessing documents.
@@ -53,5 +53,5 @@
 * Update id and class names.
 * Update CSS using [idiomatic-css](https://github.com/necolas/idiomatic-css).
 
-### 1.0 (11.09.2019 - 04.06.2021)
+### 1.0 (11.09.2019)
 * Site live.
