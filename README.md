@@ -16,7 +16,7 @@ Website of Headless Horse: an independent, full-service creative studio.
 
 ### Documentation
 
-- [Changelog](CHANGELOG.md)
+[Changelog](CHANGELOG.md)
 
 ## The Stack
 
@@ -43,6 +43,6 @@ Here are the major frameworks, programming languages, software and libraries we 
 
 ## License
 
-Copyright Headless Horse Ltd., All rights reserved.
+[MIT](https://choosealicense.com/licenses/mit)
 
-- [MIT License](https://choosealicense.com/licenses/mit).
+The MIT license grant is not for Headless Horse's trademarks. Headless Horse reserves all trademark and copyright rights in and to all Headless Horse trademarks.
