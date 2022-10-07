@@ -45,4 +45,4 @@ Here are the major frameworks, programming languages, software and libraries we 
 
 Copyright Headless Horse Ltd., All rights reserved.
 
-[MIT License](https://choosealicense.com/licenses/mit).
+- [MIT License](https://choosealicense.com/licenses/mit).
