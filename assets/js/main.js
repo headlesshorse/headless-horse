@@ -64,7 +64,7 @@ console.log(blocks.map(x => x.type))
 
   const content = blocks.map(block => {
     switch (block.type) {
-      case 'sub_header':
+      case 'header':
         return html`<p style="text-transform: uppercase;">${block.properties.title}</p>`;
       case 'divider':
         return html`<br>`;
@@ -210,7 +210,7 @@ console.log(blocks.map(x => x.type))
 
   const content = blocks.map(block => {
     switch (block.type) {
-      case 'sub_header':
+      case 'header':
         return html`<p style="text-transform: uppercase;">${block.properties.title}</p>`;
       case 'divider':
         return html`<br>`;
@@ -263,7 +263,7 @@ console.log(blocks.map(x => x.type))
 
   const content = blocks.map(block => {
     switch (block.type) {
-      case 'sub_header':
+      case 'header':
         return html`<p style="text-transform: uppercase;">${block.properties.title}</p>`;
       case 'divider':
         return html`<br>`;
