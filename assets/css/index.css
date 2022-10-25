@@ -567,11 +567,11 @@ section,
 
   .accordion::after {
     float: right;
-    content: '[+]';
+    content: '+';
   }
 
   .active::after {
-    content: '[-]';
+    content: '-';
   }
 
   .accordion--panel {
