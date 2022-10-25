@@ -164,27 +164,6 @@ function login(textArea) {
     }
   });
 
-/***************************************** Translate *****************************************/
-
-(function() {
-  var textArea = document.getElementById('command--input');
-
-  textArea.addEventListener('keydown', function(e) {
-    if (e.keyCode === 13) {
-      translate(textArea);
-    }
-  });
-})();
-
-function translate(textArea) {
-	var value = textArea.value;
-
-  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === 'translate') {
-
-    window.open('https://translate.google.com/translate?sl=en&tl=' + value.match('translate(.*)')[1].trim() + '&u=https://headless.horse');
-  }
-}
-
 /***************************************** Tweet *****************************************/
 
   $(document).on('keypress', 'input', function(e) {
@@ -203,7 +182,7 @@ function translate(textArea) {
   $(document).on('keypress', 'input', function(e) {
     if (e.which == 13) {
       var inputVal = $(this).val();
-      if (inputVal == 'mail') {
+      if (inputVal == 'email') {
         setTimeout(function(e) {
           window.location.href = 'mailto:name@email.com?subject=Headless%20Horse&body=I%20thought%20you%20might%20like%20this:%20https://headless.horse/';
         });
