@@ -156,7 +156,7 @@ function login(textArea) {
   $(document).on('keypress', 'input', function(e) {
     if (e.which == 13) {
       var inputVal = $(this).val();
-      if (inputVal == 'shop') {
+      if (inputVal == 'privacy') {
         setTimeout(function(e) {
           window.open('https://www.iubenda.com/privacy-policy/86096520/', '_blank');
         });
