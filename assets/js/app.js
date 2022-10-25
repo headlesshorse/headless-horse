@@ -201,7 +201,7 @@ setInterval(function() {
   })
 }, 1000)
 
-/***************************************** Preload Github API *****************************************/
+/***************************************** Preload *****************************************/
 
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
@@ -217,12 +217,6 @@ xhttp.onreadystatechange = function() {
         <p>Last updated: ${new Date(repo.pushed_at)}.</p>
         <p>Total size downloading: ${repo.size}kb... done.</p>
         <p>Finished early booting sequence.</p>
-        <br>
-        <p>Searching for assets, this might take a few seconds...</p>
-        <br>
-        <p>Begin: Running /assets/images... done.</p>
-        <p>Begin: Running /assets/audio... done.</p>
-        <p>Begin: Running /assets/js... done.</p>
         `;
     });
   }

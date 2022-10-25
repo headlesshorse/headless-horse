@@ -50,38 +50,6 @@ const content = blocks.map(block => {
 }
 Noticerun();
 
-/***************************************** Info *****************************************/
-
-  async function Inforun() {
-
-    const result = await fetch('https://notion-api.splitbee.io/v1/page/a1f6fd4a910349c0ad29c9d8ee428780').then(handleAsJson)
-
-    const page = Object.values(result).find(x => x.value.type === 'page');
-
-    const blocks = page.value.content.map(id => result[id].value);
-
-console.log(blocks.map(x => x.type))
-
-  const content = blocks.map(block => {
-    switch (block.type) {
-      case 'header':
-        return html`<p style="text-transform: uppercase;">${block.properties.title}</p>`;
-      case 'divider':
-        return html`<br>`;
-      case 'text':
-        if (!block.properties) return '';
-        else {
-          return html`<p>${block.properties.title.map(renderText)}</p>`;
-        }
-        default:
-          return block.title;
-    }
-  });
-
-  render(content, document.getElementById('info-list'))
-}
-Inforun();
-
 /***************************************** Clients *****************************************/
 
   const ClientstableTemplate = table => html`
@@ -146,18 +114,21 @@ Inforun();
     .then(result =>
 			render(result, document.getElementById('press-list')))
 
-/***************************************** Shop *****************************************/
+/***************************************** Jobs *****************************************/
 
-  $(document).on('keypress', 'input', function(e) {
-    if (e.which == 13) {
-      var inputVal = $(this).val();
-      if (inputVal == 'shop') {
-        setTimeout(function(e) {
-          window.open('https://shop.headless.horse/', '_blank');
-        });
-      }
-    }
-  });
+  const CareerstableTemplate = table => html`
+      ${table.map(({id, Status, Location, Position, Contract, close, Slug}) => html`
+        <p><a href="${Slug}" target="_blank">${Location}, ${Position}, ${Contract} – ${Status}.</a></p>
+      `)}
+  `;
+
+    fetch('https://notion-api.splitbee.io/v1/table/c87900ce8abc4ed28c77222beebebeac')
+    .then(handleAsJson) // Promise<TableJson>
+    .then(trace('table is'))
+    .then(CareerstableTemplate) // Promise<TemplateResult>
+		.then(trace('template result is'))
+    .then(result =>
+			render(result, document.getElementById('jobs-list')))
 
 /***************************************** Login *****************************************/
 
@@ -180,74 +151,18 @@ function login(textArea) {
   }
 }
 
-/***************************************** Careers *****************************************/
+/***************************************** Privacy *****************************************/
 
-  const CareerstableTemplate = table => html`
-      ${table.map(({id, Status, Location, Position, Contract, close, Slug}) => html`
-        <p><a href="${Slug}" target="_blank">${Location}, ${Position}, ${Contract} – ${Status}.</a></p>
-      `)}
-  `;
-
-    fetch('https://notion-api.splitbee.io/v1/table/c87900ce8abc4ed28c77222beebebeac')
-    .then(handleAsJson) // Promise<TableJson>
-    .then(trace('table is'))
-    .then(CareerstableTemplate) // Promise<TemplateResult>
-		.then(trace('template result is'))
-    .then(result =>
-			render(result, document.getElementById('careers-list')))
-
-/***************************************** Imprint *****************************************/
-
-  async function Imprintrun() {
-
-    const result = await fetch('https://notion-api.splitbee.io/v1/page/314869ae00f14b728bd642c732f70915').then(handleAsJson)
-
-    const page = Object.values(result).find(x => x.value.type === 'page');
-
-    const blocks = page.value.content.map(id => result[id].value);
-
-console.log(blocks.map(x => x.type))
-
-  const content = blocks.map(block => {
-    switch (block.type) {
-      case 'header':
-        return html`<p style="text-transform: uppercase;">${block.properties.title}</p>`;
-      case 'divider':
-        return html`<br>`;
-      case 'text':
-        if (!block.properties) return '';
-        else {
-          return html`<p>${block.properties.title.map(renderText)}</p>`;
-        }
-        default:
-          return block.title;
+  $(document).on('keypress', 'input', function(e) {
+    if (e.which == 13) {
+      var inputVal = $(this).val();
+      if (inputVal == 'shop') {
+        setTimeout(function(e) {
+          window.open('https://www.iubenda.com/privacy-policy/86096520/', '_blank');
+        });
+      }
     }
   });
-
-  render(content, document.getElementById('imprint-list'))
-}
-Imprintrun();
-
-/***************************************** Translate *****************************************/
-
-(function() {
-  var textArea = document.getElementById('command--input');
-
-  textArea.addEventListener('keydown', function(e) {
-    if (e.keyCode === 13) {
-      translate(textArea);
-    }
-  });
-})();
-
-function translate(textArea) {
-	var value = textArea.value;
-
-  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === 'translate') {
-
-    window.open('https://translate.google.com/translate?sl=en&tl=' + value.match('translate(.*)')[1].trim() + '&u=https://headless.horse');
-  }
-}
 
 /***************************************** Thanks *****************************************/
 
@@ -281,7 +196,28 @@ console.log(blocks.map(x => x.type))
 }
 Thanksrun();
 
-/***************************************** Share Tweet *****************************************/
+/***************************************** Translate *****************************************/
+
+(function() {
+  var textArea = document.getElementById('command--input');
+
+  textArea.addEventListener('keydown', function(e) {
+    if (e.keyCode === 13) {
+      translate(textArea);
+    }
+  });
+})();
+
+function translate(textArea) {
+	var value = textArea.value;
+
+  if (value.match(/^([\w\-]+)/)[1].toLowerCase() === 'translate') {
+
+    window.open('https://translate.google.com/translate?sl=en&tl=' + value.match('translate(.*)')[1].trim() + '&u=https://headless.horse');
+  }
+}
+
+/***************************************** Tweet *****************************************/
 
   $(document).on('keypress', 'input', function(e) {
     if (e.which == 13) {
@@ -294,7 +230,7 @@ Thanksrun();
     }
   });
 
-/***************************************** Share Email *****************************************/
+/***************************************** Email *****************************************/
 
   $(document).on('keypress', 'input', function(e) {
     if (e.which == 13) {
