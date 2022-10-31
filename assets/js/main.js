@@ -117,7 +117,7 @@ Noticerun();
 /***************************************** Jobs *****************************************/
 
   const CareerstableTemplate = table => html`
-      ${table.map(({id, Status, Location, Position, Contract, close, Slug}) => html`
+      ${table.map(({id, Position, Location, Contract, Slug}) => html`
         <p><a href="${Slug}" target="_blank">${Position} — ${Location}, ${Contract}.</a></p>
       `)}
   `;
