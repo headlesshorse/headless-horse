@@ -118,7 +118,7 @@ Noticerun();
 
   const CareerstableTemplate = table => html`
       ${table.map(({id, Status, Location, Position, Contract, close, Slug}) => html`
-        <p><a href="${Slug}" target="_blank">${Location}, ${Position}, ${Contract} – ${Status}.</a></p>
+        <p><a href="${Slug}" target="_blank">${Position} — ${Location}, ${Contract}.</a></p>
       `)}
   `;
 
