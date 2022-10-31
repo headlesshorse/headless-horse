@@ -290,11 +290,11 @@ a:hover,
 
 #terminal--copy {
   position: fixed;
-  top: 60px;
+  top: 50px;
   right: var(--hh-spacing-4x);
   left: var(--hh-spacing-4x);
   overflow: scroll;
-  max-height: calc(100% - 360px);
+  max-height: calc(100% - 350px);
   color: var(--hh-color-slate);
 }
 
