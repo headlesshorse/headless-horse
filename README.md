@@ -8,12 +8,6 @@
 
 * * *
 
-![Website](https://img.shields.io/website?down_color=lightgrey&down_message=down&label=headless.horse&style=flat-square&up_color=green&up_message=up&url=https%3A%2F%2Fheadless.horse)
-
-## About
-
-Website of Headless Horse: an independent, full-service creative studio.
-
 ### Documentation
 
 [Changelog](CHANGELOG.md)
