@@ -1,3 +1,5 @@
+/***************************************** Variable *****************************************/
+
 :root {
   --hh-z-index-0: 0;
   --hh-z-index-1: 100;
@@ -24,6 +26,8 @@
   --hh-font-body-1-font-weight: 400;
 }
 
+/***************************************** Basic *****************************************/
+
 html,
 body {
   overflow: hidden;
@@ -48,6 +52,8 @@ body {
   background: var(--hh-color-slate);
   color: var(--hh-color-black);
 }
+
+/***************************************** Type *****************************************/
 
 body,
 p,
@@ -96,6 +102,8 @@ a:hover,
     opacity: 0;
   }
 }
+
+/***************************************** Cookie *****************************************/
 
 #cookie-notice {
   position: absolute;
@@ -151,6 +159,8 @@ a:hover,
   cursor: pointer !important;
 }
 
+/***************************************** Screensaver *****************************************/
+
 #screensaver {
   position: fixed;
   z-index: var(--hh-z-index-top);
@@ -183,6 +193,8 @@ a:hover,
   filter: grayscale(50%) contrast(0.8) brightness(0.9);
 }
 
+/***************************************** Scroll snap *****************************************/
+
 .scroll-snap--container {
   overflow-y: scroll;
   max-height: 100vh;
@@ -199,6 +211,8 @@ a:hover,
   height: 100vh;
   background: var(--hh-color-black);
 }
+
+/***************************************** Navigation *****************************************/
 
 #nav-top,
 #nav-bottom {
@@ -268,6 +282,8 @@ a:hover,
   margin: auto;
   cursor: pointer !important;
 }
+
+/***************************************** Terminal *****************************************/
 
 #terminal {
   position: absolute;
@@ -339,6 +355,8 @@ ol li span:last-child {
   width: auto;
 }
 
+/***************************************** Wall Image *****************************************/
+
 #wall-image--cover {
   position: absolute;
   z-index: var(--hh-z-index-2);
@@ -384,6 +402,8 @@ map area {
   backdrop-filter: var(--hh-effect-blur);
   -webkit-backdrop-filter: var(--hh-effect-blur);
 }
+
+/***************************************** Footer *****************************************/
 
 #footer {
   position: relative;
@@ -488,6 +508,8 @@ button:focus {
   display: block;
 }
 
+/***************************************** Desktop Hide *****************************************/
+
 #screensaver,
 #nav-top--hh--clock,
 #nav-top--close,
@@ -501,7 +523,10 @@ section,
   display: none;
 }
 
+/***************************************** Mobile *****************************************/
+
 @media (max-width:800px) {
+
   .scroll-snap--container {
     overflow-y: scroll;
     max-height: auto;
