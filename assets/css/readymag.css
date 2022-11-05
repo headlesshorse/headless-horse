@@ -12,6 +12,10 @@
   color: #000000;
 }
 
+p {
+  font-family: courier !important;
+}
+
 a,
 a:link,
 a:visited,
