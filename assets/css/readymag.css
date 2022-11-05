@@ -52,24 +52,3 @@ a:hover {
     opacity: 0;
   }
 }
-
-/***************************************** Readymag Navigation Arrows *****************************************/
-.right>.sprite, .left>.sprite {
-  background-image: none !important;
-}
-
-.navigation-arrow {
-  width: 10px !important;
-  color: #000000 !important;
-  text-transform: uppercase !important;
-  font-size: 16px !important;
-  mix-blend-mode: difference !important;
-}
-
-.left:after {
-  content: '<' !important;
-}
-
-.right:after {
-  content: '>' !important;
-}
