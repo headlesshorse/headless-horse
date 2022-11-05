@@ -1,3 +1,5 @@
+/***************************************** Basic *****************************************/
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -11,6 +13,8 @@
   background: #999999;
   color: #000000;
 }
+
+/***************************************** Type *****************************************/
 
 p {
   font-family: courier !important;
@@ -49,7 +53,7 @@ a:hover {
   }
 }
 
-/* Readymag Navigation Arrows */
+/***************************************** Readymag Navigation Arrows *****************************************/
 .right>.sprite, .left>.sprite {
   background-image: none !important;
 }
