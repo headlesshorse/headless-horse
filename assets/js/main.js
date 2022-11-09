@@ -50,38 +50,6 @@ const content = blocks.map(block => {
 }
 Noticerun();
 
-/***************************************** Clients *****************************************/
-
-  const ClientstableTemplate = table => html`
-      ${table.map(({Client}) => html`
-        <span>${Client}</span>
-      `)}
-  `;
-
-    fetch('https://notion-api.splitbee.io/v1/table/2879a5a7fb2e4341b79a7132b2d399ca')
-    .then(handleAsJson) // Promise<TableJson>
-    .then(trace('table is'))
-    .then(ClientstableTemplate) // Promise<TemplateResult>
-		.then(trace('template result is'))
-    .then(result =>
-			render(result, document.getElementById('clients-list')))
-
-/***************************************** Services *****************************************/
-
-  const ServicestableTemplate = table => html`
-      ${table.map(({Service}) => html`
-        <span>${Service}</span>
-      `)}
-  `;
-
-    fetch('https://notion-api.splitbee.io/v1/table/152f1eda45414a1fa5a625b607a8915b')
-    .then(handleAsJson) // Promise<TableJson>
-    .then(trace('table is'))
-    .then(ServicestableTemplate) // Promise<TemplateResult>
-		.then(trace('template result is'))
-    .then(result =>
-			render(result, document.getElementById('services-list')))
-
 /***************************************** Projects *****************************************/
 
   const ProjectstableTemplate = table => html`
