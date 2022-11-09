@@ -50,22 +50,6 @@ const content = blocks.map(block => {
 }
 Noticerun();
 
-/***************************************** Projects *****************************************/
-
-  const ProjectstableTemplate = table => html`
-      ${table.map(({id, Project, Date, Status, Slug}) => html`
-        <li><a href="${Slug}" target="_blank"><span>${Project}</span><span>${Date}</span><span>${Status}</span></a></li>
-      `)}
-  `;
-
-    fetch('https://notion-api.splitbee.io/v1/table/40ee05b104644055b139eefafd9ae800')
-    .then(handleAsJson) // Promise<TableJson>
-    .then(trace('table is'))
-    .then(ProjectstableTemplate) // Promise<TemplateResult>
-		.then(trace('template result is'))
-    .then(result =>
-			render(result, document.getElementById('project-list')))
-
 /***************************************** Press *****************************************/
 
   const PresstableTemplate = table => html`

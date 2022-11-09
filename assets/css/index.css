@@ -618,7 +618,6 @@ section,
 
   #clients-list>span,
   #services-list>span,
-  #project-list>li,
   #press-list>li {
     overflow: hidden;
     text-overflow: ellipsis;
