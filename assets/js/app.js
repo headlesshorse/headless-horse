@@ -209,8 +209,6 @@ xhttp.onreadystatechange = function() {
     let repos = JSON.parse(this.responseText);
     repos.forEach((repo) => {
       document.getElementById('preload').innerHTML += `
-        <p>Initialising... ${repo.homepage}.</p>
-        <br>
         <p>Connecting address: ${repo.html_url}.</p>
         <p>Repo name: ${repo.name}.</p>
         <br>
