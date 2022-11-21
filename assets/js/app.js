@@ -153,7 +153,7 @@ $('#nav-top--close').click(function() {
 });
 
 $('#nav-bottom--new-project, .project-link').click(function() {
-  $('#nav-top--close--status').html('[-]');
+  $('#nav-top--close--status').html('Close');
   $('#terminal--iframe, #terminal, #wall-image--cover').delay(200).fadeIn(2000);
   $('#terminal--copy').delay(200).fadeOut(2000);
 });
