@@ -55,7 +55,7 @@ var i = null;
 $('body, #screensaver').mousemove(function() {
   clearTimeout(i);
   $('#screensaver').fadeOut();
-  i = setTimeout('$("#screensaver").fadeIn(2000);', 20000);
+  i = setTimeout('$("#screensaver").fadeIn(2000);', 30000);
 });
 
 class PinterestFeed {
