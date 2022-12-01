@@ -439,20 +439,6 @@ map area {
   float: left;
 }
 
-#footer--bottom--site-links--translate {
-  border: none;
-  background-color: transparent;
-  color: var(--hh-color-slate);
-  text-transform: uppercase;
-  font-weight: var(--hh-font-body-1-font-weight);
-  font-size: var(--hh-font-body-1-font-size);
-  font-family: var(--hh-font-body-1-font-family);
-  cursor: pointer !important;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
 #footer--bottom--follow-links--newsletter {
   float: right;
   height: var(--hh-spacing-3x);
@@ -501,6 +487,20 @@ button:focus {
   right: var(--hh-spacing-4x);
   bottom: var(--hh-spacing-4x);
   float: right;
+}
+
+#footer--bottom--site-links--translate {
+  border: none;
+  background-color: transparent;
+  color: var(--hh-color-slate);
+  text-transform: uppercase;
+  font-weight: var(--hh-font-body-1-font-weight);
+  font-size: var(--hh-font-body-1-font-size);
+  font-family: var(--hh-font-body-1-font-family);
+  cursor: pointer !important;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .open {
