@@ -432,7 +432,7 @@ map area {
   padding-right: var(--hh-spacing-4x);
 }
 
-#footer--bottom--site-links {
+#footer--bottom--follow-links {
   position: absolute;
   bottom: var(--hh-spacing-4x);
   left: var(--hh-spacing-4x);
@@ -440,7 +440,6 @@ map area {
 }
 
 #footer--bottom--site-links--translate {
-  padding-right: var(--hh-spacing-4x);
   border: none;
   background-color: transparent;
   color: var(--hh-color-slate);
@@ -454,12 +453,12 @@ map area {
   -moz-appearance: none;
 }
 
-#footer--bottom--site-links--newsletter {
+#footer--bottom--follow-links--newsletter {
   float: right;
   height: var(--hh-spacing-3x);
 }
 
-#footer--bottom--site-links--newsletter input {
+#footer--bottom--follow-links--newsletter input {
   margin: 0;
   padding: 0;
   border: 0;
@@ -497,7 +496,7 @@ button:focus {
   color: var(--hh-color-slate);
 }
 
-#footer--bottom--follow-links {
+#footer--bottom--site-links {
   position: absolute;
   right: var(--hh-spacing-4x);
   bottom: var(--hh-spacing-4x);
