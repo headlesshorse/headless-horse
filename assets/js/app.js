@@ -396,7 +396,7 @@ setTimeout(function() {
 
 /***************************************** Terminal Command *****************************************/
 
-
+if (window.screen.width > 800) {
   $(document).ready(function() {
     $('#command').hide();
     $('#preload').addClass('open');
@@ -451,7 +451,7 @@ setTimeout(function() {
       } // end if 'enter' key pressed
     }); // end keyup function
   });
-
+}
 
 $('#terminal').click(function() {
   $('#command--input[type="text"]').focus();

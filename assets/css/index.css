@@ -525,23 +525,144 @@ section,
 /***************************************** Mobile *****************************************/
 
 @media (max-width:800px) {
-  #pinterest-board {
-    grid-template-columns: repeat(5, 10fr);
-    grid-template-rows: repeat(15, 10vh);
+
+  .scroll-snap--container {
+    overflow-y: scroll;
+    max-height: auto;
+    height: auto;
+    scroll-snap-type: none;
   }
 
-  #pinterest-board>li {
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    filter: grayscale(50%) contrast(0.8) brightness(0.9);
+  #cookie-notice--message {
+    padding: var(--hh-spacing-2x);
   }
 
-
-  #main {
-    height: 100% !important
+  #cookie-notice--dismiss {
+    top: var(--hh-spacing-2x);
+    bottom: var(--hh-spacing-2x);
+    padding: 0px var(--hh-spacing-2x);
   }
 
+  #nav-top {
+    position: fixed;
+    top: var(--hh-spacing-3x);
+    right: 0;
+    left: 0;
+    border-bottom: 1px solid var(--hh-color-slate);
+  }
+
+  #nav-top--hh {
+    top: 0;
+    left: var(--hh-spacing-2x);
+  }
+
+  #nav-top--hh--clock {
+    display: inline;
+  }
+
+  #nav-top--close {
+    top: 0;
+    right: var(--hh-spacing-2x);
+    display: block;
+  }
+
+  #terminal--copy {
+    top: 45px;
+    right: 0;
+    left: 0;
+    z-index: var(--hh-z-index-top);
+    max-height: 100%;
+    width: 100%;
+  }
+
+  .accordion {
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: var(--hh-spacing-3x) var(--hh-spacing-2x);
+    border-top: 1px solid var(--hh-color-slate);
+    text-transform: uppercase;
+    cursor: pointer !important;
+  }
+
+  .accordion:first-of-type {
+    border-top: 0;
+  }
+
+  .accordion::after {
+    float: right;
+    content: '+';
+  }
+
+  .active::after {
+    content: '-';
+  }
+
+  .accordion--panel {
+    overflow: hidden;
+    padding: 0 var(--hh-spacing-2x);
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+  }
+
+  #clients-list,
+  #services-list {
+    column-count: 2;
+  }
+
+  #services-list>span,
+  #clients-list>span {
+    display: block;
+  }
+
+  #clients-list>span,
+  #services-list>span,
+  #press-list>li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #services-list>span::after,
+  #clients-list>span::after {
+    content: '';
+  }
+
+  #services-list>span:last-child:after,
+  #clients-list>span:last-child:after {
+    content: '';
+  }
+
+  ol li span {
+    display: inline;
+    padding-right: 0;
+  }
+
+  ol li span:not(:last-child):after {
+    content: ", ";
+  }
+
+  #wall-image, section, .mobile-hide {
+    display: block;
+  }
+
+  #screensaver,
+  #nav-bottom--new-project,
+  #nav-bottom--notice,
+  #command {
+    height: 0;
+    opacity: 0;
+  }
+
+  #nav-top--loader-bar,
+  #nav-top--hh--percentage,
+  #nav-top--close--title,
+  #nav-bottom,
+  #home,
+  #list,
+  #error,
+  #preload,
+  #wall-image--map,
   #tooltip,
   #footer {
     display: none;
