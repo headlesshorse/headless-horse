@@ -523,3 +523,27 @@ section,
 }
 
 /***************************************** Mobile *****************************************/
+
+@media (max-width:800px) {
+  #pinterest-board {
+    grid-template-columns: repeat(5, 10fr);
+    grid-template-rows: repeat(15, 10vh);
+  }
+
+  #pinterest-board>li {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: grayscale(50%) contrast(0.8) brightness(0.9);
+  }
+
+
+  #main {
+    height: 100% !important
+  }
+
+  #tooltip,
+  #footer {
+    display: none;
+  }
+}
