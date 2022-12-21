@@ -570,6 +570,7 @@ section,
     right: 0;
     left: 0;
     z-index: var(--hh-z-index-top);
+    max-height: 100%;
   }
 
   .accordion {
