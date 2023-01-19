@@ -1,5 +1,4 @@
 /***************************************** Variable *****************************************/
-
 :root {
   --hh-z-index-0: 0;
   --hh-z-index-1: 100;
@@ -27,7 +26,6 @@
 }
 
 /***************************************** Basic *****************************************/
-
 html,
 body {
   overflow: hidden;
@@ -54,7 +52,6 @@ body {
 }
 
 /***************************************** Type *****************************************/
-
 body,
 p,
 a,
@@ -104,7 +101,6 @@ a:hover,
 }
 
 /***************************************** Cookie *****************************************/
-
 #cookie-notice {
   position: absolute;
   bottom: 0;
@@ -160,7 +156,6 @@ a:hover,
 }
 
 /***************************************** Screensaver *****************************************/
-
 #screensaver {
   position: fixed;
   z-index: var(--hh-z-index-top);
@@ -194,7 +189,6 @@ a:hover,
 }
 
 /***************************************** Scroll snap *****************************************/
-
 .scroll-snap--container {
   overflow-y: scroll;
   max-height: 100vh;
@@ -213,7 +207,6 @@ a:hover,
 }
 
 /***************************************** Navigation *****************************************/
-
 #nav-top,
 #nav-bottom {
   right: var(--hh-spacing-4x);
@@ -273,6 +266,7 @@ a:hover,
   margin: auto;
   font-family: var(--hh-font-body-1-line-height);
   cursor: default !important;
+  animation: blink-animation 1s steps(5, start) infinite;
 }
 
 #nav-bottom--new-project {
@@ -284,7 +278,6 @@ a:hover,
 }
 
 /***************************************** Terminal *****************************************/
-
 #terminal {
   position: absolute;
   z-index: var(--hh-z-index-3);
@@ -356,7 +349,6 @@ ol li span:last-child {
 }
 
 /***************************************** Wall Image *****************************************/
-
 #wall-image--cover {
   position: absolute;
   z-index: var(--hh-z-index-2);
@@ -404,7 +396,6 @@ map area {
 }
 
 /***************************************** Footer *****************************************/
-
 #footer {
   position: relative;
   z-index: var(--hh-z-index-3);
@@ -508,7 +499,6 @@ button:focus {
 }
 
 /***************************************** Desktop Hide *****************************************/
-
 #screensaver,
 #nav-top--hh--clock,
 #nav-top--close,
@@ -523,9 +513,7 @@ section,
 }
 
 /***************************************** Mobile *****************************************/
-
 @media (max-width:800px) {
-
   .scroll-snap--container {
     overflow-y: scroll;
     max-height: auto;
