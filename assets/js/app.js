@@ -15,7 +15,6 @@ function initScrollTitle() {
   }
   title_scroll();
 }
-
 initScrollTitle();
 
 /***************************************** Audio *****************************************/
@@ -48,246 +47,14 @@ $('.click-sound').click(function() {
   audioClick.play();
 });
 
-/***************************************** Screensaver *****************************************/
-
-$('#screensaver').hide();
-var i = null;
-$('body, #screensaver').mousemove(function() {
-  clearTimeout(i);
-  $('#screensaver').fadeOut();
-  i = setTimeout('$("#screensaver").fadeIn(2000);', 30000);
-});
-
-class PinterestFeed {
-  constructor(...slug) {
-    this.slugs = [];
-    this.feed = [];
-    this.getFeeds();
-  }
-  reflect(promise) {
-    return promise.then(v => v.pins).catch(e => e);
-  }
-  getFeed(slug) {
-    const api = `https://widgets.pinterest.com/v3/pidgets/boards/${slug}/pins/`;
-    return new Promise((resolve, reject) => {
-      $.ajax({
-        dataType: 'jsonp',
-        type: 'GET',
-        url: api
-      }).done((response) => {
-        resolve(response.data);
-      }).fail((error) => {
-        reject(error);
-      });
-    });
-  }
-  getFeeds(...slug) {
-    return Promise.all(slug.map(v => this.reflect(this.getFeed(v))));
-  }
-}
-
-const list = document.querySelector('#pinterest-board');
-const board1 = 'headless_horse/direction';
-const board2 = 'headless_horse/fashion';
-const board3 = 'headless_horse/space';
-const feed = new PinterestFeed();
-let feedItems = [];
-
-feed.getFeeds(board1, board2, board3).then((response) => {
-  feedItems = response.flat();
-  feedItems.forEach(item => {
-    const imageUrl = item.images['237x'].url;
-    const li = document.createElement('li');
-    li.style.backgroundImage = `url(${imageUrl})`;
-    list.appendChild(li);
-  });
-
-  function htmlShuffle(elem) {
-    function shuffle(arr) {
-      var len = arr.length;
-      var d = len;
-      var array = [];
-      var k, i;
-      for (i = 0; i < d; i++) {
-        k = Math.floor(Math.random() * len);
-        array.push(arr[k]);
-        arr.splice(k, 1);
-        len = arr.length;
-      }
-      for (i = 0; i < d; i++) {
-        arr[i] = array[i];
-      }
-      return arr;
-    }
-
-    var el = document.querySelectorAll('#pinterest-board > li');
-
-    let pos = [];
-    for (let i = 0; i < el.length; i++) {
-      pos.push(i);
-    }
-
-    pos = shuffle(pos);
-    for (let i = 0; i < pos.length; i++) {
-      document.querySelector(elem).appendChild(el[pos[i]]);
-    }
-  }
-  htmlShuffle('#pinterest-board');
-
-}).catch((error) => {
-  console.log(error);
-});
-
-/***************************************** Navigation *****************************************/
-
-$('#nav-top--close, .project-link').click(function() {
-  $('#terminal, #wall-image--cover').delay(200).fadeToggle(2000);
-  $('#wall-image').toggleClass('wall-image--filter');
-});
-
-$('#nav-top--close').click(function() {
-  $('#nav-top--close--status').html($('#nav-top--close--status').html() == 'Menu' ? 'Close' : 'Menu');
-  $('#terminal--copy, #nav-bottom--new-project').delay(200).fadeIn(2000);
-  $('#terminal--iframe').delay(200).fadeOut(2000);
-  $('#terminal').addClass('terminal--mix-blend-mode');
-});
-
-$('#nav-bottom--new-project, .project-link').click(function() {
-  $('#nav-top--close--status').html('Close');
-  $('#terminal--iframe, #terminal, #wall-image--cover').delay(200).fadeIn(2000);
-  $('#terminal--copy').delay(200).fadeOut(2000);
-});
-
-$('#nav-bottom--new-project').click(function() {
-  $('#nav-bottom--new-project').delay(200).fadeOut(2000);
-  $('#terminal').addClass('terminal--mix-blend-mode');
-});
-
-$('.project-link').click(function() {
-  $('#terminal').removeClass('terminal--mix-blend-mode');
-});
-
-/***************************************** Clock *****************************************/
-
-const locations = document.querySelectorAll('#nav-top--hh--clock')
-
-setInterval(function() {
-  // for each output tag
-  locations.forEach(location => {
-
-    // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-    const tz = location.getAttribute('data_tz')
-
-    // get the time in that timezone.
-    const now = luxon.DateTime.now().setZone(tz)
-
-    // hour in 24-hour time, no padding.
-    const hour = parseInt(now.toFormat('H'), 10)
-    console.log(hour)
-
-    // day of the week as number. Monday is 1, Sunday is 7.
-    const hourday = now.toFormat('c')
-    console.log(hourday)
-
-    // timezone. GMT.
-    const timezone = now.toFormat('ZZZZ')
-    console.log(timezone)
-
-    const clock = document.getElementById('nav-top--hh--clock');
-    const list = document.getElementById('hours-list');
-    const open = hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6
-    if (clock) clock.innerHTML = open ? 'Online' : 'Out of office';
-    if (list) list.innerHTML = open ? `The studio is open today from 08:00–18:00 ${timezone}.` : `The studio is now closed. We are open Monday—Friday 08:00–18:00 ${timezone}.`;
-  })
-}, 1000)
-
-/***************************************** Preload *****************************************/
-
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    let repos = JSON.parse(this.responseText);
-    repos.forEach((repo) => {
-      document.getElementById('preload').innerHTML += `
-        <p>Connecting address: ${repo.html_url}.</p>
-        <p>Repo name: ${repo.name}.</p>
-        <br>
-        <p>Last updated: ${new Date(repo.pushed_at)}.</p>
-        <p>Total size downloading: ${repo.size}kb.</p>
-        <p>Finished early booting sequence.</p>
-        `;
-    });
-  }
-};
-xhttp.open('GET', 'https://api.github.com/users/headlesshorse/repos', true);
-xhttp.send();
-
-/***************************************** Cookie Visit Record *****************************************/
-
-var days = 365; // when the cookie will expire
-var lastvisit = new Object();
-
-lastvisit.getCookie = function(Name) {
-  var re = new RegExp(Name + '=[^;]+', 'i');
-  if (document.cookie.match(re))
-    return document.cookie.match(re)[0].split('=')[1];
-  return '';
-}
-
-lastvisit.setCookie = function(name, value, days) {
-  var expireDate = new Date();
-
-  var expstring = expireDate.setDate(expireDate.getDate() + parseInt(days));
-  document.cookie = name + '=' + value + '; expires=' + expireDate.toGMTString() + '; path=/';
-}
-
-lastvisit.showmessage = function() {
-  var wh = new Date();
-  if (lastvisit.getCookie('HHvisitrecord') == '') {
-    lastvisit.setCookie('HHvisitrecord', wh, days);
-    document.getElementById('firstuse-message').innerHTML = "To see a list of index commands of type 'list'.";
-
-  } else {
-    var lv = lastvisit.getCookie('HHvisitrecord');
-    var lvp = Date.parse(lv);
-    var now = new Date();
-    now.setTime(lvp);
-    var month = new Array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12');
-    var dd = now.getDate();
-    if (dd < 10) {
-      dd = '0' + dd
-    }
-    var mn = now.getMonth();
-    mn = month[mn];
-    yy = now.getFullYear();
-    var hh = now.getHours();
-    if (hh == 0) {
-      hh = 12
-    }
-    if (hh < 10) {
-      hh = '0' + hh
-    };
-    var mins = now.getMinutes();
-    if (mins < 10) {
-      mins = '0' + mins
-    }
-    var dispDate = dd + '.' + mn + '.' + yy + ' at ' + hh + ':' + mins
-    document.getElementById('welcome-back').innerHTML = 'back ';
-    document.getElementById('lastvisit-message').innerHTML = 'Your last visit was on ' + dispDate + '.';
-  }
-  lastvisit.setCookie('HHvisitrecord', wh, days);
-
-}
-lastvisit.showmessage();
-
 /***************************************** Loader *****************************************/
 
 width = 100,
   perfData = window.performance.timing,
   EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
-  time = parseInt((EstimatedTime / 1000) % 60) * 100 + 4000;
+  time = parseInt((EstimatedTime / 1000) % 60) * 100 + 2000;
 
-$('#nav-top--loader-bar').animate({
+$('#loader--bar').animate({
   width: width + '%'
 }, time);
 
@@ -316,146 +83,82 @@ function animateValue(id, start, end, duration) {
 }
 
 setTimeout(function() {
-  $('#nav-top--hh--percentage').fadeOut(2000);
-  $('#nav-top--hh--clock, #nav-top--close, #nav-bottom, #terminal--copy').delay(1000).fadeIn(2000);
-  $('#wall-image').delay(3000).fadeIn(2000);
+  $('#loader').delay(1000).fadeOut(1000);
+  $('#wall-image').delay(2000).fadeIn(2000);
+  $('#horseshoe').delay(4000).fadeIn(2000);
 }, time);
+
+/***************************************** Navigation *****************************************/
+
+$('#horseshoe').click(function() {
+  $('#content, #wall-image--cover').delay(200).fadeToggle(1000);
+  $('#content--copy').delay(1000).fadeIn(2000);
+  $('#content--iframe').delay(2000).attr('src', "");
+  $('#wall-image').toggleClass('wall-image--filter');
+});
+
+$('.project-link').click(function() {
+  $('#content, #content--iframe, #wall-image--cover').delay(200).fadeIn(2000);
+  $('#content--copy').hide();
+});
 
 /***************************************** Typing *****************************************/
 
-(function(e) {
-  'use strict';
-  e.fn.textTyper = function(t) {
-    var n = {
-        typingClass: 'typing',
-        beforeAnimation: function() {},
-        afterAnimation: function() {},
-        speed: 50,
-        nextLineDelay: 400,
-        startsFrom: 0,
-        repeatAnimation: false,
-        repeatDelay: 4e3,
-        repeatTimes: 1,
-        cursorHtml: '<span class="cursor">|</span>'
-      },
-      r = e.extend({}, n, t);
+$('#horseshoe').one('click', function() {
+  $.fn.typewriter = function() {
     this.each(function() {
-      var t = e(this),
-        n = 1,
-        i = 'typingCursor';
-      var s = t,
-        o = s.length,
-        u = [];
-      while (o--) {
-        u[o] = e.trim(e(s[o]).html());
-        e(s[o]).html('')
-      }
-      t.init = function(e) {
-        var n = r.beforeAnimation;
-        if (n) n();
-        t.animate(0)
-      };
-      t.animate = function(o) {
-        var a = s[o],
-          f = r.typingClass,
-          l = r.startsFrom;
-        e(a).addClass(f);
-        var c = setInterval(function() {
-          var f = r.cursorHtml;
-          f = e('<div>').append(e(f).addClass(i)).html();
-          e(a).html(u[o].substr(0, l) + f);
-          l++;
-          if (u[o].length < l) {
-            clearInterval(c);
-            o++;
-            if (s[o]) {
-              setTimeout(function() {
-                e(a).html(u[o - 1]);
-                t.animate(o)
-              }, r.nextLineDelay)
-            } else {
-              e(a).find('.' + i).remove();
-              if (r.repeatAnimation && (r.repeatTimes == 0 || n < r.repeatTimes)) {
-                setTimeout(function() {
-                  t.animate(0);
-                  n++
-                }, r.repeatDelay)
-              } else {
-                var h = r.afterAnimation;
-                if (h) h()
-              }
-            }
-          }
-        }, r.speed)
-      };
-      t.init()
-    });
-    return this
-  }
-})(jQuery)
+      var $ele = $(this),
+        str = $ele.html(),
+        progress = 0,
+        offset = 0;
+      $ele.html('');
 
-/***************************************** Terminal Command *****************************************/
-
-if (window.screen.width > 800) {
-  $(document).ready(function() {
-    $('#command').hide();
-    $('#preload').addClass('open');
-    $('#preload').textTyper({
-      speed: 5,
-      afterAnimation: function() {
-        $('#preload').removeClass('open');
-        $('#home').addClass('open');
-        $('#home').textTyper({
-          speed: 20,
-          afterAnimation: function() {
-            $('#command').fadeIn();
-            $('#command--input[type="text"]').val('');
-            $('#command--input[type="text"]').focus();
-          }
-        });
-      }
-    });
-
-    // get array of section ids, that exist in DOM
-    var sectionArray = [];
-    $('section').each(function(i, e) {
-      // you can use e.id instead of $(e).attr('id')
-      sectionArray.push($(e).attr('id'));
-    });
-
-    // command input
-    $('#command--input[type="text"]').keyup(function(e) {
-
-      if (e.which == 13) {
-
-        $('#command').hide();
-        var destination = $('input[type="text"]').val();
-
-        // display section with id == destination
-        $('section[id="' + destination + '"]').addClass('open').siblings().removeClass('open');
-
-        // display error
-        if ($.inArray(destination, sectionArray) == -1) {
-          $('#error').addClass('open');
-          $('#error').siblings().removeClass('open');
+      var typewriting = function() {
+        $ele.html(str.substring(offset, progress++) + (progress & 1 ? '|' : ''));
+        if (progress >= str.length) {
+          return;
+        } else {
+          setTimeout(typewriting, 4 + Math.random() * 3);
         }
-
-        $('.open').textTyper({
-          speed: 10,
-          afterAnimation: function() {
-            $('#command').fadeIn();
-            $('#command--input[type="text"]').val('');
-            $('#command--input[type="text"]').focus();
-          }
-        });
-      } // end if 'enter' key pressed
-    }); // end keyup function
-  });
-}
-
-$('#terminal').click(function() {
-  $('#command--input[type="text"]').focus();
+      }
+      typewriting();
+    });
+    return this;
+  };
+  $('.column').typewriter();
 });
+
+/***************************************** Office Hours *****************************************/
+
+const locations = document.querySelectorAll('#office-hours')
+
+setInterval(function() {
+  // for each output tag
+  locations.forEach(location => {
+
+    // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+    const tz = location.getAttribute('data_tz')
+
+    // get the time in that timezone.
+    const now = luxon.DateTime.now().setZone(tz)
+
+    // hour in 24-hour time, no padding.
+    const hour = parseInt(now.toFormat('H'), 10)
+    console.log(hour)
+
+    // day of the week as number. Monday is 1, Sunday is 7.
+    const hourday = now.toFormat('c')
+    console.log(hourday)
+
+    // timezone. GMT.
+    const timezone = now.toFormat('ZZZZ')
+    console.log(timezone)
+
+    const clock = document.getElementById('office-hours');
+    const open = hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6
+    if (clock) clock.innerHTML = open ? ` The studio is open today from 08:00–18:00 ${timezone}.` : ` The studio is now closed. We are open Monday—Friday 08:00–18:00 ${timezone}.`;
+  })
+}, 1000)
 
 /***************************************** Wall Image *****************************************/
 
@@ -575,80 +278,6 @@ window.addEventListener('load', init);
     $('#wall-image--map').on('mousemove', '.' + CLS_ON, showAt);
   }
 }());
-
-$('#nav-top--close, #nav-bottom--new-project, .project-link').click(function() {
-  let Termtitle = $(this).attr('alt');
-  $('#nav-top--close--title').html(Termtitle);
-});
-
-$('.project-link').hover(function() {
-  $this = $(this);
-  if (!$this.attr('alt') && $this.attr('title')) {
-    $this.attr('alt', $this.attr('title'));
-  }
-})
-
-/***************************************** Newsletter *****************************************/
-
-function showError(el, err) {
-  $('#newsletter--subscribe').attr('disabled', false);
-  $('#newsletter--subscribe').css('display', 'inline')
-  if (err) {
-    $('#newsletter--subscribe').attr('disabled', true)
-    $('#newsletter--subscribe').css('display', 'none')
-  }
-}
-
-var isValidEmailAddress = function(emailAddress) {
-  var pattern = new RegExp( // regexes validate email
-    /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i
-  );
-  return pattern.test(emailAddress);
-};
-
-function validate_email(el, val) {
-  var err = !isValidEmailAddress(val);
-  showError(el, err);
-}
-
-$('#newsletter--email').on('keyup', function() {
-  validate_email(this, this.value);
-});
-
-/***************************************** Translate *****************************************/
-
-function Translate(elm) {
-  window.location = 'https://translate.google.com/translate?sl=en&tl=' + elm.value + '&u=https://headless.horse';
-}
-
-/***************************************** Mobile Accordion *****************************************/
-
-let accHeading = document.querySelectorAll('.accordion');
-let accPanel = document.querySelectorAll('.accordion--panel');
-
-for (let i = 0; i < accHeading.length; i++) {
-
-  accHeading[i].onclick = function() {
-    if (this.nextElementSibling.style.maxHeight) {
-      hidePanels();
-    } else {
-      showPanel(this);
-    }
-  };
-}
-
-function showPanel(elem) {
-  hidePanels();
-  elem.classList.add('active');
-  elem.nextElementSibling.style.maxHeight = elem.nextElementSibling.scrollHeight + 'px';
-}
-
-function hidePanels() {
-  for (let i = 0; i < accPanel.length; i++) {
-    accPanel[i].style.maxHeight = null;
-    accHeading[i].classList.remove('active');
-  }
-}
 
 /***************************************** Cookie Notice *****************************************/
 

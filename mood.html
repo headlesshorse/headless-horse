@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  <ul id="pinterest"></ul>
+  <script src="./assets/js/jquery.min.js"></script>
+</body>
+
+</html>
+
+<style>
+  html {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background: #000000;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  #pinterest {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    list-style: none;
+    grid-template-columns: repeat(10, 10fr);
+    grid-template-rows: repeat(10, 10vh);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+
+  #pinterest>li {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: grayscale(50%) contrast(0.8) brightness(0.9);
+  }
+</style>
+
+<script>
+  /***************************************** Screensaver *****************************************/
+
+  class PinterestFeed {
+    constructor(...slug) {
+      this.slugs = [];
+      this.feed = [];
+      this.getFeeds();
+    }
+    reflect(promise) {
+      return promise.then(v => v.pins).catch(e => e);
+    }
+    getFeed(slug) {
+      const api = `https://widgets.pinterest.com/v3/pidgets/boards/${slug}/pins/`;
+      return new Promise((resolve, reject) => {
+        $.ajax({
+          dataType: 'jsonp',
+          type: 'GET',
+          url: api
+        }).done((response) => {
+          resolve(response.data);
+        }).fail((error) => {
+          reject(error);
+        });
+      });
+    }
+    getFeeds(...slug) {
+      return Promise.all(slug.map(v => this.reflect(this.getFeed(v))));
+    }
+  }
+
+  const list = document.querySelector('#pinterest');
+  const board1 = 'headless_horse/direction';
+  const board2 = 'headless_horse/fashion';
+  const board3 = 'headless_horse/space';
+  const feed = new PinterestFeed();
+  let feedItems = [];
+
+  feed.getFeeds(board1, board2, board3).then((response) => {
+    feedItems = response.flat();
+    feedItems.forEach(item => {
+      const imageUrl = item.images['237x'].url;
+      const li = document.createElement('li');
+      li.style.backgroundImage = `url(${imageUrl})`;
+      list.appendChild(li);
+    });
+
+    function htmlShuffle(elem) {
+      function shuffle(arr) {
+        var len = arr.length;
+        var d = len;
+        var array = [];
+        var k, i;
+        for (i = 0; i < d; i++) {
+          k = Math.floor(Math.random() * len);
+          array.push(arr[k]);
+          arr.splice(k, 1);
+          len = arr.length;
+        }
+        for (i = 0; i < d; i++) {
+          arr[i] = array[i];
+        }
+        return arr;
+      }
+
+      var el = document.querySelectorAll('#pinterest > li');
+
+      let pos = [];
+      for (let i = 0; i < el.length; i++) {
+        pos.push(i);
+      }
+
+      pos = shuffle(pos);
+      for (let i = 0; i < pos.length; i++) {
+        document.querySelector(elem).appendChild(el[pos[i]]);
+      }
+    }
+    htmlShuffle('#pinterest');
+
+  }).catch((error) => {
+    console.log(error);
+  });
+</script>

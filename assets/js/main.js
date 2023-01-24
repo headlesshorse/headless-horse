@@ -46,31 +46,15 @@ const content = blocks.map(block => {
   }
   });
 
-  render(content, document.getElementById('nav-bottom--notice'))
+  render(content, document.getElementById('notice'))
 }
 Noticerun();
-
-/***************************************** Press *****************************************/
-
-  const PresstableTemplate = table => html`
-      ${table.map(({id, Recognition, Outlet, Project, Published, Slug}) => html`
-        <li><a href="${Slug}" target="_blank"><span>${Outlet}</span><span>${Recognition}</span><span>${Project}</span><span>${Published}</span></a></li>
-      `)}
-  `;
-
-    fetch('https://notion-api.splitbee.io/v1/table/cd48ac8833464607818ff47ee43fb791')
-    .then(handleAsJson) // Promise<TableJson>
-    .then(trace('table is'))
-    .then(PresstableTemplate) // Promise<TemplateResult>
-		.then(trace('template result is'))
-    .then(result =>
-			render(result, document.getElementById('press-list')))
 
 /***************************************** Jobs *****************************************/
 
   const CareerstableTemplate = table => html`
-      ${table.map(({id, Position, Location, Contract, Slug}) => html`
-        <p><a href="${Slug}" target="_blank">${Position} — ${Location}, ${Contract}.</a></p>
+      ${table.map(({Position, Location, Contract, Slug}) => html`
+        <p><a href="${Slug}" target="_blank" data-value="${Location}, ${Contract}">${Position}</a></p>
       `)}
   `;
 
