@@ -4,6 +4,7 @@
   --hh-z-index-1: 100;
   --hh-z-index-2: 200;
   --hh-z-index-3: 300;
+  --hh-z-index-3: 400;
   --hh-z-index-top: 9999;
   --hh-color-black: #000000;
   --hh-color-slate: #999999;
@@ -186,7 +187,7 @@ a:hover,
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: var(--hh-z-index-3);
+  z-index: var(--hh-z-index-4);
   cursor: pointer !important;
   transform: translate(-50%, -50%);
 }
@@ -214,6 +215,7 @@ a:hover,
 
 #content--copy {
   position: absolute;
+  z-index: var(--hh-z-index-3);
   display: none;
 }
 
