@@ -114,7 +114,7 @@ $('#horseshoe').one('click', function() {
       $ele.html('');
 
       var typewriting = function() {
-        $ele.html(str.substring(offset, progress++) + (progress & 1 ? '|' : ''));
+        $ele.html(str.substring(offset, progress++));
         if (progress >= str.length) {
           return;
         } else {
