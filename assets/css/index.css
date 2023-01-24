@@ -308,8 +308,11 @@ map area {
     width: 25%;
   }
 
-  .column:not(:last-child) {
+  .column{
     width: 100%;
+  }
+
+  .column:not(:last-child) {
     padding-bottom: 0;
   }
 
