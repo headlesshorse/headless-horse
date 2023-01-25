@@ -193,7 +193,7 @@ a:hover,
 }
 
 /***************************************** Main *****************************************/
-#content {
+#main {
   position: absolute;
   z-index: var(--hh-z-index-2);
   width: 100%;
@@ -206,14 +206,14 @@ a:hover,
   mix-blend-mode: difference;
 }
 
-#content--iframe {
+#main--iframe {
   position: absolute;
   z-index: var(--hh-z-index-2);
   width: 100%;
   height: 100%;
 }
 
-#content--copy {
+#main--copy {
   position: absolute;
   z-index: var(--hh-z-index-3);
   display: none;
@@ -295,8 +295,8 @@ map area {
 
 /***************************************** Hide *****************************************/
 #horseshoe,
-#content,
-#content--iframe,
+#main,
+#main--iframe,
 #wall-image--cover,
 #wall-image {
   display: none;

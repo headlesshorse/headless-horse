@@ -91,15 +91,15 @@ setTimeout(function() {
 /***************************************** Navigation *****************************************/
 
 $('#horseshoe').click(function() {
-  $('#content, #wall-image--cover').delay(200).fadeToggle(1000);
-  $('#content--copy').delay(1000).fadeIn(2000);
-  $('#content--iframe').delay(2000).attr('src', "");
+  $('#main, #wall-image--cover').delay(200).fadeToggle(1000);
+  $('#main--copy').delay(1000).fadeIn(2000);
+  $('#main--iframe').delay(2000).attr('src', "");
   $('#wall-image').toggleClass('wall-image--filter');
 });
 
 $('.project-link').click(function() {
-  $('#content, #content--iframe, #wall-image--cover').delay(200).fadeIn(2000);
-  $('#content--copy').hide();
+  $('#main, #main--iframe, #wall-image--cover').delay(200).fadeIn(2000);
+  $('#main--copy').hide();
 });
 
 /***************************************** Typing *****************************************/
