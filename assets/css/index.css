@@ -222,7 +222,7 @@ a:hover,
 .column {
   float: left;
   padding: var(--hh-spacing-4x);
-  width: 25%;
+  width: 25vw;
   overflow: scroll;
 }
 
