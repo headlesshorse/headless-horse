@@ -8,6 +8,14 @@
 
 * * *
 
+### 4.0 (25.01.2022)
+* Add new site layout and structure inspired by our 2017 website.
+* Add typing effect for contents inspired by the 'terminal' effect of the previous design.
+* Add efficient site structure that is easier to navigate and find information.
+* Single button navigation.
+* Removed the 'terminal' typing interface.
+* Update to content copy.
+
 ### 3.0 (14.06.2022)
 * Add new site layout and structure
 * Add new site footer with scroll-snap
