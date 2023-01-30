@@ -156,7 +156,7 @@ setInterval(function() {
 
     const clock = document.getElementById('office-hours');
     const open = hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6
-    if (clock) clock.innerHTML = open ? ` The studio is open today from 08:00–18:00 ${timezone}.` : ` The studio is now closed. We are open Monday—Friday 08:00–18:00 ${timezone}.`;
+    if (clock) clock.innerHTML = open ? ` The studio is open today from 08:00 – 18:00 ${timezone}.` : ` The studio is now closed. We are open Monday to Friday 08:00 – 18:00 ${timezone}.`;
   })
 }, 1000)
 
