@@ -54,10 +54,6 @@ width = 100,
   EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
   time = parseInt((EstimatedTime / 1000) % 60) * 100 + 2000;
 
-$('#loader--bar').animate({
-  width: width + '%'
-}, time);
-
 var loader_percentageID = $('#nav-top--hh--percentage'),
   start = 0,
   end = 100,
@@ -82,10 +78,21 @@ function animateValue(id, start, end, duration) {
   }, stepTime);
 }
 
+$('#loader--bar').animate({
+  width: width + '%'
+}, time);
+
+$('body').css({
+  'cursor': 'wait'
+});
+
 setTimeout(function() {
   $('#loader').delay(1000).fadeOut(1000);
   $('#wall-image').delay(2000).fadeIn(2000);
   $('#horseshoe').delay(4000).fadeIn(2000);
+  $('body').css({
+    'cursor': 'default'
+  });
 }, time);
 
 /***************************************** Navigation *****************************************/
