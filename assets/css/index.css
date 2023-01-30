@@ -175,6 +175,7 @@ a:hover,
   z-index: var(--hh-z-index-top);
   width: 200px;
   transform: translate(-50%, -50%);
+  cursor: wait !important;
 }
 
 #loader--bar {
@@ -183,13 +184,18 @@ a:hover,
   background: var(--hh-color-slate);
 }
 
+/***************************************** Nav *****************************************/
 #horseshoe {
   position: absolute;
   top: 50%;
   left: 50%;
   z-index: var(--hh-z-index-4);
-  cursor: pointer !important;
   transform: translate(-50%, -50%);
+  cursor: help;
+}
+
+.horseshoe--cursor {
+  cursor: w-resize !important;
 }
 
 /***************************************** Main *****************************************/
@@ -200,10 +206,6 @@ a:hover,
   height: 100%;
   mix-blend-mode: difference;
   overflow: scroll;
-}
-
-.content--mix-blend-mode {
-  mix-blend-mode: difference;
 }
 
 #main--iframe {
@@ -296,7 +298,7 @@ button:focus {
 }
 
 .wall-image--filter {
-  filter: grayscale(100%);
+  filter: grayscale(100%) contrast(70%);
 }
 
 map area {
@@ -337,7 +339,7 @@ map area {
   }
 
   .column{
-    width: 100%;
+    width: 100vw;
   }
 
   .column:not(:last-child) {

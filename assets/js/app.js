@@ -95,11 +95,13 @@ $('#horseshoe').click(function() {
   $('#main--copy').delay(1000).fadeIn(2000);
   $('#main--iframe').delay(2000).attr('src', "");
   $('#wall-image').toggleClass('wall-image--filter');
+  $('#horseshoe').toggleClass('horseshoe--cursor');
 });
 
 $('.project-link').click(function() {
   $('#main, #main--iframe, #wall-image--cover').delay(200).fadeIn(2000);
   $('#main--copy').hide();
+  $('#horseshoe').toggleClass('horseshoe--cursor');
 });
 
 /***************************************** Typing *****************************************/
