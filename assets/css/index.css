@@ -164,7 +164,7 @@ a:hover,
   font-weight: var(--hh-font-body-1-font-weight);
   font-size: var(--hh-font-body-1-font-size);
   font-family: var(--hh-font-body-1-font-family);
-  cursor: pointer !important;
+  cursor: pointer;
 }
 
 /***************************************** Loader *****************************************/
@@ -175,7 +175,7 @@ a:hover,
   z-index: var(--hh-z-index-top);
   width: 200px;
   transform: translate(-50%, -50%);
-  cursor: wait !important;
+  cursor: wait;
 }
 
 #loader--bar {
@@ -191,6 +191,8 @@ a:hover,
   left: 50%;
   z-index: var(--hh-z-index-4);
   transform: translate(-50%, -50%);
+  filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.8));
+  -webkit-filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.8));
   cursor: help;
 }
 
@@ -338,7 +340,7 @@ map area {
     width: 25%;
   }
 
-  .column{
+  .column {
     width: 100vw;
   }
 
