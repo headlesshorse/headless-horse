@@ -194,6 +194,11 @@ a:hover,
   filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.8));
   -webkit-filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.8));
   cursor: help;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
 }
 
 .horseshoe--cursor {
