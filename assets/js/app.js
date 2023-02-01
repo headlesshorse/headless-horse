@@ -357,8 +357,4 @@ void(function(root, factory) {
   return CookieNotice
 }));
 
-/*
-  CookieNotice.undismiss() // just to make it always show
-*/
-
 CookieNotice()
