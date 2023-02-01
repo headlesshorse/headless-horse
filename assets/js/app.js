@@ -71,7 +71,6 @@ function animateValue(id, start, end, duration) {
   var timer = setInterval(function() {
     current += increment;
     $(obj).text(' ' + current + '%');
-    // obj.innerHTML = current;
     if (current == end) {
       clearInterval(timer);
     }
@@ -143,7 +142,6 @@ $('#horseshoe').one('click', function() {
 const locations = document.querySelectorAll('#office-hours')
 
 setInterval(function() {
-  // for each output tag
   locations.forEach(location => {
 
     // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -156,11 +154,11 @@ setInterval(function() {
     const hour = parseInt(now.toFormat('H'), 10)
     console.log(hour)
 
-    // day of the week as number. Monday is 1, Sunday is 7.
+    // day of the week as number.
     const hourday = now.toFormat('c')
     console.log(hourday)
 
-    // timezone. GMT.
+    // timezone.
     const timezone = now.toFormat('ZZZZ')
     console.log(timezone)
 
@@ -172,7 +170,7 @@ setInterval(function() {
 
 /***************************************** Wall Image *****************************************/
 
-var acceleration = 0.01; // acceleration value between 0 and 1 smaller values = smoother motion
+var acceleration = 0.01;
 
 var img = {
   element: document.querySelector('#wall-image'),
@@ -221,28 +219,18 @@ function init() {
   window.addEventListener('resize', resize);
 }
 
-/*
- * @param {number} x value to map
- * @param {number} a source min value
- * @param {number} b source max value
- * @param {number} c destination min value
- * @param {number} d destination max value
- */
 function map(x, a, b, c, d) {
   return c + (d - c) * ((x - a) / (b - a)) || 0;
 }
 
 function resize() {
-
   vw = window.innerWidth;
   vh = window.innerHeight;
-
   img.xMax = vw - img.element.naturalWidth;
   img.yMax = vh - img.element.naturalHeight;
 }
 
 function moveAction(event) {
-
   if (event.targetTouches && event.targetTouches[0]) {
     event.preventDefault();
     mouse.x = event.targetTouches[0].clientX;
