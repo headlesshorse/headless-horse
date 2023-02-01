@@ -108,6 +108,7 @@ $('#horseshoe').click(function() {
 $('.project-link').click(function() {
   $('#main, #main--iframe, #wall-image--cover').delay(200).fadeIn(2000);
   $('#main--copy').hide();
+  $('#wall-image').toggleClass('wall-image--filter');
   $('#horseshoe').toggleClass('horseshoe--cursor');
 });
 
