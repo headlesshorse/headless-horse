@@ -139,34 +139,17 @@ $('#horseshoe').one('click', function() {
 
 /***************************************** Office Hours *****************************************/
 
-const locations = document.querySelectorAll('#office-hours')
+$(document).ready(function() {
+  var today = new Date();
+  var h = today.getUTCHours();
+  var d = today.getUTCDay();
 
-setInterval(function() {
-  locations.forEach(location => {
-
-    // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-    const tz = location.getAttribute('data_tz')
-
-    // get the time in that timezone.
-    const now = luxon.DateTime.now().setZone(tz)
-
-    // hour in 24-hour time, no padding.
-    const hour = parseInt(now.toFormat('H'), 10)
-    console.log(hour)
-
-    // day of the week as number.
-    const hourday = now.toFormat('c')
-    console.log(hourday)
-
-    // timezone.
-    const timezone = now.toFormat('ZZZZ')
-    console.log(timezone)
-
-    const clock = document.getElementById('office-hours');
-    const open = hour >= 8 && hour < 18 && hourday >= 1 && hourday < 6
-    if (clock) clock.innerHTML = open ? ` The studio is open today from 08:00–18:00 ${timezone}.` : ` The studio is now closed. We are open weekdays 08:00–18:00 ${timezone}.`;
-  })
-}, 1000)
+  if (h >= 8 && h < 18 && d >= 1 && d < 5) {
+    document.getElementById('office-hours').innerHTML = " The studio is open today from 08:00–18:00 GMT.";
+  } else {
+    document.getElementById('office-hours').innerHTML = " The studio is now closed. We are open weekdays 08:00–18:00 GMT.";
+  }
+});
 
 /***************************************** Wall Image *****************************************/
 
