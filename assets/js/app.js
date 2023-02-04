@@ -1,9 +1,9 @@
 /***************************************** Site Title *****************************************/
 
 function initScrollTitle() {
-  var space = ' · ';
+  var space = ' | ';
   var pos = 0;
-  var msg = 'HEADLESS HORSE · Independent, full-service creative studio.';
+  var msg = 'HEADLESS HORSE | Independent, full-service creative studio.';
 
   function title_scroll() {
     document.title = msg.substring(pos, msg.length) + space + msg.substring(0, pos);
