@@ -17,36 +17,6 @@ function initScrollTitle() {
 }
 initScrollTitle();
 
-/***************************************** Audio *****************************************/
-
-var audioPad = document.createElement('audio');
-audioPad.setAttribute('src', './assets/media/audio/pad.wav');
-audioPad.setAttribute('autoplay', 'autoplay', );
-audioPad.setAttribute('loop', 'loop', );
-audioPad.addEventListener('load', function() {
-  audioPad.play();
-}, true);
-
-var audioProject = document.createElement('audio');
-audioProject.setAttribute('src', './assets/media/audio/select.mp3');
-audioProject.addEventListener('load', function() {
-  audioProject.play();
-}, true);
-
-var audioClick = document.createElement('audio');
-audioClick.setAttribute('src', './assets/media/audio/click.mp3');
-audioClick.addEventListener('load', function() {
-  audioClick.play();
-}, true);
-
-$('.project-link').click(function() {
-  audioProject.play();
-});
-
-$('.click-sound').click(function() {
-  audioClick.play();
-});
-
 /***************************************** Loader *****************************************/
 
 width = 100,
@@ -104,7 +74,7 @@ $('#horseshoe').click(function() {
   $('#horseshoe').toggleClass('horseshoe--cursor');
 });
 
-$('.project-link').click(function() {
+$('*[target="main--iframe"]').click(function() {
   $('#main, #main--iframe, #wall-image--cover').delay(200).fadeIn(2000);
   $('#main--copy').hide();
   $('#wall-image').toggleClass('wall-image--filter');
