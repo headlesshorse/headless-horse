@@ -92,9 +92,8 @@ a[data-value]:hover:after {
 }
 
 a:hover,
-.click-sound:hover,
-#cookie-notice--dismiss:hover,
-#footer--bottom--site-links--translate:hover {
+#horseshoe:hover,
+#cookie-notice--dismiss:hover {
   -webkit-animation-name: hover-flicker;
   animation-name: hover-flicker;
   -webkit-animation-duration: 2s;
