@@ -20,12 +20,11 @@ Here are the major frameworks, programming languages, software and libraries we 
 -   [jQuery](https://jquery.com)
 -   [Greensock](https://greensock.com)
 -   [TweenMax](https://greensock.com/tweenmax)
--   [Lit](https://lit.dev)
 
 ### Tools
 
 -   [Github Pages](https://docs.github.com/en/pages): Hosting.
--   [Notion API](https://developers.notion.com): Notion API as site CMS.
+-   [Notion](https://developers.notion.com): Notion API as site CMS.
 -   [Panelbear](https://panelbear.com): Cookieless analytics and frontend monitoring.
 -   [Typeform](https://typeform.com): Enquiry form.
 -   [Mailchimp](https://mailchimp.com): Newsletter sign-up.
