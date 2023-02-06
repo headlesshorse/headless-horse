@@ -80,10 +80,7 @@ a:focus {
   text-decoration: none;
 }
 
-a:active[target=_blank],
-a:link[target=_blank],
-a:visited[target=_blank],
-a[target=_blank] {
+*[target=_blank] {
   cursor: ne-resize;
 }
 
@@ -259,7 +256,7 @@ map area {
   top: 100%;
   margin-top: var(--hh-spacing-3x);
   padding: var(--hh-spacing-3x);
-  min-width: 250px;
+  min-width: 200px;
   border: 1px solid var(--hh-color-slate);
   background: var(--hh-color-black-with-alpha);
   color: var(--hh-color-slate);
