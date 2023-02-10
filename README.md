@@ -25,7 +25,7 @@ Here are the major frameworks, programming languages, software and libraries we 
 
 -   [Github Pages](https://docs.github.com/en/pages): Hosting.
 -   [Notion](https://developers.notion.com): Notion API as site CMS.
--   [Panelbear](https://panelbear.com): Cookieless analytics and frontend monitoring.
+-   [Cronitor](https://cronitor.io): Cookieless analytics and frontend monitoring.
 -   [Typeform](https://typeform.com): Enquiry form.
 -   [Mailchimp](https://mailchimp.com): Newsletter sign-up.
 -   [Iubenda](https://iubenda.com): Privacy policy and cookie notice.
