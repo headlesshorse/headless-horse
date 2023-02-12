@@ -175,22 +175,6 @@ a:hover,
   overflow: scroll;
 }
 
-#notice {
-  animation: blink-animation 1s steps(5, start) infinite;
-}
-
-@keyframes blink-animation {
-  to {
-    visibility: hidden;
-  }
-}
-
-@-webkit-keyframes blink-animation {
-  to {
-    visibility: hidden;
-  }
-}
-
 #newsletter input {
   margin: 0;
   padding: 0;
