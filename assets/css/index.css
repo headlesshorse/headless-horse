@@ -175,34 +175,6 @@ a:hover,
   overflow: scroll;
 }
 
-#newsletter input {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: var(--hh-color-transparent);
-  color: var(--hh-color-slate);
-  font-weight: var(--hh-font-body-1-font-weight);
-  font-size: var(--hh-font-body-1-font-size);
-  font-family: var(--hh-font-body-1-font-family);
-  opacity: 1;
-}
-
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-  outline: none;
-  -webkit-appearance: none;
-}
-
-::placeholder {
-  color: var(--hh-color-slate);
-}
-
-::-ms-input-placeholder {
-  color: var(--hh-color-slate);
-}
-
 /***************************************** Wall Image *****************************************/
 #wall-image--cover {
   position: absolute;
