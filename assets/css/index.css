@@ -304,7 +304,7 @@ map area {
 #cookie-notice--message {
   margin: 0;
   padding: var(--hh-spacing-4x);
-  width: 90%;
+  width: 80%;
 }
 
 #cookie-notice--dismiss {
@@ -314,7 +314,7 @@ map area {
   bottom: var(--hh-spacing-4x);
   margin: 0;
   padding: 0 var(--hh-spacing-4x);
-  width: 10%;
+  width: 20%;
   outline: none;
   border: 0;
   background: var(--hh-color-transparent);
