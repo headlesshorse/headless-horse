@@ -64,4 +64,4 @@ Noticerun();
       .then(CareerstableTemplate) // Promise<TemplateResult>
       .then(trace('template result is'))
       .then(result =>
-        render(result, document.getElementById('jobs-list')))
+        render(result, document.getElementById('jobs')))
