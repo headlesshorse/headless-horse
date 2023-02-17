@@ -54,9 +54,9 @@ $('body').css({
 });
 
 setTimeout(function() {
-  $('#loader').delay(1000).fadeOut(1000);
-  $('#wall-image').delay(2000).fadeIn(2000);
-  $('#horseshoe').delay(4000).fadeIn(2000);
+  $('#loader').delay(1000).fadeOut(2000);
+  $('#wall-image').delay(3000).fadeIn(2000);
+  $('#horseshoe').delay(5000).fadeIn(2000);
   $('body').css({
     'cursor': 'default'
   });
