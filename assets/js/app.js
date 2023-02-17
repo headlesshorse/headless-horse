@@ -64,17 +64,15 @@ setTimeout(function() {
 
 /***************************************** Navigation *****************************************/
 $('#horseshoe').click(function() {
-  $('#main, #wall-image--cover').delay(200).fadeToggle(1000);
-  $('#main').removeClass('main--mix-blend-mode');
-  $('#main--copy').delay(1000).fadeIn(2000);
-  $('#main--iframe').delay(2000).attr('src', "");
+  $('#main, #wall-image--cover').fadeToggle(1000);
+  $('#main--iframe').fadeOut(1000);
+  $('#main--copy').delay(200).fadeIn(2000);
   $('#wall-image').toggleClass('wall-image--filter');
   $('#horseshoe').toggleClass('horseshoe--cursor');
 });
 
 $('*[target="main--iframe"]').click(function() {
   $('#main, #main--iframe, #wall-image--cover').delay(200).fadeIn(2000);
-  $('#main').toggleClass('main--mix-blend-mode');
   $('#main--copy').hide();
   $('#wall-image').toggleClass('wall-image--filter');
   $('#horseshoe').toggleClass('horseshoe--cursor');
