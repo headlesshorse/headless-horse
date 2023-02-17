@@ -8,7 +8,7 @@
   --hh-z-index-top: 9999;
   --hh-color-black: #000000;
   --hh-color-slate: #999999;
-  --hh-color-black-with-alpha: rgba(0, 0, 0, 0.9);
+  --hh-color-black-with-alpha: rgba(0, 0, 0, 0.8);
   --hh-color-transparent: transparent;
   --hh-effect-blur: blur(8px);
   --hh-spacing-1x: 5px;
@@ -188,11 +188,11 @@ a:hover,
 
 #wall-image {
   overflow-x: hidden;
-  -webkit-transition: filter 2s;
-  -moz-transition: filter 2s;
-  -o-transition: filter 2s;
-  -ms-transition: filter 2s;
-  transition: filter 2s;
+  -webkit-transition: filter 1s;
+  -moz-transition: filter 1s;
+  -o-transition: filter 1s;
+  -ms-transition: filter 1s;
+  transition: filter 1s;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
@@ -201,7 +201,7 @@ a:hover,
 }
 
 .wall-image--filter {
-  filter: grayscale(100%) contrast(70%);
+  filter: grayscale(100%) contrast(80%);
 }
 
 map area {
