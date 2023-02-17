@@ -1,5 +1,4 @@
 /***************************************** Notion *****************************************/
-
 import { html, render } from 'https://unpkg.com/lit?module';
 
 const handleAsJson = response => response.json();
@@ -23,7 +22,6 @@ function renderText(node) {
 }
 
 /***************************************** Notice *****************************************/
-
 async function Noticerun() {
 
   const result = await fetch('https://notion-api.splitbee.io/v1/page/f97f1af964fe48989650aae62609bf37').then(handleAsJson)
@@ -51,7 +49,6 @@ async function Noticerun() {
 Noticerun();
 
 /***************************************** Jobs *****************************************/
-
   const CareerstableTemplate = table => html`
       ${table.map(({Position, Location, Contract, Slug}) => html`
         <p><a href="${Slug}" target="_blank" data-value="${Location}, ${Contract}">${Position}</a></p>

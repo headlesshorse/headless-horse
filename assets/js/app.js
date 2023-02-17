@@ -1,5 +1,4 @@
 /***************************************** Site Title *****************************************/
-
 function initScrollTitle() {
   var space = ' | ';
   var pos = 0;
@@ -18,7 +17,6 @@ function initScrollTitle() {
 initScrollTitle();
 
 /***************************************** Loader *****************************************/
-
 width = 100,
   perfData = window.performance.timing,
   EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
@@ -65,7 +63,6 @@ setTimeout(function() {
 }, time);
 
 /***************************************** Navigation *****************************************/
-
 $('#horseshoe').click(function() {
   $('#main, #wall-image--cover').delay(200).fadeToggle(1000);
   $('#main--copy').delay(1000).fadeIn(2000);
@@ -82,7 +79,6 @@ $('*[target="main--iframe"]').click(function() {
 });
 
 /***************************************** Typing *****************************************/
-
 $('#horseshoe').one('click', function() {
   $.fn.typewriter = function() {
     this.each(function() {
@@ -108,7 +104,6 @@ $('#horseshoe').one('click', function() {
 });
 
 /***************************************** Office Hours *****************************************/
-
 $(document).ready(function() {
   var today = new Date();
   var h = today.getUTCHours();
@@ -122,7 +117,6 @@ $(document).ready(function() {
 });
 
 /***************************************** Wall Image *****************************************/
-
 var acceleration = 0.01;
 
 var img = {
@@ -195,7 +189,6 @@ function moveAction(event) {
 }
 
 /***************************************** Tooltip *****************************************/
-
 window.addEventListener('load', init);
 
 (function() {
@@ -231,7 +224,6 @@ window.addEventListener('load', init);
 }());
 
 /***************************************** Cookie Notice *****************************************/
-
 void(function(root, factory) {
   if (typeof define === 'function' && define.amd) define(factory)
   else if (typeof exports === 'object') module.exports = factory()
