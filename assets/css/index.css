@@ -115,8 +115,8 @@ a:hover,
   left: 50%;
   z-index: var(--hh-z-index-top);
   width: 200px;
-  transform: translate(-50%, -50%);
   cursor: wait;
+  transform: translate(-50%, -50%);
 }
 
 #loader--bar {
@@ -131,10 +131,10 @@ a:hover,
   top: 50%;
   left: 50%;
   z-index: var(--hh-z-index-4);
-  transform: translate(-50%, -50%);
   filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.8));
   -webkit-filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.8));
   cursor: help;
+  transform: translate(-50%, -50%);
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
@@ -150,9 +150,9 @@ a:hover,
 #main {
   position: absolute;
   z-index: var(--hh-z-index-2);
+  overflow: scroll;
   width: 100%;
   height: 100%;
-  overflow: scroll;
 }
 
 #main:before {
@@ -177,9 +177,9 @@ a:hover,
 
 .column {
   float: left;
+  overflow: scroll;
   padding: var(--hh-spacing-4x);
   width: 25vw;
-  overflow: scroll;
 }
 
 /***************************************** Wall Image *****************************************/
@@ -267,7 +267,7 @@ map area {
   }
 
   li:last-child::after {
-    content: "."
+    content: ".";
   }
 
   a[data-value]:hover::after {
@@ -333,5 +333,3 @@ map area {
   font-family: var(--hh-font-body-1-font-family);
   cursor: pointer;
 }
-
-</style>
