@@ -234,16 +234,6 @@ map area {
   -webkit-backdrop-filter: var(--hh-effect-blur);
 }
 
-/***************************************** Hide *****************************************/
-#horseshoe,
-#main,
-#main--copy,
-#main--iframe,
-#wall-image--cover,
-#wall-image {
-  display: none;
-}
-
 /***************************************** Mobile *****************************************/
 @media screen and (max-width: 1000px) {
   #loader {
@@ -285,32 +275,12 @@ map area {
   top: 0;
   z-index: var(--hh-z-index-top);
   box-sizing: border-box;
+  padding: var(--hh-spacing-4x);
   width: 100%;
   background: var(--hh-color-black);
-  color: var(--hh-color-slate);
-  text-transform: uppercase;
-  font-weight: var(--hh-font-body-1-font-weight);
-  font-size: var(--hh-font-body-1-font-size);
-  font-family: var(--hh-font-body-1-font-family);
-  transform: translate3d(0, 0, 0);
-  animation: cookie-notice-fadein 500ms ease;
-}
-
-@keyframes cookie-notice-fadein {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, -20px, 0);
-  }
-
-  100% {
-    opacity: 100;
-    transform: translate3d(0, 0, 0);
-  }
 }
 
 #cookie-notice--message {
-  margin: 0;
-  padding: var(--hh-spacing-4x);
   width: 80%;
 }
 
@@ -319,15 +289,12 @@ map area {
   top: var(--hh-spacing-4x);
   right: 0;
   bottom: var(--hh-spacing-4x);
-  margin: 0;
-  padding: 0 var(--hh-spacing-4x);
+  padding: var(--hh-spacing-4x);
   width: 20%;
-  outline: none;
   border: 0;
   background: var(--hh-color-transparent);
   color: var(--hh-color-slate);
   text-align: right;
-  text-transform: uppercase;
   font-weight: var(--hh-font-body-1-font-weight);
   font-size: var(--hh-font-body-1-font-size);
   font-family: var(--hh-font-body-1-font-family);

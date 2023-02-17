@@ -53,6 +53,7 @@ $('body').css({
   'cursor': 'wait'
 });
 
+/***************************************** Navigation *****************************************/
 setTimeout(function() {
   $('#loader').delay(1000).fadeOut(2000);
   $('#wall-image').delay(3000).fadeIn(2000);
@@ -62,7 +63,10 @@ setTimeout(function() {
   });
 }, time);
 
-/***************************************** Navigation *****************************************/
+$('#horseshoe, #main, #main--copy, #main--iframe, #wall-image--cover, #wall-image').css({
+  'display': 'none'
+});
+
 $('#horseshoe').click(function() {
   $('#main, #wall-image--cover').fadeToggle(1000);
   $('#main--iframe').fadeOut(1000);
