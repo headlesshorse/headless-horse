@@ -238,8 +238,8 @@ void(function(root, factory) {
   }
 
   CookieNotice.options = {
-    message: 'We use cookies to give you the best functional experience. We don’t use advertising or tracking cookies that pass your data on to third parties. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">More info.</a>',
-    dismiss: 'Close'
+    message: 'We use cookies to give you the best functional experience. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">More info.</a>',
+    dismiss: 'Accept'
   }
 
   function run() {
