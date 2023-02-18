@@ -21,15 +21,6 @@ Here are the major frameworks, programming languages, software and libraries we 
 -   [Greensock](https://greensock.com)
 -   [TweenMax](https://greensock.com/tweenmax)
 
-### Tools
-
--   [Github Pages](https://docs.github.com/en/pages): Hosting.
--   [Notion](https://developers.notion.com): Notion API as site CMS.
--   [Cronitor](https://cronitor.io): Cookieless analytics and frontend monitoring.
--   [Typeform](https://typeform.com): Enquiry form.
--   [Mailchimp](https://mailchimp.com): Newsletter sign-up.
--   [Iubenda](https://iubenda.com): Privacy policy and cookie notice.
-
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit)
