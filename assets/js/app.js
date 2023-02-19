@@ -55,9 +55,12 @@ $('body').css({
 
 /***************************************** Navigation *****************************************/
 setTimeout(function() {
-  $('#loader').delay(1000).fadeOut(2000);
-  $('#wall-image').delay(3000).fadeIn(2000);
-  $('#horseshoe').delay(5000).fadeIn(2000);
+  $('#loader').delay(1000).fadeOut(3000);
+  $('#wall-image').delay(4000).fadeIn(3000);
+  $('#horseshoe').delay(7000).fadeIn(3000);
+  setTimeout(function() {
+    $('#wall-image').removeClass('wall-image--filter');
+  }, 7000);
   $('body').css({
     'cursor': 'default'
   });
@@ -70,13 +73,13 @@ $('#horseshoe, #main, #main--copy, #main--iframe, #wall-image--cover, #wall-imag
 $('#horseshoe').click(function() {
   $('#main, #wall-image--cover').fadeToggle(1000);
   $('#main--iframe').fadeOut(1000);
-  $('#main--copy').delay(200).fadeIn(2000);
+  $('#main--copy').delay(200).fadeIn(3000);
   $('#wall-image').toggleClass('wall-image--filter');
   $('#horseshoe').toggleClass('horseshoe--cursor');
 });
 
 $('*[target="main--iframe"]').click(function() {
-  $('#main, #main--iframe, #wall-image--cover').delay(200).fadeIn(2000);
+  $('#main, #main--iframe, #wall-image--cover').delay(200).fadeIn(3000);
   $('#main--copy').hide();
   $('#wall-image').toggleClass('wall-image--filter');
   $('#horseshoe').toggleClass('horseshoe--cursor');

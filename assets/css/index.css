@@ -197,11 +197,11 @@ a:hover,
 
 #wall-image {
   overflow-x: hidden;
-  -webkit-transition: filter 2s;
-  -moz-transition: filter 2s;
-  -o-transition: filter 2s;
-  -ms-transition: filter 2s;
-  transition: filter 2s;
+  -webkit-transition: filter 3s;
+  -moz-transition: filter 3s;
+  -o-transition: filter 3s;
+  -ms-transition: filter 3s;
+  transition: filter 3s;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
@@ -210,8 +210,8 @@ a:hover,
 }
 
 .wall-image--filter {
-  filter: grayscale(100%) contrast(120%) opacity(80%);
-  -webkit-filter: grayscale(100%) contrast(120%) opacity(80%);
+  filter: grayscale(100%) contrast(110%) opacity(80%);
+  -webkit-filter: grayscale(100%) contrast(110%) opacity(80%);
 }
 
 map area {
