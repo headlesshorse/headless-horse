@@ -175,6 +175,7 @@ a:hover,
 #main--copy {
   position: absolute;
   z-index: var(--hh-z-index-3);
+  display: none;
 }
 
 .column {
