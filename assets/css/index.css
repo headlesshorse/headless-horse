@@ -275,7 +275,7 @@ map area {
 /***************************************** Cookie Notice *****************************************/
 #cookie-notice {
   position: absolute;
-  top: 0;
+  bottom: 0;
   z-index: var(--hh-z-index-top);
   box-sizing: border-box;
   padding: var(--hh-spacing-4x);
@@ -292,7 +292,7 @@ map area {
   top: var(--hh-spacing-4x);
   right: 0;
   bottom: var(--hh-spacing-4x);
-  padding: var(--hh-spacing-4x);
+  padding-right: var(--hh-spacing-4x);
   width: 20%;
   border: 0;
   background: var(--hh-color-transparent);
