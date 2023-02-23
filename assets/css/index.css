@@ -244,7 +244,7 @@ map area {
 /***************************************** Mobile *****************************************/
 @media screen and (max-width: 1000px) {
   #loader {
-    width: 25%;
+    width: 25vw;
   }
 
   .column {
