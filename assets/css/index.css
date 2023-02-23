@@ -248,6 +248,7 @@ map area {
   }
 
   .column {
+    padding-top: calc(var(--hh-font-body-1-line-height) * 1.5);
     width: 100vw;
   }
 
