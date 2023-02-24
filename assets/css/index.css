@@ -11,6 +11,8 @@
   --hh-color-black-with-alpha: rgba(0, 0, 0, 0.8);
   --hh-color-transparent: transparent;
   --hh-effect-blur: blur(8px);
+  --hh-effect-shadow: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.8));
+  --hh-effect-grayscale: grayscale(100%) contrast(110%) opacity(80%);
   --hh-spacing-1x: 5px;
   --hh-spacing-2x: 10px;
   --hh-spacing-3x: 15px;
@@ -137,8 +139,8 @@ a:hover,
   z-index: var(--hh-z-index-4);
   width: 80px;
   height: 80px;
-  filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.8));
-  -webkit-filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.8));
+  filter: var(--hh-effect-shadow);
+  -webkit-filter: var(--hh-effect-shadow);
   cursor: help;
   transform: translate(-50%, -50%);
   -webkit-user-drag: none;
@@ -215,8 +217,8 @@ a:hover,
 }
 
 .wall-image--filter {
-  filter: grayscale(100%) contrast(110%) opacity(80%);
-  -webkit-filter: grayscale(100%) contrast(110%) opacity(80%);
+  filter: var(--hh-effect-grayscale);
+  -webkit-filter: var(--hh-effect-grayscale);
 }
 
 map area {
@@ -237,6 +239,8 @@ map area {
   font-size: var(--hh-font-body-1-font-size);
   font-family: var(--hh-font-body-1-font-family);
   line-height: var(--hh-font-body-1-line-height);
+  filter: var(--hh-effect-shadow);
+  -webkit-filter: var(--hh-effect-shadow);
   backdrop-filter: var(--hh-effect-blur);
   -webkit-backdrop-filter: var(--hh-effect-blur);
 }
