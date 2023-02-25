@@ -11,7 +11,7 @@
   --hh-color-black-with-alpha: rgba(0, 0, 0, 0.8);
   --hh-color-transparent: transparent;
   --hh-effect-blur: blur(8px);
-  --hh-effect-shadow: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.8));
+  --hh-effect-shadow: drop-shadow(0 0 15px rgba(0, 0, 0, 0.8));
   --hh-effect-grayscale: grayscale(100%) contrast(110%) opacity(80%);
   --hh-spacing-1x: 5px;
   --hh-spacing-2x: 10px;
@@ -34,8 +34,6 @@
 html,
 body {
   overflow: hidden;
-  margin: 0;
-  padding: 0;
   height: 100%;
   background: var(--hh-color-black);
   -ms-overflow-style: none;
@@ -120,7 +118,7 @@ a:hover,
   top: 50%;
   left: 50%;
   z-index: var(--hh-z-index-top);
-  width: 200px;
+  width: 25vw;
   cursor: wait;
   transform: translate(-50%, -50%);
 }
@@ -226,7 +224,6 @@ map area {
 }
 
 #tooltip {
-  top: 100%;
   margin-top: var(--hh-spacing-3x);
   padding: var(--hh-spacing-3x);
   min-width: 200px;
@@ -247,17 +244,16 @@ map area {
 
 /***************************************** Mobile *****************************************/
 @media screen and (max-width: 1000px) {
-  #loader {
-    width: 25vw;
-  }
-
   .column {
-    padding-top: calc(var(--hh-font-body-1-line-height) * 1.5);
     width: 100vw;
   }
 
   .column:not(:last-child) {
     padding-bottom: 0;
+  }
+
+  .column:not(:first-child) {
+    padding-top: calc(var(--hh-font-body-1-line-height) * 1.5);
   }
 
   li {
