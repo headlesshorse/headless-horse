@@ -241,7 +241,7 @@ void(function(root, factory) {
   }
 
   CookieNotice.options = {
-    message: 'We use cookies to give you the best functional experience. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">More info.</a>',
+    message: 'We use cookies to give you the best functional experience. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">Privacy Policy.</a>',
     dismiss: 'Accept'
   }
 
