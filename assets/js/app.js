@@ -22,29 +22,6 @@ width = 100,
   EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
   time = parseInt((EstimatedTime / 1000) % 60) * 100 + 2000;
 
-var loader_percentageID = $('#nav-top--hh--percentage'),
-  start = 0,
-  end = 100,
-  durataion = time;
-animateValue(loader_percentageID, start, end, durataion);
-
-function animateValue(id, start, end, duration) {
-
-  var range = end - start,
-    current = start,
-    increment = end > start ? 1 : -1,
-    stepTime = Math.abs(Math.floor(duration / range)),
-    obj = $(id);
-
-  var timer = setInterval(function() {
-    current += increment;
-    $(obj).text(' ' + current + '%');
-    if (current == end) {
-      clearInterval(timer);
-    }
-  }, stepTime);
-}
-
 $('#loader--bar').animate({
   width: width + '%'
 }, time);
