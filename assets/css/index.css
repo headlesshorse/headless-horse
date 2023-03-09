@@ -132,14 +132,15 @@ a:hover,
 /***************************************** Horseshoe *****************************************/
 #horseshoe {
   position: absolute;
-  bottom: var(--hh-spacing-4x);
-  right: var(--hh-spacing-4x);
+  top: 50%;
+  left: 50%;
   z-index: var(--hh-z-index-4);
   width: 80px;
   height: 80px;
   filter: var(--hh-effect-shadow);
   -webkit-filter: var(--hh-effect-shadow);
   cursor: help;
+  transform: translate(-50%, -50%);
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
