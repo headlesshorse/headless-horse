@@ -1,21 +1,3 @@
-/***************************************** Site Title *****************************************/
-function initScrollTitle() {
-  var space = ' | ';
-  var pos = 0;
-  var msg = 'HEADLESS HORSE | Independent, full-service creative studio';
-
-  function title_scroll() {
-    document.title = msg.substring(pos, msg.length) + space + msg.substring(0, pos);
-    pos++;
-    if (pos > msg.length) pos = 0;
-    setTimeout(function() {
-      requestAnimationFrame(title_scroll);
-    }, 300);
-  }
-  title_scroll();
-}
-initScrollTitle();
-
 /***************************************** Loader *****************************************/
 width = 100,
   perfData = window.performance.timing,
