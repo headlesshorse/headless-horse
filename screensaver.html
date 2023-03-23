@@ -57,6 +57,7 @@ DESIGN AND CODE BY HEADLESS.HORSE
 
 <style>
   html {
+    overflow: hidden;
     margin: 0;
     padding: 0;
     background: #000000;
@@ -68,13 +69,16 @@ DESIGN AND CODE BY HEADLESS.HORSE
     display: grid;
     align-content: center;
     justify-content: center;
+    overflow: hidden;
     margin: 0;
-    padding: 100px;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
     list-style: none;
-    grid-template-columns: repeat(3, 20vh);
-    grid-template-rows: repeat(100, 30vh);
-    grid-row-gap: 200px;
-    grid-column-gap: 200px;
+    grid-template-columns: repeat(10, 10fr);
+    grid-template-rows: repeat(10, 10vh);
+    grid-column-gap: 10px;
+    grid-row-gap: 20px;
   }
 
   #pinterest>li {
@@ -82,14 +86,6 @@ DESIGN AND CODE BY HEADLESS.HORSE
     background-size: contain;
     background-repeat: no-repeat;
     filter: grayscale(50%) contrast(0.8) brightness(0.9);
-  }
-
-  @media screen and (max-width: 1000px) {
-    #pinterest {
-      grid-template-columns: repeat(1, 20vh);
-      grid-row-gap: 100px;
-      grid-column-gap: 100px;
-    }
   }
 </style>
 
@@ -129,11 +125,10 @@ DESIGN AND CODE BY HEADLESS.HORSE
   const board2 = 'headless_horse/wellness';
   const board3 = 'headless_horse/fashion';
   const board4 = 'headless_horse/space';
-  const board5 = 'headless_horse/print';
   const feed = new PinterestFeed();
   let feedItems = [];
 
-  feed.getFeeds(board1, board2, board3, board4, board5).then((response) => {
+  feed.getFeeds(board1, board2, board3, board4).then((response) => {
     feedItems = response.flat();
     feedItems.forEach(item => {
       const imageUrl = item.images['237x'].url;
