@@ -76,9 +76,9 @@ $(document).ready(function() {
   var d = today.getUTCDay();
 
   if (h >= 8 && h < 18 && d >= 1 && d < 6) {
-    document.getElementById('hours').innerHTML = " The studio is open today from 08:00–18:00 GMT.";
+    document.getElementById('hours').innerHTML = "The studio is open today from 08:00–18:00 GMT.";
   } else {
-    document.getElementById('hours').innerHTML = " We're currently out of office. We are open weekdays 08:00–18:00 GMT.";
+    document.getElementById('hours').innerHTML = "We're currently out of office. We are open weekdays 08:00–18:00 GMT.";
   }
 });
 
