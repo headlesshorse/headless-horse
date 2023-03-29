@@ -8,11 +8,11 @@
   --hh-z-index-top: 9999;
   --hh-color-black: #000000;
   --hh-color-slate: #999999;
-  --hh-color-black-with-alpha: rgba(0, 0, 0, 0.7);
+  --hh-color-black-with-alpha: rgba(0, 0, 0, 0.8);
   --hh-color-transparent: transparent;
   --hh-effect-blur: blur(8px);
   --hh-effect-shadow: drop-shadow(0 0 15px rgba(0, 0, 0, 0.4));
-  --hh-effect-grayscale: grayscale(100%) contrast(110%) opacity(80%);
+  --hh-effect-grayscale: grayscale(100%) contrast(110%);
   --hh-spacing-1x: 5px;
   --hh-spacing-2x: 10px;
   --hh-spacing-3x: 15px;
@@ -159,7 +159,6 @@ a:hover,
   overflow: scroll;
   width: 100%;
   height: 100%;
-    background: var(--hh-color-black-with-alpha);
 }
 
 #main:before {
@@ -196,12 +195,9 @@ a:hover,
   z-index: var(--hh-z-index-1);
   width: 100%;
   height: 100%;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: var(--hh-color-black-with-alpha);
   backdrop-filter: var(--hh-effect-blur);
   -webkit-backdrop-filter: var(--hh-effect-blur);
-  mix-blend-mode: multiply;
 }
 
 #wall-image {
