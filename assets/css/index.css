@@ -217,7 +217,7 @@ a:hover,
 .wall-image--filter {
   filter: var(--hh-effect-grayscale);
   -webkit-filter: var(--hh-effect-grayscale);
-  transform: scale(0.7);
+  scale: 0.7;
   transform-origin: center center;
 }
 
