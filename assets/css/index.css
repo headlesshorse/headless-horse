@@ -12,7 +12,7 @@
   --hh-color-transparent: transparent;
   --hh-effect-blur: blur(8px);
   --hh-effect-shadow: drop-shadow(0 0 15px rgba(0, 0, 0, 0.4));
-  --hh-effect-grayscale: grayscale(100%) contrast(110%);
+  --hh-effect-grayscale: grayscale(100%) contrast(120%);
   --hh-spacing-1x: 5px;
   --hh-spacing-2x: 10px;
   --hh-spacing-3x: 15px;
