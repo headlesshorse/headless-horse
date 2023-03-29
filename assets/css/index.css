@@ -217,7 +217,8 @@ a:hover,
 .wall-image--filter {
   filter: var(--hh-effect-grayscale);
   -webkit-filter: var(--hh-effect-grayscale);
-  scale: 0.7;
+  transform: scale(0.7);
+  transform-origin: center center;
 }
 
 map area {
