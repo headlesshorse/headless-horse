@@ -37,7 +37,7 @@ async function Noticerun() {
       case 'text':
         if (!block.properties) return '';
         else {
-          return html`<span>${block.properties.title.map(renderText)}</span>`;
+          return html`<p>${block.properties.title.map(renderText)}</p>`;
         }
         default:
           return block.title;
