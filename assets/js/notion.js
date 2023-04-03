@@ -37,7 +37,9 @@ async function Noticerun() {
       case 'text':
         if (!block.properties) return '';
         else {
-          return html`<p>${block.properties.title.map(renderText)}</p>`;
+          return html`
+          <h1>Latest</h1>
+          <p>${block.properties.title.map(renderText)}</p>`;
         }
         default:
           return block.title;
@@ -47,3 +49,19 @@ async function Noticerun() {
   render(content, document.getElementById('notice'))
 }
 Noticerun();
+
+/***************************************** Jobs *****************************************/
+  const CareerstableTemplate = table => html`
+      ${table.map(({Position, Location, Contract, Slug}) => html`
+        <h1>Jobs</h1>
+        <p><a href="${Slug}" target="_blank" data-value="${Location}, ${Contract}">${Position}</a></p>
+      `)}
+  `;
+
+    fetch('https://notion-api.splitbee.io/v1/table/c87900ce8abc4ed28c77222beebebeac')
+      .then(handleAsJson) // Promise<TableJson>
+      .then(trace('table is'))
+      .then(CareerstableTemplate) // Promise<TemplateResult>
+      .then(trace('template result is'))
+      .then(result =>
+        render(result, document.getElementById('jobs')))
