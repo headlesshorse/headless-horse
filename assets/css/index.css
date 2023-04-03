@@ -189,8 +189,8 @@ a:hover,
   width: 25vw;
 }
 
-#notice h1:not(:first-child),
-#jobs h1:not(:first-child) {
+#notice > h1:not(:first-child),
+#jobs > h1:not(:first-child) {
   display: none;
 }
 
