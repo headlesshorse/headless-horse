@@ -11,7 +11,7 @@
   --hh-color-black-with-alpha: rgba(0, 0, 0, 0.6);
   --hh-color-transparent: transparent;
   --hh-effect-blur: blur(10px);
-  --hh-effect-shadow: drop-shadow(0 0 15px rgba(0, 0, 0, 0.4));
+  --hh-effect-shadow: drop-shadow(0 0 15px rgba(0, 0, 0, 0.6));
   --hh-effect-grayscale: grayscale(100%) contrast(130%) opacity(20%);
   --hh-spacing-1x: 5px;
   --hh-spacing-2x: 10px;
@@ -102,7 +102,7 @@ a:hover,
 }
 
 @-webkit-keyframes hover-flicker {
-  0%, 2%, 6%, 8%, 12%, 16%, 18%, 90% {
+  0%, 2%, 6%, 8%, 12%, 16%, 18%, 99% {
     opacity: 1;
   }
 
@@ -187,6 +187,7 @@ a:hover,
   overflow: scroll;
   padding: var(--hh-spacing-4x);
   width: 25vw;
+  mix-blend-mode: difference;
 }
 
 /***************************************** Wall Image *****************************************/
@@ -202,11 +203,11 @@ a:hover,
 
 #wall-image {
   overflow-x: hidden;
-  -webkit-transition: filter 3s, scale 3s;
-  -moz-transition: filter 3s, scale 3s;
-  -o-transition: filter 3s, scale 3s;
-  -ms-transition: filter 3s, scale 3s;
-  transition: filter 3s, scale 3s;
+  -webkit-transition: filter 3s, scale 4s;
+  -moz-transition: filter 3s, scale 4s;
+  -o-transition: filter 3s, scale 4s;
+  -ms-transition: filter 3s, scale 4s;
+  transition: filter 3s, scale 4s;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
@@ -217,8 +218,8 @@ a:hover,
 .wall-image--filter {
   filter: var(--hh-effect-grayscale);
   -webkit-filter: var(--hh-effect-grayscale);
-  scale: 0.65;
   transform-origin: center center;
+  scale: 0.65;
 }
 
 map area {
@@ -226,11 +227,16 @@ map area {
 }
 
 #tooltip {
-  margin-top: var(--hh-spacing-3x);
-  padding: var(--hh-spacing-3x);
+  margin-top: var(--hh-spacing-4x);
+  padding: var(--hh-spacing-4x);
   min-width: 200px;
-  border: 1px solid var(--hh-color-slate);
-  background: var(--hh-color-black-with-alpha);
+  --b: rgba(0, 0, 0, 0) 90deg, var(--hh-color-slate) 0;
+  --p: var(--hh-spacing-2x) var(--hh-spacing-2x) border-box no-repeat;
+  background:
+    conic-gradient(from 90deg at top 1px left 1px, var(--b)) 0 0 / var(--p),
+    conic-gradient(from 180deg at top 1px right 1px, var(--b)) 100% 0 / var(--p),
+    conic-gradient(from 0deg at bottom 1px left 1px, var(--b)) 0 100% / var(--p),
+    conic-gradient(from -90deg at bottom 1px right 1px, var(--b)) 100% 100% / var(--p);
   color: var(--hh-color-slate);
   text-align: center;
   text-transform: uppercase;
@@ -240,8 +246,8 @@ map area {
   line-height: var(--hh-font-body-1-line-height);
   filter: var(--hh-effect-shadow);
   -webkit-filter: var(--hh-effect-shadow);
-  backdrop-filter: var(--hh-effect-blur);
-  -webkit-backdrop-filter: var(--hh-effect-blur);
+  backdrop-filter: var(--hh-effect-blur) brightness(30%);
+  -webkit-backdrop-filter: var(--hh-effect-blur) brightness(30%);
 }
 
 /***************************************** Mobile *****************************************/
