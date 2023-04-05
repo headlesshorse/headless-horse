@@ -66,7 +66,7 @@ $('#horseshoe').one('click', function() {
     });
     return this;
   };
-  $('.column').typewriter();
+  $('section').typewriter();
 });
 
 /***************************************** Office Hours *****************************************/

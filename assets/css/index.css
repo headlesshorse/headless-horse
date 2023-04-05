@@ -182,7 +182,7 @@ a:hover,
   display: none;
 }
 
-.column {
+section {
   float: left;
   overflow: scroll;
   padding: var(--hh-spacing-4x);
@@ -252,15 +252,15 @@ map area {
 
 /***************************************** Mobile *****************************************/
 @media screen and (max-width: 1000px) {
-  .column {
+  section {
     width: 100vw;
   }
 
-  .column:not(:last-child) {
+  section:not(:last-child) {
     padding-bottom: 0;
   }
 
-  .column:not(:first-child) {
+  section:not(:first-child) {
     padding-top: calc(var(--hh-font-body-1-line-height) * 1.5);
   }
 
