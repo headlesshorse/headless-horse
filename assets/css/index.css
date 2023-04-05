@@ -189,6 +189,10 @@ section {
   width: 25vw;
 }
 
+li a:not(:first-child)::before{
+  content: ", ";
+}
+
 /***************************************** Wall Image *****************************************/
 #wall-image--cover {
   position: absolute;
