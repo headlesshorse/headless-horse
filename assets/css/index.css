@@ -187,7 +187,6 @@ section {
   overflow: scroll;
   padding: var(--hh-spacing-4x);
   width: 25vw;
-  mix-blend-mode: difference;
 }
 
 /***************************************** Wall Image *****************************************/
