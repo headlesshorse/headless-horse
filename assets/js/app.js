@@ -25,7 +25,7 @@ setTimeout(function() {
   });
 }, time);
 
-$('#horseshoe, #main, #main--copy, #main--iframe, #wall-image--cover, #wall-image').css({
+$('#horseshoe, #main, #main--copy, #latest, #jobs, #main--iframe, #wall-image--cover, #wall-image').css({
   'display': 'none'
 });
 
