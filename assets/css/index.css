@@ -92,7 +92,7 @@ a[data-value]:hover::after {
   content: ": "attr(data-value);
 }
 
-a[data-value]{
+a[data-value] {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -196,7 +196,7 @@ section {
   width: 25vw;
 }
 
-li a:not(:first-child)::before{
+li a:not(:first-child)::before {
   content: ", ";
 }
 
