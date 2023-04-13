@@ -168,14 +168,6 @@ a:hover,
   mix-blend-mode: difference;
 }
 
-#main:before {
-  position: absolute;
-  width: 100%;
-  height: 200px;
-  background: linear-gradient(180deg, var(--hh-color-black), rgba(0, 0, 0, 0));
-  content: "";
-}
-
 #main--iframe {
   position: absolute;
   z-index: var(--hh-z-index-2);
