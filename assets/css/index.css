@@ -93,9 +93,9 @@ a[data-value]:hover::after {
 }
 
 a[data-value]{
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 a:hover,
@@ -180,6 +180,7 @@ a:hover,
   z-index: var(--hh-z-index-2);
   width: 100%;
   height: 100%;
+  border: 0;
 }
 
 #main--copy {
@@ -236,11 +237,11 @@ map area {
 }
 
 #tooltip {
+  --b: rgba(0, 0, 0, 0) 90deg, var(--hh-color-slate) 0;
+  --p: var(--hh-spacing-2x) var(--hh-spacing-2x) border-box no-repeat;
   margin-top: var(--hh-spacing-4x);
   padding: var(--hh-spacing-4x);
   min-width: 200px;
-  --b: rgba(0, 0, 0, 0) 90deg, var(--hh-color-slate) 0;
-  --p: var(--hh-spacing-2x) var(--hh-spacing-2x) border-box no-repeat;
   background:
     conic-gradient(from 90deg at top 1px left 1px, var(--b)) 0 0 / var(--p),
     conic-gradient(from 180deg at top 1px right 1px, var(--b)) 100% 0 / var(--p),
