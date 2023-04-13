@@ -46,7 +46,7 @@ async function Noticerun() {
     }
   });
 
-  render(content, document.getElementById('notice'))
+  render(content, document.getElementById('latest'))
 }
 Noticerun();
 
