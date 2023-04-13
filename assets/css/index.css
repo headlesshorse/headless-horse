@@ -267,18 +267,6 @@ map area {
     padding-top: calc(var(--hh-font-body-1-line-height) * 1.5);
   }
 
-  li {
-    display: inline;
-  }
-
-  li:not(:last-child)::after {
-    content: ",";
-  }
-
-  li:last-child::after {
-    content: ".";
-  }
-
   a[data-value]:hover::after {
     content: "";
   }
