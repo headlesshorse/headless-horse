@@ -151,7 +151,6 @@ a:hover,
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  user-drag: none;
 }
 
 .horseshoe--cursor {
@@ -215,7 +214,6 @@ li a:not(:first-child)::before {
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  user-drag: none;
 }
 
 .wall-image--filter {
