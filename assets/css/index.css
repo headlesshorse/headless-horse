@@ -192,6 +192,10 @@ li a:not(:first-child)::before {
   content: ", ";
 }
 
+#latest, #jobs {
+  display: none;
+}
+
 /***************************************** Wall Image *****************************************/
 #wall-image--cover {
   position: absolute;
