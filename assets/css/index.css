@@ -99,12 +99,6 @@ a[data-value]:hover::after {
   content: ": "attr(data-value);
 }
 
-a[data-value] {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 a:hover,
 #horseshoe:hover,
 #cookie-notice--dismiss:hover {
