@@ -75,10 +75,10 @@ $(document).ready(function() {
   var h = today.getUTCHours();
   var d = today.getUTCDay();
 
-  if (h >= 8 && h < 18 && d >= 1 && d < 6) {
-    document.getElementById('hours').innerHTML = "The studio is open today from 08:00–18:00 GMT.";
+  if (h >= 9 && h < 18 && d >= 1 && d < 6) {
+    document.getElementById('hours').innerHTML = "The studio is open today from 09:00–18:00 GMT.";
   } else {
-    document.getElementById('hours').innerHTML = "We're not in the studio right now, but we're open from 08:00—18:00 GMT on weekdays.";
+    document.getElementById('hours').innerHTML = "We're not in the studio right now, but we're open from 09:00—18:00 GMT on weekdays.";
   }
 });
 
