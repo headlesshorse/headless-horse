@@ -125,6 +125,7 @@ a:hover,
   top: 50%;
   left: 50%;
   z-index: var(--hh-z-index-top);
+  padding: var(--hh-spacing-2x);
   width: 33.33vw;
   cursor: wait;
   transform: translate(-50%, -50%);
@@ -179,21 +180,21 @@ a:hover,
 #main--copy {
   position: absolute;
   z-index: var(--hh-z-index-3);
-  display: none;
+  padding: var(--hh-spacing-2x);
 }
 
 section {
   float: left;
   overflow: scroll;
-  padding: var(--hh-spacing-4x);
-  width: 33.33vw;
+  padding: var(--hh-spacing-2x);
+  width: calc(33.33vw - var(--hh-spacing-2x));
 }
 
 li a:not(:first-child)::before {
   content: ", ";
 }
 
-#latest, #jobs {
+#main--copy, #latest, #jobs {
   display: none;
 }
 
@@ -259,7 +260,7 @@ map area {
 /***************************************** Mobile *****************************************/
 @media screen and (max-width: 1000px) {
   section {
-    width: 100vw;
+    width: 100%;
   }
 
   section:not(:last-child) {
@@ -267,7 +268,7 @@ map area {
   }
 
   section:not(:first-child) {
-    padding-top: calc(var(--hh-font-body-1-line-height) * 1.5);
+    padding-top: calc(var(--hh-font-body-1-line-height) * 2);
   }
 
   a[data-value]:hover::after {
