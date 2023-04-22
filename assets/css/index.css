@@ -187,7 +187,7 @@ section {
   float: left;
   overflow: scroll;
   padding: var(--hh-spacing-2x);
-  width: calc(33.33vw - var(--hh-spacing-2x));
+  width: calc(33.33vw - 7px);
 }
 
 li a:not(:first-child)::before {
