@@ -125,7 +125,6 @@ a:hover,
   top: 50%;
   left: 50%;
   z-index: var(--hh-z-index-top);
-  padding: var(--hh-spacing-2x);
   width: 33.33vw;
   cursor: wait;
   transform: translate(-50%, -50%);
@@ -178,23 +177,18 @@ a:hover,
 }
 
 #main--copy {
-  position: absolute;
   z-index: var(--hh-z-index-3);
-  padding: var(--hh-spacing-2x);
-}
-
-section {
-  float: left;
-  overflow: scroll;
-  padding: var(--hh-spacing-2x);
-  width: calc(33.33vw - 7px);
+  display: grid;
+  padding: var(--hh-spacing-4x);
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: var(--hh-spacing-4x);
 }
 
 li a:not(:first-child)::before {
   content: ", ";
 }
 
-#main--copy, #latest, #jobs {
+#latest, #jobs {
   display: none;
 }
 
@@ -259,8 +253,8 @@ map area {
 
 /***************************************** Mobile *****************************************/
 @media screen and (max-width: 1000px) {
-  section {
-    width: 100%;
+  #main--copy {
+    display: block;
   }
 
   section:not(:last-child) {
