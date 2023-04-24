@@ -185,7 +185,7 @@ a:hover,
 }
 
 li a:not(:first-child)::before {
-  content: ", ";
+  content: " ; ";
 }
 
 #latest, #jobs {
@@ -257,11 +257,7 @@ map area {
     display: block;
   }
 
-  section:not(:last-child) {
-    padding-bottom: 0;
-  }
-
-  section:not(:first-child) {
+  section ~ section {
     padding-top: calc(var(--hh-font-body-1-line-height) * 2);
   }
 
