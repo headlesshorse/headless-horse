@@ -99,7 +99,7 @@ a[target=_blank] {
   cursor: ne-resize;
 }
 
-li a:not(:first-child)::before {
+li a~a::before {
   content: " ; ";
 }
 
@@ -149,7 +149,14 @@ li a:not(:first-child)::before {
   overflow: scroll;
   width: 100%;
   height: 100%;
-  mix-blend-mode: difference;
+}
+
+#main:before {
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(180deg, var(--hh-color-black), rgba(0, 0, 0, 0));
+  content: "";
 }
 
 #main--iframe {
@@ -161,6 +168,7 @@ li a:not(:first-child)::before {
 }
 
 #main--copy {
+  position: absolute;
   z-index: var(--hh-z-index-3);
   display: grid;
   padding: var(--hh-spacing-4x);
