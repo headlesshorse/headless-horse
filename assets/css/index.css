@@ -283,7 +283,7 @@ map area {
 }
 
 /***************************************** Mobile *****************************************/
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 768px) {
   h1 {
     padding-top: 0 !important;
   }
@@ -298,8 +298,8 @@ map area {
 
   #loader {
     display: grid;
-    column-gap: var(--hh-spacing-2x);
-    grid-template-columns: 33.3% 1fr;
+    column-gap: var(--hh-spacing-4x);
+    grid-template-columns: 1fr 2fr;
   }
 
   #main--copy {
@@ -308,8 +308,8 @@ map area {
 
   section {
     display: grid;
-    column-gap: var(--hh-spacing-2x);
-    grid-template-columns: 33.3% 1fr;
+    column-gap: var(--hh-spacing-4x);
+    grid-template-columns: 1fr 2fr;
     row-gap: calc(var(--hh-font-body-1-line-height) * 2);
   }
 
