@@ -126,7 +126,7 @@ var day = now.getUTCDay(); // 0 = Sunday, 1 = Monday, etc.
 var hour = now.getUTCHours(); // 0-23
 
 if (day === 0 || day === 6) {
-  document.querySelector('h1 + p').innerHTML += `<br>We are currently out of the studio and will return on Monday morning. Our hours of operation are Monday to Friday, from 09:00 to 18:00 GMT.`;
+  document.querySelector('h1 + p').innerHTML += `<br>We are currently out of office and will return on Monday morning. Our hours of operation are Monday to Friday, from 09:00 to 18:00 GMT.`;
 } else {
   hour += 1; // Adjust for GMT+1 timezone
   if (hour >= 9 && hour < 18) {
