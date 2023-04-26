@@ -38,7 +38,7 @@ async function Noticerun() {
         if (!block.properties) return '';
         else {
           return html`
-          <style>#latest{display: block;}</style>
+          <style>#latest, #latest+ul{display: block;}</style>
           <li>${block.properties.title.map(renderText)}</li>`;
         }
         default:
@@ -53,7 +53,7 @@ Noticerun();
 /***************************************** Jobs *****************************************/
   const CareerstableTemplate = table => html`
       ${table.map(({Position, Location, Contract, Slug}) => html`
-        <style>#jobs{display: block;}</style>
+        <style>#jobs, #jobs+ul{display: block;}</style>
         <li><a href="${Slug}" target="_blank" data-value="${Location}, ${Contract}">${Position}</a></li>
       `)}
   `;
