@@ -7,8 +7,8 @@ $('body').append(`
   <div id="loader">
     <p id="loader--percentage"></p>
     <p>To navigate pages, click on the Horseshoe.<br>To open a case, click on selected wall areas.</p>
-  </div>`
-);
+  </div>
+`);
 
 $('body').css({
   'cursor': 'wait'
@@ -126,13 +126,13 @@ var day = now.getUTCDay(); // 0 = Sunday, 1 = Monday, etc.
 var hour = now.getUTCHours(); // 0-23
 
 if (day === 0 || day === 6) {
-  document.querySelector('h1 + p').innerHTML += `<br>We are not currently in the studio, we will return Monday morning. Hours of operation are Monday—Friday, 09:00—18:00 GMT.`;
+  document.querySelector('h1 + p').innerHTML += `<br>We are currently out of the studio and will return on Monday morning. Our hours of operation are Monday to Friday, from 09:00 to 18:00 GMT.`;
 } else {
   hour += 1; // Adjust for GMT+1 timezone
   if (hour >= 9 && hour < 18) {
     document.querySelector('h1 + p').innerHTML += `<br>The studio is open today from 09:00-18:00 GMT.`;
   } else {
-    document.querySelector('h1 + p').innerHTML += `<br>We are not currently in the studio, our hours of operation are Monday—Friday, 09:00—18:00 GMT.`;
+    document.querySelector('h1 + p').innerHTML += `<br>We are currently out of office, our hours of operation are Monday—Friday, 09:00—18:00 GMT.`;
   }
 }
 
@@ -247,8 +247,8 @@ window.addEventListener('load', init);
 
 /***************************************** Cookie Notice *****************************************/
 const cookieNotice = document.createElement('div');
-cookieNotice.innerHTML = `<p>We use cookies. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">Read Policy.</a> <a onclick="acceptCookies()">Accept.</a></p>`;
 cookieNotice.setAttribute('id', 'cookie-notice');
+cookieNotice.innerHTML = `<p>We use cookies. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">Read Policy.</a> <a onclick="acceptCookies()">Accept.</a></p>`;
 document.body.appendChild(cookieNotice);
 
 function setCookie(cookieName, cookieValue, expirationDays) {
