@@ -1,5 +1,13 @@
 /***************************************** Loader *****************************************/
-document.querySelector('body').style.cursor = 'wait';
+$('#horseshoe, #main, #main--copy, #main--iframe, #wall-image--cover, #wall-image').each(function() {
+  $(this).hide();
+});
+
+$('body').append('<div id="loader"><p id="loader--percentage"></p><p>To navigate pages, click on the Horseshoe.<br>To open a case, click on selected wall areas.</p></div>');
+
+$('body').css({
+  'cursor': 'wait'
+});
 
 width = 100,
   perfData = window.performance.timing,
@@ -43,10 +51,6 @@ setTimeout(function() {
 }, time);
 
 /***************************************** Navigation *****************************************/
-document.querySelectorAll('#horseshoe, #main, #main--copy, #main--iframe, #wall-image--cover, #wall-image').forEach(element => {
-  element.style.display = 'none';
-});
-
 $('#horseshoe').click(function() {
   $('#main, #wall-image--cover').fadeToggle(1000);
   $('#main--iframe').fadeOut(1000);
@@ -117,7 +121,7 @@ var day = now.getUTCDay(); // 0 = Sunday, 1 = Monday, etc.
 var hour = now.getUTCHours(); // 0-23
 
 if (day === 0 || day === 6) {
-  document.getElementById('hours').innerHTML = "We are not currently in the studio, we'll be back on Monday. Hours of operation are Monday—Friday, 09:00—18:00 GMT.";
+  document.getElementById('hours').innerHTML = "We are not currently in the studio, we'll be back on Monday morning. Hours of operation are Monday—Friday, 09:00—18:00 GMT.";
 } else {
   hour += 1; // Adjust for GMT+1 timezone
   if (hour >= 9 && hour < 18) {
@@ -225,20 +229,22 @@ window.addEventListener('load', init);
     $('<div id="' + ID + '" />').appendTo('body');
     showAt(e);
   });
+
   $('#wall-image--map').on('mouseleave', '.' + CLS_ON, function(e) {
     $(this).attr('title', $(this).data(DATA)).removeClass(CLS_ON);
     $('#' + ID).remove();
   });
+
   if (FOLLOW) {
     $('#wall-image--map').on('mousemove', '.' + CLS_ON, showAt);
   }
 }());
 
 /***************************************** Cookie Notice *****************************************/
-const cookienotice = document.createElement('div');
-cookienotice.innerHTML = '<p>This website uses cookies. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">Read Policy.</a> <a onclick="acceptCookies()">Accept.</a></p>';
-cookienotice.setAttribute('id', 'cookie-notice');
-document.body.appendChild(cookienotice);
+const cookieNotice = document.createElement('div');
+cookieNotice.innerHTML = '<p>This website uses cookies. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">Read Policy.</a> <a onclick="acceptCookies()">Accept.</a></p>';
+cookieNotice.setAttribute('id', 'cookie-notice');
+document.body.appendChild(cookieNotice);
 
 function setCookie(cookieName, cookieValue, expirationDays) {
   const d = new Date();
