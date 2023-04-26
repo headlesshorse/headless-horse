@@ -1,4 +1,11 @@
+/***************************************** Hide *****************************************/
+document.querySelectorAll('#horseshoe, #main, #main--copy, #main--iframe, #wall-image--cover, #wall-image').forEach(element => {
+    element.style.display = 'none';
+});
+
 /***************************************** Loader *****************************************/
+document.querySelector('body').style.cursor = 'wait';
+
 width = 100,
   perfData = window.performance.timing,
   EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
@@ -28,11 +35,6 @@ function animateValue(id, start, end, duration) {
   }, stepTime);
 }
 
-$('body').css({
-  'cursor': 'wait'
-});
-
-/***************************************** Navigation *****************************************/
 setTimeout(function() {
   $('#horseshoe').fadeIn(3000);
   $('#loader').delay(1000).fadeOut(3000);
@@ -45,10 +47,7 @@ setTimeout(function() {
   });
 }, time);
 
-$('#horseshoe, #main, #main--copy, #main--iframe, #wall-image--cover, #wall-image').css({
-  'display': 'none'
-});
-
+/***************************************** Navigation *****************************************/
 $('#horseshoe').click(function() {
   $('#main, #wall-image--cover').fadeToggle(1000);
   $('#main--iframe').fadeOut(1000);
@@ -114,17 +113,20 @@ $('#horseshoe').one('click', function() {
 });
 
 /***************************************** Office Hours *****************************************/
-$(document).ready(function() {
-  var today = new Date();
-  var h = today.getUTCHours();
-  var d = today.getUTCDay();
+var now = new Date();
+var day = now.getUTCDay(); // 0 = Sunday, 1 = Monday, etc.
+var hour = now.getUTCHours(); // 0-23
 
-  if (h >= 9 && h < 18 && d >= 1 && d < 6) {
-    document.getElementById('hours').innerHTML = "The studio is open today from 09:00—18:00 GMT.";
+if (day === 0 || day === 6) {
+  document.getElementById('hours').innerHTML = "We are not currently in the studio, we'll be back on Monday. Hours of operation are Monday—Friday, 09:00—18:00 GMT.";
+} else {
+  hour += 1; // Adjust for GMT+1 timezone
+  if (hour >= 9 && hour < 18) {
+    document.getElementById('hours').innerHTML = "The studio is open today from 09:00-18:00 GMT.";
   } else {
     document.getElementById('hours').innerHTML = "We are not currently in the studio, our hours of operation are Monday—Friday, 09:00—18:00 GMT.";
   }
-});
+}
 
 /***************************************** Wall Image *****************************************/
 var acceleration = 0.01;
@@ -234,71 +236,41 @@ window.addEventListener('load', init);
 }());
 
 /***************************************** Cookie Notice *****************************************/
-void(function(root, factory) {
-  if (typeof define === 'function' && define.amd) define(factory)
-  else if (typeof exports === 'object') module.exports = factory()
-  else root.CookieNotice = factory()
-}(this, function() {
-  function CookieNotice() {
-    ready(run)
-  }
+const div = document.createElement('div');
+div.innerHTML = 'This website uses cookies. <a href="<https://www.iubenda.com/privacy-policy/86096520>" target="_blank">Read Policy.</a> <a onclick="acceptCookies()">Accept.</a>';
+div.setAttribute('id', 'cookie-notice');
+document.body.appendChild(div);
 
-  CookieNotice.options = {
-    message: 'We use cookies.',
-    policy: '<a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">Read Policy.</a>',
-    dismiss: 'Accept.'
-  }
+function setCookie(cookieName, cookieValue, expirationDays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
+  const expires = "expires=" + d.toUTCString();
+  document.cookie = `${cookieName}=${cookieValue};${expires};path=/`;
+}
 
-  function run() {
-    if (window.localStorage.HHcookienotice) return
-    show()
-  }
-
-  function dismiss() {
-    var notice = document.getElementById('cookie-notice')
-    if (notice) notice.parentNode.removeChild(notice)
-    window.localStorage.HHcookienotice = true
-  }
-
-  function undismiss() {
-    delete window.localStorage.HHcookienotice
-  }
-
-  function show() {
-    var $div = document.createElement('div')
-    $div.id = 'cookie-notice'
-
-    var $message = document.createElement('span')
-    $message.id = 'cookie-notice--message'
-    $message.innerHTML = CookieNotice.options.message + ' ' + CookieNotice.options.policy
-    $div.appendChild($message)
-
-    var $dismiss = document.createElement('a')
-    $dismiss.id = 'cookie-notice--dismiss'
-    $dismiss.innerHTML = ' ' + CookieNotice.options.dismiss
-    $dismiss.onclick = dismiss
-    $div.appendChild($dismiss)
-
-    document.body.appendChild($div)
-  }
-
-  function ready(fn) {
-    if (document.readyState === 'complete') {
-      return fn()
-    } else if (document.addEventListener) {
-      document.addEventListener('DOMContentLoaded', fn)
-    } else {
-      document.attachEvent('onreadystatechange', function() {
-        if (document.readyState === 'interactive') fn()
-      })
+function getCookie(cookieName) {
+  const name = `${cookieName}=`;
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const cookieArray = decodedCookie.split(';');
+  for (let i = 0; i < cookieArray.length; i++) {
+    let cookie = cookieArray[i];
+    while (cookie.charAt(0) === ' ') {
+      cookie = cookie.substring(1);
+    }
+    if (cookie.indexOf(name) === 0) {
+      return cookie.substring(name.length, cookie.length);
     }
   }
+  return '';
+}
 
-  CookieNotice.run = run
-  CookieNotice.dismiss = dismiss
-  CookieNotice.undismiss = undismiss
+function acceptCookies() {
+  setCookie('HHcookienotice', 'true', 30);
+  const cookieNoticeDiv = document.getElementById('cookie-notice');
+  cookieNoticeDiv.style.display = 'none';
+}
 
-  return CookieNotice
-}));
-
-CookieNotice()
+if (getCookie('HHcookienotice') === 'true') {
+  const cookieNoticeDiv = document.getElementById('cookie-notice');
+  cookieNoticeDiv.style.display = 'none';
+}

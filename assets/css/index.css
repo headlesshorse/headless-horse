@@ -90,6 +90,7 @@ a:hover,
 a:focus {
   color: var(--hh-color-slate);
   text-decoration: none;
+  cursor: pointer;
 }
 
 a[data-value]:hover::after {
@@ -97,7 +98,7 @@ a[data-value]:hover::after {
 }
 
 a[target=_blank] {
-  cursor: ne-resize;
+  cursor: ne-resize !important;
 }
 
 li {
@@ -328,8 +329,9 @@ map area {
   bottom: 0;
   z-index: var(--hh-z-index-top);
   padding: var(--hh-spacing-4x);
-}
-
-#cookie-notice--dismiss {
-  cursor: pointer;
+  color: var(--hh-color-slate);
+  font-weight: var(--hh-font-body-1-font-weight);
+  font-size: var(--hh-font-body-1-font-size);
+  font-family: var(--hh-font-body-1-font-family);
+  line-height: var(--hh-font-body-1-line-height);
 }
