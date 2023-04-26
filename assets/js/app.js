@@ -86,7 +86,7 @@ $(document).ready(function() {
     });
     return this;
   };
-  $('#loader p, #cookie-notice').typewriter();
+  $('#loader p').typewriter();
 });
 
 $('#horseshoe').one('click', function() {
