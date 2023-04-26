@@ -39,7 +39,7 @@ async function Noticerun() {
         else {
           return html`
           <style>#latest{display: block;}</style>
-          <li style="text-transform: none;">${block.properties.title.map(renderText)}</li>`;
+          <li>${block.properties.title.map(renderText)}</li>`;
         }
         default:
           return block.title;
@@ -54,7 +54,7 @@ Noticerun();
   const CareerstableTemplate = table => html`
       ${table.map(({Position, Location, Contract, Slug}) => html`
         <style>#jobs{display: block;}</style>
-        <li style="text-transform: none;"><a href="${Slug}" target="_blank" data-value="${Location}, ${Contract}">${Position}</a></li>
+        <li><a href="${Slug}" target="_blank" data-value="${Location}, ${Contract}">${Position}</a></li>
       `)}
   `;
 

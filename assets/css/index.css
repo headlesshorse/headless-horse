@@ -74,7 +74,7 @@ h1,
 p,
 a,
 span,
-li {
+ul {
   color: var(--hh-color-slate);
   text-decoration: none;
   font-weight: var(--hh-font-body-1-font-weight);
