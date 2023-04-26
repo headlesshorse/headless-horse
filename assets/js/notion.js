@@ -39,14 +39,14 @@ async function Noticerun() {
         else {
           return html`
           <style>#latest{display: block;}</style>
-          <p style="text-transform: none;">${block.properties.title.map(renderText)}</p>`;
+          <li style="text-transform: none;">${block.properties.title.map(renderText)}</li>`;
         }
         default:
           return block.title;
     }
   });
 
-  render(content, document.getElementById('latest'))
+  render(content, document.querySelector('#latest + ul'))
 }
 Noticerun();
 
@@ -54,14 +54,14 @@ Noticerun();
   const CareerstableTemplate = table => html`
       ${table.map(({Position, Location, Contract, Slug}) => html`
         <style>#jobs{display: block;}</style>
-        <p style="text-transform: none;"><a href="${Slug}" target="_blank" data-value="${Location}, ${Contract}">${Position}</a></p>
+        <li style="text-transform: none;"><a href="${Slug}" target="_blank" data-value="${Location}, ${Contract}">${Position}</a></li>
       `)}
   `;
 
     fetch('https://notion-api.splitbee.io/v1/table/c87900ce8abc4ed28c77222beebebeac')
-      .then(handleAsJson) // Promise<TableJson>
+      .then(handleAsJson)
       .then(trace('table is'))
-      .then(CareerstableTemplate) // Promise<TemplateResult>
+      .then(CareerstableTemplate)
       .then(trace('template result is'))
       .then(result =>
-        render(result, document.getElementById('jobs')))
+        render(result, document.querySelector('#jobs + ul')))
