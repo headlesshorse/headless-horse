@@ -73,6 +73,7 @@ h1:not(:first-child) {
 h1,
 p,
 a,
+span,
 li {
   color: var(--hh-color-slate);
   text-decoration: none;
@@ -106,32 +107,21 @@ li a~a::before {
 /***************************************** Loader *****************************************/
 #loader {
   position: absolute;
-  top: 50%;
-  left: 50%;
   z-index: var(--hh-z-index-top);
-  width: 33.33vw;
-  cursor: wait;
-  transform: translate(-50%, -50%);
-}
-
-#loader--bar {
-  width: 0;
-  height: 1px;
-  background: var(--hh-color-slate);
+  padding: var(--hh-spacing-4x);
 }
 
 /***************************************** Horseshoe *****************************************/
 #horseshoe {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  right: var(--hh-spacing-4x);
+  bottom: var(--hh-spacing-4x);
   z-index: var(--hh-z-index-4);
   width: 80px;
   height: 80px;
   filter: var(--hh-effect-shadow);
   -webkit-filter: var(--hh-effect-shadow);
   cursor: help;
-  transform: translate(-50%, -50%);
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
@@ -177,15 +167,38 @@ li a~a::before {
 }
 
 a:hover,
-#horseshoe:hover,
-#cookie-notice--dismiss:hover {
+#horseshoe:hover {
   -webkit-animation-name: hover-flicker;
+  -moz-animation-name: hover-flicker;
   animation-name: hover-flicker;
   -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
   animation-duration: 2s;
 }
 
 @-webkit-keyframes hover-flicker {
+  0%, 2%, 6%, 8%, 12%, 16%, 18%, 99% {
+    opacity: 1;
+  }
+
+  3%, 5%, 9%, 11%, 15%, 17%,
+  to {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes hover-flicker {
+  0%, 2%, 6%, 8%, 12%, 16%, 18%, 99% {
+    opacity: 1;
+  }
+
+  3%, 5%, 9%, 11%, 15%, 17%,
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hover-flicker {
   0%, 2%, 6%, 8%, 12%, 16%, 18%, 99% {
     opacity: 1;
   }
@@ -227,7 +240,6 @@ a:hover,
 .wall-image--filter {
   filter: var(--hh-effect-grayscale);
   -webkit-filter: var(--hh-effect-grayscale);
-  transform-origin: center center;
   scale: 0.65;
 }
 
@@ -283,29 +295,9 @@ map area {
   position: absolute;
   bottom: 0;
   z-index: var(--hh-z-index-top);
-  box-sizing: border-box;
   padding: var(--hh-spacing-4x);
-  width: 100%;
-  background: var(--hh-color-black);
-}
-
-#cookie-notice--message {
-  width: 80%;
 }
 
 #cookie-notice--dismiss {
-  position: absolute;
-  top: var(--hh-spacing-4x);
-  right: 0;
-  bottom: var(--hh-spacing-4x);
-  padding-right: var(--hh-spacing-4x);
-  width: 20%;
-  border: 0;
-  background: var(--hh-color-transparent);
-  color: var(--hh-color-slate);
-  text-align: right;
-  font-weight: var(--hh-font-body-1-font-weight);
-  font-size: var(--hh-font-body-1-font-size);
-  font-family: var(--hh-font-body-1-font-family);
   cursor: pointer;
 }

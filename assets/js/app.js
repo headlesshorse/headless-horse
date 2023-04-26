@@ -4,9 +4,29 @@ width = 100,
   EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
   time = parseInt((EstimatedTime / 1000) % 60) * 100 + 2000;
 
-$('#loader--bar').animate({
-  width: width + '%'
-}, time);
+var loader_percentageID = $('#loader--percentage'),
+  start = 0,
+  end = 100,
+  durataion = time;
+animateValue(loader_percentageID, start, end, durataion);
+
+function animateValue(id, start, end, duration) {
+
+  var range = end - start,
+    current = start,
+    increment = end > start ? 1 : -1,
+    stepTime = Math.abs(Math.floor(duration / range)),
+    obj = $(id);
+
+  var timer = setInterval(function() {
+    current += increment;
+    $(obj).text('LOADING ' + current + '%');
+    // obj.innerHTML = current;
+    if (current == end) {
+      clearInterval(timer);
+    }
+  }, stepTime);
+}
 
 $('body').css({
   'cursor': 'wait'
@@ -14,12 +34,12 @@ $('body').css({
 
 /***************************************** Navigation *****************************************/
 setTimeout(function() {
+  $('#horseshoe').fadeIn(3000);
   $('#loader').delay(1000).fadeOut(3000);
-  $('#wall-image').delay(4000).fadeIn(3000);
-  $('#horseshoe').delay(7000).fadeIn(3000);
+  $('#wall-image').delay(3000).fadeIn(3000);
   setTimeout(function() {
     $('#wall-image').removeClass('wall-image--filter');
-  }, 7000);
+  }, 5000);
   $('body').css({
     'cursor': 'default'
   });
@@ -45,6 +65,30 @@ $('*[target="main--iframe"]').click(function() {
 });
 
 /***************************************** Typing *****************************************/
+$(document).ready(function() {
+  $.fn.typewriter = function() {
+    this.each(function() {
+      var $ele = $(this),
+        str = $ele.html(),
+        progress = 0,
+        offset = 0;
+      $ele.html('');
+
+      var typewriting = function() {
+        $ele.html(str.substring(offset, progress++));
+        if (progress >= str.length + 1) {
+          return;
+        } else {
+          setTimeout(typewriting, 4 + Math.random() * 3);
+        }
+      }
+      typewriting();
+    });
+    return this;
+  };
+  $('#loader p, #cookie-notice').typewriter();
+});
+
 $('#horseshoe').one('click', function() {
   $.fn.typewriter = function() {
     this.each(function() {
@@ -200,8 +244,9 @@ void(function(root, factory) {
   }
 
   CookieNotice.options = {
-    message: 'We use cookies. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">Read Policy.</a>',
-    dismiss: 'Accept'
+    message: 'We use cookies.',
+    policy: '<a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">Read Policy.</a>',
+    dismiss: 'Accept.'
   }
 
   function run() {
@@ -223,14 +268,14 @@ void(function(root, factory) {
     var $div = document.createElement('div')
     $div.id = 'cookie-notice'
 
-    var $message = document.createElement('p')
+    var $message = document.createElement('span')
     $message.id = 'cookie-notice--message'
-    $message.innerHTML = CookieNotice.options.message
+    $message.innerHTML = CookieNotice.options.message + ' ' + CookieNotice.options.policy
     $div.appendChild($message)
 
-    var $dismiss = document.createElement('button')
+    var $dismiss = document.createElement('a')
     $dismiss.id = 'cookie-notice--dismiss'
-    $dismiss.innerHTML = CookieNotice.options.dismiss
+    $dismiss.innerHTML = ' ' + CookieNotice.options.dismiss
     $dismiss.onclick = dismiss
     $div.appendChild($dismiss)
 
