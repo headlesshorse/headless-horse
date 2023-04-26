@@ -329,9 +329,4 @@ map area {
   bottom: 0;
   z-index: var(--hh-z-index-top);
   padding: var(--hh-spacing-4x);
-  color: var(--hh-color-slate);
-  font-weight: var(--hh-font-body-1-font-weight);
-  font-size: var(--hh-font-body-1-font-size);
-  font-family: var(--hh-font-body-1-font-family);
-  line-height: var(--hh-font-body-1-line-height);
 }
