@@ -104,6 +104,50 @@ li a~a::before {
   content: " ; ";
 }
 
+/***************************************** Animation *****************************************/
+a:hover,
+#horseshoe:hover {
+  -webkit-animation-name: hover-flicker;
+  -moz-animation-name: hover-flicker;
+  animation-name: hover-flicker;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+@-webkit-keyframes hover-flicker {
+  0%, 2%, 6%, 8%, 12%, 16%, 18%, 99% {
+    opacity: 1;
+  }
+
+  3%, 5%, 9%, 11%, 15%, 17%,
+  to {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes hover-flicker {
+  0%, 2%, 6%, 8%, 12%, 16%, 18%, 99% {
+    opacity: 1;
+  }
+
+  3%, 5%, 9%, 11%, 15%, 17%,
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hover-flicker {
+  0%, 2%, 6%, 8%, 12%, 16%, 18%, 99% {
+    opacity: 1;
+  }
+
+  3%, 5%, 9%, 11%, 15%, 17%,
+  to {
+    opacity: 0;
+  }
+}
+
 /***************************************** Loader *****************************************/
 #loader {
   position: absolute;
@@ -164,49 +208,6 @@ li a~a::before {
   padding: var(--hh-spacing-4x);
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: var(--hh-spacing-4x);
-}
-
-a:hover,
-#horseshoe:hover {
-  -webkit-animation-name: hover-flicker;
-  -moz-animation-name: hover-flicker;
-  animation-name: hover-flicker;
-  -webkit-animation-duration: 2s;
-  -moz-animation-duration: 2s;
-  animation-duration: 2s;
-}
-
-@-webkit-keyframes hover-flicker {
-  0%, 2%, 6%, 8%, 12%, 16%, 18%, 99% {
-    opacity: 1;
-  }
-
-  3%, 5%, 9%, 11%, 15%, 17%,
-  to {
-    opacity: 0;
-  }
-}
-
-@-moz-keyframes hover-flicker {
-  0%, 2%, 6%, 8%, 12%, 16%, 18%, 99% {
-    opacity: 1;
-  }
-
-  3%, 5%, 9%, 11%, 15%, 17%,
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes hover-flicker {
-  0%, 2%, 6%, 8%, 12%, 16%, 18%, 99% {
-    opacity: 1;
-  }
-
-  3%, 5%, 9%, 11%, 15%, 17%,
-  to {
-    opacity: 0;
-  }
 }
 
 #latest, #jobs {
