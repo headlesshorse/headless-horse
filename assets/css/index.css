@@ -250,7 +250,7 @@ map area {
 
 #tooltip {
   --b: rgba(0, 0, 0, 0) 90deg, var(--hh-color-slate) 0;
-  --p: var(--hh-spacing-2x) var(--hh-spacing-2x) border-box no-repeat;
+  --p: var(--hh-spacing-1x) var(--hh-spacing-1x) border-box no-repeat;
   margin-top: var(--hh-spacing-4x);
   padding: var(--hh-spacing-4x);
   min-width: 200px;
