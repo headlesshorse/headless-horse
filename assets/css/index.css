@@ -300,7 +300,6 @@ map area {
     display: grid;
     column-gap: var(--hh-spacing-2x);
     grid-template-columns: 33.3% 1fr;
-    row-gap: calc(var(--hh-font-body-1-line-height) * 2);
   }
 
   #main--copy {
