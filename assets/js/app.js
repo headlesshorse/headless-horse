@@ -1,8 +1,3 @@
-/***************************************** Hide *****************************************/
-document.querySelectorAll('#horseshoe, #main, #main--copy, #main--iframe, #wall-image--cover, #wall-image').forEach(element => {
-  element.style.display = 'none';
-});
-
 /***************************************** Loader *****************************************/
 document.querySelector('body').style.cursor = 'wait';
 
@@ -48,6 +43,10 @@ setTimeout(function() {
 }, time);
 
 /***************************************** Navigation *****************************************/
+document.querySelectorAll('#horseshoe, #main, #main--copy, #main--iframe, #wall-image--cover, #wall-image').forEach(element => {
+  element.style.display = 'none';
+});
+
 $('#horseshoe').click(function() {
   $('#main, #wall-image--cover').fadeToggle(1000);
   $('#main--iframe').fadeOut(1000);
@@ -265,7 +264,7 @@ function getCookie(cookieName) {
 }
 
 function acceptCookies() {
-  setCookie('HHcookienotice', 'true', 30);
+  setCookie('HHcookienotice', 'true', 365);
   const cookieNoticeDiv = document.getElementById('cookie-notice');
   cookieNoticeDiv.style.display = 'none';
 }
