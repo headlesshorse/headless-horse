@@ -237,7 +237,7 @@ window.addEventListener('load', init);
 
 /***************************************** Cookie Notice *****************************************/
 const div = document.createElement('div');
-div.innerHTML = 'This website uses cookies. <a href="<https://www.iubenda.com/privacy-policy/86096520>" target="_blank">Read Policy.</a> <a onclick="acceptCookies()">Accept.</a>';
+div.innerHTML = 'This website uses cookies. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">Read Policy.</a> <a onclick="acceptCookies()">Accept.</a>';
 div.setAttribute('id', 'cookie-notice');
 document.body.appendChild(div);
 
