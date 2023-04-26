@@ -1,6 +1,6 @@
 /***************************************** Hide *****************************************/
 document.querySelectorAll('#horseshoe, #main, #main--copy, #main--iframe, #wall-image--cover, #wall-image').forEach(element => {
-    element.style.display = 'none';
+  element.style.display = 'none';
 });
 
 /***************************************** Loader *****************************************/
@@ -236,10 +236,10 @@ window.addEventListener('load', init);
 }());
 
 /***************************************** Cookie Notice *****************************************/
-const div = document.createElement('div');
-div.innerHTML = 'This website uses cookies. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">Read Policy.</a> <a onclick="acceptCookies()">Accept.</a>';
-div.setAttribute('id', 'cookie-notice');
-document.body.appendChild(div);
+const cookienotice = document.createElement('div');
+cookienotice.innerHTML = 'This website uses cookies. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">Read Policy.</a> <a onclick="acceptCookies()">Accept.</a>';
+cookienotice.setAttribute('id', 'cookie-notice');
+document.body.appendChild(cookienotice);
 
 function setCookie(cookieName, cookieValue, expirationDays) {
   const d = new Date();
