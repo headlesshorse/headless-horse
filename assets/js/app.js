@@ -3,7 +3,12 @@ $('#horseshoe, #main, #main--copy, #main--iframe, #wall-image--cover, #wall-imag
   $(this).hide();
 });
 
-$('body').append('<div id="loader"><p id="loader--percentage"></p><p>To navigate pages, click on the Horseshoe.<br>To open a case, click on selected wall areas.</p></div>');
+$('body').append(`
+  <div id="loader">
+    <p id="loader--percentage"></p>
+    <p>To navigate pages, click on the Horseshoe.<br>To open a case, click on selected wall areas.</p>
+  </div>`
+);
 
 $('body').css({
   'cursor': 'wait'
@@ -121,13 +126,13 @@ var day = now.getUTCDay(); // 0 = Sunday, 1 = Monday, etc.
 var hour = now.getUTCHours(); // 0-23
 
 if (day === 0 || day === 6) {
-  document.getElementById('hours').innerHTML = "We are not currently in the studio, we'll be back on Monday morning. Hours of operation are Monday—Friday, 09:00—18:00 GMT.";
+  document.querySelector('h1 + p').innerHTML += `<br>We are not currently in the studio, we will return Monday morning. Hours of operation are Monday—Friday, 09:00—18:00 GMT.`;
 } else {
   hour += 1; // Adjust for GMT+1 timezone
   if (hour >= 9 && hour < 18) {
-    document.getElementById('hours').innerHTML = "The studio is open today from 09:00-18:00 GMT.";
+    document.querySelector('h1 + p').innerHTML += `<br>The studio is open today from 09:00-18:00 GMT.`;
   } else {
-    document.getElementById('hours').innerHTML = "We are not currently in the studio, our hours of operation are Monday—Friday, 09:00—18:00 GMT.";
+    document.querySelector('h1 + p').innerHTML += `<br>We are not currently in the studio, our hours of operation are Monday—Friday, 09:00—18:00 GMT.`;
   }
 }
 
@@ -242,7 +247,7 @@ window.addEventListener('load', init);
 
 /***************************************** Cookie Notice *****************************************/
 const cookieNotice = document.createElement('div');
-cookieNotice.innerHTML = '<p>This website uses cookies. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">Read Policy.</a> <a onclick="acceptCookies()">Accept.</a></p>';
+cookieNotice.innerHTML = `<p>We use cookies. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">Read Policy.</a> <a onclick="acceptCookies()">Accept.</a></p>`;
 cookieNotice.setAttribute('id', 'cookie-notice');
 document.body.appendChild(cookieNotice);
 
