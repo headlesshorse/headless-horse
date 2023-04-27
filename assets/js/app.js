@@ -136,6 +136,13 @@ if (day === 0 || day === 6) {
   }
 }
 
+/***************************************** Notion *****************************************/
+fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
+  .then(res => res.text())
+  .then(text => {
+    document.querySelector('#latest + ul').innerHTML += text
+  })
+
 /***************************************** Wall Image *****************************************/
 var acceleration = 0.01;
 

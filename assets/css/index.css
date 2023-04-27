@@ -221,13 +221,6 @@ a:hover,
   grid-gap: var(--hh-spacing-4x);
 }
 
-#latest,
-#latest+ul,
-#jobs,
-#jobs+ul {
-  display: none;
-}
-
 /***************************************** Wall Image *****************************************/
 #wall-image--cover {
   position: absolute;

@@ -20,6 +20,7 @@ Here are the major frameworks, programming languages, software and libraries we 
 -   [jQuery](https://jquery.com)
 -   [Greensock](https://greensock.com)
 -   [TweenMax](https://greensock.com/tweenmax)
+-   [Potion](https://github.com/benborgers/potion)
 
 ## License
 
