@@ -105,9 +105,10 @@ fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
   .then(text => {
     document.querySelector('#latest').style.display = 'block';
     document.querySelector('#latest').insertAdjacentHTML('afterend', text);
-    document.querySelectorAll('a').forEach(function(notionLink) {
-      notionLink.setAttribute('target', '_blank');
-    })
+    const latestLinks = document.querySelectorAll('#latest + ul li a');
+    latestLinks.forEach(link => {
+      link.setAttribute('target', '_blank');
+    });
   })
 
 /***************************************** Wall Image *****************************************/
