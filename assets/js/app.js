@@ -72,52 +72,29 @@ $('*[target="main--iframe"]').click(function() {
 });
 
 /***************************************** Typing *****************************************/
-$(document).ready(function() {
-  $.fn.typewriter = function() {
-    this.each(function() {
-      var $ele = $(this),
-        str = $ele.html(),
-        progress = 0,
-        offset = 0;
-      $ele.html('');
+var horseshoe = document.querySelector('#horseshoe');
+horseshoe.addEventListener('click', function() {
+  function typewriter(element) {
+    var str = element.innerHTML,
+      progress = 0,
+      offset = 0;
+    element.innerHTML = '';
 
-      var typewriting = function() {
-        $ele.html(str.substring(offset, progress++));
-        if (progress >= str.length + 1) {
-          return;
-        } else {
-          setTimeout(typewriting, 4 + Math.random() * 3);
-        }
+    function typewriting() {
+      element.innerHTML = str.substring(offset, progress++);
+      if (progress >= str.length) {
+        return;
+      } else {
+        setTimeout(typewriting, 4 + Math.random() * 3);
       }
-      typewriting();
-    });
-    return this;
-  };
-  $('#loader p').typewriter();
-});
+    }
+    typewriting();
+  }
 
-$('#horseshoe').one('click', function() {
-  $.fn.typewriter = function() {
-    this.each(function() {
-      var $ele = $(this),
-        str = $ele.html(),
-        progress = 0,
-        offset = 0;
-      $ele.html('');
-
-      var typewriting = function() {
-        $ele.html(str.substring(offset, progress++));
-        if (progress >= str.length) {
-          return;
-        } else {
-          setTimeout(typewriting, 4 + Math.random() * 3);
-        }
-      }
-      typewriting();
-    });
-    return this;
-  };
-  $('section').typewriter();
+  var sections = document.getElementsByTagName('section');
+  for (var i = 0; i < sections.length; i++) {
+    typewriter(sections[i]);
+  }
 });
 
 /***************************************** Office Hours *****************************************/
@@ -215,42 +192,34 @@ function moveAction(event) {
   }
 }
 
-/***************************************** Tooltip *****************************************/
 window.addEventListener('load', init);
 
-(function() {
-  var ID = 'tooltip',
-    CLS_ON = 'tooltip_ON',
-    FOLLOW = true,
-    DATA = '_tooltip',
-    OFFSET_X = 20,
-    OFFSET_Y = 10,
-    showAt = function(e) {
-      var ntop = e.pageY + OFFSET_Y,
-        nleft = e.pageX + OFFSET_X;
-      $('#' + ID).html($(e.target).data(DATA)).css({
-        position: 'absolute',
-        top: ntop,
-        left: nleft
-      }).show();
-    };
-
-  $('#wall-image--map').on('mouseenter', '*[title]', function(e) {
-    $(this).data(DATA, $(this).attr('title'));
-    $(this).removeAttr('title').addClass(CLS_ON);
-    $('<div id="' + ID + '" />').appendTo('body');
-    showAt(e);
+/***************************************** Tooltip *****************************************/
+const areas = document.getElementsByTagName('area');
+for (let i = 0; i < areas.length; i++) {
+  areas[i].addEventListener('mouseover', function(event) {
+    const tooltip = document.createElement('div');
+    tooltip.setAttribute('id', 'tooltip');
+    tooltip.innerHTML = this.getAttribute('title');
+    tooltip.style.position = 'absolute';
+    document.body.appendChild(tooltip);
+    updateTooltipPosition(event, tooltip);
+    window.addEventListener('mousemove', function(event) {
+      updateTooltipPosition(event, tooltip);
+    });
+    this.removeAttribute('title');
   });
-
-  $('#wall-image--map').on('mouseleave', '.' + CLS_ON, function(e) {
-    $(this).attr('title', $(this).data(DATA)).removeClass(CLS_ON);
-    $('#' + ID).remove();
+  areas[i].addEventListener('mouseout', function() {
+    const tooltip = document.querySelector('#tooltip');
+    tooltip.parentNode.removeChild(tooltip);
+    this.setAttribute('title', tooltip.innerHTML);
   });
+}
 
-  if (FOLLOW) {
-    $('#wall-image--map').on('mousemove', '.' + CLS_ON, showAt);
-  }
-}());
+function updateTooltipPosition(event, tooltip) {
+  tooltip.style.top = (event.pageY + 10) + 'px';
+  tooltip.style.left = (event.pageX + 10) + 'px';
+}
 
 /***************************************** Cookie Notice *****************************************/
 const cookieNotice = document.createElement('div');
