@@ -119,6 +119,7 @@ if (day === 0 || day === 6) {
 fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
   .then(res => res.text())
   .then(text => {
+    document.querySelector('#latest').style.display = 'block';
     document.querySelector('#latest').insertAdjacentHTML('afterend', text);
     document.querySelector('a').setAttribute('target', '_blank');
   })

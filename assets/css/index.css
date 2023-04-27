@@ -113,6 +113,10 @@ li a~a::before {
   content: " ; ";
 }
 
+#latest {
+  display: none;
+}
+
 /***************************************** Animation *****************************************/
 a:hover,
 #horseshoe:hover {
