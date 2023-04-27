@@ -1,51 +1,34 @@
 /***************************************** Loader *****************************************/
-$('#horseshoe, #main, #main--copy, #main--iframe, #wall-image--cover, #wall-image').each(function() {
-  $(this).hide();
-});
+let loaderDiv = document.createElement('div');
+loaderDiv.setAttribute('id', 'loader');
 
-$('body').append(`
-  <div id="loader">
-    <p id="loader--percentage"></p>
-    <p>To navigate pages, click on the Horseshoe.<br>To open a case, click on selected wall areas.</p>
-  </div>
-`);
+let loaderBarDiv = document.createElement('div');
+loaderBarDiv.setAttribute('id', 'loader--bar');
 
-$('body').css({
-  'cursor': 'wait'
-});
+loaderDiv.appendChild(loaderBarDiv);
+document.body.appendChild(loaderDiv);
 
-width = 100,
-  perfData = window.performance.timing,
-  EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
-  time = parseInt((EstimatedTime / 1000) % 60) * 100 + 2000;
+let width = 100;
+let perfData = window.performance.timing;
+let EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart);
+let time = parseInt((EstimatedTime / 1000) % 60) * 100 + 2000;
 
-var loader_percentageID = $('#loader--percentage'),
-  start = 0,
-  end = 100,
-  durataion = time;
-animateValue(loader_percentageID, start, end, durataion);
+let loaderBar = document.getElementById('loader--bar');
+let loaderBarWidth = 0;
+let loaderInterval = setInterval(frame, time / 100);
 
-function animateValue(id, start, end, duration) {
-
-  var range = end - start,
-    current = start,
-    increment = end > start ? 1 : -1,
-    stepTime = Math.abs(Math.floor(duration / range)),
-    obj = $(id);
-
-  var timer = setInterval(function() {
-    current += increment;
-    $(obj).text('LOADING ' + current + '%');
-    // obj.innerHTML = current;
-    if (current == end) {
-      clearInterval(timer);
-    }
-  }, stepTime);
+function frame() {
+  if (loaderBarWidth >= width) {
+    clearInterval(loaderInterval);
+  } else {
+    loaderBarWidth++;
+    loaderBar.style.width = loaderBarWidth + '%';
+  }
 }
 
 setTimeout(function() {
-  $('#horseshoe').fadeIn(3000);
-  $('#loader').delay(1000).fadeOut(3000);
+  $('#loader').fadeOut(3000);
+  $('#horseshoe').delay(1000).fadeIn(3000);
   $('#wall-image').delay(2000).fadeIn(3000);
   setTimeout(function() {
     $('#wall-image').removeClass('wall-image--filter');
@@ -55,7 +38,8 @@ setTimeout(function() {
   });
 }, time);
 
-/***************************************** Navigation *****************************************/
+/***************************************** Navigatioh *****************************************/
+
 $('#horseshoe').click(function() {
   $('#main, #wall-image--cover').fadeToggle(1000);
   $('#main--iframe').fadeOut(1000);
@@ -121,6 +105,9 @@ fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
   .then(text => {
     document.querySelector('#latest').style.display = 'block';
     document.querySelector('#latest').insertAdjacentHTML('afterend', text);
+    document.querySelectorAll('a').forEach(function(notionLink) {
+      notionLink.setAttribute('target', '_blank');
+    })
   })
 
 /***************************************** Wall Image *****************************************/
