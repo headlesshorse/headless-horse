@@ -46,10 +46,10 @@ function animateValue(id, start, end, duration) {
 setTimeout(function() {
   $('#horseshoe').fadeIn(3000);
   $('#loader').delay(1000).fadeOut(3000);
-  $('#wall-image').delay(3000).fadeIn(3000);
+  $('#wall-image').delay(2000).fadeIn(3000);
   setTimeout(function() {
     $('#wall-image').removeClass('wall-image--filter');
-  }, 5000);
+  }, 3000);
   $('body').css({
     'cursor': 'default'
   });
@@ -73,7 +73,7 @@ $('*[target="main--iframe"]').click(function() {
 
 /***************************************** Typing *****************************************/
 var horseshoe = document.querySelector('#horseshoe');
-horseshoe.addEventListener('click', function() {
+horseshoe.addEventListener('click', function(event) {
   function typewriter(element) {
     var str = element.innerHTML,
       progress = 0,
@@ -95,6 +95,8 @@ horseshoe.addEventListener('click', function() {
   for (var i = 0; i < sections.length; i++) {
     typewriter(sections[i]);
   }
+
+  horseshoe.removeEventListener('click', arguments.callee);
 });
 
 /***************************************** Office Hours *****************************************/
