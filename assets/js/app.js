@@ -89,13 +89,13 @@ var day = now.getUTCDay(); // 0 = Sunday, 1 = Monday, etc.
 var hour = now.getUTCHours(); // 0-23
 
 if (day === 0 || day === 6) {
-  document.querySelector('h1 + p').innerHTML += `<br>We are currently out of office and will return on Monday morning. Our hours of operation are Monday to Friday, from 09:00 to 18:00 GMT.`;
+  document.querySelector('h1 + p').insertAdjacentHTML('beforeend', `<br>We are currently out of office and will return on Monday morning. Our hours of operation are Monday to Friday, from 09:00 to 18:00 GMT.`);
 } else {
   hour += 1; // Adjust for GMT+1 timezone
   if (hour >= 9 && hour < 18) {
-    document.querySelector('h1 + p').innerHTML += `<br>The studio is open today from 09:00-18:00 GMT.`;
+    document.querySelector('h1 + p').insertAdjacentHTML('beforeend', `<br>The studio is open today from 09:00-18:00 GMT.`);
   } else {
-    document.querySelector('h1 + p').innerHTML += `<br>We are currently out of office, our hours of operation are Monday—Friday, 09:00—18:00 GMT.`;
+    document.querySelector('h1 + p').insertAdjacentHTML('beforeend', `<br>We are currently out of office, our hours of operation are Monday—Friday, 09:00—18:00 GMT.`);
   }
 }
 
