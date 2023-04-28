@@ -72,7 +72,7 @@ if (day === 0 || day === 6) {
 
 /***************************************** Read More *****************************************/
 const readMoreBtn = document.createElement('a');
-readMoreBtn.textContent = ' Read More.';
+readMoreBtn.textContent = 'More.';
 readMoreBtn.style.cursor = 's-resize';
 
 const readMoreText = document.querySelector('p span');
@@ -80,12 +80,12 @@ readMoreText.insertAdjacentElement('afterend', readMoreBtn);
 readMoreText.style.display = 'none';
 
 readMoreBtn.addEventListener('click', () => {
-  if (readMoreBtn.textContent === ' Read Less.') {
-    readMoreBtn.textContent = ' Read More.';
+  if (readMoreBtn.textContent === 'Less.') {
+    readMoreBtn.textContent = 'More.';
     readMoreText.style.display = 'none';
     readMoreBtn.style.cursor = 's-resize';
   } else {
-    readMoreBtn.textContent = ' Read Less.';
+    readMoreBtn.textContent = 'Less.';
     readMoreText.style.display = 'block';
         readMoreBtn.style.cursor = 'n-resize';
   }
