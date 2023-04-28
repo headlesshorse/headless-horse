@@ -39,7 +39,6 @@ setTimeout(function() {
 }, time);
 
 /***************************************** Navigatioh *****************************************/
-
 $('#horseshoe').click(function() {
   $('#main, #wall-image--cover').fadeToggle(1000);
   $('#main--iframe').fadeOut(1000);
