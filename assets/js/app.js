@@ -207,7 +207,7 @@ function updateTooltipPosition(event, tooltip) {
 /***************************************** Cookie Notice *****************************************/
 const cookieNotice = document.createElement('div');
 cookieNotice.setAttribute('id', 'cookie-notice');
-cookieNotice.innerHTML = `<p>We use cookies. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">Read Policy.</a> <a onclick="acceptCookies()">Accept.</a></p>`;
+cookieNotice.innerHTML = `<p>We use cookies. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank">Privacy Policy.</a> <a onclick="acceptCookies()">Accept.</a></p>`;
 document.body.appendChild(cookieNotice);
 
 function setCookie(cookieName, cookieValue, expirationDays) {
