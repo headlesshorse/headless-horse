@@ -39,6 +39,7 @@ body {
   counter-reset: section;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  cursor: wait;
 }
 
 ::-webkit-scrollbar {

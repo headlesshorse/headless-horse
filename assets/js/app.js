@@ -54,34 +54,6 @@ $('*[target="main--iframe"]').click(function() {
   $('#horseshoe').toggleClass('horseshoe--cursor');
 });
 
-/***************************************** Typing *****************************************/
-var horseshoe = document.querySelector('#horseshoe');
-horseshoe.addEventListener('click', function(event) {
-  function typewriter(element) {
-    var str = element.innerHTML,
-      progress = 0,
-      offset = 0;
-    element.innerHTML = '';
-
-    function typewriting() {
-      element.innerHTML = str.substring(offset, progress++);
-      if (progress >= str.length) {
-        return;
-      } else {
-        setTimeout(typewriting, 4 + Math.random() * 3);
-      }
-    }
-    typewriting();
-  }
-
-  var sections = document.getElementsByTagName('section');
-  for (var i = 0; i < sections.length; i++) {
-    typewriter(sections[i]);
-  }
-
-  horseshoe.removeEventListener('click', arguments.callee);
-});
-
 /***************************************** Office Hours *****************************************/
 var now = new Date();
 var day = now.getUTCDay(); // 0 = Sunday, 1 = Monday, etc.
@@ -97,6 +69,27 @@ if (day === 0 || day === 6) {
     document.querySelector('h1 + p').insertAdjacentHTML('beforeend', `<br>We are currently out of office, our hours of operation are Monday—Friday, 09:00—18:00 GMT.`);
   }
 }
+
+/***************************************** Read More *****************************************/
+const readMoreBtn = document.createElement('a');
+readMoreBtn.textContent = ' Read More.';
+readMoreBtn.style.cursor = 's-resize';
+
+const readMoreText = document.querySelector('p span');
+readMoreText.insertAdjacentElement('afterend', readMoreBtn);
+readMoreText.style.display = 'none';
+
+readMoreBtn.addEventListener('click', () => {
+  if (readMoreBtn.textContent === ' Read Less.') {
+    readMoreBtn.textContent = ' Read More.';
+    readMoreText.style.display = 'none';
+    readMoreBtn.style.cursor = 's-resize';
+  } else {
+    readMoreBtn.textContent = ' Read Less.';
+    readMoreText.style.display = 'block';
+        readMoreBtn.style.cursor = 'n-resize';
+  }
+});
 
 /***************************************** Notion *****************************************/
 fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
