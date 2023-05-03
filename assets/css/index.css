@@ -137,22 +137,6 @@ a:hover,
   }
 }
 
-#read-more {
-  animation: blink-animation 2s steps(5, start) infinite;
-}
-
-@keyframes blink-animation {
-  to {
-    visibility: hidden;
-  }
-}
-
-@-webkit-keyframes blink-animation {
-  to {
-    visibility: hidden;
-  }
-}
-
 /***************************************** Loader *****************************************/
 #loader {
   position: absolute;

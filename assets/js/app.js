@@ -72,7 +72,6 @@ if (day === 0 || day === 6) {
 
 /***************************************** Read More *****************************************/
 const readMoreBtn = document.createElement('a');
-readMoreBtn.setAttribute('id', 'read-more');
 readMoreBtn.textContent = 'Read More.';
 readMoreBtn.style.cursor = 's-resize';
 
