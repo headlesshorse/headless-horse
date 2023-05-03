@@ -36,8 +36,8 @@ body {
   height: 100%;
   background: var(--hh-color-black);
   counter-reset: section;
-  scrollbar-width: none;
   cursor: wait;
+  scrollbar-width: none;
 }
 
 ::-webkit-scrollbar {
@@ -111,11 +111,11 @@ li a~a::before {
 /***************************************** Animation *****************************************/
 a:hover,
 #horseshoe:hover {
-  animation-name: hover-flicker;
+  animation-name: flicker-animation;
   animation-duration: 2s;
 }
 
-@keyframes hover-flicker {
+@keyframes flicker-animation {
   0%, 2%, 6%, 8%, 12%, 16%, 18%, 99% {
     opacity: 1;
   }
@@ -123,6 +123,33 @@ a:hover,
   3%, 5%, 9%, 11%, 15%, 17%,
   to {
     opacity: 0;
+  }
+}
+
+@-webkit-keyframes flicker-animation {
+  0%, 2%, 6%, 8%, 12%, 16%, 18%, 99% {
+    opacity: 1;
+  }
+
+  3%, 5%, 9%, 11%, 15%, 17%,
+  to {
+    opacity: 0;
+  }
+}
+
+#read-more {
+  animation: blink-animation 2s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
   }
 }
 
