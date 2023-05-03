@@ -33,10 +33,11 @@
 
 html,
 body {
+  overflow: hidden;
   height: 100%;
   background: var(--hh-color-black);
   counter-reset: section;
-  cursor: wait;
+  -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
