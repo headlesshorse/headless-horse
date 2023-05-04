@@ -93,8 +93,8 @@ readMoreBtn.addEventListener('click', () => {
 });
 
 /***************************************** Notion *****************************************/
-const latestTitle = document.createElement('h1');
 const previousSection = document.querySelector('h1 + p');
+const latestTitle = document.createElement('h1');
 
 fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
   .then(res => res.text())
