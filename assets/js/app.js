@@ -93,24 +93,25 @@ readMoreBtn.addEventListener('click', () => {
 });
 
 /***************************************** Notion *****************************************/
-const previousSection = document.querySelector('h1 + p');
-const latestTitle = document.createElement('h1');
-
-function append(referenceNode, newNode) {
-  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-}
-append(previousSection, latestTitle);
+let previousSection = document.querySelector('h1 + p');
+let latestTitle = document.createElement('h1');
 
 fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
   .then(res => res.text())
   .then(text => {
     latestTitle.innerHTML = `Latest`;
     latestTitle.insertAdjacentHTML('afterend', text);
-    document.querySelectorAll('ul li a').forEach(link => {
+    latestLinks = document.querySelectorAll('ul li a');
+    latestLinks.forEach(link => {
       link.setAttribute('target', '_blank');
       link.setAttribute('rel', 'noreferrer');
     });
   })
+
+function append(referenceNode, newNode) {
+  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+append(previousSection, latestTitle);
 
 /***************************************** Wall Image *****************************************/
 var acceleration = 0.01;
