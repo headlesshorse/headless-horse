@@ -99,10 +99,10 @@ let latestTitle = document.createElement('h1');
 fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
   .then(res => res.text())
   .then(text => {
+    latestTitle.setAttribute('id', 'latest');
     latestTitle.innerHTML = `Latest`;
     latestTitle.insertAdjacentHTML('afterend', text);
-    latestLinks = document.querySelectorAll('ul li a');
-    latestLinks.forEach(link => {
+    document.querySelectorAll('#latest + ul li a').forEach(link => {
       link.setAttribute('target', '_blank');
       link.setAttribute('rel', 'noreferrer');
     });
@@ -111,6 +111,7 @@ fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
 function append(referenceNode, newNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
+
 append(previousSection, latestTitle);
 
 /***************************************** Wall Image *****************************************/
