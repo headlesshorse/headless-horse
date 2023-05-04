@@ -108,6 +108,7 @@ fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
     latestTitle.insertAdjacentHTML('afterend', text);
     document.querySelectorAll('ul li a').forEach(link => {
       link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noreferrer');
     });
   })
 
