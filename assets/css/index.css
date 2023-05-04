@@ -295,6 +295,6 @@ map area {
 }
 
 /***************************************** Hide *****************************************/
-#horseshoe, #main, #latest, #main--iframe, #wall-image--cover, #wall-image {
+#horseshoe, #main, #main--iframe, #wall-image--cover, #wall-image, h1:nth-of-type(2) {
   display: none;
 }
