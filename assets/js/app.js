@@ -60,19 +60,20 @@ var day = now.getUTCDay(); // 0 = Sunday, 1 = Monday, etc.
 var hour = now.getUTCHours(); // 0-23
 
 if (day === 0 || day === 6) {
-  document.querySelector('h1 + p').insertAdjacentHTML('beforeend', `<br>We are currently out of office and will return Monday morning. Our hours of operation are Monday to Friday, 09:00—18:00 GMT.`);
+  document.querySelector('h1 + p').insertAdjacentHTML('beforeend', `We are currently out of office and will return Monday morning. Our hours of operation are Monday to Friday, 09:00—18:00 GMT.`);
 } else {
   hour += 1; // Adjust for GMT+1 timezone
   if (hour >= 9 && hour < 18) {
-    document.querySelector('h1 + p').insertAdjacentHTML('beforeend', `<br>The studio is open today from 09:00-18:00 GMT.`);
+    document.querySelector('h1 + p').insertAdjacentHTML('beforeend', `The studio is open today from 09:00-18:00 GMT.`);
   } else {
-    document.querySelector('h1 + p').insertAdjacentHTML('beforeend', `<br>We are currently out of office, our hours of operation are Monday—Friday, 09:00—18:00 GMT.`);
+    document.querySelector('h1 + p').insertAdjacentHTML('beforeend', `We are currently out of office, hours of operation are Monday—Friday, 09:00—18:00 GMT.`);
   }
 }
 
 /***************************************** Read More *****************************************/
 const readMoreBtn = document.createElement('a');
 readMoreBtn.textContent = 'Read More.';
+readMoreBtn.style.display = 'block';
 readMoreBtn.style.cursor = 's-resize';
 
 const readMoreText = document.querySelector('p span');
@@ -87,7 +88,7 @@ readMoreBtn.addEventListener('click', () => {
   } else {
     readMoreBtn.textContent = 'Read Less.';
     readMoreText.style.display = 'block';
-        readMoreBtn.style.cursor = 'n-resize';
+    readMoreBtn.style.cursor = 'n-resize';
   }
 });
 
@@ -95,8 +96,8 @@ readMoreBtn.addEventListener('click', () => {
 fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
   .then(res => res.text())
   .then(text => {
-    document.querySelector('#latest').style.display = 'block';
-    document.querySelector('#latest').insertAdjacentHTML('afterend', text);
+    document.querySelector('h1:nth-of-type(2)').style.display = 'block';
+    document.querySelector('h1:nth-of-type(2)').insertAdjacentHTML('afterend', text);
     const latestLinks = document.querySelectorAll('#latest + ul li a');
     latestLinks.forEach(link => {
       link.setAttribute('target', '_blank');
