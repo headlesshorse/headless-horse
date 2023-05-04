@@ -96,7 +96,7 @@ readMoreBtn.addEventListener('click', () => {
 let previousSection = document.querySelector('h1 + p');
 let latestTitle = document.createElement('h1');
 
-previousSection.append(latestTitle);
+previousSection.after(latestTitle);
 
 fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
   .then(res => res.text())
