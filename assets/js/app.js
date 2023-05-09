@@ -28,11 +28,10 @@ function frame() {
 
 setTimeout(function() {
   $('#loader').fadeOut(3000);
-  $('#horseshoe').delay(1000).fadeIn(3000);
-  $('#wall-image').delay(2000).fadeIn(3000);
+  $('#horseshoe, #wall-image').delay(2000).fadeIn(3000);
   setTimeout(function() {
     $('#wall-image').removeClass('wall-image--filter');
-  }, 3000);
+  }, 2000);
   $('body').css({
     'cursor': 'default'
   });
