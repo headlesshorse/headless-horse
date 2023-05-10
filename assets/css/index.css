@@ -227,6 +227,10 @@ a:hover,
   grid-gap: var(--hh-spacing-4x);
 }
 
+#latest+ul li a:first-of-type::before {
+  content: "New: ";
+}
+
 /***************************************** Wall Image *****************************************/
 #wall-image--cover {
   position: absolute;
