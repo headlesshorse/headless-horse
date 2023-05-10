@@ -106,8 +106,31 @@ li {
   -webkit-box-orient: vertical;
 }
 
+li {
+  counter-reset: presslinks;
+}
+
+li a {
+  counter-increment: presslinks +1;
+}
+
+li a~a {
+  font-size: 0;
+}
+
 li a~a::before {
   content: " / ";
+  font-size: var(--hh-font-body-1-font-size);
+}
+
+li a~a:not(:first-child)::after {
+  visibility: visible;
+  content: counter(presslinks);
+  font-size: var(--hh-font-body-1-font-size);
+}
+
+li a~a[data-value]:hover::after {
+  content: attr(data-value);
 }
 
 /***************************************** Animation *****************************************/
