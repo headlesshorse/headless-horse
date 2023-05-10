@@ -53,29 +53,13 @@ $('*[target="main--iframe"]').click(function() {
   $('#horseshoe').toggleClass('horseshoe--cursor');
 });
 
-/***************************************** Office Hours *****************************************/
-var now = new Date();
-var day = now.getUTCDay(); // 0 = Sunday, 1 = Monday, etc.
-var hour = now.getUTCHours(); // 0-23
-
-if (day === 0 || day === 6) {
-  document.querySelector('h1 + p').insertAdjacentHTML('beforeend', `We are currently out of office and will return Monday morning. Our hours of operation are Monday to Friday, 09:00—18:00 GMT.`);
-} else {
-  hour += 1; // Adjust for GMT+1 timezone
-  if (hour >= 9 && hour < 18) {
-    document.querySelector('h1 + p').insertAdjacentHTML('beforeend', `The studio is open today from 09:00-18:00 GMT.`);
-  } else {
-    document.querySelector('h1 + p').insertAdjacentHTML('beforeend', `We are currently out of office, hours of operation are Monday—Friday, 09:00—18:00 GMT.`);
-  }
-}
-
 /***************************************** Read More *****************************************/
 const readMoreBtn = document.createElement('a');
 readMoreBtn.textContent = `Read More.`;
 readMoreBtn.style.display = 'block';
 readMoreBtn.style.cursor = 's-resize';
 
-const readMoreText = document.querySelector('p span');
+const readMoreText = document.querySelector('span');
 readMoreText.insertAdjacentElement('afterend', readMoreBtn);
 readMoreText.style.display = 'none';
 
@@ -90,6 +74,22 @@ readMoreBtn.addEventListener('click', () => {
     readMoreBtn.style.cursor = 'n-resize';
   }
 });
+
+/***************************************** Office Hours *****************************************/
+var now = new Date();
+var day = now.getUTCDay(); // 0 = Sunday, 1 = Monday, etc.
+var hour = now.getUTCHours(); // 0-23
+
+if (day === 0 || day === 6) {
+  document.querySelector('span').insertAdjacentHTML('afterend', `We are currently out of office and will return Monday morning. Our hours of operation are Monday to Friday, 09:00—18:00 GMT.`);
+} else {
+  hour += 1; // Adjust for GMT+1 timezone
+  if (hour >= 9 && hour < 18) {
+    document.querySelector('span').insertAdjacentHTML('afterend', `The studio is open today from 09:00-18:00 GMT.`);
+  } else {
+    document.querySelector('span').insertAdjacentHTML('afterend', `We are currently out of office, hours of operation are Monday—Friday, 09:00—18:00 GMT.`);
+  }
+}
 
 /***************************************** Notion *****************************************/
 let previousSection = document.querySelector('h1 + p');
