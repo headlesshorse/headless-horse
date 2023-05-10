@@ -226,6 +226,7 @@ a:hover,
   width: 100vw;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: var(--hh-spacing-4x);
+  mix-blend-mode: difference;
 }
 
 #latest+ul li a:first-of-type::before {
@@ -289,6 +290,7 @@ map area {
   bottom: 0;
   z-index: var(--hh-z-index-top);
   padding: var(--hh-spacing-4x);
+  mix-blend-mode: difference;
 }
 
 /***************************************** Mobile *****************************************/
