@@ -124,7 +124,6 @@ li a~a::before {
 }
 
 li a~a:not(:first-child)::after {
-  visibility: visible;
   content: counter(presslinks);
   font-size: var(--hh-font-body-1-font-size);
 }
