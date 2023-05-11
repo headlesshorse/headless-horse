@@ -107,6 +107,7 @@ li {
 }
 
 li {
+  height: var(--hh-font-body-1-line-height);
   counter-reset: presslinks;
 }
 
@@ -116,6 +117,7 @@ li a {
 
 li a~a {
   font-size: 0;
+  line-height: var(--hh-font-body-1-line-height);
 }
 
 li a~a::before {

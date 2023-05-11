@@ -116,6 +116,7 @@ var img = { element: document.querySelector('#wall-image'), xMax: 0, yMax: 0, x:
 var mouse = { x: 0, y: 0 };
 var vw = 0, vh = 0;
 var targetX = 0, targetY = 0;
+var animationId = null;
 
 function init() {
   resize();
@@ -130,10 +131,12 @@ function map(x, a, b, c, d) { return c + ((d - c) * (x - a)) / (b - a) || 0; }
 function resize() { vw = window.innerWidth; vh = window.innerHeight; img.xMax = vw - img.element.naturalWidth; img.yMax = vh - img.element.naturalHeight; }
 
 function moveImage() {
-  img.x = lerp(img.x, targetX, acceleration);
-  img.y = lerp(img.y, targetY, acceleration);
-  img.element.style.transform = 'translate(' + img.x + 'px, ' + img.y + 'px)';
-  window.requestAnimationFrame(moveImage);
+  if (!isCoverVisible()) {
+    img.x = lerp(img.x, targetX, acceleration);
+    img.y = lerp(img.y, targetY, acceleration);
+    img.element.style.transform = 'translate(' + img.x + 'px, ' + img.y + 'px)';
+  }
+  animationId = window.requestAnimationFrame(moveImage);
 }
 
 function moveAction(event) {
@@ -146,7 +149,26 @@ function moveAction(event) {
 
 function lerp(start, end, t) { return start * (1 - t) + end * t; }
 
-window.addEventListener('load', init);
+function isCoverVisible() {
+  var cover = document.querySelector('#wall-image--cover');
+  return cover && cover.offsetParent !== null;
+}
+
+function cancelAnimation() {
+  if (animationId) {
+    window.cancelAnimationFrame(animationId);
+    animationId = null;
+  }
+}
+
+window.addEventListener('load', function() {
+  init();
+});
+
+// When the wall image is no longer needed or if the page is unloaded, cancel the animation
+window.addEventListener('beforeunload', function() {
+  cancelAnimation();
+});
 
 /***************************************** Tooltip *****************************************/
 const areas = document.getElementsByTagName('area');
