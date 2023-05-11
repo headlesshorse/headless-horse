@@ -65,10 +65,10 @@ fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
     latestTitle.setAttribute('id', 'latest');
     latestTitle.innerHTML = `Latest`;
     latestTitle.insertAdjacentHTML('afterend', text);
-    latestTitle.style.display = 'block';
     document.querySelectorAll('#latest + ul li a').forEach(link => {
       link.setAttribute('target', '_blank');
       link.setAttribute('rel', 'noreferrer');
+      latestTitle.style.display = 'block';
     });
   })
 
