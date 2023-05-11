@@ -165,7 +165,6 @@ window.addEventListener('load', function() {
   init();
 });
 
-// When the wall image is no longer needed or if the page is unloaded, cancel the animation
 window.addEventListener('beforeunload', function() {
   cancelAnimation();
 });
