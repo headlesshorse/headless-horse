@@ -137,39 +137,21 @@ var mouse = {
 var vw = 0;
 var vh = 0;
 
+var targetX = 0;
+var targetY = 0;
+
 function init() {
   resize();
-  TweenLite.set(img.element, {
-    x: 0,
-    y: 0
-  });
+  img.element.style.transform = 'translate(0px, 0px)';
 
-  var pos = img.element._gsTransform;
-
-  TweenMax.to(img.element, 1000, {
-    x: 0,
-    y: 0,
-    repeat: -1,
-    ease: Linear.easeNone,
-    modifiers: {
-      x: function() {
-        img.x = map(mouse.x, 0, vw, 0, img.xMax);
-        return pos.x + (img.x - pos.x) * acceleration;
-      },
-      y: function() {
-        img.y = map(mouse.y, 0, vh, 0, img.yMax);
-        return pos.y + (img.y - pos.y) * acceleration;
-      }
-    }
-  });
-
+  window.requestAnimationFrame(moveImage);
   window.addEventListener('mousemove', moveAction);
   window.addEventListener('touchmove', moveAction);
   window.addEventListener('resize', resize);
 }
 
 function map(x, a, b, c, d) {
-  return c + (d - c) * ((x - a) / (b - a)) || 0;
+  return c + ((d - c) * (x - a)) / (b - a) || 0;
 }
 
 function resize() {
@@ -177,6 +159,17 @@ function resize() {
   vh = window.innerHeight;
   img.xMax = vw - img.element.naturalWidth;
   img.yMax = vh - img.element.naturalHeight;
+}
+
+function moveImage() {
+  img.x = lerp(img.x, targetX, acceleration);
+  img.y = lerp(img.y, targetY, acceleration);
+
+  var posX = img.x + 'px';
+  var posY = img.y + 'px';
+  img.element.style.transform = 'translate(' + posX + ', ' + posY + ')';
+
+  window.requestAnimationFrame(moveImage);
 }
 
 function moveAction(event) {
@@ -188,6 +181,13 @@ function moveAction(event) {
     mouse.x = event.clientX;
     mouse.y = event.clientY;
   }
+
+  targetX = map(mouse.x, 0, vw, 0, img.xMax);
+  targetY = map(mouse.y, 0, vh, 0, img.yMax);
+}
+
+function lerp(start, end, t) {
+  return start * (1 - t) + end * t;
 }
 
 window.addEventListener('load', init);

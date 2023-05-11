@@ -229,10 +229,6 @@ a:hover,
   mix-blend-mode: difference;
 }
 
-#latest+ul li a:first-of-type::before {
-  content: "New: ";
-}
-
 /***************************************** Wall Image *****************************************/
 #wall-image--cover {
   position: absolute;
