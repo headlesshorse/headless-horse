@@ -8,11 +8,11 @@
   --hh-z-index-top: 9999;
   --hh-color-black: #000000;
   --hh-color-slate: #999999;
-  --hh-color-black-with-alpha: rgba(0, 0, 0, 0.6);
+  --hh-color-black-with-alpha: rgba(0, 0, 0, 0.8);
   --hh-color-transparent: transparent;
   --hh-effect-blur: blur(10px);
   --hh-effect-shadow: drop-shadow(0 0 15px rgba(0, 0, 0, 0.6));
-  --hh-effect-grayscale: grayscale(100%) contrast(130%) brightness(20%);
+  --hh-effect-grayscale: grayscale(100%) contrast(130%) brightness(30%);
   --hh-spacing-1x: 5px;
   --hh-spacing-2x: 10px;
   --hh-spacing-3x: 15px;
@@ -267,6 +267,7 @@ map area {
     conic-gradient(from 180deg at top 1px right 1px, var(--b)) 100% 0 / var(--p),
     conic-gradient(from 0deg at bottom 1px left 1px, var(--b)) 0 100% / var(--p),
     conic-gradient(from -90deg at bottom 1px right 1px, var(--b)) 100% 100% / var(--p);
+  background-color: var(--hh-color-black-with-alpha);
   color: var(--hh-color-slate);
   text-align: center;
   text-transform: uppercase;
@@ -276,8 +277,6 @@ map area {
   line-height: var(--hh-font-body-1-line-height);
   filter: var(--hh-effect-shadow);
   -webkit-filter: var(--hh-effect-shadow);
-  backdrop-filter: var(--hh-effect-blur) brightness(30%);
-  -webkit-backdrop-filter: var(--hh-effect-blur) brightness(30%);
 }
 
 /***************************************** Cookie Notice *****************************************/
