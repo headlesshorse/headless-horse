@@ -226,7 +226,6 @@ a:hover,
   width: 100vw;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: var(--hh-spacing-4x);
-  mix-blend-mode: difference;
 }
 
 /***************************************** Wall Image *****************************************/
@@ -285,7 +284,6 @@ map area {
   bottom: 0;
   z-index: var(--hh-z-index-top);
   padding: var(--hh-spacing-4x);
-  mix-blend-mode: difference;
 }
 
 /***************************************** Mobile *****************************************/
