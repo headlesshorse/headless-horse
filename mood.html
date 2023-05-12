@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <!--
-
 DESIGN AND CODE BY HEADLESS.HORSE
 2023
 
@@ -13,107 +12,113 @@ DESIGN AND CODE BY HEADLESS.HORSE
   <title>HEADLESS HORSE</title>
   <meta property="og:type" content="website">
   <meta property="og:title" content="HEADLESS HORSE">
-  <meta property="og:image" content="https://headless.horse/assets/site/share_card.jpg">
+  <meta property="og:image" content="https://headless.horse/assets/site/share-card.jpg">
   <meta property="og:description" content="Independent, full-service creative studio.">
   <meta property="og:site_name" content="HEADLESS HORSE">
   <meta property="og:url" content="https://headless.horse">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="HEADLESS HORSE">
-  <meta name="twitter:image" content="https://headless.horse/assets/site/share_card.jpg">
+  <meta name="twitter:image" content="https://headless.horse/assets/site/share-card.jpg">
   <meta name="twitter:description" content="Independent, full-service creative studio.">
-  <meta property="twitter:domain" content="headless.horse">
-  <meta property="twitter:url" content="https://headless.horse">
+  <meta name="twitter:domain" content="headless.horse">
+  <meta name="twitter:url" content="https://headless.horse">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/site/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/site/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/site/favicon-16x16.png">
+  <link rel="manifest" href="./assets/site/site.webmanifest">
   <meta name="theme-color" content="#000000">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/site/favicon_32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/site/favicon_16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/site/apple_touch_icon.png">
 </head>
-
-<body>
-  <ul id="pinterest"></ul>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-</body>
 
 </html>
 
 <style>
-  html {
-    margin: 0;
-    padding: 0;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+html {
+  margin: 0;
+  padding: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
+#pinterest {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  margin: 0;
+  padding: 100px;
+  list-style: none;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 30vh;
+  grid-gap: 200px;
+}
+
+#pinterest>li {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: grayscale(50%) contrast(0.8) brightness(0.9);
+}
+
+@media screen and (max-width: 1000px) {
   #pinterest {
-    display: grid;
-    align-content: center;
-    justify-content: center;
-    margin: 0;
-    padding: 100px;
-    list-style: none;
-    grid-template-columns: repeat(3, 20vh);
-    grid-template-rows: repeat(100, 30vh);
-    grid-row-gap: 200px;
-    grid-column-gap: 200px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 100px;
   }
-
-  #pinterest>li {
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    filter: grayscale(50%) contrast(0.8) brightness(0.9);
-  }
-
-  @media screen and (max-width: 1000px) {
-    #pinterest {
-      grid-template-columns: repeat(1, 20vh);
-      grid-row-gap: 100px;
-      grid-column-gap: 100px;
-    }
-  }
+}
 </style>
 
 <script>
-  /***************************************** Screensaver *****************************************/
-
-  class PinterestFeed {
-    constructor(...slug) {
-      this.slugs = [];
-      this.feed = [];
-      this.getFeeds();
-    }
-    reflect(promise) {
-      return promise.then(v => v.pins).catch(e => e);
-    }
-    getFeed(slug) {
-      const api = `https://widgets.pinterest.com/v3/pidgets/boards/${slug}/pins/`;
-      return new Promise((resolve, reject) => {
-        $.ajax({
-          dataType: 'jsonp',
-          type: 'GET',
-          url: api
-        }).done((response) => {
-          resolve(response.data);
-        }).fail((error) => {
-          reject(error);
-        });
-      });
-    }
-    getFeeds(...slug) {
-      return Promise.all(slug.map(v => this.reflect(this.getFeed(v))));
-    }
+class PinterestFeed {
+  constructor(...slug) {
+    this.feed = [];
+    this.getFeeds(slug);
   }
 
-  const list = document.querySelector('#pinterest');
-  const board1 = 'headless_horse/direction';
-  const board2 = 'headless_horse/wellness';
-  const board3 = 'headless_horse/fashion';
-  const board4 = 'headless_horse/space';
-  const board5 = 'headless_horse/print';
-  const feed = new PinterestFeed();
-  let feedItems = [];
+  reflect(promise) {
+    return promise.then(v => v.pins).catch(e => e);
+  }
 
-  feed.getFeeds(board1, board2, board3, board4, board5).then((response) => {
+  getFeed(slug) {
+    const api = `https://widgets.pinterest.com/v3/pidgets/boards/${slug}/pins/`;
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', api);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          const response = JSON.parse(xhr.responseText);
+          resolve(response.data);
+        } else {
+          reject(Error(xhr.statusText));
+        }
+      };
+      xhr.onerror = function () {
+        reject(Error('Network Error'));
+      };
+      xhr.send();
+    });
+  }
+
+  getFeeds(...slug) {
+    return Promise.all(slug.map(v => this.reflect(this.getFeed(v))));
+  }
+}
+
+const container = document.createElement('div');
+container.id = 'pinterest';
+document.body.appendChild(container);
+
+const list = document.querySelector('#pinterest');
+const boards = [
+  'headless_horse/direction',
+  'headless_horse/wellness',
+  'headless_horse/fashion',
+  'headless_horse/space',
+  'headless_horse/print'
+];
+const feed = new PinterestFeed(...boards);
+let feedItems = [];
+
+feed.getFeeds(...boards)
+  .then(response => {
     feedItems = response.flat();
     feedItems.forEach(item => {
       const imageUrl = item.images['237x'].url;
@@ -141,21 +146,12 @@ DESIGN AND CODE BY HEADLESS.HORSE
       }
 
       var el = document.querySelectorAll('#pinterest > li');
-
-      let pos = [];
-      for (let i = 0; i < el.length; i++) {
-        pos.push(i);
-      }
-
+      let pos = Array.from({ length: el.length }, (_, i) => i);
       pos = shuffle(pos);
-      for (let i = 0; i < pos.length; i++) {
-        document.querySelector(elem).appendChild(el[pos[i]]);
-      }
+      pos.forEach(i => document.querySelector(elem).appendChild(el[i]));
     }
 
     htmlShuffle('#pinterest');
-
-  }).catch((error) => {
-    console.log(error);
-  });
+  })
+  .catch(error => console.log(error));
 </script>
