@@ -237,11 +237,7 @@ map area {
   margin-top: var(--hh-spacing-4x);
   padding: var(--hh-spacing-4x);
   min-width: 200px;
-  background:
-    conic-gradient(from 90deg at top 1px left 1px, var(--b)) 0 0 / var(--p),
-    conic-gradient(from 180deg at top 1px right 1px, var(--b)) 100% 0 / var(--p),
-    conic-gradient(from 0deg at bottom 1px left 1px, var(--b)) 0 100% / var(--p),
-    conic-gradient(from -90deg at bottom 1px right 1px, var(--b)) 100% 100% / var(--p);
+  background: conic-gradient(from 90deg at top 1px left 1px, var(--b)) 0 0 / var(--p), conic-gradient(from 180deg at top 1px right 1px, var(--b)) 100% 0 / var(--p), conic-gradient(from 0deg at bottom 1px left 1px, var(--b)) 0 100% / var(--p), conic-gradient(from -90deg at bottom 1px right 1px, var(--b)) 100% 100% / var(--p);
   background-color: var(--hh-color-black-with-alpha);
   color: var(--hh-color-slate);
   text-align: center;
