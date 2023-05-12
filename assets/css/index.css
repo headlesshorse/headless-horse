@@ -20,7 +20,6 @@
   --hh-font-body-1-font-family: courier, monospace;
   --hh-font-body-1-font-size: 11px;
   --hh-font-body-1-line-height: 21px;
-  --hh-font-body-1-font-weight: 400;
 }
 
 /***************************************** Basic *****************************************/
@@ -68,7 +67,6 @@ h1:not(:first-child) {
 h1, p, a, span, ul, li {
   color: var(--hh-color-slate);
   text-decoration: none;
-  font-weight: var(--hh-font-body-1-font-weight);
   font-size: var(--hh-font-body-1-font-size);
   font-family: var(--hh-font-body-1-font-family);
   line-height: var(--hh-font-body-1-line-height);
@@ -153,6 +151,14 @@ a:hover, #horseshoe:hover {
 #loader--bar {
   height: 1px;
   background: var(--hh-color-slate);
+}
+
+#loader--percentage {
+  position: absolute;
+  color: var(--hh-color-slate);
+  font-size: var(--hh-font-body-1-font-size);
+  font-family: var(--hh-font-body-1-font-family);
+  padding-top: var(--hh-spacing-4x);
 }
 
 /***************************************** Horseshoe *****************************************/
@@ -245,7 +251,6 @@ map area {
   color: var(--hh-color-slate);
   text-align: center;
   text-transform: uppercase;
-  font-weight: var(--hh-font-body-1-font-weight);
   font-size: var(--hh-font-body-1-font-size);
   font-family: var(--hh-font-body-1-font-family);
   line-height: var(--hh-font-body-1-line-height);
@@ -287,10 +292,6 @@ map area {
 
   section~section {
     padding-top: calc(var(--hh-font-body-1-line-height) * 2);
-  }
-
-  #tooltip {
-    opacity: 0;
   }
 }
 

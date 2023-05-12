@@ -1,25 +1,23 @@
 /***************************************** Loader *****************************************/
-const loaderBarWidth = {
-  value: 0
-};
+const loaderBarWidth = { value: 0 };
 const perfData = window.performance.timing;
 const EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart);
 const time = parseInt((EstimatedTime / 1000) % 60) * 100 + 2000;
 
 const loaderDiv = document.createElement('div');
 loaderDiv.id = 'loader';
-loaderDiv.innerHTML = `<div id="loader--bar"></div>`;
+loaderDiv.innerHTML = '<div id="loader--bar"></div><div id="loader--percentage">0%</div>';
 document.body.appendChild(loaderDiv);
 
 const loaderBar = document.getElementById('loader--bar');
+const loaderPercentage = document.getElementById('loader--percentage');
 const loaderInterval = setInterval(frame, time / 100);
 
 function frame() {
-  if (loaderBarWidth.value >= 100) {
-    clearInterval(loaderInterval);
-  } else {
-    loaderBar.style.width = `${++loaderBarWidth.value}%`;
-  }
+  if (loaderBarWidth.value >= 100) return clearInterval(loaderInterval);
+  loaderBar.style.width = `${++loaderBarWidth.value}%`;
+  loaderPercentage.style.left = `${loaderBarWidth.value}%`;
+  loaderPercentage.textContent = `${loaderBarWidth.value}%`;
 }
 
 setTimeout(function() {
@@ -71,7 +69,6 @@ document.querySelector('h1 + p').after(latestTitle);
 var now = new Date();
 var day = now.getUTCDay();
 var hour = now.getUTCHours() + 1;
-
 var message = "";
 
 if (day === 0 || day === 6) {
@@ -104,28 +101,28 @@ readMoreBtn.addEventListener('click', () => {
 document.querySelector('h1 + p').appendChild(readMoreBtn);
 
 /***************************************** Wall Image *****************************************/
-var acceleration = 0.01;
-var img = {
+const acceleration = 0.01;
+const img = {
   element: document.querySelector('#wall-image'),
   xMax: 0,
   yMax: 0,
   x: 0,
   y: 0
 };
-var mouse = {
+const mouse = {
   x: 0,
   y: 0
 };
-var vw = 0,
+let vw = 0,
   vh = 0;
-var targetX = 0,
+let targetX = 0,
   targetY = 0;
-var animationId = null;
+let animationId = null;
 
 function init() {
   resize();
   img.element.style.transform = 'translate(0px, 0px)';
-  window.requestAnimationFrame(moveImage);
+  moveImage();
   window.addEventListener('mousemove', moveAction);
   window.addEventListener('touchmove', moveAction);
   window.addEventListener('resize', resize);
@@ -146,13 +143,13 @@ function moveImage() {
   if (!isCoverVisible()) {
     img.x = lerp(img.x, targetX, acceleration);
     img.y = lerp(img.y, targetY, acceleration);
-    img.element.style.transform = 'translate(' + img.x + 'px, ' + img.y + 'px)';
+    img.element.style.transform = `translate(${img.x}px, ${img.y}px)`;
   }
   animationId = window.requestAnimationFrame(moveImage);
 }
 
 function moveAction(event) {
-  var touch = event.targetTouches && event.targetTouches[0];
+  const touch = event.targetTouches && event.targetTouches[0];
   mouse.x = touch ? touch.clientX : event.clientX;
   mouse.y = touch ? touch.clientY : event.clientY;
   targetX = map(mouse.x, 0, vw, 0, img.xMax);
@@ -164,7 +161,7 @@ function lerp(start, end, t) {
 }
 
 function isCoverVisible() {
-  var cover = document.querySelector('#wall-image--cover');
+  const cover = document.querySelector('#wall-image--cover');
   return cover && cover.offsetParent !== null;
 }
 
@@ -175,36 +172,38 @@ function cancelAnimation() {
   }
 }
 
-window.addEventListener('load', function() {
-  init();
-});
-
-window.addEventListener('beforeunload', function() {
-  cancelAnimation();
-});
+window.addEventListener('load', init);
+window.addEventListener('beforeunload', cancelAnimation);
 
 /***************************************** Tooltip *****************************************/
 const areas = document.getElementsByTagName('area');
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 for (const area of areas) {
   const tooltip = document.createElement('div');
   tooltip.id = 'tooltip';
   tooltip.style.position = 'absolute';
+  area.addEventListener('mouseover', handleMouseOver);
+  area.addEventListener('mouseout', handleMouseOut);
+}
 
-  area.addEventListener('mouseover', function(event) {
-    tooltip.innerHTML = this.getAttribute('title');
-    document.body.appendChild(tooltip);
-    updateTooltipPosition(event, tooltip);
+function handleMouseOver(event) {
+  if (isMobile) return;
+  const tooltip = document.createElement('div');
+  tooltip.id = 'tooltip';
+  tooltip.style.position = 'absolute';
+  tooltip.innerHTML = this.getAttribute('title');
+  document.body.appendChild(tooltip);
+  updateTooltipPosition(event, tooltip);
+  window.addEventListener('mousemove', (event) => updateTooltipPosition(event, tooltip));
+  this.removeAttribute('title');
+}
 
-    window.addEventListener('mousemove', (event) => updateTooltipPosition(event, tooltip));
-
-    this.removeAttribute('title');
-  });
-
-  area.addEventListener('mouseout', function() {
-    tooltip.remove();
-    this.setAttribute('title', tooltip.innerHTML);
-  });
+function handleMouseOut() {
+  if (isMobile) return;
+  const tooltip = document.getElementById('tooltip');
+  tooltip.remove();
+  this.setAttribute('title', tooltip.innerHTML);
 }
 
 function updateTooltipPosition(event, tooltip) {
