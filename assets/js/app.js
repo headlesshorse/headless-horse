@@ -67,19 +67,20 @@ fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
 
 /***************************************** Office Hours *****************************************/
 var now = new Date();
-var day = now.getUTCDay(); // 0 = Sunday, 1 = Monday, etc.
-var hour = now.getUTCHours(); // 0-23
+var day = now.getUTCDay();
+var hour = now.getUTCHours() + 1;
+
+var message = "";
 
 if (day === 0 || day === 6) {
-  document.querySelector('p').insertAdjacentHTML('beforeend', `We are currently out of office and will return Monday morning. Our hours of operation are Monday to Friday, 09:00—18:00 GMT.`);
+  message = "We are currently out of office and will return Monday morning. Our hours of operation are Monday to Friday, 09:00—18:00 GMT.";
+} else if (hour >= 9 && hour < 18) {
+  message = "The studio is open today from 09:00-18:00 GMT.";
 } else {
-  hour += 1; // Adjust for GMT+1 timezone
-  if (hour >= 9 && hour < 18) {
-    document.querySelector('p').insertAdjacentHTML('beforeend', `The studio is open today from 09:00-18:00 GMT.`);
-  } else {
-    document.querySelector('p').insertAdjacentHTML('beforeend', `We are currently out of office, hours of operation are Monday—Friday, 09:00—18:00 GMT.`);
-  }
+  message = "We are currently out of office, hours of operation are Monday—Friday, 09:00—18:00 GMT.";
 }
+
+document.querySelector('p').insertAdjacentHTML('beforeend', message);
 
 /***************************************** Read More *****************************************/
 const readMoreBtn = document.createElement('a');
