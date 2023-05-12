@@ -94,7 +94,6 @@ readMoreBtn.addEventListener('click', () => {
   const isReadLess = readMoreBtn.textContent === 'Read Less.';
   readMoreBtn.textContent = isReadLess ? 'Read More.' : 'Read Less.';
   readMoreBtn.style.cursor = isReadLess ? 's-resize' : 'n-resize';
-
   readMoreText.forEach(element => element.style.display = isReadLess ? 'none' : 'inline');
 });
 

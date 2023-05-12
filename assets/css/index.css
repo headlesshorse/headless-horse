@@ -52,6 +52,7 @@ html, body {
 /***************************************** Type *****************************************/
 h1 {
   text-transform: uppercase;
+  font-weight: normal;
 }
 
 h1::before {
@@ -155,10 +156,10 @@ a:hover, #horseshoe:hover {
 
 #loader--percentage {
   position: absolute;
+  padding-top: var(--hh-spacing-4x);
   color: var(--hh-color-slate);
   font-size: var(--hh-font-body-1-font-size);
   font-family: var(--hh-font-body-1-font-family);
-  padding-top: var(--hh-spacing-4x);
 }
 
 /***************************************** Horseshoe *****************************************/
