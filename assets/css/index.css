@@ -164,6 +164,7 @@ a:hover, #horseshoe:hover {
   width: 80px;
   height: 80px;
   filter: var(--hh-effect-shadow);
+  -webkit-filter: var(--hh-effect-shadow);
   cursor: help;
 }
 
@@ -215,6 +216,7 @@ a:hover, #horseshoe:hover {
   height: 100%;
   background: var(--hh-color-black-with-alpha);
   backdrop-filter: var(--hh-effect-blur);
+  -webkit-backdrop-filter: var(--hh-effect-blur);
 }
 
 #wall-image {
@@ -224,6 +226,7 @@ a:hover, #horseshoe:hover {
 
 .wall-image--filter {
   filter: var(--hh-effect-grayscale);
+  -webkit-filter: var(--hh-effect-grayscale);
   scale: 0.65;
 }
 
@@ -247,7 +250,9 @@ map area {
   font-family: var(--hh-font-body-1-font-family);
   line-height: var(--hh-font-body-1-line-height);
   filter: var(--hh-effect-shadow);
+  -webkit-filter: var(--hh-effect-shadow);
   backdrop-filter: var(--hh-effect-blur);
+  -webkit-backdrop-filter: var(--hh-effect-blur);
 }
 
 /***************************************** Cookie Notice *****************************************/
