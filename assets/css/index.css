@@ -12,7 +12,7 @@
   --hh-color-transparent: transparent;
   --hh-effect-blur: blur(10px);
   --hh-effect-shadow: drop-shadow(0 0 15px rgba(0, 0, 0, 0.6));
-  --hh-effect-grayscale: grayscale(100%) contrast(130%) brightness(30%);
+  --hh-effect-grayscale: grayscale(100%) contrast(130%) brightness(40%);
   --hh-spacing-1x: 5px;
   --hh-spacing-2x: 10px;
   --hh-spacing-3x: 15px;
@@ -228,6 +228,7 @@ a:hover,
   width: 100vw;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: var(--hh-spacing-4x);
+  mix-blend-mode: difference;
 }
 
 /***************************************** Wall Image *****************************************/
@@ -278,6 +279,8 @@ map area {
   line-height: var(--hh-font-body-1-line-height);
   filter: var(--hh-effect-shadow);
   -webkit-filter: var(--hh-effect-shadow);
+  backdrop-filter: var(--hh-effect-blur);
+  -webkit-backdrop-filter: var(--hh-effect-blur);
 }
 
 /***************************************** Cookie Notice *****************************************/
@@ -286,6 +289,7 @@ map area {
   bottom: 0;
   z-index: var(--hh-z-index-top);
   padding: var(--hh-spacing-4x);
+  mix-blend-mode: difference;
 }
 
 /***************************************** Mobile *****************************************/

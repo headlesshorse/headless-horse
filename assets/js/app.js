@@ -30,7 +30,7 @@ setTimeout(function() {
   $('#horseshoe, #wall-image').delay(2000).fadeIn(3000);
   setTimeout(function() {
     $('#wall-image').removeClass('wall-image--filter');
-  }, 2000);
+  }, 3000);
   $('body').css({
     'cursor': 'default'
   });
