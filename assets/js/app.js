@@ -1,5 +1,7 @@
 /***************************************** Loader *****************************************/
-const loaderBarWidth = { value: 0 };
+const loaderBarWidth = {
+  value: 0
+};
 const perfData = window.performance.timing;
 const EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart);
 const time = parseInt((EstimatedTime / 1000) % 60) * 100 + 2000;
@@ -50,8 +52,6 @@ $('*[target="main--iframe"]').click(function() {
 /***************************************** Notion *****************************************/
 const latestTitle = document.createElement('h1');
 
-document.querySelector('h1 + p').after(latestTitle);
-
 fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
   .then(res => res.text())
   .then(text => {
@@ -62,8 +62,10 @@ fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
       link.setAttribute('target', '_blank');
       link.setAttribute('rel', 'noreferrer');
     });
-    latestTitle.style.display = 'block';
+    latestTitle.style.display = text.trim().length === 0 ? 'none' : 'block';
   });
+
+document.querySelector('h1 + p').after(latestTitle);
 
 /***************************************** Office Hours *****************************************/
 var now = new Date();
@@ -103,10 +105,21 @@ document.querySelector('h1 + p').appendChild(readMoreBtn);
 
 /***************************************** Wall Image *****************************************/
 var acceleration = 0.01;
-var img = { element: document.querySelector('#wall-image'), xMax: 0, yMax: 0, x: 0, y: 0 };
-var mouse = { x: 0, y: 0 };
-var vw = 0, vh = 0;
-var targetX = 0, targetY = 0;
+var img = {
+  element: document.querySelector('#wall-image'),
+  xMax: 0,
+  yMax: 0,
+  x: 0,
+  y: 0
+};
+var mouse = {
+  x: 0,
+  y: 0
+};
+var vw = 0,
+  vh = 0;
+var targetX = 0,
+  targetY = 0;
 var animationId = null;
 
 function init() {
@@ -118,8 +131,16 @@ function init() {
   window.addEventListener('resize', resize);
 }
 
-function map(x, a, b, c, d) { return c + ((d - c) * (x - a)) / (b - a) || 0; }
-function resize() { vw = window.innerWidth; vh = window.innerHeight; img.xMax = vw - img.element.naturalWidth; img.yMax = vh - img.element.naturalHeight; }
+function map(x, a, b, c, d) {
+  return c + ((d - c) * (x - a)) / (b - a) || 0;
+}
+
+function resize() {
+  vw = window.innerWidth;
+  vh = window.innerHeight;
+  img.xMax = vw - img.element.naturalWidth;
+  img.yMax = vh - img.element.naturalHeight;
+}
 
 function moveImage() {
   if (!isCoverVisible()) {
@@ -138,7 +159,9 @@ function moveAction(event) {
   targetY = map(mouse.y, 0, vh, 0, img.yMax);
 }
 
-function lerp(start, end, t) { return start * (1 - t) + end * t; }
+function lerp(start, end, t) {
+  return start * (1 - t) + end * t;
+}
 
 function isCoverVisible() {
   var cover = document.querySelector('#wall-image--cover');
