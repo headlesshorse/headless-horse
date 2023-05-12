@@ -161,8 +161,8 @@ a:hover, #horseshoe:hover {
   right: var(--hh-spacing-4x);
   bottom: var(--hh-spacing-4x);
   z-index: var(--hh-z-index-4);
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   filter: var(--hh-effect-shadow);
   -webkit-filter: var(--hh-effect-shadow);
   cursor: help;
