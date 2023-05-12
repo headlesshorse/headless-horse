@@ -65,7 +65,7 @@ h1:not(:first-child) {
   padding-top: calc(var(--hh-font-body-1-line-height) * 2);
 }
 
-h1, p, a, span, ul, li {
+h1, p, span, a, ul, li {
   color: var(--hh-color-slate);
   text-decoration: none;
   font-size: var(--hh-font-body-1-font-size);
@@ -73,7 +73,7 @@ h1, p, a, span, ul, li {
   line-height: var(--hh-font-body-1-line-height);
 }
 
-a, a:link, a:visited, a:hover, a:focus {
+a, a:link, a:hover, a:visited {
   color: var(--hh-color-slate);
   text-decoration: none;
   cursor: pointer;
