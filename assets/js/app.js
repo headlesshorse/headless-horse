@@ -1,27 +1,22 @@
 /***************************************** Loader *****************************************/
-let loaderDiv = document.createElement('div');
+const loaderBarWidth = { value: 0 };
+const perfData = window.performance.timing;
+const EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart);
+const time = parseInt((EstimatedTime / 1000) % 60) * 100 + 2000;
+
+const loaderDiv = document.createElement('div');
 loaderDiv.id = 'loader';
-
-let loaderBarDiv = document.createElement('div');
-loaderBarDiv.id = 'loader--bar';
-
-loaderDiv.appendChild(loaderBarDiv);
+loaderDiv.innerHTML = `<div id="loader--bar"></div>`;
 document.body.appendChild(loaderDiv);
 
-let width = 100;
-let perfData = window.performance.timing;
-let EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart);
-let time = parseInt((EstimatedTime / 1000) % 60) * 100 + 2000;
-
-let loaderBar = document.getElementById('loader--bar');
-let loaderBarWidth = 0;
-let loaderInterval = setInterval(frame, time / 100);
+const loaderBar = document.getElementById('loader--bar');
+const loaderInterval = setInterval(frame, time / 100);
 
 function frame() {
-  if (loaderBarWidth >= width) {
+  if (loaderBarWidth.value >= 100) {
     clearInterval(loaderInterval);
   } else {
-    loaderBar.style.width = (++loaderBarWidth) + '%';
+    loaderBar.style.width = `${++loaderBarWidth.value}%`;
   }
 }
 
@@ -53,10 +48,9 @@ $('*[target="main--iframe"]').click(function() {
 });
 
 /***************************************** Notion *****************************************/
-let previousSection = document.querySelector('h1 + p');
-let latestTitle = document.createElement('h1');
+const latestTitle = document.createElement('h1');
 
-previousSection.after(latestTitle);
+document.querySelector('h1 + p').after(latestTitle);
 
 fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
   .then(res => res.text())
@@ -67,9 +61,9 @@ fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
     document.querySelectorAll('#latest + ul li a').forEach(link => {
       link.setAttribute('target', '_blank');
       link.setAttribute('rel', 'noreferrer');
-      latestTitle.style.display = 'block';
     });
-  })
+    latestTitle.style.display = 'block';
+  });
 
 /***************************************** Office Hours *****************************************/
 var now = new Date();
@@ -94,21 +88,17 @@ readMoreBtn.style.display = 'block';
 readMoreBtn.style.cursor = 's-resize';
 
 const readMoreText = document.querySelectorAll('span');
-readMoreText.forEach(element => {
-  element.style.display = 'none';
-});
+readMoreText.forEach(element => element.style.display = 'none');
 
 readMoreBtn.addEventListener('click', () => {
   const isReadLess = readMoreBtn.textContent === 'Read Less.';
   readMoreBtn.textContent = isReadLess ? 'Read More.' : 'Read Less.';
   readMoreBtn.style.cursor = isReadLess ? 's-resize' : 'n-resize';
 
-  readMoreText.forEach(element => {
-    element.style.display = isReadLess ? 'none' : 'inline';
-  });
+  readMoreText.forEach(element => element.style.display = isReadLess ? 'none' : 'inline');
 });
 
-document.querySelector('h1 + p').insertAdjacentElement('beforeend', readMoreBtn);
+document.querySelector('h1 + p').appendChild(readMoreBtn);
 
 /***************************************** Wall Image *****************************************/
 var acceleration = 0.01;
@@ -172,25 +162,23 @@ window.addEventListener('beforeunload', function() {
 /***************************************** Tooltip *****************************************/
 const areas = document.getElementsByTagName('area');
 
-for (let i = 0; i < areas.length; i++) {
+for (const area of areas) {
   const tooltip = document.createElement('div');
   tooltip.id = 'tooltip';
   tooltip.style.position = 'absolute';
 
-  areas[i].addEventListener('mouseover', function(event) {
+  area.addEventListener('mouseover', function(event) {
     tooltip.innerHTML = this.getAttribute('title');
     document.body.appendChild(tooltip);
     updateTooltipPosition(event, tooltip);
 
-    window.addEventListener('mousemove', function(event) {
-      updateTooltipPosition(event, tooltip);
-    });
+    window.addEventListener('mousemove', (event) => updateTooltipPosition(event, tooltip));
 
     this.removeAttribute('title');
   });
 
-  areas[i].addEventListener('mouseout', function() {
-    tooltip.parentNode.removeChild(tooltip);
+  area.addEventListener('mouseout', function() {
+    tooltip.remove();
     this.setAttribute('title', tooltip.innerHTML);
   });
 }
@@ -201,10 +189,13 @@ function updateTooltipPosition(event, tooltip) {
 }
 
 /***************************************** Cookie Notice *****************************************/
-const cookieNotice = document.createElement('div');
-cookieNotice.id = 'cookie-notice';
-cookieNotice.innerHTML = `<p>We use cookies. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank" rel="noreferrer">Read Policy.</a> <a onclick="acceptCookies()">Accept.</a></p>`;
-document.body.appendChild(cookieNotice);
+const createCookieNotice = () => {
+  const cookieNotice = document.createElement('div');
+  cookieNotice.id = 'cookie-notice';
+  cookieNotice.innerHTML = `<p>We use cookies. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank" rel="noreferrer">Read Policy.</a> <a onclick="acceptCookies()">Accept.</a></p>`;
+  document.body.appendChild(cookieNotice);
+  return cookieNotice;
+};
 
 const acceptCookies = () => {
   setCookie('HHcookienotice', 'true', 365);
@@ -212,25 +203,24 @@ const acceptCookies = () => {
 };
 
 const setCookie = (cookieName, cookieValue, expirationDays) => {
-  const d = new Date();
-  d.setTime(d.getTime() + expirationDays * 24 * 60 * 60 * 1000);
-  const expires = 'expires=' + d.toUTCString();
-  document.cookie = `${cookieName}=${cookieValue};${expires};path=/`;
+  const expires = new Date(Date.now() + expirationDays * 24 * 60 * 60 * 1000).toUTCString();
+  document.cookie = `${cookieName}=${cookieValue};expires=${expires};path=/`;
 };
 
 const getCookie = (cookieName) => {
   const name = `${cookieName}=`;
   const decodedCookie = decodeURIComponent(document.cookie);
   const cookieArray = decodedCookie.split(';');
-  for (let i = 0; i < cookieArray.length; i++) {
-    let cookie = cookieArray[i].trim();
-    if (cookie.indexOf(name) === 0) {
-      return cookie.substring(name.length, cookie.length);
+  for (const cookie of cookieArray) {
+    const trimmedCookie = cookie.trim();
+    if (trimmedCookie.indexOf(name) === 0) {
+      return trimmedCookie.substring(name.length);
     }
   }
   return '';
 };
 
+const cookieNotice = createCookieNotice();
 if (getCookie('HHcookienotice') === 'true') {
   cookieNotice.style.display = 'none';
 }
