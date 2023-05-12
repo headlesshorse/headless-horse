@@ -63,7 +63,7 @@ fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
     latestTitle.style.display = text.trim().length === 0 ? 'none' : 'block';
   });
 
-document.querySelector('h1 + p').after(latestTitle);
+document.querySelector('section').appendChild(latestTitle);
 
 /***************************************** Office Hours *****************************************/
 var now = new Date();
