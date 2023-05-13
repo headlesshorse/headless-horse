@@ -2,7 +2,7 @@
 const loaderBarWidth = { value: 0 };
 const perfData = window.performance.timing;
 const EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart);
-const time = parseInt((EstimatedTime / 1000) % 60) * 100 + 2000;
+const time = parseInt((EstimatedTime / 1000) % 60) * 100;
 
 const loaderDiv = document.createElement('div');
 loaderDiv.id = 'loader';
