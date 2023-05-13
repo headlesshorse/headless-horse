@@ -65,7 +65,7 @@ fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
 
 document.querySelector('section').appendChild(latestTitle);
 
-/***************************************** Office Hours *****************************************/
+/***************************************** Hours *****************************************/
 var now = new Date();
 var day = now.getUTCDay();
 var hour = now.getUTCHours() + 1;
