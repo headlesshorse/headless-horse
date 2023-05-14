@@ -224,25 +224,16 @@ const acceptCookies = () => {
   cookieNotice.style.display = 'none';
 };
 
-const setCookie = (cookieName, cookieValue, expirationDays) => {
-  const expires = new Date(Date.now() + expirationDays * 24 * 60 * 60 * 1000).toUTCString();
-  document.cookie = `${cookieName}=${cookieValue};expires=${expires};path=/`;
+const setCookie = (name, value, days) => {
+  const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
+  document.cookie = `${name}=${value};expires=${expires};path=/`;
 };
 
-const getCookie = (cookieName) => {
-  const name = `${cookieName}=`;
+const getCookie = (name) => {
   const decodedCookie = decodeURIComponent(document.cookie);
-  const cookieArray = decodedCookie.split(';');
-  for (const cookie of cookieArray) {
-    const trimmedCookie = cookie.trim();
-    if (trimmedCookie.indexOf(name) === 0) {
-      return trimmedCookie.substring(name.length);
-    }
-  }
-  return '';
+  const cookieArray = decodedCookie.split('; ');
+  return cookieArray.find(cookie => cookie.startsWith(`${name}=`))?.split('=')[1] || '';
 };
 
 const cookieNotice = createCookieNotice();
-if (getCookie('HHcookienotice') === 'true') {
-  cookieNotice.style.display = 'none';
-}
+if (getCookie('HHcookienotice') === 'true') cookieNotice.style.display = 'none';
