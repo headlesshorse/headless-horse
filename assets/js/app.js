@@ -72,11 +72,11 @@ var hour = now.getUTCHours() + 1;
 var message = "";
 
 if (day === 0 || day === 6) {
-  message = "We are currently out of office and will return Monday morning. Our hours of operation are Monday to Friday, 09:00—18:00 GMT.";
+  message = "We are out of office and will return Monday; our operating hours are Monday to Friday, 09:00-18:00 GMT.";
 } else if (hour >= 9 && hour < 18) {
   message = "The studio is open today from 09:00-18:00 GMT.";
 } else {
-  message = "We are currently out of office, hours of operation are Monday—Friday, 09:00—18:00 GMT.";
+  message = "We are out of office; our operating hours are Monday to Friday, 09:00-18:00 GMT.";
 }
 
 document.querySelector('p').insertAdjacentHTML('beforeend', message);
