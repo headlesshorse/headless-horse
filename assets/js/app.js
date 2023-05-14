@@ -79,7 +79,7 @@ if (day === 0 || day === 6) {
   message = "We are out of office; our operating hours are Monday–Friday, 09:00—18:00 GMT.";
 }
 
-document.querySelector('p').insertAdjacentHTML('beforeend', message);
+document.querySelector('p').insertAdjacentHTML('beforeend', '<br>' + message);
 
 /***************************************** Read More *****************************************/
 const readMoreBtn = document.createElement('a');
