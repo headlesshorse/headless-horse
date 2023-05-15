@@ -220,7 +220,7 @@ const createCookieNotice = () => {
 };
 
 const acceptCookies = () => {
-  setCookie('🍪', 'true', 365);
+  setCookie('🍪cookienotice', 'true', 365);
   cookieNotice.style.display = 'none';
 };
 
@@ -236,4 +236,4 @@ const getCookie = (name) => {
 };
 
 const cookieNotice = createCookieNotice();
-if (getCookie('🍪') === 'true') cookieNotice.style.display = 'none';
+if (getCookie('🍪cookienotice') === 'true') cookieNotice.style.display = 'none';
