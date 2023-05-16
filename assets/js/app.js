@@ -47,6 +47,38 @@ $('*[target="main--iframe"]').click(function() {
   $('#horseshoe').toggleClass('horseshoe--cursor');
 });
 
+/***************************************** Typing *****************************************/
+
+function typeWriter(element, speed) {
+  var text = element.textContent;
+  var i = 0;
+  element.textContent = "";
+
+  if (element.tagName.toLowerCase() === "p" || element.closest("p")) {
+    speed = 15;
+  }
+
+  function type() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, speed);
+    }
+  }
+  type();
+}
+
+document.getElementById("horseshoe").addEventListener("click", function() {
+  var elements = document.querySelectorAll("section *");
+  for (var i = 0; i < elements.length; i++) {
+    var element = elements[i];
+     if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3 && !element.classList.contains("typewriter")) {
+      element.classList.add("typewriter");
+      typeWriter(element, 75);
+    }
+  }
+});
+
 /***************************************** Notion *****************************************/
 const latestTitle = document.createElement('h1');
 
