@@ -104,15 +104,10 @@ function typeWriter(element, speed) {
   var text = element.textContent;
   var i = 0;
   element.textContent = "";
-
-  if (element.tagName.toLowerCase() === "p" || element.closest("p")) {
-    speed = 15;
-  }
-
+  if (element.tagName.toLowerCase() === "p" || element.closest("p")) speed = 20;
   function type() {
     if (i < text.length) {
-      element.textContent += text.charAt(i);
-      i++;
+      element.textContent += text.charAt(i++);
       setTimeout(type, speed);
     }
   }
@@ -123,31 +118,18 @@ document.getElementById("horseshoe").addEventListener("click", function() {
   var elements = document.querySelectorAll("section *");
   for (var i = 0; i < elements.length; i++) {
     var element = elements[i];
-     if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3 && !element.classList.contains("typewriter")) {
+    if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3 && !element.classList.contains("typewriter")) {
       element.classList.add("typewriter");
-      typeWriter(element, 75);
+      typeWriter(element, 80);
     }
   }
 });
 
 /***************************************** Wall Image *****************************************/
 const acceleration = 0.01;
-const img = {
-  element: document.querySelector('#wall-image'),
-  xMax: 0,
-  yMax: 0,
-  x: 0,
-  y: 0
-};
-const mouse = {
-  x: 0,
-  y: 0
-};
-let vw = 0,
-  vh = 0;
-let targetX = 0,
-  targetY = 0;
-let animationId = null;
+const img = { element: document.querySelector('#wall-image'), xMax: 0, yMax: 0, x: 0, y: 0 };
+const mouse = { x: 0, y: 0 };
+let vw = 0, vh = 0, targetX = 0, targetY = 0, animationId = null;
 
 function init() {
   resize();
@@ -158,9 +140,7 @@ function init() {
   window.addEventListener('resize', resize);
 }
 
-function map(x, a, b, c, d) {
-  return c + ((d - c) * (x - a)) / (b - a) || 0;
-}
+function map(x, a, b, c, d) { return c + ((d - c) * (x - a)) / (b - a) || 0; }
 
 function resize() {
   vw = window.innerWidth;
@@ -179,16 +159,14 @@ function moveImage() {
 }
 
 function moveAction(event) {
-  const touch = event.targetTouches && event.targetTouches[0];
+  const touch = event.targetTouches?.[0];
   mouse.x = touch ? touch.clientX : event.clientX;
   mouse.y = touch ? touch.clientY : event.clientY;
   targetX = map(mouse.x, 0, vw, 0, img.xMax);
   targetY = map(mouse.y, 0, vh, 0, img.yMax);
 }
 
-function lerp(start, end, t) {
-  return start * (1 - t) + end * t;
-}
+function lerp(start, end, t) { return start * (1 - t) + end * t; }
 
 function isCoverVisible() {
   const cover = document.querySelector('#wall-image--cover');
