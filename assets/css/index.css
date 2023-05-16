@@ -109,13 +109,13 @@ li a~a {
   line-height: var(--hh-font-body-1-line-height);
 }
 
-li a~a::before {
-  content: " / ";
+li a~a::after {
+  content: counter(presslinks);
   font-size: var(--hh-font-body-1-font-size);
 }
 
-li a~a:not(:first-child)::after {
-  content: counter(presslinks);
+li a~a::before {
+  content: " / ";
   font-size: var(--hh-font-body-1-font-size);
 }
 
