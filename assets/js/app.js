@@ -33,7 +33,7 @@ setTimeout(function() {
 
 /********** Navigation **********/
 $('#horseshoe').click(function() {
-  $('#main, #wall-image--cover').fadeToggle(1000);
+  $('#main').fadeToggle(1000);
   $('#main--iframe').fadeOut(1000);
   $('#main--copy').delay(200).fadeIn(3000);
   $('#wall-image').toggleClass('wall-image--filter');
@@ -41,7 +41,7 @@ $('#horseshoe').click(function() {
 });
 
 $('*[target="main--iframe"]').click(function() {
-  $('#main, #main--iframe, #wall-image--cover').delay(200).fadeIn(3000);
+  $('#main, #main--iframe').delay(200).fadeIn(3000);
   $('#main--copy').hide();
   $('#wall-image').toggleClass('wall-image--filter');
   $('#horseshoe').toggleClass('horseshoe--cursor');
@@ -169,7 +169,7 @@ function moveAction(event) {
 function lerp(start, end, t) { return start * (1 - t) + end * t; }
 
 function isCoverVisible() {
-  const cover = document.querySelector('#wall-image--cover');
+  const cover = document.querySelector('#main');
   return cover && cover.offsetParent !== null;
 }
 

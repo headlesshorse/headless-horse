@@ -182,10 +182,13 @@ a:hover, #horseshoe:hover {
 /********** Main **********/
 #main {
   position: absolute;
-  z-index: var(--hh-z-index-2);
+  z-index: var(--hh-z-index-1);
   overflow: scroll;
   width: 100%;
   height: 100%;
+  background: var(--hh-color-black-with-alpha);
+  backdrop-filter: var(--hh-effect-blur);
+  -webkit-backdrop-filter: var(--hh-effect-blur);
 }
 
 #main::before {
@@ -217,16 +220,6 @@ a:hover, #horseshoe:hover {
 }
 
 /********** Wall Image **********/
-#wall-image--cover {
-  position: absolute;
-  z-index: var(--hh-z-index-1);
-  width: 100%;
-  height: 100%;
-  background: var(--hh-color-black-with-alpha);
-  backdrop-filter: var(--hh-effect-blur);
-  -webkit-backdrop-filter: var(--hh-effect-blur);
-}
-
 #wall-image {
   overflow-x: hidden;
   transition: filter 3s, scale 4s;
@@ -298,6 +291,6 @@ map area {
 }
 
 /********** Hide **********/
-#horseshoe, #main, #main--iframe, #wall-image--cover, #wall-image {
+#horseshoe, #main, #main--iframe, #wall-image {
   display: none;
 }
