@@ -1,4 +1,4 @@
-/***************************************** Variable *****************************************/
+/********** Variable **********/
 :root {
   --hh-z-index-0: 0;
   --hh-z-index-1: 100;
@@ -22,7 +22,7 @@
   --hh-font-body-1-line-height: 21px;
 }
 
-/***************************************** Basic *****************************************/
+/********** Basic **********/
 * {
   box-sizing: border-box;
   margin: 0;
@@ -49,7 +49,7 @@ html, body {
   color: var(--hh-color-black);
 }
 
-/***************************************** Type *****************************************/
+/********** Type **********/
 h1 {
   text-transform: uppercase;
   font-weight: normal;
@@ -123,7 +123,7 @@ li a~a[data-value]:hover::after {
   content: attr(data-value);
 }
 
-/***************************************** Animation *****************************************/
+/********** Animation **********/
 a:hover, #horseshoe:hover {
   animation-name: flicker-animation;
   animation-duration: 2s;
@@ -140,7 +140,7 @@ a:hover, #horseshoe:hover {
   }
 }
 
-/***************************************** Loader *****************************************/
+/********** Loader **********/
 #loader {
   position: absolute;
   top: 50%;
@@ -162,7 +162,7 @@ a:hover, #horseshoe:hover {
   font-family: var(--hh-font-body-1-font-family);
 }
 
-/***************************************** Horseshoe *****************************************/
+/********** Horseshoe **********/
 #horseshoe {
   position: absolute;
   right: var(--hh-spacing-4x);
@@ -179,7 +179,7 @@ a:hover, #horseshoe:hover {
   cursor: w-resize !important;
 }
 
-/***************************************** Main *****************************************/
+/********** Main **********/
 #main {
   position: absolute;
   z-index: var(--hh-z-index-2);
@@ -216,7 +216,7 @@ a:hover, #horseshoe:hover {
   mix-blend-mode: difference;
 }
 
-/***************************************** Wall Image *****************************************/
+/********** Wall Image **********/
 #wall-image--cover {
   position: absolute;
   z-index: var(--hh-z-index-1);
@@ -262,7 +262,7 @@ map area {
   -webkit-backdrop-filter: var(--hh-effect-blur);
 }
 
-/***************************************** Cookie Notice *****************************************/
+/********** Cookie Notice **********/
 #cookie-notice {
   position: absolute;
   bottom: 0;
@@ -271,7 +271,7 @@ map area {
   mix-blend-mode: difference;
 }
 
-/***************************************** Mobile *****************************************/
+/********** Mobile **********/
 @media screen and (max-width: 768px) {
   h1 {
     padding-top: 0 !important;
@@ -297,7 +297,7 @@ map area {
   }
 }
 
-/***************************************** Hide *****************************************/
+/********** Hide **********/
 #horseshoe, #main, #main--iframe, #wall-image--cover, #wall-image {
   display: none;
 }

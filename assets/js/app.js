@@ -1,4 +1,4 @@
-/***************************************** Loader *****************************************/
+/********** Loader **********/
 const loaderBarWidth = { value: 0 };
 const perfData = window.performance.timing;
 const EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart);
@@ -31,7 +31,7 @@ setTimeout(function() {
   });
 }, time);
 
-/***************************************** Navigation *****************************************/
+/********** Navigation **********/
 $('#horseshoe').click(function() {
   $('#main, #wall-image--cover').fadeToggle(1000);
   $('#main--iframe').fadeOut(1000);
@@ -47,7 +47,7 @@ $('*[target="main--iframe"]').click(function() {
   $('#horseshoe').toggleClass('horseshoe--cursor');
 });
 
-/***************************************** Notion *****************************************/
+/********** Notion **********/
 const latestTitle = document.createElement('h1');
 
 fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
@@ -65,7 +65,7 @@ fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
 
 document.querySelector('section').appendChild(latestTitle);
 
-/***************************************** Hours *****************************************/
+/********** Hours **********/
 var now = new Date();
 var day = now.getUTCDay();
 var hour = now.getUTCHours() + 1;
@@ -81,7 +81,7 @@ if (day === 0 || day === 6) {
 
 document.querySelector('p').insertAdjacentHTML('beforeend', '<br>' + message);
 
-/***************************************** Read More *****************************************/
+/********** Read More **********/
 const readMoreBtn = document.createElement('a');
 readMoreBtn.textContent = 'Read More.';
 readMoreBtn.style.display = 'block';
@@ -99,7 +99,7 @@ readMoreBtn.addEventListener('click', () => {
 
 document.querySelector('h1 + p').appendChild(readMoreBtn);
 
-/***************************************** Typing *****************************************/
+/********** Typing **********/
 function typeWriter(element, speed) {
   var text = element.textContent;
   var i = 0;
@@ -125,7 +125,7 @@ document.getElementById("horseshoe").addEventListener("click", function() {
   }
 });
 
-/***************************************** Wall Image *****************************************/
+/********** Wall Image **********/
 const acceleration = 0.01;
 const img = { element: document.querySelector('#wall-image'), xMax: 0, yMax: 0, x: 0, y: 0 };
 const mouse = { x: 0, y: 0 };
@@ -183,7 +183,7 @@ function cancelAnimation() {
 window.addEventListener('load', init);
 window.addEventListener('beforeunload', cancelAnimation);
 
-/***************************************** Tooltip *****************************************/
+/********** Tooltip **********/
 const areas = document.getElementsByTagName('area');
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
@@ -219,7 +219,7 @@ function updateTooltipPosition(event, tooltip) {
   tooltip.style.left = `${event.pageX + 10}px`;
 }
 
-/***************************************** Cookie Notice *****************************************/
+/********** Cookie Notice **********/
 const createCookieNotice = () => {
   const cookieNotice = document.createElement('div');
   cookieNotice.id = 'cookie-notice';
