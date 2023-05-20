@@ -185,18 +185,18 @@ window.addEventListener('beforeunload', cA);
 
 /********** Tooltip **********/
 const areas = document.getElementsByTagName('area');
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+const mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 for (const area of areas) {
   const tooltip = document.createElement('div');
   tooltip.id = 'tooltip';
   tooltip.style.position = 'absolute';
-  area.addEventListener('mouseover', handleMouseOver);
-  area.addEventListener('mouseout', handleMouseOut);
+  area.addEventListener('mouseover', mouseOver);
+  area.addEventListener('mouseout', mouseOut);
 }
 
-function handleMouseOver(event) {
-  if (isMobile) return;
+function mouseOver(event) {
+  if (mobile) return;
   const tooltip = document.createElement('div');
   tooltip.id = 'tooltip';
   tooltip.style.position = 'absolute';
@@ -207,8 +207,8 @@ function handleMouseOver(event) {
   this.removeAttribute('title');
 }
 
-function handleMouseOut() {
-  if (isMobile) return;
+function mouseOut() {
+  if (mobile) return;
   const tooltip = document.getElementById('tooltip');
   tooltip.remove();
   this.setAttribute('title', tooltip.innerHTML);
