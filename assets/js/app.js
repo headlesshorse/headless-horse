@@ -219,7 +219,7 @@ function updateTooltipPosition(event, tooltip) {
   tooltip.style.left = `${event.pageX + 10}px`;
 }
 
-/********** Cookie Notice **********/
+/********** Cookies **********/
 const createNotice = () => {
   const notice = document.createElement('div');
   notice.id = 'cookie-notice';
