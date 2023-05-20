@@ -219,7 +219,7 @@ function updateTooltipPosition(event, tooltip) {
   tooltip.style.left = `${event.pageX + 10}px`;
 }
 
-/********** Cookies **********/
+/********** Notice **********/
 const createNotice = () => {
   const notice = document.createElement('div');
   notice.id = 'cookie-notice';
@@ -234,14 +234,14 @@ const accept = () => {
 };
 
 const set = (name, value, days) => {
-  const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
-  document.cookie = `${name}=${value};expires=${expires};path=/`;
+  const exp = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
+  document.cookie = `${name}=${value};expires=${exp};path=/`;
 };
 
 const get = (name) => {
-  const decoded = decodeURIComponent(document.cookie);
-  const cookieArray = decoded.split('; ');
-  return cookieArray.find(cookie => cookie.startsWith(`${name}=`))?.split('=')[1] || '';
+  const decode = decodeURIComponent(document.cookie);
+  const array = decode.split('; ');
+  return array.find(cookie => cookie.startsWith(`${name}=`))?.split('=')[1] || '';
 };
 
 const cookie = createNotice();
