@@ -1,23 +1,23 @@
 /********** Loader **********/
-const loaderBarWidth = { value: 0 };
-const perfData = window.performance.timing;
-const EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart);
+const perf = window.performance.timing;
+const width = { value: 0 };
+const EstimatedTime = -(perf.loadEventEnd - perf.navigationStart);
 const time = parseInt((EstimatedTime / 1000) % 60) * 100 + 1000;
 
-const loaderDiv = document.createElement('div');
-loaderDiv.id = 'loader';
-loaderDiv.innerHTML = `<div id="loader--bar"></div><div id="loader--percentage">0%</div>`;
-document.body.appendChild(loaderDiv);
+const loader = document.createElement('div');
+loader.id = 'loader';
+loader.innerHTML = `<div id="loader--bar"></div><div id="loader--percentage">0%</div>`;
+document.body.appendChild(loader);
 
-const loaderBar = document.getElementById('loader--bar');
-const loaderPercentage = document.getElementById('loader--percentage');
-const loaderInterval = setInterval(frame, time / 100);
+const bar = document.getElementById('loader--bar');
+const per = document.getElementById('loader--percentage');
+const int = setInterval(frame, time / 100);
 
 function frame() {
-  if (loaderBarWidth.value >= 100) return clearInterval(loaderInterval);
-  loaderBar.style.width = `${++loaderBarWidth.value}%`;
-  loaderPercentage.style.left = `${loaderBarWidth.value}%`;
-  loaderPercentage.textContent = `${loaderBarWidth.value}%`;
+  if (width.value >= 100) return clearInterval(int);
+  bar.style.width = `${++width.value}%`;
+  per.style.left = `${width.value}%`;
+  per.textContent = `${width.value}%`;
 }
 
 setTimeout(function() {
@@ -48,56 +48,56 @@ $('*[target="main--iframe"]').click(function() {
 });
 
 /********** Notion **********/
-const latestTitle = document.createElement('h1');
+const latest = document.createElement('h1');
 
 fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
   .then(res => res.text())
   .then(text => {
-    latestTitle.id = 'latest';
-    latestTitle.innerHTML = `Latest`;
-    latestTitle.insertAdjacentHTML('afterend', text);
+    latest.id = 'latest';
+    latest.innerHTML = `Latest`;
+    latest.insertAdjacentHTML('afterend', text);
     document.querySelectorAll('#latest + ul li a').forEach(link => {
       link.setAttribute('target', '_blank');
       link.setAttribute('rel', 'noreferrer');
     });
-    latestTitle.style.display = text.trim().length === 0 ? 'none' : 'block';
+    latest.style.display = text.trim().length === 0 ? 'none' : 'block';
   });
 
-document.querySelector('section').appendChild(latestTitle);
+document.querySelector('section').appendChild(latest);
 
 /********** Hours **********/
 var now = new Date();
 var day = now.getUTCDay();
 var hour = now.getUTCHours() + 1;
-var message = "";
+var notice = "";
 
 if (day === 0 || day === 6) {
-  message = "We are out of office and will return Monday; our hours are Monday–Friday, 09:00—18:00.";
+  notice = "We are out of office and will return Monday; our hours are Monday–Friday, 09:00—18:00.";
 } else if (hour >= 9 && hour < 18) {
-  message = "The studio is open today from 09:00-18:00.";
+  notice = "The studio is open today from 09:00-18:00.";
 } else {
-  message = "We are out of office; our hours are Monday–Friday, 09:00—18:00.";
+  notice = "We are out of office; our hours are Monday–Friday, 09:00—18:00.";
 }
 
-document.querySelector('p').insertAdjacentHTML('beforeend', '<br>' + message);
+document.querySelector('p').insertAdjacentHTML('beforeend', '<br>' + notice);
 
 /********** Read More **********/
-const readMoreBtn = document.createElement('a');
-readMoreBtn.textContent = 'Read More.';
-readMoreBtn.style.display = 'block';
-readMoreBtn.style.cursor = 's-resize';
+const moreBtn = document.createElement('a');
+moreBtn.textContent = 'Read More.';
+moreBtn.style.display = 'block';
+moreBtn.style.cursor = 's-resize';
 
-const readMoreText = document.querySelectorAll('span');
-readMoreText.forEach(element => element.style.display = 'none');
+const moreText = document.querySelectorAll('span');
+moreText.forEach(element => element.style.display = 'none');
 
-readMoreBtn.addEventListener('click', () => {
-  const isReadLess = readMoreBtn.textContent === 'Read Less.';
-  readMoreBtn.textContent = isReadLess ? 'Read More.' : 'Read Less.';
-  readMoreBtn.style.cursor = isReadLess ? 's-resize' : 'n-resize';
-  readMoreText.forEach(element => element.style.display = isReadLess ? 'none' : 'inline');
+moreBtn.addEventListener('click', () => {
+  const lessText = moreBtn.textContent === 'Read Less.';
+  moreBtn.textContent = lessText ? 'Read More.' : 'Read Less.';
+  moreBtn.style.cursor = lessText ? 's-resize' : 'n-resize';
+  moreText.forEach(element => element.style.display = lessText ? 'none' : 'inline');
 });
 
-document.querySelector('h1 + p').appendChild(readMoreBtn);
+document.querySelector('h1 + p').appendChild(moreBtn);
 
 /********** Typing **********/
 function typeWriter(element, speed) {
@@ -126,62 +126,62 @@ document.getElementById("horseshoe").addEventListener("click", function() {
 });
 
 /********** Wall Image **********/
-const acceleration = 0.01;
-const img = { element: document.querySelector('#wall-image'), xMax: 0, yMax: 0, x: 0, y: 0 };
-const mouse = { x: 0, y: 0 };
-let vw = 0, vh = 0, targetX = 0, targetY = 0, animationId = null;
+const a = 0.01;
+const i = { e: document.querySelector('#wall-image'), xM: 0, yM: 0, x: 0, y: 0 };
+const m = { x: 0, y: 0 };
+let w = 0, h = 0, tX = 0, tY = 0, ani = null;
 
 function init() {
-  resize();
-  img.element.style.transform = 'translate(0px, 0px)';
-  moveImage();
-  window.addEventListener('mousemove', moveAction);
-  window.addEventListener('touchmove', moveAction);
-  window.addEventListener('resize', resize);
+  r();
+  i.e.style.transform = 'translate(0px, 0px)';
+  mI();
+  window.addEventListener('mousemove', mV);
+  window.addEventListener('touchmove', mV);
+  window.addEventListener('resize', r);
 }
 
 function map(x, a, b, c, d) { return c + ((d - c) * (x - a)) / (b - a) || 0; }
 
-function resize() {
-  vw = window.innerWidth;
-  vh = window.innerHeight;
-  img.xMax = vw - img.element.naturalWidth;
-  img.yMax = vh - img.element.naturalHeight;
+function r() {
+  w = window.innerWidth;
+  h = window.innerHeight;
+  i.xM = w - i.e.naturalWidth;
+  i.yM = h - i.e.naturalHeight;
 }
 
-function moveImage() {
-  if (!isCoverVisible()) {
-    img.x = lerp(img.x, targetX, acceleration);
-    img.y = lerp(img.y, targetY, acceleration);
-    img.element.style.transform = `translate(${img.x}px, ${img.y}px)`;
+function mI() {
+  if (!cV()) {
+    i.x = l(i.x, tX, a);
+    i.y = l(i.y, tY, a);
+    i.e.style.transform = `translate(${i.x}px, ${i.y}px)`;
   }
-  animationId = window.requestAnimationFrame(moveImage);
+  ani = window.requestAnimationFrame(mI);
 }
 
-function moveAction(event) {
-  const touch = event.targetTouches?.[0];
-  mouse.x = touch ? touch.clientX : event.clientX;
-  mouse.y = touch ? touch.clientY : event.clientY;
-  targetX = map(mouse.x, 0, vw, 0, img.xMax);
-  targetY = map(mouse.y, 0, vh, 0, img.yMax);
+function mV(event) {
+  const t = event.targetTouches?.[0];
+  m.x = t ? t.clientX : event.clientX;
+  m.y = t ? t.clientY : event.clientY;
+  tX = map(m.x, 0, w, 0, i.xM);
+  tY = map(m.y, 0, h, 0, i.yM);
 }
 
-function lerp(start, end, t) { return start * (1 - t) + end * t; }
+function l(s, e, t) { return s * (1 - t) + e * t; }
 
-function isCoverVisible() {
-  const cover = document.querySelector('#main');
-  return cover && cover.offsetParent !== null;
+function cV() {
+  const c = document.querySelector('#main');
+  return c && c.offsetParent !== null;
 }
 
-function cancelAnimation() {
-  if (animationId) {
-    window.cancelAnimationFrame(animationId);
-    animationId = null;
+function cA() {
+  if (ani) {
+    window.cancelAnimationFrame(ani);
+    ani = null;
   }
 }
 
 window.addEventListener('load', init);
-window.addEventListener('beforeunload', cancelAnimation);
+window.addEventListener('beforeunload', cA);
 
 /********** Tooltip **********/
 const areas = document.getElementsByTagName('area');
@@ -220,29 +220,29 @@ function updateTooltipPosition(event, tooltip) {
 }
 
 /********** Cookie Notice **********/
-const createCookieNotice = () => {
-  const cookieNotice = document.createElement('div');
-  cookieNotice.id = 'cookie-notice';
-  cookieNotice.innerHTML = `<p>We use cookies. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank" rel="noreferrer">Read Policy.</a> <a onclick="acceptCookies()">Accept.</a></p>`;
-  document.body.appendChild(cookieNotice);
-  return cookieNotice;
+const createNotice = () => {
+  const notice = document.createElement('div');
+  notice.id = 'cookie-notice';
+  notice.innerHTML = `<p>We use cookies. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank" rel="noreferrer">Read Policy.</a> <a onclick="accept()">Accept.</a></p>`;
+  document.body.appendChild(notice);
+  return notice;
 };
 
-const acceptCookies = () => {
-  setCookie('HHcookienotice', 'true', 365);
-  cookieNotice.style.display = 'none';
+const accept = () => {
+  set('notice', 'true', 365);
+  cookie.style.display = 'none';
 };
 
-const setCookie = (name, value, days) => {
+const set = (name, value, days) => {
   const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
   document.cookie = `${name}=${value};expires=${expires};path=/`;
 };
 
-const getCookie = (name) => {
-  const decodedCookie = decodeURIComponent(document.cookie);
-  const cookieArray = decodedCookie.split('; ');
+const get = (name) => {
+  const decoded = decodeURIComponent(document.cookie);
+  const cookieArray = decoded.split('; ');
   return cookieArray.find(cookie => cookie.startsWith(`${name}=`))?.split('=')[1] || '';
 };
 
-const cookieNotice = createCookieNotice();
-if (getCookie('HHcookienotice') === 'true') cookieNotice.style.display = 'none';
+const cookie = createNotice();
+if (get('notice') === 'true') cookie.style.display = 'none';
