@@ -25,10 +25,10 @@ setTimeout(() => {
   const horseshoe = document.getElementById('horseshoe');
   const wallImage = document.getElementById('wall-image');
   const body = document.body;
-  setTimeout(() => fadeOut(loader, 1500), 0);
+  setTimeout(() => fade(loader, 1500, 'out'), 0);
   setTimeout(() => {
-    fadeIn(horseshoe, 1500);
-    fadeIn(wallImage, 1500);
+    fade(horseshoe, 1500, 'in');
+    fade(wallImage, 1500, 'in');
   }, 1500);
   setTimeout(() => wallImage.classList.remove('wall-image--filter'), 3000);
   body.style.cursor = 'default';
@@ -50,13 +50,13 @@ horseshoe.addEventListener('click', () => {
     if (!isWallImageFiltered) {
       mainCopy.style.visibility = 'visible';
       setTimeout(() => {
-        fadeIn(main, 1500);
-        fadeOut(mainIframe, 1500);
+        fade(main, 1500, 'in');
+        fade(mainIframe, 1500, 'out');
         setTimeout(() => isCooldownActive = false, 1500);
       }, 200);
     } else {
-      fadeOut(main, 1500);
-      fadeOut(mainIframe, 1500);
+      fade(main, 1500, 'out');
+      fade(mainIframe, 1500, 'out');
       setTimeout(() => isCooldownActive = false, 1500);
     }
     wallImage.classList.toggle('wall-image--filter');
@@ -72,8 +72,8 @@ targetElements.forEach((element) => {
       horseshoe.disabled = true;
       mainCopy.style.visibility = 'hidden';
       setTimeout(() => {
-        fadeIn(main, 1500);
-        fadeIn(mainIframe, 1500);
+        fade(main, 1500, 'in');
+        fade(mainIframe, 1500, 'in');
         setTimeout(() => {
           isCooldownActive = false;
           horseshoe.disabled = false;
@@ -85,30 +85,22 @@ targetElements.forEach((element) => {
   });
 });
 
-/********** Animation **********/
-function fadeOut(element, duration) {
-  let opacity = 1;
+/********** Fade **********/
+function fade(element, duration, direction) {
+  const start = direction === 'in' ? 0 : 1;
+  const end = direction === 'in' ? 1 : 0;
+  let opacity = start;
   const interval = 50;
-  const fadeOutInterval = setInterval(() => {
-    opacity -= interval / duration;
-    element.style.opacity = opacity;
-    if (opacity <= 0) {
-      clearInterval(fadeOutInterval);
-      element.style.display = 'none';
-    }
-  }, interval);
-}
+  const increment = (end - start) / (duration / interval);
 
-function fadeIn(element, duration) {
-  let opacity = 0;
-  const interval = 50;
-  element.style.opacity = opacity;
-  element.style.display = 'block';
-  const fadeInInterval = setInterval(() => {
-    opacity += interval / duration;
+  element.style.cssText = `opacity: ${start}; display: block`;
+
+  const fadeInterval = setInterval(() => {
+    opacity += increment;
     element.style.opacity = opacity;
-    if (opacity >= 1) {
-      clearInterval(fadeInInterval);
+    if ((direction === 'in' && opacity >= end) || (direction === 'out' && opacity <= end)) {
+      clearInterval(fadeInterval);
+      element.style.display = direction === 'out' ? 'none' : 'block';
     }
   }, interval);
 }
@@ -291,7 +283,7 @@ function updateTooltipPosition(event, tooltip) {
 const createNotice = () => {
   const notice = document.createElement('div');
   notice.id = '🍪';
-  notice.innerHTML = `<a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank" rel="noreferrer">Privacy and Cookie Policy.</a> <a onclick="accept()">[Close]</a></p>`;
+  notice.innerHTML = `<a href="https://iubenda.com/privacy-policy/86096520" target="_blank" rel="noreferrer">Privacy and Cookie Policy.</a> <a onclick="accept()">[Close]</a>`;
   document.body.appendChild(notice);
   return notice;
 };
@@ -307,10 +299,8 @@ const set = (name, value, days) => {
 };
 
 const get = (name) => {
-  const decode = decodeURIComponent(document.cookie);
-  const array = decode.split('; ');
-  return array.find(cookie => cookie.startsWith(`${name}=`))?.split('=')[1] || '';
+  return decodeURIComponent(document.cookie).split('; ').find(cookie => cookie.startsWith(`${name}=`))?.split('=')[1] || '';
 };
 
 const cookie = createNotice();
-if (get('notice') === 'true') cookie.style.display = 'none';
+cookie.style.display = get('notice') === 'true' ? 'none' : '';
