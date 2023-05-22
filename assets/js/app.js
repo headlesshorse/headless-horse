@@ -141,7 +141,7 @@ document.querySelector('p').insertAdjacentHTML('beforeend', '<br>' + notice);
 
 /********** Read More **********/
 const moreBtn = document.createElement('a');
-moreBtn.textContent = 'Read More.';
+moreBtn.textContent = '[…]';
 moreBtn.style.display = 'block';
 moreBtn.style.cursor = 's-resize';
 
@@ -149,8 +149,8 @@ const moreText = document.querySelectorAll('span');
 moreText.forEach(element => element.style.display = 'none');
 
 moreBtn.addEventListener('click', () => {
-  const lessText = moreBtn.textContent === 'Read Less.';
-  moreBtn.textContent = lessText ? 'Read More.' : 'Read Less.';
+  const lessText = moreBtn.textContent === '[Close]';
+  moreBtn.textContent = lessText ? '[…]' : '[Close]';
   moreBtn.style.cursor = lessText ? 's-resize' : 'n-resize';
   moreText.forEach(element => element.style.display = lessText ? 'none' : 'inline');
 });
@@ -281,7 +281,7 @@ function updateTooltipPosition(event, tooltip) {
 const createNotice = () => {
   const notice = document.createElement('div');
   notice.id = 'notice';
-  notice.innerHTML = `<p>We use cookies. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank" rel="noreferrer">Read Policy.</a> <a onclick="accept()">Accept.</a></p>`;
+  notice.innerHTML = `<a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank" rel="noreferrer">Privacy and Cookie Policy.</a> <a onclick="accept()">[Close]</a></p>`;
   document.body.appendChild(notice);
   return notice;
 };
