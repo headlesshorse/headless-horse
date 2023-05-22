@@ -8,9 +8,8 @@
   --hh-color-black: #000000;
   --hh-color-slate: #999999;
   --hh-color-black-with-alpha: rgba(0, 0, 0, 0.6);
-  --hh-effect-blur: blur(10px);
-  --hh-effect-shadow: drop-shadow(0 0 15px rgba(0, 0, 0, 0.6));
   --hh-effect-grayscale: grayscale(100%) contrast(130%) brightness(40%);
+  --hh-effect-blur: blur(10px);
   --hh-spacing-1x: 5px;
   --hh-spacing-2x: 10px;
   --hh-spacing-3x: 15px;
@@ -168,8 +167,6 @@ a:hover, #horseshoe:hover {
   z-index: var(--hh-z-index-4);
   width: 80px;
   height: 80px;
-  filter: var(--hh-effect-shadow);
-  -webkit-filter: var(--hh-effect-shadow);
   cursor: help;
 }
 
@@ -246,8 +243,6 @@ map area {
   font-size: var(--hh-font-body-1-font-size);
   font-family: var(--hh-font-body-1-font-family);
   line-height: var(--hh-font-body-1-line-height);
-  filter: var(--hh-effect-shadow);
-  -webkit-filter: var(--hh-effect-shadow);
   backdrop-filter: var(--hh-effect-blur);
   -webkit-backdrop-filter: var(--hh-effect-blur);
 }
