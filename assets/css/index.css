@@ -1,6 +1,5 @@
 /********** Variable **********/
 :root {
-  --hh-z-index-0: 0;
   --hh-z-index-1: 100;
   --hh-z-index-2: 200;
   --hh-z-index-3: 300;
@@ -9,7 +8,6 @@
   --hh-color-black: #000000;
   --hh-color-slate: #999999;
   --hh-color-black-with-alpha: rgba(0, 0, 0, 0.6);
-  --hh-color-transparent: transparent;
   --hh-effect-blur: blur(10px);
   --hh-effect-shadow: drop-shadow(0 0 15px rgba(0, 0, 0, 0.6));
   --hh-effect-grayscale: grayscale(100%) contrast(130%) brightness(40%);
