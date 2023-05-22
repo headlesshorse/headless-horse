@@ -67,13 +67,21 @@ horseshoe.addEventListener('click', () => {
 const targetElements = document.querySelectorAll('*[target="main--iframe"]');
 targetElements.forEach((element) => {
   element.addEventListener('click', () => {
-    mainCopy.style.visibility = 'hidden';
-    setTimeout(() => {
-      fadeIn(main, 1500);
-      fadeIn(mainIframe, 1500);
-    }, 200);
-    wallImage.classList.toggle('wall-image--filter');
-    horseshoe.classList.toggle('horseshoe--cursor');
+    if (!isCooldownActive) {
+      isCooldownActive = true;
+      horseshoe.disabled = true;
+      mainCopy.style.visibility = 'hidden';
+      setTimeout(() => {
+        fadeIn(main, 1500);
+        fadeIn(mainIframe, 1500);
+        setTimeout(() => {
+          isCooldownActive = false;
+          horseshoe.disabled = false;
+        }, 1500);
+      }, 200);
+      wallImage.classList.toggle('wall-image--filter');
+      horseshoe.classList.toggle('horseshoe--cursor');
+    }
   });
 });
 
