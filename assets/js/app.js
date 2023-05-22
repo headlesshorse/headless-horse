@@ -20,60 +20,47 @@ function frame() {
   per.textContent = `${width.value}%`;
 }
 
-setTimeout(function() {
-  var loader = document.getElementById('loader');
-  var horseshoe = document.getElementById('horseshoe');
-  var wallImage = document.getElementById('wall-image');
-  var body = document.body;
+setTimeout(() => {
+  const loader = document.getElementById('loader');
+  const horseshoe = document.getElementById('horseshoe');
+  const wallImage = document.getElementById('wall-image');
+  const body = document.body;
 
-  setTimeout(function() {
-    fadeOut(loader, 1500);
-  }, 0);
-
-  setTimeout(function() {
+  setTimeout(() => fadeOut(loader, 1500), 0);
+  setTimeout(() => {
     fadeIn(horseshoe, 1500);
     fadeIn(wallImage, 1500);
   }, 1500);
-
-  setTimeout(function() {
-    wallImage.classList.remove('wall-image--filter');
-  }, 3000);
+  setTimeout(() => wallImage.classList.remove('wall-image--filter'), 3000);
 
   body.style.cursor = 'default';
-
 }, time);
 
 /********** Navigation **********/
-var horseshoe = document.getElementById('horseshoe'),
-  main = document.getElementById('main'),
-  mainIframe = document.getElementById('main--iframe'),
-  mainCopy = document.getElementById('main--copy'),
-  wallImage = document.getElementById('wall-image'),
-  mainOpacity = window.getComputedStyle(main).getPropertyValue('opacity');
+const horseshoe = document.getElementById('horseshoe');
+const main = document.getElementById('main');
+const mainIframe = document.getElementById('main--iframe');
+const mainCopy = document.getElementById('main--copy');
+const wallImage = document.getElementById('wall-image');
+const mainOpacity = window.getComputedStyle(main).getPropertyValue('opacity');
+let isCooldownActive = false;
 
-var isCooldownActive = false;
-
-horseshoe.addEventListener('click', function() {
+horseshoe.addEventListener('click', () => {
   if (!isCooldownActive) {
     isCooldownActive = true;
-
-    var isWallImageFiltered = wallImage.classList.contains('wall-image--filter');
+    const isWallImageFiltered = wallImage.classList.contains('wall-image--filter');
 
     if (!isWallImageFiltered) {
       mainCopy.style.display = 'grid';
-      setTimeout(function() {
+      setTimeout(() => {
         fadeIn(main, 1500);
         fadeOut(mainIframe, 1500);
-        setTimeout(function() {
-          isCooldownActive = false;
-        }, 3000);
+        setTimeout(() => isCooldownActive = false, 1500);
       }, 200);
     } else {
       fadeOut(main, 1500);
       fadeOut(mainIframe, 1500);
-      setTimeout(function() {
-        isCooldownActive = false;
-      }, 3000);
+      setTimeout(() => isCooldownActive = false, 1500);
     }
 
     wallImage.classList.toggle('wall-image--filter');
@@ -81,11 +68,11 @@ horseshoe.addEventListener('click', function() {
   }
 });
 
-var targetElements = document.querySelectorAll('*[target="main--iframe"]');
-targetElements.forEach(function(element) {
-  element.addEventListener('click', function() {
+const targetElements = document.querySelectorAll('*[target="main--iframe"]');
+targetElements.forEach((element) => {
+  element.addEventListener('click', () => {
     mainCopy.style.display = 'none';
-    setTimeout(function() {
+    setTimeout(() => {
       fadeIn(main, 1500);
       fadeIn(mainIframe, 1500);
     }, 200);
@@ -97,9 +84,9 @@ targetElements.forEach(function(element) {
 
 /********** Animation **********/
 function fadeOut(element, duration) {
-  var opacity = 1;
-  var interval = 50;
-  var fadeOutInterval = setInterval(function() {
+  let opacity = 1;
+  const interval = 50;
+  const fadeOutInterval = setInterval(() => {
     opacity -= interval / duration;
     element.style.opacity = opacity;
     if (opacity <= 0) {
@@ -110,11 +97,11 @@ function fadeOut(element, duration) {
 }
 
 function fadeIn(element, duration) {
-  var opacity = 0;
-  var interval = 50;
+  let opacity = 0;
+  const interval = 50;
   element.style.opacity = opacity;
   element.style.display = 'block';
-  var fadeInInterval = setInterval(function() {
+  const fadeInInterval = setInterval(() => {
     opacity += interval / duration;
     element.style.opacity = opacity;
     if (opacity >= 1) {
