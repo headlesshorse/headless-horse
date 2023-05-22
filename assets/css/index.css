@@ -254,8 +254,8 @@ map area {
   -webkit-backdrop-filter: var(--hh-effect-blur);
 }
 
-/********** Cookie Notice **********/
-#cookie-notice {
+/********** Notice **********/
+#notice {
   position: absolute;
   bottom: 0;
   z-index: var(--hh-z-index-top);
@@ -290,6 +290,6 @@ map area {
 }
 
 /********** Hide **********/
-#horseshoe, #main, #main--iframe, #wall-image {
+#horseshoe, #main, #main--iframe, #main--copy, #wall-image {
   display: none;
 }

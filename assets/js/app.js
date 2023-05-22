@@ -21,31 +21,107 @@ function frame() {
 }
 
 setTimeout(function() {
-  $('#loader').fadeOut(3000);
-  $('#horseshoe, #wall-image').delay(2000).fadeIn(3000);
+  var loader = document.getElementById('loader');
+  var horseshoe = document.getElementById('horseshoe');
+  var wallImage = document.getElementById('wall-image');
+  var body = document.body;
+
   setTimeout(function() {
-    $('#wall-image').removeClass('wall-image--filter');
+    fadeOut(loader, 1500);
+  }, 0);
+
+  setTimeout(function() {
+    fadeIn(horseshoe, 1500);
+    fadeIn(wallImage, 1500);
+  }, 1500);
+
+  setTimeout(function() {
+    wallImage.classList.remove('wall-image--filter');
   }, 3000);
-  $('body').css({
-    'cursor': 'default'
-  });
+
+  body.style.cursor = 'default';
+
 }, time);
 
 /********** Navigation **********/
-$('#horseshoe').click(function() {
-  $('#main').fadeToggle(1000);
-  $('#main--iframe').fadeOut(1000);
-  $('#main--copy').delay(200).fadeIn(3000);
-  $('#wall-image').toggleClass('wall-image--filter');
-  $('#horseshoe').toggleClass('horseshoe--cursor');
+var horseshoe = document.getElementById('horseshoe'),
+  main = document.getElementById('main'),
+  mainIframe = document.getElementById('main--iframe'),
+  mainCopy = document.getElementById('main--copy'),
+  wallImage = document.getElementById('wall-image'),
+  mainOpacity = window.getComputedStyle(main).getPropertyValue('opacity');
+
+var isCooldownActive = false;
+
+horseshoe.addEventListener('click', function() {
+  if (!isCooldownActive) {
+    isCooldownActive = true;
+
+    var isWallImageFiltered = wallImage.classList.contains('wall-image--filter');
+
+    if (!isWallImageFiltered) {
+      mainCopy.style.display = 'grid';
+      setTimeout(function() {
+        fadeIn(main, 1500);
+        fadeOut(mainIframe, 1500);
+        setTimeout(function() {
+          isCooldownActive = false;
+        }, 2000);
+      }, 200);
+    } else {
+      fadeOut(main, 1500);
+      fadeOut(mainIframe, 1500);
+      setTimeout(function() {
+        isCooldownActive = false;
+      }, 2000);
+    }
+
+    wallImage.classList.toggle('wall-image--filter');
+    horseshoe.classList.toggle('horseshoe--cursor');
+  }
 });
 
-$('*[target="main--iframe"]').click(function() {
-  $('#main, #main--iframe').delay(200).fadeIn(3000);
-  $('#main--copy').hide();
-  $('#wall-image').toggleClass('wall-image--filter');
-  $('#horseshoe').toggleClass('horseshoe--cursor');
+var targetElements = document.querySelectorAll('*[target="main--iframe"]');
+targetElements.forEach(function(element) {
+  element.addEventListener('click', function() {
+    mainCopy.style.display = 'none';
+    setTimeout(function() {
+      fadeIn(main, 1500);
+      fadeIn(mainIframe, 1500);
+    }, 200);
+
+    wallImage.classList.toggle('wall-image--filter');
+    horseshoe.classList.toggle('horseshoe--cursor');
+  });
 });
+
+/********** Animation **********/
+function fadeOut(element, duration) {
+  var opacity = 1;
+  var interval = 50;
+  var fadeOutInterval = setInterval(function() {
+    opacity -= interval / duration;
+    element.style.opacity = opacity;
+    if (opacity <= 0) {
+      clearInterval(fadeOutInterval);
+      element.style.display = 'none';
+    }
+  }, interval);
+}
+
+function fadeIn(element, duration) {
+  var opacity = 0;
+  var interval = 50;
+  element.style.opacity = opacity;
+  element.style.display = 'block';
+  var fadeInInterval = setInterval(function() {
+    opacity += interval / duration;
+    element.style.opacity = opacity;
+    if (opacity >= 1) {
+      clearInterval(fadeInInterval);
+    }
+  }, interval);
+}
 
 /********** Notion **********/
 const latest = document.createElement('h1');
@@ -222,7 +298,7 @@ function updateTooltipPosition(event, tooltip) {
 /********** Notice **********/
 const createNotice = () => {
   const notice = document.createElement('div');
-  notice.id = 'cookie-notice';
+  notice.id = 'notice';
   notice.innerHTML = `<p>We use cookies. <a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank" rel="noreferrer">Read Policy.</a> <a onclick="accept()">Accept.</a></p>`;
   document.body.appendChild(notice);
   return notice;
