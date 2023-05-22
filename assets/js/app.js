@@ -51,7 +51,7 @@ horseshoe.addEventListener('click', () => {
     const isWallImageFiltered = wallImage.classList.contains('wall-image--filter');
 
     if (!isWallImageFiltered) {
-      mainCopy.style.display = 'grid';
+      mainCopy.style.visibility = 'visible';
       setTimeout(() => {
         fadeIn(main, 1500);
         fadeOut(mainIframe, 1500);
@@ -71,7 +71,7 @@ horseshoe.addEventListener('click', () => {
 const targetElements = document.querySelectorAll('*[target="main--iframe"]');
 targetElements.forEach((element) => {
   element.addEventListener('click', () => {
-    mainCopy.style.display = 'none';
+    mainCopy.style.visibility = 'hidden';
     setTimeout(() => {
       fadeIn(main, 1500);
       fadeIn(mainIframe, 1500);
