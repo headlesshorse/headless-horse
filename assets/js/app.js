@@ -66,14 +66,14 @@ horseshoe.addEventListener('click', function() {
         fadeOut(mainIframe, 1500);
         setTimeout(function() {
           isCooldownActive = false;
-        }, 2000);
+        }, 3000);
       }, 200);
     } else {
       fadeOut(main, 1500);
       fadeOut(mainIframe, 1500);
       setTimeout(function() {
         isCooldownActive = false;
-      }, 2000);
+      }, 3000);
     }
 
     wallImage.classList.toggle('wall-image--filter');
