@@ -25,14 +25,12 @@ setTimeout(() => {
   const horseshoe = document.getElementById('horseshoe');
   const wallImage = document.getElementById('wall-image');
   const body = document.body;
-
   setTimeout(() => fadeOut(loader, 1500), 0);
   setTimeout(() => {
     fadeIn(horseshoe, 1500);
     fadeIn(wallImage, 1500);
   }, 1500);
   setTimeout(() => wallImage.classList.remove('wall-image--filter'), 3000);
-
   body.style.cursor = 'default';
 }, time);
 
@@ -49,7 +47,6 @@ horseshoe.addEventListener('click', () => {
   if (!isCooldownActive) {
     isCooldownActive = true;
     const isWallImageFiltered = wallImage.classList.contains('wall-image--filter');
-
     if (!isWallImageFiltered) {
       mainCopy.style.visibility = 'visible';
       setTimeout(() => {
@@ -62,7 +59,6 @@ horseshoe.addEventListener('click', () => {
       fadeOut(mainIframe, 1500);
       setTimeout(() => isCooldownActive = false, 1500);
     }
-
     wallImage.classList.toggle('wall-image--filter');
     horseshoe.classList.toggle('horseshoe--cursor');
   }
@@ -76,7 +72,6 @@ targetElements.forEach((element) => {
       fadeIn(main, 1500);
       fadeIn(mainIframe, 1500);
     }, 200);
-
     wallImage.classList.toggle('wall-image--filter');
     horseshoe.classList.toggle('horseshoe--cursor');
   });
