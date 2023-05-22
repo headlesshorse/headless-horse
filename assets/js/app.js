@@ -119,13 +119,15 @@ const latest = document.createElement('h1');
 fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
   .then(res => res.text())
   .then(text => {
-    latest.id = 'latest';
     latest.innerHTML = `Latest`;
     latest.insertAdjacentHTML('afterend', text);
-    document.querySelectorAll('#latest + ul li a').forEach(link => {
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noreferrer');
-    });
+    const ul = latest.nextElementSibling;
+    if (ul && ul.tagName.toLowerCase() === 'ul') {
+      ul.querySelectorAll('li a').forEach(link => {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noreferrer');
+      });
+    }
     latest.style.display = text.trim().length === 0 ? 'none' : 'block';
   });
 
@@ -288,7 +290,7 @@ function updateTooltipPosition(event, tooltip) {
 /********** Notice **********/
 const createNotice = () => {
   const notice = document.createElement('div');
-  notice.id = 'notice';
+  notice.id = '🍪';
   notice.innerHTML = `<a href="https://www.iubenda.com/privacy-policy/86096520" target="_blank" rel="noreferrer">Privacy and Cookie Policy.</a> <a onclick="accept()">[Close]</a></p>`;
   document.body.appendChild(notice);
   return notice;
