@@ -49,14 +49,13 @@ horseshoe.addEventListener('click', () => {
     const isWallImageFiltered = wallImage.classList.contains('wall-image--filter');
     if (!isWallImageFiltered) {
       mainCopy.style.visibility = 'visible';
+      mainIframe.style.visibility = 'hidden';
       setTimeout(() => {
         fade(main, 1500, 'in');
-        fade(mainIframe, 1500, 'out');
         setTimeout(() => isCooldownActive = false, 1500);
       }, 200);
     } else {
       fade(main, 1500, 'out');
-      fade(mainIframe, 1500, 'out');
       setTimeout(() => isCooldownActive = false, 1500);
     }
     wallImage.classList.toggle('wall-image--filter');
