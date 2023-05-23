@@ -265,7 +265,6 @@ map area {
 
   section {
     display: grid;
-    column-gap: var(--hh-spacing-4x);
     grid-template-columns: 1fr 2fr;
     row-gap: calc(var(--hh-font-body-1-line-height) * 2);
   }
