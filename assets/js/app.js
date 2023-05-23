@@ -282,7 +282,7 @@ function updateTooltipPosition(event, tooltip) {
 const createNotice = () => {
   const notice = document.createElement('div');
   notice.id = '🍪';
-  notice.innerHTML = `<a href="https://iubenda.com/privacy-policy/86096520" target="_blank" rel="noreferrer">Privacy and Cookie Policy.</a> <a onclick="accept()">[Close]</a>`;
+  notice.innerHTML = `<a href="https://withcabin.com/privacy/headless.horse" target="_blank" rel="noreferrer">We don't use cookies. Privacy with Cabin.</a> <a onclick="accept()">[Close]</a>`;
   document.body.appendChild(notice);
   return notice;
 };
