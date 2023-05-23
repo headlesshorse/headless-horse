@@ -98,7 +98,7 @@ function fade(element, duration, direction) {
     opacity += increment;
     if ((direction === 'in' && opacity >= end) || (direction === 'out' && opacity <= end)) {
       clearInterval(fadeInterval);
-      opacity = end; // Set the opacity to the exact end value
+      opacity = end;
       element.style.display = direction === 'out' ? 'none' : 'block';
     } else {
       element.style.opacity = opacity;
