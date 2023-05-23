@@ -50,7 +50,7 @@ h1::before {
   counter-increment: section;
 }
 
-h1:not(:first-child) {
+h1~h1 {
   padding-top: calc(var(--hh-font-body-1-line-height) * 2);
 }
 
