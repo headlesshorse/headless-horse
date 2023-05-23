@@ -6,7 +6,7 @@ const time = parseInt((EstimatedTime / 1000) % 60) * 100 + 1000;
 
 const loader = document.createElement('div');
 loader.id = 'loader';
-loader.innerHTML = `<div id="loader--bar"></div><div id="loader--percentage">0%</div>`;
+loader.innerHTML = `<div id="loader--bar"></div><div id="loader--percentage"></div>`;
 document.body.appendChild(loader);
 document.documentElement.style.cursor = 'wait';
 
