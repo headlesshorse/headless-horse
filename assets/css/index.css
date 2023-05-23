@@ -20,18 +20,11 @@
 }
 
 /********** Basic **********/
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-html, body {
+body {
   overflow: hidden;
+  margin: 0;
   height: 100%;
   background: var(--hh-color-black);
-  counter-reset: section;
   cursor: wait;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -84,6 +77,12 @@ a[target=_blank] {
   cursor: ne-resize;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 li {
   display: -webkit-box;
   overflow: hidden;
@@ -121,7 +120,7 @@ li a~a[data-value]:hover::after {
 }
 
 /********** Animation **********/
-a:hover, #horseshoe:hover {
+a:hover {
   animation-name: flicker-animation;
   animation-duration: 2s;
 }
@@ -209,6 +208,7 @@ a:hover, #horseshoe:hover {
   padding: var(--hh-spacing-4x);
   max-width: 110rem;
   width: 100vw;
+  counter-reset: section;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: var(--hh-spacing-4x);
 }
