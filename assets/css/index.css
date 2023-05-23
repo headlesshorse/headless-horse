@@ -46,7 +46,7 @@ h1 {
 
 h1::before {
   padding-right: var(--hh-spacing-2x);
-  content: counter(section) ".";
+  content: "0"counter(section)".";
   counter-increment: section;
 }
 
@@ -105,17 +105,12 @@ li a~a {
 }
 
 li a~a::after {
-  content: counter(presslinks);
-  font-size: var(--hh-font-body-1-font-size);
-}
-
-li a~a::before {
-  content: " / ";
+  content: " / "counter(presslinks);
   font-size: var(--hh-font-body-1-font-size);
 }
 
 li a~a[data-more]:hover::after {
-  content: attr(data-more);
+  content: " / "attr(data-more);
 }
 
 /********** Animation **********/
@@ -260,7 +255,7 @@ map area {
     padding-top: 0 !important;
   }
 
-  h1::before, a[data-more]:hover::after {
+  h1::before, a[data-more]:hover::after, li a~a {
     display: none;
   }
 
