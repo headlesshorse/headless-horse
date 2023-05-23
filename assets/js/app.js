@@ -281,27 +281,22 @@ function updateTooltipPosition(event, tooltip) {
 }
 
 /********** Notice **********/
-const createNotice = () => {
-  const notice = document.createElement('div');
-  notice.id = '🍪';
-  notice.innerHTML = `<a href="https://withcabin.com/privacy/headless.horse" target="_blank" rel="noreferrer">We don't use cookies. Privacy with Cabin.</a> <a onclick="accept()">[Close]</a>`;
+function createNotice() {
+  if (document.cookie.includes("noticeClose")) return;
+
+  const notice = document.createElement("div");
+  notice.id = "🥠";
+  notice.innerHTML = `<a href="https://withcabin.com/privacy/headless.horse" target="_blank" rel="noreferrer">We don't use advertising or tracking cookies.</a> <a href="#" id="🆗">[Close]</a>`;
   document.body.appendChild(notice);
-  return notice;
-};
 
-const accept = () => {
-  set('notice', 'true', 365);
-  cookie.style.display = 'none';
-};
+  const close = document.getElementById("🆗");
+  close.addEventListener("click", () => {
+    event.preventDefault();
+    notice.style.display = "none";
+    const expiryDate = new Date();
+    expiryDate.setDate(expiryDate.getDate() + 365);
+    document.cookie = `noticeClose=true; expires=${expiryDate.toUTCString()}; path=/`;
+  });
+}
 
-const set = (name, value, days) => {
-  const exp = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
-  document.cookie = `${name}=${value};expires=${exp};path=/`;
-};
-
-const get = (name) => {
-  return decodeURIComponent(document.cookie).split('; ').find(cookie => cookie.startsWith(`${name}=`))?.split('=')[1] || '';
-};
-
-const cookie = createNotice();
-cookie.style.display = get('notice') === 'true' ? 'none' : '';
+createNotice();
