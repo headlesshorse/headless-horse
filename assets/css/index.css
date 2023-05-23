@@ -25,7 +25,6 @@ body {
   margin: 0;
   height: 100%;
   background: var(--hh-color-black);
-  cursor: wait;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }

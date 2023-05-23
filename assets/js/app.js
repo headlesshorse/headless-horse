@@ -8,6 +8,7 @@ const loader = document.createElement('div');
 loader.id = 'loader';
 loader.innerHTML = `<div id="loader--bar"></div><div id="loader--percentage">0%</div>`;
 document.body.appendChild(loader);
+document.documentElement.style.cursor = 'wait';
 
 const bar = document.getElementById('loader--bar');
 const per = document.getElementById('loader--percentage');
@@ -24,14 +25,13 @@ setTimeout(() => {
   const loader = document.getElementById('loader');
   const horseshoe = document.getElementById('horseshoe');
   const wallImage = document.getElementById('wall-image');
-  const body = document.body;
   setTimeout(() => fade(loader, 1500, 'out'), 0);
   setTimeout(() => {
     fade(horseshoe, 1500, 'in');
     fade(wallImage, 1500, 'in');
   }, 1500);
   setTimeout(() => wallImage.classList.remove('wall-image--filter'), 3000);
-  body.style.cursor = 'default';
+  document.documentElement.style.cursor = 'default';
 }, time);
 
 /********** Navigation **********/
