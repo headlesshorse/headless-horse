@@ -294,7 +294,7 @@ function createNotice() {
     event.preventDefault();
     notice.style.display = "none";
     const expiryDate = new Date();
-    expiryDate.setDate(expiryDate.getDate() + 365);
+    expiryDate.setDate(expiryDate.getDate() + 30);
     document.cookie = `noticeClose=true; expires=${expiryDate.toUTCString()}; path=/`;
   });
 }
