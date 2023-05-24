@@ -286,7 +286,7 @@ function createNotice() {
 
   const notice = document.createElement("div");
   notice.id = "🥠";
-  notice.innerHTML = `<a href="https://withcabin.com/privacy/headless.horse" target="_blank" rel="noreferrer">We don't use tracking cookies.</a> <a href="#" id="🆗">[Close]</a>`;
+  notice.innerHTML = `<a href="./assets/site/privacy-policy.pdf" target="_blank">We don't use cookies. Read our privacy policy.</a> <a href="#" id="🆗">[Close]</a>`;
   document.body.appendChild(notice);
 
   const close = document.getElementById("🆗");
