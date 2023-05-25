@@ -63,6 +63,7 @@ horseshoe.addEventListener('click', () => {
   }
 });
 
+/********** iFrame **********/
 const targetElements = document.querySelectorAll('*[target="main--iframe"]');
 targetElements.forEach((element) => {
   element.addEventListener('click', () => {
@@ -83,6 +84,14 @@ targetElements.forEach((element) => {
     }
   });
 });
+
+var iframe = document.getElementById("main--iframe");
+if (iframe) {
+  var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+  if (iframeDocument) {
+    iframeDocument.documentElement.style.backgroundColor = "rgba(0, 0, 0, 0)";
+  }
+}
 
 /********** Fade **********/
 function fade(element, duration, direction) {
@@ -300,11 +309,3 @@ function createNotice() {
 }
 
 createNotice();
-
-var iframe = document.getElementById("main--iframe");
-if (iframe) {
-  var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-  if (iframeDocument) {
-    iframeDocument.documentElement.style.backgroundColor = "rgba(0, 0, 0, 0)";
-  }
-}
