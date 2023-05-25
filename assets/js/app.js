@@ -300,3 +300,11 @@ function createNotice() {
 }
 
 createNotice();
+
+var iframe = document.getElementById("main--iframe");
+if (iframe) {
+  var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+  if (iframeDocument) {
+    iframeDocument.documentElement.style.backgroundColor = "rgba(0, 0, 0, 0)";
+  }
+}
