@@ -85,13 +85,6 @@ targetElements.forEach((element) => {
   });
 });
 
-if (mainIframe) {
-  var mainIframeDocument = mainIframe.contentDocument || mainIframe.contentWindow.document;
-  if (mainIframeDocument) {
-    mainIframeDocument.documentElement.style.backgroundColor = "rgba(0, 0, 0, 0)";
-  }
-}
-
 /********** Fade **********/
 function fade(element, duration, direction) {
   const start = direction === 'in' ? 0 : 1;
