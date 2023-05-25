@@ -85,11 +85,10 @@ targetElements.forEach((element) => {
   });
 });
 
-var iframe = document.getElementById("main--iframe");
-if (iframe) {
-  var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-  if (iframeDocument) {
-    iframeDocument.documentElement.style.backgroundColor = "rgba(0, 0, 0, 0)";
+if (mainIframe) {
+  var mainIframeDocument = mainIframe.contentDocument || mainIframe.contentWindow.document;
+  if (mainIframeDocument) {
+    mainIframeDocument.documentElement.style.backgroundColor = "rgba(0, 0, 0, 0)";
   }
 }
 
