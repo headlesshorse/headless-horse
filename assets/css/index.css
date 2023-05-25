@@ -174,17 +174,9 @@ a:hover {
   overflow: scroll;
   width: 100%;
   height: 100%;
-  background: var(--hh-color-black-with-alpha);
+  background: linear-gradient(to top, var(--hh-color-black), rgba(0, 0, 0, 0) 100%), linear-gradient(to bottom, var(--hh-color-black), rgba(0, 0, 0, 0) 10%);
   backdrop-filter: var(--hh-effect-blur);
   -webkit-backdrop-filter: var(--hh-effect-blur);
-}
-
-#main::before {
-  position: absolute;
-  width: 100%;
-  height: 200px;
-  background: linear-gradient(180deg, var(--hh-color-black), rgba(0, 0, 0, 0));
-  content: "";
 }
 
 #main--iframe {
