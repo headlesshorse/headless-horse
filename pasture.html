@@ -11,32 +11,20 @@ SITE BY HEADLESS.HORSE
   <title>Pasture | HEADLESS HORSE</title>
   <meta name="description" content="Sustainable design, development, and business.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>█</text></svg>">
-  <script>
-  fetch("https://potion-api.now.sh/html?id=86fa709d809a4c2e94a00d0b1b1de75f").then(res => res.text()).then(text => {
-    const trimmedText = text.trim();
-    if (trimmedText.length > 0) {
-      const container = document.querySelector('body');
-      container.innerHTML = trimmedText;
-      const links = container.querySelectorAll('a');
-      links.forEach(link => {
-        link.setAttribute('target', '_blank')
-      });
-    }
-  });
-  </script>
-
-  <style>
-  * {
-    background: #000;
-    color: #999;
-    }
-
-  @media (prefers-color-scheme: light) {
-    h1:first-of-type::after {
-      content: ": please use dark mode on your device!";
-    }
-  }
-  </style>
+  <script>fetch("https://potion-api.now.sh/html?id=86fa709d809a4c2e94a00d0b1b1de75f").then(res => res.text()).then(text => { const trimmedText = text.trim(); if (trimmedText.length > 0) { const container = document.querySelector('body'); container.innerHTML = trimmedText; const links = container.querySelectorAll('a'); links.forEach(link => { link.setAttribute('target', '_blank') }); } });</script>
 </head>
+
+<style>
+* {
+  background: #000;
+  color: #999;
+}
+
+@media (prefers-color-scheme: light) {
+  h1:first-of-type::after {
+    content: ": please use dark mode on your device!";
+  }
+}
+</style>
 
 </html>
