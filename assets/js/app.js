@@ -291,10 +291,8 @@ function createNotice() {
   const close = document.getElementById("🆗");
   close.addEventListener("click", () => {
     event.preventDefault();
-    notice.style.display = "none";
-    const expiryDate = new Date();
-    expiryDate.setDate(expiryDate.getDate() + 30);
-    document.cookie = `noticeClose=true; expires=${expiryDate.toUTCString()}; path=/`;
+    notice.remove();
+    document.cookie = `noticeClose=true; expires=${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
   });
 }
 
