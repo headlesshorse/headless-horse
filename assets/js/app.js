@@ -1,6 +1,5 @@
 /********** Loader **********/
 const perf = window.performance.timing;
-const width = { value: 0 };
 const EstimatedTime = -(perf.loadEventEnd - perf.navigationStart);
 const time = parseInt((EstimatedTime / 1000) % 60) * 100 + 1000;
 
@@ -12,14 +11,13 @@ document.documentElement.style.cursor = 'wait';
 
 const bar = document.getElementById('loader--bar');
 const per = document.getElementById('loader--percentage');
-const int = setInterval(frame, time / 100);
-
-function frame() {
+const width = { value: 0 };
+setInterval(() => {
   if (width.value >= 100) return clearInterval(int);
   bar.style.width = `${++width.value}%`;
   per.style.left = `${width.value}%`;
   per.textContent = `${width.value}%`;
-}
+}, time / 100);
 
 setTimeout(() => {
   const loader = document.getElementById('loader');
