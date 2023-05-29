@@ -12,7 +12,7 @@ document.documentElement.style.cursor = 'wait';
 const bar = document.getElementById('loader--bar');
 const per = document.getElementById('loader--percentage');
 const width = { value: 0 };
-setInterval(() => {
+const int = setInterval(() => {
   if (width.value >= 100) return clearInterval(int);
   bar.style.width = `${++width.value}%`;
   per.style.left = `${width.value}%`;
