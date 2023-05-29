@@ -85,14 +85,11 @@ ul {
 li {
   display: -webkit-box;
   overflow: hidden;
+  height: var(--hh-font-body-1-line-height);
+  counter-reset: presslinks;
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-}
-
-li {
-  height: var(--hh-font-body-1-line-height);
-  counter-reset: presslinks;
 }
 
 li a {
@@ -100,6 +97,7 @@ li a {
 }
 
 li a~a {
+  counter-increment: presslinks +1;
   font-size: 0;
   line-height: var(--hh-font-body-1-line-height);
 }
@@ -248,10 +246,6 @@ map area {
     padding-top: 0 !important;
   }
 
-  h1::before, a[data-more]:hover::after, li a~a {
-    display: none;
-  }
-
   #main--copy {
     display: block;
   }
@@ -264,6 +258,10 @@ map area {
 
   section~section {
     padding-top: calc(var(--hh-font-body-1-line-height) * 2);
+  }
+
+  h1::before, a[data-more]:hover::after, li a~a {
+    display: none;
   }
 }
 
