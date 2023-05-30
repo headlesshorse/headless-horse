@@ -108,7 +108,7 @@ function fade(element, duration, direction) {
 /********** Notion **********/
 const latest = document.createElement('h1');
 
-fetch("https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37")
+fetch('https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37')
   .then(res => res.text())
   .then(text => {
     latest.innerHTML = `Latest`;
@@ -129,14 +129,14 @@ document.querySelector('section').appendChild(latest);
 var now = new Date();
 var day = now.getUTCDay();
 var hour = now.getUTCHours() + 1;
-var notice = "";
+var notice = '';
 
 if (day === 0 || day === 6) {
-  notice = "We are out of office and will return Monday; our hours are Monday–Friday, 09:00—18:00.";
+  notice = 'We are out of office and will return Monday; our hours are Monday–Friday, 09:00—18:00.';
 } else if (hour >= 9 && hour < 18) {
-  notice = "The studio is open today from 09:00-18:00.";
+  notice = 'The studio is open today from 09:00-18:00.';
 } else {
-  notice = "We are out of office; our hours are Monday–Friday, 09:00—18:00.";
+  notice = 'We are out of office; our hours are Monday–Friday, 09:00—18:00.';
 }
 
 document.querySelector('p').insertAdjacentHTML('beforeend', '<br>' + notice);
@@ -163,8 +163,8 @@ document.querySelector('h1 + p').appendChild(moreBtn);
 function typeWriter(element, speed) {
   var text = element.textContent;
   var i = 0;
-  element.textContent = "";
-  if (element.tagName.toLowerCase() === "p" || element.closest("p")) speed = 20;
+  element.textContent = '';
+  if (element.tagName.toLowerCase() === 'p' || element.closest('p')) speed = 20;
   function type() {
     if (i < text.length) {
       element.textContent += text.charAt(i++);
@@ -174,12 +174,12 @@ function typeWriter(element, speed) {
   type();
 }
 
-document.getElementById("horseshoe").addEventListener("click", function() {
-  var elements = document.querySelectorAll("section *");
+document.getElementById('horseshoe').addEventListener('click', function() {
+  var elements = document.querySelectorAll('section *');
   for (var i = 0; i < elements.length; i++) {
     var element = elements[i];
-    if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3 && !element.classList.contains("typewriter")) {
-      element.classList.add("typewriter");
+    if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3 && !element.classList.contains('typewriter')) {
+      element.classList.add('typewriter');
       typeWriter(element, 80);
     }
   }
@@ -281,15 +281,15 @@ function updateTooltipPosition(event, tooltip) {
 
 /********** Notice **********/
 function createNotice() {
-  if (document.cookie.includes("noticeClose")) return;
+  if (document.cookie.includes('noticeClose')) return;
 
-  const notice = document.createElement("div");
-  notice.id = "🥠";
+  const notice = document.createElement('div');
+  notice.id = '🥠';
   notice.innerHTML = `<a href="./assets/site/privacy-policy.pdf" target="_blank">We don't use cookies. Read our privacy policy.</a> <a href="#" id="🆗">[Close]</a>`;
   document.body.appendChild(notice);
 
-  const close = document.getElementById("🆗");
-  close.addEventListener("click", () => {
+  const close = document.getElementById('🆗');
+  close.addEventListener('click', () => {
     event.preventDefault();
     notice.remove();
     document.cookie = `noticeClose=true; expires=${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
