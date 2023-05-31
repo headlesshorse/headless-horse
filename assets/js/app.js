@@ -186,62 +186,52 @@ document.getElementById('horseshoe').addEventListener('click', function() {
 });
 
 /********** Wall Image **********/
-const a = 0.01;
-const i = { e: document.querySelector('#wall-image'), xM: 0, yM: 0, x: 0, y: 0 };
-const m = { x: 0, y: 0 };
-let w = 0, h = 0, tX = 0, tY = 0, ani = null;
+const i = { e: document.querySelector('#wall-image'), x: 0, y: 0 };
+let tX = 0, tY = 0;
 
 function init() {
   r();
   i.e.style.transform = 'translate(0px, 0px)';
-  mI();
   window.addEventListener('mousemove', mV);
   window.addEventListener('touchmove', mV);
   window.addEventListener('resize', r);
 }
 
-function map(x, a, b, c, d) { return c + ((d - c) * (x - a)) / (b - a) || 0; }
-
 function r() {
-  w = window.innerWidth;
-  h = window.innerHeight;
+  const { innerWidth: w, innerHeight: h } = window;
   i.xM = w - i.e.naturalWidth;
   i.yM = h - i.e.naturalHeight;
 }
 
-function mI() {
-  if (!cV()) {
-    i.x = l(i.x, tX, a);
-    i.y = l(i.y, tY, a);
-    i.e.style.transform = `translate(${i.x}px, ${i.y}px)`;
-  }
-  ani = window.requestAnimationFrame(mI);
+function mV(event) {
+  const { clientX, clientY } = event.targetTouches?.[0] || event;
+  tX = map(clientX, 0, window.innerWidth, 0, i.xM);
+  tY = map(clientY, 0, window.innerHeight, 0, i.yM);
 }
 
-function mV(event) {
-  const t = event.targetTouches?.[0];
-  m.x = t ? t.clientX : event.clientX;
-  m.y = t ? t.clientY : event.clientY;
-  tX = map(m.x, 0, w, 0, i.xM);
-  tY = map(m.y, 0, h, 0, i.yM);
-}
+function map(x, a, b, c, d) { return c + ((d - c) * (x - a)) / (b - a) || 0; }
 
 function l(s, e, t) { return s * (1 - t) + e * t; }
 
-function cV() {
-  const c = document.querySelector('#main');
-  return c && c.offsetParent !== null;
-}
-
-function cA() {
-  if (ani) {
-    window.cancelAnimationFrame(ani);
-    ani = null;
+function animate() {
+  if (!cV()) {
+    i.x = l(i.x, tX, 0.01);
+    i.y = l(i.y, tY, 0.01);
+    i.e.style.transform = `translate(${i.x}px, ${i.y}px)`;
   }
+  requestAnimationFrame(animate);
 }
 
-window.addEventListener('load', init);
-window.addEventListener('beforeunload', cA);
+function cV() { return !!(document.querySelector('#main')?.offsetParent); }
+
+window.addEventListener('load', () => {
+  init();
+  animate();
+});
+
+window.addEventListener('beforeunload', () => {
+  cancelAnimationFrame(animate);
+});
 
 /********** Tooltip **********/
 const areas = document.getElementsByTagName('area');
