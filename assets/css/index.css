@@ -204,7 +204,7 @@ a:hover {
 .wall-image--filter {
   filter: var(--hh-effect-grayscale);
   -webkit-filter: var(--hh-effect-grayscale);
-  scale: 0.65;
+  scale: 0.5;
 }
 
 map area {
