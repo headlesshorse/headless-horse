@@ -93,11 +93,10 @@ li {
 }
 
 li a {
-  counter-increment: presslinks +1;
+  counter-increment: presslinks;
 }
 
 li a~a {
-  counter-increment: presslinks +1;
   font-size: 0;
   line-height: var(--hh-font-body-1-line-height);
 }
