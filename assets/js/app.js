@@ -175,14 +175,12 @@ function typeWriter(element, speed) {
 }
 
 document.getElementById('horseshoe').addEventListener('click', function() {
-  var elements = document.querySelectorAll('section *');
-  for (var i = 0; i < elements.length; i++) {
-    var element = elements[i];
+  Array.from(document.querySelectorAll('section *')).forEach(function(element) {
     if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3 && !element.classList.contains('typewriter')) {
       element.classList.add('typewriter');
       typeWriter(element, 100);
     }
-  }
+  });
 });
 
 /********** Wall Image **********/
