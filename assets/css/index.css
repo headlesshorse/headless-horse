@@ -235,7 +235,6 @@ map area {
   bottom: 0;
   z-index: var(--hh-z-index-top);
   padding: var(--hh-spacing-4x);
-  max-width: calc(100vw - 140px);
   mix-blend-mode: difference;
 }
 
