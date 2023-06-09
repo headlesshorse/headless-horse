@@ -269,18 +269,17 @@ function updateTooltipPosition(event, tooltip) {
 
 /********** Notice **********/
 function createNotice() {
-  if (document.cookie.includes('noticeClose')) return;
+  if (localStorage.noticeClose) return;
 
   const notice = document.createElement('div');
   notice.id = '🥠';
   notice.innerHTML = `<a href="./assets/site/privacy-policy.pdf" target="_blank">We don't use cookies. Read more.</a> <a href="#" id="🆗">[Close]</a>`;
   document.body.appendChild(notice);
 
-  const close = document.getElementById('🆗');
-  close.addEventListener('click', () => {
+  document.getElementById('🆗').addEventListener('click', (event) => {
     event.preventDefault();
     notice.remove();
-    document.cookie = `noticeClose=true; expires=${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
+    localStorage.noticeClose = true;
   });
 }
 
