@@ -155,7 +155,7 @@ a:hover {
   right: var(--hh-spacing-4x);
   bottom: var(--hh-spacing-4x);
   z-index: var(--hh-z-index-4);
-  width: 100px;
+  width: 80px;
   height: auto;
   cursor: help;
 }
