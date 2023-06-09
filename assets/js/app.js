@@ -131,7 +131,7 @@ var day = now.getUTCDay();
 var hour = now.getUTCHours() + 1;
 var notice = '';
 
-if (day === 0 || day === 6) {
+if ((day === 0 || day === 6) || (day === 5 && hour >= 16)) {
   notice = 'We are out of office and will return Monday; our hours are Monday–Friday, 09:00—18:00.';
 } else if (hour >= 9 && hour < 18) {
   notice = 'The studio is open today from 09:00-18:00.';
