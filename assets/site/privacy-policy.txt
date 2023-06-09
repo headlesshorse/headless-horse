@@ -1,0 +1,78 @@
+﻿PRIVACY POLICY
+Headless Horse Ltd, registered in England and Wales, Company Number 10573016, Registered Office – Brookfield Court, Selby Road, Garforth, Leeds, LS25 1NB (“Headless Horse”) respects your privacy and is committed to protecting it. We provide this Privacy Notice to inform you of our policy and practices in relation to data protection.
+We are a “data controller” in terms under data protection law (the EU General Data Protection Regulation 2016 and the Data Protection Act 2018) (“Data Protection Laws”).
+This Privacy Notice explains how we collect and use the information about our clients, contractors and suppliers. We need to process personal data relating to the aforementioned groups of individuals so that the services you request can be delivered effectively and efficiently, to improve our services, to ensure good governance, to perform our business and to enable us to meet our legal obligations.
+
+INFORMATION WE MAY COLLECT AND HOW WE USE IT
+We may collect and process the following categories of information:
+- personal identifiers, contacts, and characteristics (such as name and contact details);
+- company details (such as company name and contact details); and
+- financial details (solely for payment and invoicing purposes).
+We process personal information for the following reasons:
+- fulfilling contracts; and
+- our legitimate interests.
+Our processing activities are based on the following legitimate interests:
+- administering our business and fulfilling our contracts; and
+- keeping in contact with individuals as necessary for business-related communications.
+Please note that we do not engage in the collection of extensive personal information beyond what is necessary for the fulfilment of contracts and conducting business-related communications. We do not maintain a newsletter or mailing list.
+
+HOW WE OBTAIN YOUR INFORMATION
+In most cases, we will obtain information directly from you. Specifically, we collect information in the following ways:
+- email communication, including both initiated emails and responses to our communications;
+- phone calls, including both incoming and outgoing calls;
+- enquiries submitted through Typeform;
+- direct messages on our social media profiles: Instagram and Behance;
+- meetings, whether conducted in-person or virtually; and
+- introductions made by third parties.
+We may monitor, record, store, and use any email or other communication with you.
+
+SHARING YOUR INFORMATION INTERNALLY AND WITH OTHER ORGANISATIONS
+The information you provide to us may be accessed by our staff, our auditors, our professional advisors and carefully selected third parties in the course of providing services to us under suitable obligations of confidentiality. We will provide information about you to third party organisations if the services we provide to you need us to do this.
+
+SECURITY
+We employ administrative, electronic and physical security measures to ensure that the information that we collect about you is protected from access by unauthorised persons and protected against improper use and disclosure, unauthorised modification and unlawful processing or destruction or accidental loss, destruction or damage.
+Please be aware that the transmission of information via the internet or by email is not completely secure. Although we will do our best to protect your personal data and encrypt our email, we cannot guarantee the security of the data transmitted to us, and any transmission is at your own risk.
+
+THE PERIOD FOR WHICH THE PERSONAL DATA WILL BE PROCESSED
+We will retain personal data securely and only in line with how long it is necessary to keep for the purposes or for a legitimate and lawful reason.
+Our typical retention periods are as follows:
+- personal identifiers, 7 years from the expiry or termination date of the contract;
+- company details, 7 years from the expiry or termination date of the contract; and
+- financial details, 7 years from the expiry or termination date of the contract.
+Some personal data may be retained for longer where it is in our legitimate interest to do so, such as to protect and defend our legal rights; or for research, archiving or statistical purposes. Individuals can request that other information relating to them be erased and we will deal with such requests in accordance with the law.
+
+TRANSFERS OUTSIDE THE EUROPEAN ECONOMIC AREA
+We, or carefully selected third parties that we contract with, may send personal data to countries outside the European Economic Area (‘EEA’). If and when this occurs, there will be protections in place to ensure the recipient protects the data to the same standard as the EEA. The protections include:
+- transferring to a non-EEA country with privacy laws that give the same protection as the EEA;
+- putting in place a contract with the recipient that means they must protect personal data to the same standards as the EEA; and
+- transfer personal data to organisations that are part of Privacy Shield. This is a framework that sets privacy standards for personal data sent between the US and EU countries which makes sure standards are similar to what is used within the EEA.
+
+YOUR RIGHTS AS A DATA SUBJECT
+You have the right as a data subject under applicable Data Protection Laws to:
+- make a request to get a copy of the personal information that we hold about you;
+- you can also ask us to correct your personal information if it is incorrect;
+- request the erasure of personal data;
+- restrict how we process your personal data;
+- object to processing; and
+- data portability.
+Where we process your personal data based upon your consent, you have the right to withdraw your consent at any time.
+For more information and guidance about any of these rights please go to the website of the Information Commissioner’s Office at https://ico.org.uk.
+
+COMPLAINTS
+If you think there is an issue in the way in which we handle your personal data, you have a right to raise a complaint with the Information Commissioner’s Office. Their website contains details of how to make a complaint. However, we ask that you give us the opportunity to deal with your complaint in the first instance.
+
+CHANGES TO THIS PRIVACY AND FAIR PROCESSING NOTICE
+We keep our Privacy Notice under regular review and reserve the right to update and amend it.
+
+VISITORS TO OUR WEBSITE
+Your personal details is not recorded unless you choose to submit an email or use our enquiry form.
+
+COOKIES AND TRACKING TECHNOLOGIES
+Visitor data is anonymous. We only track the minimum amount of data for analytics, and we never store IP addresses, unique identifiers, or browser fingerprints.
+Our website may have links to external websites and integrate with third-party platforms. Please note that we are not responsible for the privacy practises or cookie policies of those external sites or platforms. We encourage you to review their respective privacy policies and cookie practises when visiting or interacting with them.
+
+ASK TO SEE YOUR RECORDS
+Under the Data Protection Laws you have a right to ask to see information held by us that is about you. Asking for this information is called making a subject access request or SAR.
+
+FURTHER INFORMATION
+For further information about the proposed data sharing set out in this notice, or about any aspect of the way Headless Horse is processing your personal data, please contact us a mail@headless.horse
