@@ -5,18 +5,17 @@ const time = parseInt((EstimatedTime / 1000) % 60) * 100 + 500;
 
 const loader = document.createElement('div');
 loader.id = 'loader';
-loader.innerHTML = `<div id="loader--bar"><div id="loader--percentage"></div></div>`;
+loader.innerHTML = `<div id="loader--bar"></div>`;
 document.body.appendChild(loader);
 document.documentElement.style.cursor = 'wait';
 
 const bar = document.getElementById('loader--bar');
-const per = document.getElementById('loader--percentage');
 const width = { value: 0 };
 const int = setInterval(() => {
   if (width.value >= 100) return clearInterval(int);
   bar.style.width = `${++width.value}%`;
-  per.style.left = `${width.value}%`;
-  per.textContent = `${width.value}%`;
+  bar.style.left = `${width.value}%`;
+  bar.textContent = `${width.value}%`;
 }, time / 100);
 
 setTimeout(() => {

@@ -129,20 +129,12 @@ a:hover {
 
 /********** Loader **********/
 #loader {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 33.33vw;
-  transform: translate(-50%, -50%);
+  padding: var(--hh-spacing-4x);
 }
 
 #loader--bar {
-  height: 1px;
-  background: var(--hh-color-slate);
-}
-
-#loader--percentage {
   padding-top: var(--hh-spacing-4x);
+  border-top: 1px solid var(--hh-color-slate);
   color: var(--hh-color-slate);
   text-align: right;
   font-size: var(--hh-font-body-1-font-size);
