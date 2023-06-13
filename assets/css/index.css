@@ -142,9 +142,9 @@ a:hover {
 }
 
 #loader--percentage {
-  position: absolute;
   padding-top: var(--hh-spacing-4x);
   color: var(--hh-color-slate);
+  text-align: right;
   font-size: var(--hh-font-body-1-font-size);
   font-family: var(--hh-font-body-1-font-family);
 }

@@ -1,11 +1,11 @@
 /********** Loader **********/
 const perf = window.performance.timing;
 const EstimatedTime = -(perf.loadEventEnd - perf.navigationStart);
-const time = parseInt((EstimatedTime / 1000) % 60) * 100 + 1000;
+const time = parseInt((EstimatedTime / 1000) % 60) * 100 + 500;
 
 const loader = document.createElement('div');
 loader.id = 'loader';
-loader.innerHTML = `<div id="loader--bar"></div><div id="loader--percentage"></div>`;
+loader.innerHTML = `<div id="loader--bar"><div id="loader--percentage"></div></div>`;
 document.body.appendChild(loader);
 document.documentElement.style.cursor = 'wait';
 
