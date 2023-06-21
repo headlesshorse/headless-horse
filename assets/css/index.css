@@ -250,7 +250,7 @@ map area {
     padding-top: calc(var(--hh-font-body-1-line-height) * 2);
   }
 
-  h1::before, a[data-more]:hover::after, li a~a {
+  h1::before, a[data-more]:hover::after {
     display: none;
   }
 }
