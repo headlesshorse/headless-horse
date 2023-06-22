@@ -181,7 +181,6 @@ a:hover {
   z-index: var(--hh-z-index-3);
   display: grid;
   padding: var(--hh-spacing-4x);
-  max-width: 110rem;
   counter-reset: section;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: var(--hh-spacing-4x);
