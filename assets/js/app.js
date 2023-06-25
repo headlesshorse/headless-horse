@@ -272,7 +272,7 @@ function createNotice() {
 
   const notice = document.createElement('div');
   notice.id = '🥠';
-  notice.innerHTML = `<a href="./assets/site/privacy-policy.pdf" target="_blank">We don't use cookies. Read more.</a> <a href="#" id="🆗">[Close]</a>`;
+  notice.innerHTML = `<a href="./assets/site/privacy-policy.pdf" target="_blank">We don't use cookies.</a> <a href="#" id="🆗">[Close]</a>`;
   document.body.appendChild(notice);
 
   document.getElementById('🆗').addEventListener('click', (event) => {
