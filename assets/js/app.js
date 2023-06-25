@@ -125,10 +125,10 @@ fetch('https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37')
 document.querySelector('section').appendChild(latest);
 
 /********** Hours **********/
-var now = new Date();
-var day = now.getUTCDay();
-var hour = now.getUTCHours() + 1;
-var notice = '';
+const now = new Date();
+const day = now.getUTCDay();
+const hour = now.getUTCHours() + 1;
+let notice = '';
 
 if ((day === 0 || day === 6) || (day === 5 && hour >= 18)) {
   notice = 'We are out of office and will return Monday morning.';
