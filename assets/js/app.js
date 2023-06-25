@@ -131,7 +131,7 @@ var hour = now.getUTCHours() + 1;
 var notice = '';
 
 if ((day === 0 || day === 6) || (day === 5 && hour >= 18)) {
-  notice = 'We are out of office and will return Monday; our hours are Monday–Friday, 09:00—18:00.';
+  notice = 'We are out of office and will return Monday morning.';
 } else if (hour >= 9 && hour < 18) {
   notice = 'The studio is open today from 09:00-18:00.';
 } else {
@@ -150,8 +150,8 @@ const moreText = document.querySelectorAll('span');
 moreText.forEach(element => element.style.display = 'none');
 
 moreBtn.addEventListener('click', () => {
-  const lessText = moreBtn.textContent === '[Close]';
-  moreBtn.textContent = lessText ? '[…]' : '[Close]';
+  const lessText = moreBtn.textContent === '[Less]';
+  moreBtn.textContent = lessText ? '[…]' : '[Less]';
   moreBtn.style.cursor = lessText ? 's-resize' : 'n-resize';
   moreText.forEach(element => element.style.display = lessText ? 'none' : 'inline');
 });
