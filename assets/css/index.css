@@ -240,7 +240,7 @@ map area {
 
   section {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 3fr;
     row-gap: calc(var(--hh-font-body-1-line-height) * 2);
   }
 
