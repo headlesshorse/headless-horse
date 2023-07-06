@@ -143,8 +143,7 @@ document.querySelector('p').insertAdjacentHTML('beforeend', '<br>' + notice);
 /********** Read More **********/
 const moreBtn = document.createElement('a');
 moreBtn.textContent = '[…]';
-moreBtn.style.display = 'block';
-moreBtn.style.cursor = 's-resize';
+moreBtn.style.cssText = 'display: block; cursor: s-resize';
 
 const moreText = document.querySelectorAll('span');
 moreText.forEach(element => element.style.display = 'none');
