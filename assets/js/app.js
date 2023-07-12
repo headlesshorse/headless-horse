@@ -165,10 +165,7 @@ function typeWriter(element, speed) {
   if (element.tagName.toLowerCase() === 'p' || element.closest('p')) speed = 40;
   function type() {
     if (i < text.length) {
-      if (!(text[i] === '<' && text.slice(i, i + 6) === '<span>') && !(element.tagName.toLowerCase() === 'span' && element.parentElement.tagName.toLowerCase() === 'p')) {
-        element.textContent += text[i];
-      }
-      i++;
+      element.textContent += text.charAt(i++);
       setTimeout(type, speed);
     }
   }
