@@ -161,8 +161,8 @@ document.querySelector('h1 + p').appendChild(moreBtn);
 function typeWriter(element, speed) {
   var text = element.textContent;
   var i = 0;
-  element.textContent = '';
-  if (element.tagName.toLowerCase() === 'p' || element.closest('p')) speed = 40;
+  element.textContent = "";
+  if (element.tagName.toLowerCase() === "p" || element.closest("p")) speed = 40;
   function type() {
     if (i < text.length) {
       element.textContent += text.charAt(i++);
@@ -172,13 +172,15 @@ function typeWriter(element, speed) {
   type();
 }
 
-document.getElementById('horseshoe').addEventListener('click', function() {
-  Array.from(document.querySelectorAll('section *')).forEach(function(element) {
-    if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3 && !element.classList.contains('typewriter')) {
-      element.classList.add('typewriter');
+document.getElementById("horseshoe").addEventListener("click", function() {
+  var elements = document.querySelectorAll("section *");
+  for (var i = 0; i < elements.length; i++) {
+    var element = elements[i];
+    if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3 && !element.classList.contains("typewriter")) {
+      element.classList.add("typewriter");
       typeWriter(element, 100);
     }
-  });
+  }
 });
 
 /********** Wall Image **********/
