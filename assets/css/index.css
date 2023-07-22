@@ -45,8 +45,7 @@ h1 {
 }
 
 h1::before {
-  padding-right: var(--hh-spacing-2x);
-  content: "0"counter(section)".";
+  content: "0"counter(section)". ";
   counter-increment: section;
 }
 
