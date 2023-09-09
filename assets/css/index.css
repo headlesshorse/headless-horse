@@ -8,7 +8,6 @@
   --hh-color-black: #000000;
   --hh-color-slate: #999999;
   --hh-color-black-with-alpha: rgba(0, 0, 0, 0.6);
-  --hh-effect-grayscale: grayscale(1) contrast(130%) brightness(30%);
   --hh-effect-blur: blur(15px);
   --hh-spacing-1x: 5px;
   --hh-spacing-2x: 10px;
@@ -191,9 +190,14 @@ a:hover {
 }
 
 .wall-image--filter {
-  filter: var(--hh-effect-grayscale);
-  -webkit-filter: var(--hh-effect-grayscale);
+  filter: contrast(130%) brightness(30%);
+  -webkit-filter: contrast(130%) brightness(30%);
   scale: 0.6;
+}
+
+.wall-image--bw{
+  filter: grayscale(1);
+  -webkit-filter: grayscale(1);
 }
 
 map area {
