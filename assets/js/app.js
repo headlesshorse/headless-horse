@@ -270,7 +270,7 @@ function createNotice() {
   if (localStorage.noticeClose) return;
 
   const notice = document.createElement('div');
-  notice.id = '🥠';
+  notice.id = 'cookies';
   notice.innerHTML = `<a href="./assets/site/privacy-policy.pdf" target="_blank">We don't use cookies.</a> <a href="#" id="close">[Close]</a>`;
   document.body.appendChild(notice);
 

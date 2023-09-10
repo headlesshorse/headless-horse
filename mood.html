@@ -31,10 +31,11 @@ SITE BY HEADLESS.HORSE
 </html>
 
 <style>
-html {
+html, body {
   margin: 0;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  background: #000;
 }
 
 #pinterest {
@@ -50,7 +51,6 @@ html {
 }
 
 #pinterest>li {
-
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -58,11 +58,7 @@ html {
 
 }
 
-@media screen and (max-width: 1000px) {
-  body {
-    background: #000;
-  }
-
+@media screen and (max-width: 820px) {
   #pinterest {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 150px;
@@ -77,32 +73,32 @@ class PinterestFeed {
     this.getFeeds(slug);
   }
 
-  reflect(promise) {
-    return promise.then(v => v.pins).catch(e => e);
+  async reflect(promise) {
+    try {
+      return (await promise).pins;
+    } catch (e) {
+      return e;
+    }
   }
 
-  getFeed(slug) {
+  async getFeed(slug) {
     const api = `https://widgets.pinterest.com/v3/pidgets/boards/${slug}/pins/`;
-    return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
-      xhr.open('GET', api);
-      xhr.onload = function () {
-        if (xhr.status === 200) {
-          const response = JSON.parse(xhr.responseText);
-          resolve(response.data);
-        } else {
-          reject(Error(xhr.statusText));
-        }
-      };
-      xhr.onerror = function () {
-        reject(Error('Network Error'));
-      };
-      xhr.send();
-    });
+    try {
+      const response = await fetch(api);
+      if (response.ok) {
+        const data = await response.json();
+        return data.data;
+      } else {
+        throw new Error('Network Error');
+      }
+    } catch (error) {
+      throw new Error(error.message);
+    }
   }
 
-  getFeeds(...slug) {
-    return Promise.all(slug.map(v => this.reflect(this.getFeed(v))));
+  async getFeeds(...slug) {
+    const promises = slug.map(v => this.reflect(this.getFeed(v)));
+    return await Promise.all(promises);
   }
 }
 
@@ -118,11 +114,13 @@ const boards = [
   'headless_horse/space',
   'headless_horse/print'
 ];
-const feed = new PinterestFeed(...boards);
-let feedItems = [];
 
-feed.getFeeds(...boards)
-  .then(response => {
+(async () => {
+  const feed = new PinterestFeed(...boards);
+  let feedItems = [];
+
+  try {
+    const response = await feed.getFeeds(...boards);
     feedItems = response.flat();
     feedItems.forEach(item => {
       const imageUrl = item.images['237x'].url;
@@ -156,6 +154,8 @@ feed.getFeeds(...boards)
     }
 
     htmlShuffle('#pinterest');
-  })
-  .catch(error => console.log(error));
+  } catch (error) {
+    console.log(error);
+  }
+})();
 </script>
