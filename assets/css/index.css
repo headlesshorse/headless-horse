@@ -190,8 +190,8 @@ a:hover {
 }
 
 .wall-image--filter {
-  filter: grayscale(100%) contrast(130%) brightness(15%);
-  -webkit-filter: grayscale(100%) contrast(130%) brightness(15%);
+  filter: grayscale(100%) contrast(130%) brightness(20%);
+  -webkit-filter: grayscale(100%) contrast(130%) brightness(20%);
   scale: 0.6;
 }
 
