@@ -132,12 +132,10 @@ let notice = '';
 
 if ((day === 0 || day === 6) || (day === 5 && hour >= 18)) {
   notice = 'We are out of office and will return Monday morning.';
-  wallImage.classList.add('wall-image--bw');
 } else if (hour >= 9 && hour < 18) {
   notice = 'The studio is open today from 09:00-18:00.';
 } else {
   notice = 'We are out of office; our hours are Monday–Friday, 09:00—18:00.';
-  wallImage.classList.add('wall-image--bw');
 }
 
 document.querySelector('p').insertAdjacentHTML('beforeend', '<br>' + notice);

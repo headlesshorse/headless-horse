@@ -190,14 +190,9 @@ a:hover {
 }
 
 .wall-image--filter {
-  filter: contrast(130%) brightness(30%);
-  -webkit-filter: contrast(130%) brightness(30%);
+  filter: grayscale(100%) contrast(130%) brightness(30%);
+  -webkit-filter: grayscale(100%) contrast(130%) brightness(30%);
   scale: 0.6;
-}
-
-.wall-image--bw{
-  filter: grayscale(1);
-  -webkit-filter: grayscale(1);
 }
 
 map area {
