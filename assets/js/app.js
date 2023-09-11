@@ -161,7 +161,7 @@ document.querySelector('h1 + p').appendChild(moreBtn);
 function typeWriter(element, speed) {
   let text = element.textContent;
   element.textContent = "";
-  if (element.tagName.toLowerCase() === "p" || element.closest("p")) speed = 40;
+  if (element.tagName.toLowerCase() === "p" || element.closest("p")) speed = 30;
   let i = 0;
   function type() {
     if (i < text.length) {
