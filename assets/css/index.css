@@ -61,7 +61,7 @@ h1, p, span, a, ul, li {
   line-height: var(--hh-font-body-1-line-height);
 }
 
-a, a:link, a:hover, a:visited {
+a:any-link {
   color: var(--hh-color-slate);
   text-decoration: none;
   cursor: pointer;
