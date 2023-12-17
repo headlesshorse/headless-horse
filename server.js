@@ -1,15 +1,15 @@
 const express = require('express');
 const path = require('path');
-const indexRouter = require('../routes/index');
+const indexRouter = require('./routes/index');
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '.')));
 
 app.use('/', indexRouter);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../views', 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 const PORT = process.env.PORT || 3000;

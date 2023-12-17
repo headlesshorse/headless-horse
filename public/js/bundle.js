@@ -49,7 +49,7 @@ import router from '../js/router.js';
 
 const fetchProjects = async () => {
   try {
-    const response = await fetch('/data/projects.json');
+    const response = await fetch('public/data/projects.json');
     return (await response.json()).projects || [];
   } catch (error) {
     console.error('Error fetching data:', error);
