@@ -1,6 +1,6 @@
 {
   "name": "HEADLESS HORSE",
-  "main": "index.html",
+  "main": "server/server.js",
   "scripts": {
     "start": "node server.js"
   },

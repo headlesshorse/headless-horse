@@ -33,7 +33,6 @@ document.querySelectorAll('[project]').forEach(function (projectOpen) {
 });
 
 closeBtn.addEventListener('click', function () {
-  document.title = `HEADLESS HORSE`;
   modalElement.style.transition = 'height 1s';
   closeBtn.style.opacity = '0';
   infoElement.style.opacity = '0';
@@ -50,7 +49,7 @@ import router from '../js/router.js';
 
 const fetchProjects = async () => {
   try {
-    const response = await fetch('public/data/projects.json');
+    const response = await fetch('/data/projects.json');
     return (await response.json()).projects || [];
   } catch (error) {
     console.error('Error fetching data:', error);
