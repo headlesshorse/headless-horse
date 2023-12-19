@@ -104,26 +104,6 @@ function fade(element, duration, direction) {
   }, interval);
 }
 
-/********** Notion **********/
-const latest = document.createElement('h1');
-
-fetch('https://potion-api.now.sh/html?id=f97f1af964fe48989650aae62609bf37')
-  .then(res => res.text())
-  .then(text => {
-    latest.innerHTML = `Latest`;
-    latest.insertAdjacentHTML('afterend', text);
-    const ul = latest.nextElementSibling;
-    if (ul && ul.tagName.toLowerCase() === 'ul') {
-      ul.querySelectorAll('li a').forEach(link => {
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noreferrer');
-      });
-    }
-    latest.style.display = text.trim().length === 0 ? 'none' : 'block';
-  });
-
-document.querySelector('section').appendChild(latest);
-
 /********** Hours **********/
 const now = new Date();
 const day = now.getUTCDay();
