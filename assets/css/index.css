@@ -139,17 +139,6 @@ details[open] summary {
   object-fit: contain
 }
 
-@media (hover: hover) {
-  #project--media img, #project--media video {
-    filter: grayscale(100%) contrast(90%);
-    transition: filter 1s;
-  }
-  
-  #project--media img:hover, #project--media video:hover {
-    filter: none;
-  }
-}
-
 #project--media>figure figcaption {
   display: none;
   margin-top: 2em;
