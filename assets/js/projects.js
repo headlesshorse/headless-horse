@@ -1,14 +1,10 @@
-async function fetchProjectData() {
-  document.body.style.cursor = 'wait';
-  
+async function fetchProjectData() {  
   const currentPage = window.location.pathname.split('/').pop();
   const { projects } = await (await fetch('/assets/data/projects.json')).json();
   const project = projects.find(({ slug }) => slug === currentPage);
 
   document.title = `${project.title} | HEADLESS HORSE`;
   populateHTML(project, projects);
-  
-  document.body.style.cursor = 'default';
 }
 
 // File size
