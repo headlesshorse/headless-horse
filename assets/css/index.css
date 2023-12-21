@@ -180,6 +180,10 @@ map area {
     padding: 1em;
   }
 
+  #project--media {
+    grid-auto-rows: 30vh;
+  }
+
   a[data-more]:hover::after {
     content: ""
   }
