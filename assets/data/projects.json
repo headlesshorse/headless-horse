@@ -16,7 +16,22 @@
       "credits": [
       ],
       "media": [
-        { "type": "Image", "src": "/assets/media/projects/lyma-1.jpg", "alt": "Image Alt Text"}
+        { "type": "Image", "src": "/assets/media/projects/lyma/lyma-1.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/lyma/lyma-2.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/lyma/lyma-3.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/lyma/lyma-4.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/lyma/lyma-5.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/lyma/lyma-6.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/lyma/lyma-7.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/lyma/lyma-8.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/lyma/lyma-9.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/lyma/lyma-10.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/lyma/lyma-11.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/lyma/lyma-12.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/lyma/lyma-13.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/lyma/lyma-14.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/lyma/lyma-15.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/lyma/lyma-16.jpg", "alt": "Image Alt Text"}
       ]
     },
     {
@@ -38,7 +53,7 @@
         {"title": "Richard Gaston", "credit": "Photography", "link": "http://richardgaston.com"}
       ],
       "media": [
-        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-1.jpg", "alt": "This is a description of the Image."},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-1.jpg", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-2.jpg", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-3.jpg", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-4.jpg", "alt": "Image Alt Text"},
