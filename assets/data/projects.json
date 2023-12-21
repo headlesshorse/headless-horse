@@ -1,0 +1,276 @@
+{
+  "projects": [
+    {
+      "title": "LYMA",
+      "slug": "lyma",
+      "description": "Trusted with the task of introducing LYMA, a revolutionary luxury supplement, we took on the roles of designing its debut packaging, crafting its web presence, and establishing its distinctive brand identity. Despite facing various challenges, we managed to successfully deliver initial launch advertisements, innovative packaging designs, and compelling media content.<br>Headless Horse took charge of website design, curated social media content, and early packaging concepts, leading to prominent features in Vogue Paris, Harper's Bazaar, and Elle. Coined as 'the Bulgari of supplements' by The Evening Standard, our endeavours not only piqued global interest and captivated influential figures but also rapidly generated millions in startup value within a remarkably brief span of 12 months.",
+      "links": [
+        {"title": "Website", "link": "https://lyma.life"}
+      ],
+      "press": [
+        {"title": "Vogue", "date": "16.11.20", "link": "https://vogue.co.uk/beauty/gallery/best-mood-supplements#:~:text=LYMA"},
+        {"title": "Forbes", "date": "31.12.20", "link": "https://forbes.com/sites/biancasalonga/2022/09/07/meet-the-gold-standard-and-supermodel-health-supplement-from-lyma"},
+        {"title": "Evening Standard", "date": "27.04.23", "link": "https://standard.co.uk/business/venture-capitalists-plough-ps1m-into-luxury-health-supplements-maker-lyma-a4058231.html"},
+        {"title": "Financial Times", "date": "07.09.22", "link": "https://ft.com/content/08078211-638b-4326-ac2e-92ae2cdf65c9"}
+      ],
+      "credits": [
+      ],
+      "media": [
+        { "type": "Image", "src": "/assets/media/projects/lyma-1.jpg", "alt": "Image Alt Text"}
+      ]
+    },
+    {
+      "title": "TEAM DR JOSEPH",
+      "slug": "team-dr-joseph",
+      "description": "Packaging design for TEAM DR JOSEPH: Sustainable proven certified natural skincare. Handmade in Italy, since 1986. The revised packaging shows a handful of carefully considered details from the revised wordmark, the introduction of a new insignia, typographic updates and material updates, including a new recyclable wooden cap and FSC recycled paper produced domestically in Italy. A detail we are incredibly proud of is the culmination of many hours of research and development to create the new flower detail on the box. Founder Erb. Dipl. Dr. Joseph Franz during his research has collected flower presses from the laboratories’ gardens since 1986 in a library called the Herbarium. We have taken scans of the flowers and created 1:1 embossings of these pressing them into the packaging for a tactile finish and meeting the objective of eliminating coloured inks from the product packaging.",
+      "links": [
+        {"title": "Website", "link": "https://teamdrjoseph.com"},
+        {"title": "Instagram", "link": "https://instagram.com/teamdrjoseph"}
+      ],
+      "press": [
+        {"title": "The Brand Identity", "date": "13.07.23", "link": "https://the-brandidentity.com/project/how-headless-horse-reimagined-team-dr-josephs-identity-and-packaging-for-a-sustainable-future"},
+        {"title": "Condé Nast Traveller", "date": "13.07.23", "link": "https://cntraveller.com/hotels/mandarin-oriental-lake-como/#:~:text=team%20dr%20joseph"},
+        {"title": "Communication Arts", "date": "16.02.23",  "link": "https://commarts.com/webpicks/team-dr-joseph"},
+        {"title": "Scottish Design Awards", "date": "29.06.23",  "link": "https://www.scottishdesignawards.com/2023/graphic-packaging-product/team-dr-joseph/"}
+      ],
+      "credits": [
+        {"title": "Kirsty Dawn", "credit": "Photography", "link": "https://kdawn.co"},
+        {"title": "Richard Gaston", "credit": "Photography", "link": "http://richardgaston.com"}
+      ],
+      "media": [
+        { "type": "Video", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-1.mp4", "alt": "This is a description of the Image."},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-2.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-3.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-4.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-5.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-6.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-7.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-8.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-9.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-10.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-11.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-12.jpg", "alt": "Image Alt Text"},
+        { "type": "Video", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-13.mp4", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-14.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-15.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-16.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-17.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-18.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-19.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-20.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-21.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-22.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-23.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-24.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-25.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-26.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-27.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-28.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-29.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-30.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-31.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-32.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-33.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-34.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-35.jpg", "alt": "Image Alt Text"},
+        { "type": "Video", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-36.mp4", "alt": "Image Alt Text"},
+        { "type": "Video", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-37.mp4", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-38.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-39.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-40.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-41.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-42.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-43.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-44.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-45.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-46.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-47.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-48.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-49.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-50.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-51.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-52.jpg", "alt": "Image Alt Text"}
+      ]
+    },
+    {
+      "title": "Billelis",
+      "slug": "billelis",
+      "description": "Headless Horse collaborated with Billelis to curate the digital canvas for his NFT auction. Crafting a virtual gallery, we wove into the narrative for the collection, building anticipation in the lead-up to the sale. Post-auction, our collaboration extended as we created a book that was distributed to collectors who obtained all eight unique artworks during the sale. Partnering with the esteemed French artistic printing company, Imprimerie du Marais, we brought the artist's vision to life through exquisite packaging and foiled artworks, each page narrating the moving story behind its creation.",
+      "links": [
+        {"title": "Website", "link": "https://teamdrjoseph.com"},
+        {"title": "Instagram", "link": "https://instagram.com/teamdrjoseph"}
+      ],
+      "press": [
+        {"title": "Hypebeast", "date": "19.03.2021", "link": "https://hypebeast.com/2021/3/billelis-mints-macabre-artworks-for-upcoming-nft-release"},
+        {"title": "Awwwards", "date": "23.03.21",  "link": "https://awwwards.com/sites/billelis-in-memoriam"}
+      ],
+      "credits": [
+      ],
+      "media": [
+        { "type": "Image", "src": "/assets/media/projects/billelis/billelis-1.jpg", "alt": "Image Alt Text"},
+        { "type": "Video", "src": "/assets/media/projects/billelis/billelis-2.mp4", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/billelis/billelis-3.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/billelis/billelis-4.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/billelis/billelis-5.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/billelis/billelis-6.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/billelis/billelis-7.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/billelis/billelis-8.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/billelis/billelis-9.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/billelis/billelis-10.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/billelis/billelis-11.jpg", "alt": "Image Alt Text"},
+        { "type": "Video", "src": "/assets/media/projects/billelis/billelis-12.mp4", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/billelis/billelis-13.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/billelis/billelis-14.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/billelis/billelis-15.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/billelis/billelis-16.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/billelis/billelis-17.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/billelis/billelis-18.jpg", "alt": "Image Alt Text"}
+      ]
+    },
+    {
+      "title": "Tiffers",
+      "slug": "tiffers",
+      "description": "Made to order and hand made in England, Tiffers is a luxury ready to wear millinery studio incorporating British ornithology. We were approached to deliver branding, stationary, website design and content as part of their 2023 launch.",
+      "links": [
+        {"title": "Website", "link": "https://tifferslondon.com"}
+      ],
+      "press": [
+      ],
+      "credits": [
+      ],
+      "media": [
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-1.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-2.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-3.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-4.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-5.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-6.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-7.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-8.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-9.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-10.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-11.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-12.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-13.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-14.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-15.jpg", "alt": "Image Alt Text"},
+        { "type": "Video", "src": "/assets/media/projects/tiffers/tiffers-16.mp4", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-17.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-18.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-19.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-20.jpg", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-21.jpg", "alt": "Image Alt Text"}
+      ]
+    },
+    {
+      "title": "Renderboxes",
+      "slug": "renderboxes",
+      "description": "Headless Horse was responsible for establishing the brand identity, creating the maiden website, developing content, and overseeing marketing initiatives for Renderboxes—a bespoke workstations builder.",
+      "links": [
+      ],
+      "press": [
+      ],
+      "credits": [
+        {"title": "Bomper Studio", "credit": "Illustration", "link": "https://bomperstudio.com"},
+        {"title": "Berni Vent", "credit": "Photography", "link": "https://instagram.com/berni_vent"}
+      ],
+      "media": [
+      ]
+    },
+    {
+      "title": "Nike Air Max Day",
+      "slug": "nike-air-max-day",
+      "description": "This marble shoe was hand carved by Alasdair Thomson for Nike Air Max Day, 2017. Nike, the Greek goddess of victory, sister of Strength, Force and Zeal. Headless Horse delivered Nike Air Max, hand carved in white marble by sculptor, Alasdair Thomson. The Horsemen decided to celebrate Air Max Day 2017, with an immortal representation of grecian style, set in stone.",
+      "links": [
+      ],
+      "press": [
+        {"title": "Hypebeast", "date": "19.03.2021", "link": "https://hypebeast.com/2017/11/nike-air-max-1-marble-alasdair-thomson"},
+        {"title": "Highsnobiety", "date": "05.11.17",  "link": "https://highsnobiety.com/p/marble-air-max-1-alasdair-thomson/"}
+      ],
+      "credits": [
+        {"title": "Alasdair Thomson", "credit": "Sculpture", "link": "https://instagram.com/alasdaircthomson"},
+        {"title": "Billelis", "credit": "Illustration", "link": "https://billelis.com"},
+        {"title": "David Anderson", "credit": "Photography", "link": "https://davidnanderson.com"}
+      ],
+      "media": [
+      ]
+    },
+    {
+      "title": "Chanel No5",
+      "slug": "chanel",
+      "description": "White Carrara marble, Chanel No5, bottle. Hand carved from marble, gilded with 24-carat gold leaf, and encased in a refurbished ammunition crate lined with crushed black velvet.<br>In memory of Robin Abbey 1948 - 2019.",
+      "links": [
+      ],
+      "press": [
+      ],
+      "credits": [
+        {"title": "Alasdair Thomson", "credit": "Sculpture", "link": "https://instagram.com/alasdaircthomson"},
+        {"title": "Robin Abbey", "credit": "Gilding", "link": "https://instagram.com/robinabbey"},
+        {"title": "David Anderson", "credit": "Photography", "link": "https://davidnanderson.com"}
+      ],
+      "media": [
+      ]
+    },
+    {
+      "title": "Karl Lagerfeld",
+      "slug": "karl-lagerfeld",
+      "description": "Immortalised in stone, the Horsemen remember the late Karl Lagerfeld.",
+      "links": [
+      ],
+      "press": [
+      ],
+      "credits": [
+        {"title": "Hadi Karimi", "credit": "Sculpture", "link": "https://hadikarimi.com"},
+        {"title": "Billelis", "credit": "Illustration", "link": "https://billelis.com"}
+      ],
+      "media": [
+      ]
+    },
+    {
+      "title": "Nike Alpha Menace",
+      "slug": "nike-alpha-menace",
+      "description": "Explorations for the campaign of the Nike Alpha Menace. Inspiration was taken from anatomical sketches to convey the animalistic nature of the sole design.",
+      "links": [
+      ],
+      "press": [
+      ],
+      "credits": [
+        {"title": "Dave Frank", "credit": "Art Direction", "link": "https://15by20.com"},
+        {"title": "Mason Caldwell", "credit": "Art Direction", "link": "hhttps://masoncaldwell.co"},
+        {"title": "Marcus Smith", "credit": "Photography", "link": "https://marcus-smith.com"}
+      ],
+      "media": [
+      ]
+    },
+    {
+      "title": "@pizza Edinburgh",
+      "slug": "atpizza-edinburgh",
+      "description": "Artwork for @pizza's store in Edinburgh, on the famous Royal Mile. The Royal Mile site was formerly a Police Station, with its building spread over three floors. Headless Horse was briefed with delivering artwork to cover 9 elevations in total.",
+      "links": [
+      ],
+      "press": [
+      ],
+      "credits": [
+        {"title": "Fusion By Design", "credit": "Interior Design", "link": "https://fusionbydesign.co.uk"},
+        {"title": "Liam Russell", "credit": "Photography", "link": "https://liamphiliprussell.com"},
+        {"title": "Black Box", "credit": "Installation", "link": "https://entertheblackbox.co.uk"}
+      ],
+      "media": [
+      ]
+    },
+    {
+      "title": "@pizza Birmingham",
+      "slug": "atpizza-birmingham",
+      "description": "Creative Direction for @pizza's Birmingham Grand Central Railway Station location. The lighting and the detailing on the panels was inspired by the railway tracks of the site's location. The lighting and tracks follow up from the floor over the ceiling and connects with a large neon sign of the brand's logo. Headless Horse was also responsible the artwork for the main interior wall.",
+      "links": [
+      ],
+      "press": [
+      ],
+      "credits": [
+        {"title": "Fusion By Design", "credit": "Interior Design", "link": "https://fusionbydesign.co.uk"}
+      ],
+      "media": [
+      ]
+    }
+  ]
+}
