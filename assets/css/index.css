@@ -172,8 +172,12 @@ map area {
 
 @media screen and (max-width: 820px) {
   #info, #project--details, #project--media {
-    grid-template-columns: 1fr;
-    min-height: 0
+    grid-template-columns: repeat(1, 1fr);
+    height: auto;
+  }
+
+  main, nav {
+    padding: 1em;
   }
 
   a[data-more]:hover::after {
