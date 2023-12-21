@@ -151,12 +151,11 @@
         { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-13.jpg", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-14.jpg", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-15.jpg", "alt": "Image Alt Text"},
-        { "type": "Video", "src": "/assets/media/projects/tiffers/tiffers-16.mp4", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-16.mp4", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-17.jpg", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-18.jpg", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-19.jpg", "alt": "Image Alt Text"},
-        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-20.jpg", "alt": "Image Alt Text"},
-        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-21.jpg", "alt": "Image Alt Text"}
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-20.jpg", "alt": "Image Alt Text"}
       ]
     },
     {
