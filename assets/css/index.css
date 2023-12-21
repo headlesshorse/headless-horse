@@ -74,7 +74,6 @@ nav {
 	position: sticky;
   z-index: 1;
 	top: 0;
-  max-width: 1728px;
   padding: 1em 2em;
   margin: 0 auto;
   background: #000;
@@ -90,7 +89,6 @@ nav {
 }
 
 main {
-  max-width: 1728px;
   padding: 0 2em;
   margin: 0 auto;
   counter-reset: section
