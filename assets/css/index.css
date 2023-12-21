@@ -181,9 +181,14 @@ map area {
     padding: 0 1em
   }
 
-  #info, #project--details, #project--media {
+  #info {
     grid-template-columns: repeat(1, 1fr);
     height: auto
+  }
+
+  #project--details, #project--media {
+    grid-template-columns: repeat(1, 1fr);
+    min-height: 0;
   }
 
   a[data-more]:hover::after, #project--media>figure:hover figcaption {
