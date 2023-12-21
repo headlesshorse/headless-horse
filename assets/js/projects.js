@@ -1,10 +1,14 @@
 async function fetchProjectData() {
+  document.body.style.cursor = 'wait';
+  
   const currentPage = window.location.pathname.split('/').pop();
   const { projects } = await (await fetch('/assets/data/projects.json')).json();
   const project = projects.find(({ slug }) => slug === currentPage);
 
   document.title = `${project.title} | HEADLESS HORSE`;
   populateHTML(project, projects);
+  
+  document.body.style.cursor = 'default';
 }
 
 // File size
@@ -36,10 +40,6 @@ const populateHTML = async (project, allProjects) => {
   const getNextProjectLink = (nextProject) => nextProject ? `<a href="/projects/${nextProject.slug}">[Next: ${nextProject.title}]</a>` : '';
 
   const template = `
-    <nav>
-      <a id="info-btn" href="/info">Headless Horse</a><a id="nav-btn" href="/">[Close]</a>
-    </nav>
-
     <main>
       <article id="project--details">
         <section>
@@ -84,7 +84,7 @@ const populateHTML = async (project, allProjects) => {
     </main>
   `;
 
-  document.querySelector('body').insertAdjacentHTML('afterend', template);
+  document.querySelector('nav').insertAdjacentHTML('afterend', template);
 
   // Typing
   document.querySelectorAll("article h2, article p, article a").forEach(element => {
