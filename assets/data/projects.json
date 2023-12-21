@@ -38,7 +38,7 @@
         {"title": "Richard Gaston", "credit": "Photography", "link": "http://richardgaston.com"}
       ],
       "media": [
-        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-1.mp4", "alt": "This is a description of the Image."},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-1.jpg", "alt": "This is a description of the Image."},
         { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-2.jpg", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-3.jpg", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-4.jpg", "alt": "Image Alt Text"},
@@ -50,7 +50,7 @@
         { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-10.jpg", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-11.jpg", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-12.jpg", "alt": "Image Alt Text"},
-        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-13.mp4", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-13.jpg", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-14.jpg", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-15.jpg", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/team-dr-joseph/team-dr-joseph-16.jpg", "alt": "Image Alt Text"},
@@ -134,7 +134,7 @@
         { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-13.jpg", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-14.jpg", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-15.jpg", "alt": "Image Alt Text"},
-        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-16.mp4", "alt": "Image Alt Text"},
+        { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-16.jpg", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-17.jpg", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-18.jpg", "alt": "Image Alt Text"},
         { "type": "Image", "src": "/assets/media/projects/tiffers/tiffers-19.jpg", "alt": "Image Alt Text"},
