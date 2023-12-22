@@ -229,8 +229,7 @@
         {"type": "Image", "src": "/assets/media/projects/at-pizza/at-pizza-16.jpg", "alt": "@pizza Edinburgh mural"},
         {"type": "Image", "src": "/assets/media/projects/at-pizza/at-pizza-17.jpg", "alt": "Artwork detail"},
         {"type": "Image", "src": "/assets/media/projects/at-pizza/at-pizza-18.jpg", "alt": "Striped artwork using recycled images"},
-        {"type": "Image", "src": "/assets/media/projects/at-pizza/at-pizza-19.jpg", "alt": "Artwork detail"},
-        {"type": "Image", "src": "/assets/media/projects/at-pizza/at-pizza-20.jpg", "alt": "Striped artwork and lighting detail"}
+        {"type": "Image", "src": "/assets/media/projects/at-pizza/at-pizza-19.jpg", "alt": "Artwork detail"}
       ]
     }
   ]
