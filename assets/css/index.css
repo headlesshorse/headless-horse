@@ -97,7 +97,7 @@ main {
   height: calc(100vh - 8em)
 }
 
-#info, #project--details, #project--media, footer {
+#info, #project--details, #project--media {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2em;
@@ -152,7 +152,12 @@ details[open] summary {
   white-space: nowrap
 }
 
-#project--next {
+footer {
+  border-top: 1px solid #999;
+  padding: 1em 0
+}
+
+#next {
   float: right;
   cursor: e-resize;
   text-transform: uppercase

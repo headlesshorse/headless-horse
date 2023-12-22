@@ -1,4 +1,4 @@
-async function fetchProjectData() {  
+async function fetchProjectData() {
   const currentPage = window.location.pathname.split('/').pop();
   const { projects } = await (await fetch('/assets/data/projects.json')).json();
   const project = projects.find(({ slug }) => slug === currentPage);
@@ -19,11 +19,11 @@ const populateHTML = async (project, allProjects) => {
     const sizeKB = await getSizeInKB(src);
     
     const mediaContent = type === 'Image' 
-      ? `<img src="${src}" alt="${alt}" loading="lazy" width="auto" height="100%">` 
+      ? `<img src="${src}" alt="${alt}" loading="lazy" width="auto" height="100%">`
       : `<video autoplay loop muted preload="none" width="auto" height="100%"><source src="${src}" type="video/mp4"></video>`;
     
     // Index
-    const linkNumber = (index + 1).toString().padStart(2, '0'); 
+    const linkNumber = (index + 1).toString().padStart(2, '0');
     const listItem = `<li><a href="#media-${linkNumber}" data-more="${type} / ${sizeKB} KB">${linkNumber}. ${alt}</a></li>`;
     mediaListHTML += listItem;
   
@@ -67,15 +67,7 @@ const populateHTML = async (project, allProjects) => {
       </section>
 
       <footer>
-        <section>
-          <a href="https://withcabin.com/privacy/headless.horse" target="_blank">Privacy</a>
-        </section>
-        <section>
-          <a id="carbon"></a>
-        </section>
-        <section>
-          <a id="project--next"${getNextProjectLink(allProjects[(allProjects.findIndex(({ slug }) => slug === project.slug) + 1) % allProjects.length])}</a>
-        </section>
+          <a id="carbon"></a><a id="next"${getNextProjectLink(allProjects[(allProjects.findIndex(({ slug }) => slug === project.slug) + 1) % allProjects.length])}</a>
       </footer>
     </main>
   `;
