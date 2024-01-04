@@ -1,14 +1,9 @@
 const i = { e: document.querySelector('#installation'), x: 0, y: 0 };
-let tX = 0, tY = 0;
-let decelerate = false;
+let tX = 0, tY = 0, decelerate = false;
 
 function init() {
   r();
-  i.e.style.transform = 'translate(0px, 0px)';
-  window.addEventListener('mousemove', mV);
-  window.addEventListener('touchmove', mV);
-  window.addEventListener('resize', r);
-
+  ['mousemove', 'touchmove', 'resize'].forEach(e => window.addEventListener(e, mV));
   document.body.style.overflow = 'hidden';
 }
 
@@ -20,37 +15,22 @@ function r() {
 
 function mV(event) {
   const { clientX, clientY } = event.targetTouches?.[0] || event;
-  tX = map(clientX, 0, window.innerWidth, 0, i.xM);
-  tY = map(clientY, 0, window.innerHeight, 0, i.yM);
+  [tX, tY] = [map(clientX, 0, window.innerWidth, 0, i.xM), map(clientY, 0, window.innerHeight, 0, i.yM)];
   decelerate = false;
 }
 
-function map(x, a, b, c, d) { return c + ((d - c) * (x - a)) / (b - a) || 0; }
-
-function l(s, e, t) { return s * (1 - t) + e * t; }
+const map = (x, a, b, c, d) => c + ((d - c) * (x - a)) / (b - a) || 0;
+const l = (s, e, t) => s * (1 - t) + e * t;
 
 function animate() {
-  if (decelerate) {
-    i.x = l(i.x, tX, 0.08);
-    i.y = l(i.y, tY, 0.08);
-  } else {
-    i.x = l(i.x, tX, 0.03);
-    i.y = l(i.y, tY, 0.03);
-  }
-
+  const factor = decelerate ? 0.08 : 0.03;
+  [i.x, i.y] = [l(i.x, tX, factor), l(i.y, tY, factor)];
   i.e.style.transform = `translate(${i.x}px, ${i.y}px)`;
-  
   requestAnimationFrame(animate);
 }
 
-window.addEventListener('load', () => {
-  init();
-  animate();
-});
-
-window.addEventListener('beforeunload', () => {
-  cancelAnimationFrame(animate);
-});
+window.addEventListener('load', () => { init(); animate(); });
+window.addEventListener('beforeunload', () => cancelAnimationFrame(animate));
 
 const areas = document.getElementsByTagName('area');
 const mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
