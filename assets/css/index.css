@@ -79,11 +79,7 @@ nav {
   text-transform: uppercase
 }
 
-#info-btn {
-  cursor: help
-}
-
-#nav-btn {
+nav a:last-of-type {
   float: right
 }
 
