@@ -79,7 +79,7 @@ nav {
   text-transform: uppercase
 }
 
-nav a:last-of-type {
+nav a:nth-of-type(2) {
   float: right
 }
 
@@ -153,7 +153,7 @@ footer {
   padding: 1em 0
 }
 
-footer a:last-of-type {
+footer a:nth-of-type(2) {
   float: right;
   cursor: e-resize;
   text-transform: uppercase
