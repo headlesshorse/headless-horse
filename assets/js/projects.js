@@ -63,7 +63,7 @@ const populateHTML = async (project, allProjects) => {
       </section>
 
       <footer>
-          <a id="carbon"></a><a id="next"${getNextProjectLink(allProjects[(allProjects.findIndex(({ slug }) => slug === project.slug) + 1) % allProjects.length])}</a>
+          <a id="carbon"></a><a "${getNextProjectLink(allProjects[(allProjects.findIndex(({ slug }) => slug === project.slug) + 1) % allProjects.length])}</a>
       </footer>
     </main>
   `;
