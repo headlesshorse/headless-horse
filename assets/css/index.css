@@ -76,11 +76,11 @@ nav {
   padding: 1em 2em;
   margin: 0 auto;
   background: #000;
-  text-transform: uppercase
 }
 
 nav a:nth-of-type(2) {
-  float: right
+  float: right;
+  text-transform: uppercase
 }
 
 main {
