@@ -40,8 +40,10 @@ class Mood {
         feedItems.forEach(({ images, link, id }) => {
             const imageUrl = images['237x'].url;
             const figure = document.createElement('figure');
-            figure.innerHTML = `<img src="${imageUrl}" style="filter: grayscale(50%) contrast(0.8) brightness(0.9)">
-                <figcaption><a href="${link ? link : `https://pinterest.com/pin/${id}`}" target="_blank">${link ? `Source: ${link}` : `Source not available`}</a></figcaption>`;
+            figure.innerHTML = `
+                <img src="${imageUrl}" style="filter: grayscale(50%) contrast(0.8) brightness(0.9)">
+                <figcaption><a href="${link ? link : `https://pinterest.com/pin/${id}`}" target="_blank">${link ? `Source: ${link}` : `Source not available`}</a></figcaption>
+            `;
             this.container.appendChild(figure);
         });
         this.loadMoreButton.style.display = this.loadedCount >= this.feed.length ? 'none' : 'block';
