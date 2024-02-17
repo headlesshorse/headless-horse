@@ -86,9 +86,9 @@ new Mood('media', 'Direction', 'Wellness', 'Print', 'Space', 'Looks');
   });
 
   // Carbon
-  const displayCarbonData = async () => {
+  const CO2 = async () => {
     const { size = '', url = '', co2 = '' } = await (await fetch(`https://digitalbeacon.co/badge?url=${encodeURIComponent(window.location.href)}`)).json();
     document.getElementById('carbon').outerHTML = `<a href="${url}" target="_blank" data-more="Low-consumption site using renewable energy.">${size} / ${co2}</a>`;
   };
   
-  displayCarbonData();
+  CO2();
