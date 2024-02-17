@@ -135,7 +135,7 @@ details[open] summary {
 }
 
 #media figure {
-  padding: 6em;
+  padding: 5em;
   background: var(--border-corner)
 }
 
@@ -147,15 +147,14 @@ details[open] summary {
 
 #media>figure figcaption {
   display: none;
-  margin-top: 2em;
   text-align: center
 }
 
 #media>figure:hover figcaption {
- display: block;
+  display: block;
   overflow: hidden;
   width: 20vw;
-  margin: 2em auto;
+  margin: 3em auto;
   text-overflow: ellipsis;
   white-space: nowrap
 }
