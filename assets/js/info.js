@@ -2,7 +2,7 @@ const fetchProjectData = async () => {
   const { projects } = await (await fetch('/assets/data/projects.json')).json();
   const sortedPressLinks = projects.flatMap(project => (project.press || []).map(link => ({ ...link, projectName: project.title })))
     .slice().sort((a, b) => a.title.localeCompare(b.title));
-  
+
   const template = `
     <section>
       <h2>Press</h2>
@@ -12,7 +12,7 @@ const fetchProjectData = async () => {
     </section>
   `;
   document.querySelector('section').parentNode.insertAdjacentHTML('beforeend', template);
-  
+
   // Typing
   document.querySelectorAll("section *").forEach(element => {
     if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3 && !element.classList.contains("typewriter")) {
@@ -21,10 +21,10 @@ const fetchProjectData = async () => {
       element.textContent = text.substring(0, text.length - 20);
       let i = Math.max(0, text.length - 20);
       function type() {
-          if (i < text.length) {
-              element.textContent += text.charAt(i++);
-              setTimeout(type, 120);
-          }
+        if (i < text.length) {
+          element.textContent += text.charAt(i++);
+          setTimeout(type, 120);
+        }
       }
       type();
     }
@@ -35,7 +35,7 @@ const fetchProjectData = async () => {
     const { size = '', url = '', co2 = '' } = await (await fetch(`https://digitalbeacon.co/badge?url=${encodeURIComponent(window.location.href)}`)).json();
     document.getElementById('carbon').outerHTML = `<a href="${url}" target="_blank" data-more="Low-consumption site using renewable energy.">${size} / ${co2}</a>`;
   };
-  
+
   CO2();
 };
 

@@ -16,19 +16,19 @@ const populateHTML = async (project, allProjects) => {
   for (let index = 0; index < project.media.length; index++) {
     const { src, alt, type } = project.media[index];
     const sizeKB = await getSizeInKB(src);
-    
-    const mediaContent = type === 'Image' 
+
+    const mediaContent = type === 'Image'
       ? `<img src="${src}" alt="${alt}" loading="lazy" width="auto" height="100%">`
       : `<video autoplay loop muted preload="none" width="auto" height="100%"><source src="${src}" type="video/mp4"></video>`;
-    
+
     const linkNumber = (index + 1).toString().padStart(2, '0');
     const listItem = `<li><a href="#media-${linkNumber}" data-more="${type} / ${sizeKB} KB">${linkNumber}. ${alt}</a></li>`;
     mediaListHTML += listItem;
-  
+
     const figureItem = `<figure id="media-${linkNumber}">${mediaContent}<figcaption>${linkNumber}. ${alt} / ${sizeKB} KB</figcaption></figure>`;
     mediaItemsHTML.push(figureItem);
   }
-  
+
   const getNextProjectLink = (nextProject) => nextProject ? `<a href="/projects/${nextProject.slug}">Next: ${nextProject.title}</a>` : '';
 
   const template = `
@@ -72,17 +72,17 @@ const populateHTML = async (project, allProjects) => {
   document.querySelector('header').insertAdjacentHTML('afterend', template);
 
   // Typing
-  document.querySelectorAll("article h2, article p, article a").forEach(element => {
+  document.querySelectorAll("section *").forEach(element => {
     if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3 && !element.classList.contains("typewriter")) {
       element.classList.add("typewriter");
       let text = element.textContent;
       element.textContent = text.substring(0, text.length - 20);
       let i = Math.max(0, text.length - 20);
       function type() {
-          if (i < text.length) {
-              element.textContent += text.charAt(i++);
-              setTimeout(type, 120);
-          }
+        if (i < text.length) {
+          element.textContent += text.charAt(i++);
+          setTimeout(type, 120);
+        }
       }
       type();
     }
@@ -93,7 +93,7 @@ const populateHTML = async (project, allProjects) => {
     const { size = '', url = '', co2 = '' } = await (await fetch(`https://digitalbeacon.co/badge?url=${encodeURIComponent(window.location.href)}`)).json();
     document.getElementById('carbon').outerHTML = `<a href="${url}" target="_blank" data-more="Low-consumption site using renewable energy.">${size} / ${co2}</a>`;
   };
-  
+
   CO2();
 };
 

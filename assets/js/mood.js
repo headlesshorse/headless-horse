@@ -68,27 +68,27 @@ class Mood {
 
 new Mood('media', 'Direction', 'Wellness', 'Print', 'Space', 'Looks');
 
-  // Typing
-  document.querySelectorAll("section *").forEach(element => {
+// Typing
+document.querySelectorAll("section *").forEach(element => {
     if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3 && !element.classList.contains("typewriter")) {
-      element.classList.add("typewriter");
-      let text = element.textContent;
-      element.textContent = text.substring(0, text.length - 20);
-      let i = Math.max(0, text.length - 20);
-      function type() {
-          if (i < text.length) {
-              element.textContent += text.charAt(i++);
-              setTimeout(type, 120);
-          }
-      }
-      type();
+        element.classList.add("typewriter");
+        let text = element.textContent;
+        element.textContent = text.substring(0, text.length - 20);
+        let i = Math.max(0, text.length - 20);
+        function type() {
+            if (i < text.length) {
+                element.textContent += text.charAt(i++);
+                setTimeout(type, 120);
+            }
+        }
+        type();
     }
-  });
+});
 
-  // Carbon
-  const CO2 = async () => {
+// Carbon
+const CO2 = async () => {
     const { size = '', url = '', co2 = '' } = await (await fetch(`https://digitalbeacon.co/badge?url=${encodeURIComponent(window.location.href)}`)).json();
     document.getElementById('carbon').outerHTML = `<a href="${url}" target="_blank" data-more="Low-consumption site using renewable energy.">${size} / ${co2}</a>`;
-  };
-  
-  CO2();
+};
+
+CO2();
