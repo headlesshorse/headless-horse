@@ -130,6 +130,7 @@ details[open] summary {
 }
 
 #media {
+  min-height: 50em;
   grid-auto-rows: 50em;
   padding: 2em 0
 }

@@ -75,33 +75,26 @@ const populateHTML = async (project, allProjects) => {
   document.querySelectorAll("article h2, article p, article a").forEach(element => {
     if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3 && !element.classList.contains("typewriter")) {
       element.classList.add("typewriter");
-      typeWriter(element, 120);
+      let text = element.textContent;
+      element.textContent = text.substring(0, text.length - 20);
+      let i = Math.max(0, text.length - 20);
+      function type() {
+          if (i < text.length) {
+              element.textContent += text.charAt(i++);
+              setTimeout(type, 120);
+          }
+      }
+      type();
     }
   });
 
   // Carbon
   const displayCarbonData = async () => {
-    const apiUrl = `https://digitalbeacon.co/badge?url=${encodeURIComponent(window.location.href)}`;
-    const { size = '', url = '', co2 = '' } = await (await fetch(apiUrl)).json();
+    const { size = '', url = '', co2 = '' } = await (await fetch(`https://digitalbeacon.co/badge?url=${encodeURIComponent(window.location.href)}`)).json();
     document.getElementById('carbon').outerHTML = `<a href="${url}" target="_blank" data-more="Low-consumption site using renewable energy.">${size} / ${co2}</a>`;
-  };  
+  };
   
   displayCarbonData();
 };
 
 window.onload = fetchProjectData;
-
-// Typing
-function typeWriter(element, speed) {
-  let text = element.textContent;
-  element.textContent = text.substring(0, text.length - 20);
-
-  let i = Math.max(0, text.length - 20);
-  function type() {
-    if (i < text.length) {
-      element.textContent += text.charAt(i++);
-      setTimeout(type, speed);
-    }
-  }
-  type();
-}
