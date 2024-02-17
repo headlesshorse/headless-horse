@@ -166,7 +166,8 @@ footer {
 
 footer a:nth-of-type(2) {
   text-transform: uppercase;
-  float: right
+  float: right;
+  cursor: pointer
 }
 
 map area {
