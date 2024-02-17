@@ -33,7 +33,7 @@ const populateHTML = async (project, allProjects) => {
 
   const template = `
     <main>
-      <article id="project--details">
+      <article id="details">
         <section>
           <h2>${project.title}</h2>
           <p>${project.description}</p>
@@ -58,12 +58,13 @@ const populateHTML = async (project, allProjects) => {
         </details>
       </article>
 
-      <section id="project--media">
+      <section id="media">
         ${mediaItemsHTML.join('')}
       </section>
 
       <footer>
-          <a id="carbon"></a><a "${getNextProjectLink(allProjects[(allProjects.findIndex(({ slug }) => slug === project.slug) + 1) % allProjects.length])}</a>
+        <a id="carbon"></a>
+        <a "${getNextProjectLink(allProjects[(allProjects.findIndex(({ slug }) => slug === project.slug) + 1) % allProjects.length])}</a>
       </footer>
     </main>
   `;

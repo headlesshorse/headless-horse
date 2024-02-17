@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pinterest Feed</title>
+</head>
+<body>
+    <div id="buttons">
+        <button id="directionBtn">Direction</button>
+        <button id="wellnessBtn">Wellness</button>
+        <button id="printBtn">Print</button>
+        <button id="spaceBtn">Space</button>
+        <button id="looksBtn">Looks</button>
+    </div>
+    <div id="media"></div>
+    <button id="loadmore">Load More</button>
+
+    <script>
+        class PinterestFeed {
+            constructor(...slugs) {
+                this.feeds = {}; // Object to store feeds by category
+                this.container = document.getElementById('media');
+                this.boards = slugs;
+                this.loadedCount = {}; // Object to store loaded count by category
+                this.perLoad = 15;
+                this.loadMoreButton = document.getElementById('loadmore');
+
+                // Add event listeners to category buttons
+                document.getElementById('directionBtn').addEventListener('click', () => this.filterFeed('direction'));
+                document.getElementById('wellnessBtn').addEventListener('click', () => this.filterFeed('wellness'));
+                document.getElementById('printBtn').addEventListener('click', () => this.filterFeed('print'));
+                document.getElementById('spaceBtn').addEventListener('click', () => this.filterFeed('space'));
+                document.getElementById('looksBtn').addEventListener('click', () => this.filterFeed('looks'));
+
+                // Bind load more method to the load more button
+                this.loadMoreButton.addEventListener('click', () => this.loadMore());
+
+                this.loadInitial();
+            }
+
+            async reflect(promise) {
+                try {
+                    return (await promise).pins;
+                } catch (error) {
+                    return error;
+                }
+            }
+
+            async getFeed(slug) {
+                const api = `https://widgets.pinterest.com/v3/pidgets/boards/headlesshorse/${slug}/pins/`;
+                try {
+                    const response = await fetch(api);
+                    if (response.ok) return (await response.json()).data;
+                    throw new Error('Network Error');
+                } catch (error) {
+                    throw new Error(error.message);
+                }
+            }
+
+            async getFeeds() {
+                const promises = this.boards.map(slug => this.reflect(this.getFeed(slug)));
+                return await Promise.all(promises);
+            }
+
+            async loadInitial() {
+                try {
+                    const responses = await this.getFeeds();
+                    responses.forEach((response, index) => {
+                        const category = this.boards[index];
+                        this.feeds[category] = response.flat();
+                        this.loadedCount[category] = this.perLoad;
+                    });
+                    this.renderFeed(this.feeds['direction'], 'direction');
+                    this.checkLoadMoreButton('direction');
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+
+            async loadMore() {
+                const currentCategory = document.querySelector('.active-category').id;
+                try {
+                    const newResponse = await this.getFeed(currentCategory);
+                    const newPins = newResponse.flat();
+                    this.feeds[currentCategory] = this.feeds[currentCategory].concat(newPins);
+                    this.loadedCount[currentCategory] += this.perLoad;
+                    this.renderFeed(this.feeds[currentCategory], currentCategory);
+                    this.checkLoadMoreButton(currentCategory);
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+
+            filterFeed(category) {
+                this.renderFeed(this.feeds[category], category);
+                this.checkLoadMoreButton(category);
+            }
+
+            renderFeed(feedItems, category) {
+                this.container.innerHTML = '';
+                feedItems.slice(0, this.loadedCount[category]).forEach(item => {
+                    const { images, link, file_size } = item;
+                    const imageUrl = images['237x'].url;
+                    const img = document.createElement('img');
+                    img.src = imageUrl;
+                    img.style.filter = 'grayscale(50%) contrast(0.8) brightness(0.9)';
+                    const div = document.createElement('figure');
+                    div.appendChild(img);
+
+                    const figcaption = document.createElement('figcaption');
+                    if (link) {
+                        const sourceLink = document.createElement('a');
+                        sourceLink.href = link;
+                        sourceLink.target = '_blank';
+                        sourceLink.textContent = `Source: ${link}`;
+                        figcaption.appendChild(sourceLink);
+                    } else {
+                        figcaption.textContent = 'Source not available';
+                    }
+                    div.appendChild(figcaption);
+
+                    this.container.appendChild(div);
+                });
+            }
+
+            checkLoadMoreButton(category) {
+                if (this.loadedCount[category] >= this.feeds[category].length) {
+                    this.loadMoreButton.style.display = 'none';
+                } else {
+                    this.loadMoreButton.style.display = 'block';
+                }
+            }
+        }
+
+        const feed = new PinterestFeed(
+            'direction',
+            'wellness',
+            'print',
+            'space',
+            'looks'
+        );
+    </script>
+</body>
+</html>
