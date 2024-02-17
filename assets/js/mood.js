@@ -66,7 +66,7 @@ class Mood {
     }
 }
 
-new Mood('media', 'Direction', 'Wellness', 'Print', 'Space', 'Looks');
+new Mood('media', 'Direction', 'Wellness', 'Print', 'Space', 'Style');
 
 // Typing
 document.querySelectorAll("section *").forEach(element => {
