@@ -14,7 +14,6 @@ const fetchProjectData = async () => {
   document.querySelector('section').parentNode.insertAdjacentHTML('beforeend', template);
 
   // Typing
-  // Typing
   document.querySelectorAll('section *').forEach(element => {
     if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3 && !element.classList.contains('typewriter')) {
       element.classList.add('typewriter');
