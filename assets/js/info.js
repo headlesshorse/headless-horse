@@ -1,16 +1,34 @@
 const fetchProjectData = async () => {
   const { projects } = await (await fetch('/assets/data/projects.json')).json();
-  const sortedPressLinks = projects.flatMap(project => (project.press || []).map(link => ({ ...link, projectName: project.title })))
-    .slice().sort((a, b) => a.title.localeCompare(b.title));
+
+  const titleCounts = {};
+  const pressLinks = projects.flatMap(project => (project.press || []).map(link => {
+    const title = link.title.toUpperCase();
+    titleCounts[title] = (titleCounts[title] || 0) + 1;
+    const sectionLink = titleCounts[title] > 1 ? ` / ${titleCounts[title]}` : '';
+    return { ...link, projectName: project.title, sectionLink, firstOccurrence: titleCounts[title] === 1 };
+  }));
+
+  const pressGroups = pressLinks.reduce((groups, link) => {
+    groups[link.title] = groups[link.title] || [];
+    groups[link.title].push(link);
+    return groups;
+  }, {});
+
+  const sortedPressGroups = Object.keys(pressGroups).sort();
 
   const template = `
     <section>
       <h2>Press</h2>
       <ul>
-        ${sortedPressLinks.map(link => `<li><a href="${link.link}" target="_blank" rel="noreferrer" data-more="${link.projectName}, ${link.date}">${link.title}</a></li>`).join('')}
+        ${sortedPressGroups.map(title => {
+          const group = pressGroups[title];
+          return `<li>${group.map((link, index) => `<a href="${link.link}" target="_blank" rel="noreferrer" data-more="${link.projectName}, ${link.date}">${index === 0 ? link.title : ''}${link.sectionLink}</a>`).join('')}</li>`;
+        }).join('')}
       </ul>
     </section>
   `;
+
   document.querySelector('section').parentNode.insertAdjacentHTML('beforeend', template);
 
   // Typing
