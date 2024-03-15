@@ -39,18 +39,9 @@ const populateHTML = async (project, allProjects) => {
           <p>${project.description}</p>
         </section>
         <section>
-          ${project.links.length > 0 ? '<h2>Links</h2>' : ''}
-          <ul>${project.links.map(({ link, title }) => `
-            <li><a href="${link}" target="_blank" rel="noreferrer" data-more="${link}">${title}</a></li>`).join('')}
-          </ul>
-          ${project.press.length > 0 ? '<h2>Press</h2>' : ''}
-          <ul>${project.press.map(({ link, title, date }) => `
-            <li><a href="${link}" target="_blank" rel="noreferrer" data-more="${date}">${title}</a></li>`).join('')}
-          </ul>
-          ${project.credits.length > 0 ? '<h2>Credits</h2>' : ''}
-          <ul>${project.credits.map(({ link, title, credit }) => `
-            <li><a href="${link}" target="_blank" rel="noreferrer" data-more="${credit}">${title}</a></li>`).join('')}
-          </ul>
+          ${project.links.length > 0 ? '<h2>Links</h2><ul>' + project.links.map(({ link, title }) => `<li><a href="${link}" target="_blank" rel="noreferrer" data-more="${link}">${title}</a></li>`).join('') + '</ul>' : ''}
+          ${project.press.length > 0 ? '<h2>Press</h2><ul>' + project.press.map(({ link, title, date }) => `<li><a href="${link}" target="_blank" rel="noreferrer" data-more="${date}">${title}</a></li>`).join('') + '</ul>' : ''}
+          ${project.credits.length > 0 ? '<h2>Credits</h2><ul>' + project.credits.map(({ link, title, credit }) => `<li><a href="${link}" target="_blank" rel="noreferrer" data-more="${credit}">${title}</a></li>`).join('') + '</ul>' : ''}
         </section>
         <details>
           <summary>Index</summary>
