@@ -35,7 +35,7 @@ const populateHTML = async (project, allProjects) => {
     <main>
       <article id="details">
         <section>
-          <h2>${project.title}</h2>
+          <h2>Info</h2>
           <p>${project.description}</p>
         </section>
         <section>
