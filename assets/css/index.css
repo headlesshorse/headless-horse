@@ -86,7 +86,8 @@ header {
 }
 
 nav a {
-  padding: 1em 1em 0 0;
+  padding: 0 1em;
+  margin-top: 1em
 }
 
 nav a:before, footer a:nth-of-type(2):before, details summary:before {
