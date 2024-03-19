@@ -79,20 +79,14 @@ header {
   text-transform: uppercase
 }
 
-#logo {
+#logo, nav {
   display: flex;
   justify-content: center;
   animation: none
 }
 
-nav {
-  display: flex;
-  justify-content: center;
-  padding-top: 1em
-}
-
 nav a {
-  padding-left: 1em;
+  padding: 1em 1em 0 0;
 }
 
 nav a:before, footer a:nth-of-type(2):before, details summary:before {
