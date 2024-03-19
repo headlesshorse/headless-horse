@@ -79,8 +79,20 @@ header {
   text-transform: uppercase
 }
 
+#logo {
+  display: flex;
+  justify-content: center;
+  animation: none
+}
+
 nav {
-  float: right
+  display: flex;
+  justify-content: center;
+  padding-top: 1em
+}
+
+nav a {
+  padding-left: 1em;
 }
 
 nav a:before, footer a:nth-of-type(2):before, details summary:before {
@@ -100,7 +112,7 @@ main {
 }
 
 #info {
-  height: calc(100vh - 8em)
+  height: calc(100vh - 11em)
 }
 
 #info, #details, #media {
