@@ -72,22 +72,20 @@ li {
 header {
   position: sticky;
   z-index: 1;
-  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   padding: 1em 2em;
-  margin: 0 auto;
   background: #000;
   text-transform: uppercase
 }
 
-#logo, nav {
-  display: flex;
-  justify-content: center;
+#logo {
   animation: none
 }
 
 nav a {
-  padding: 0 .5em;
-  margin-top: 1em
+  margin-left: .5em
 }
 
 nav a:before, footer a:nth-of-type(2):before, details summary:before {
@@ -107,7 +105,7 @@ main {
 }
 
 #info {
-  height: calc(100vh - 11em)
+  height: calc(100vh - 9.2em)
 }
 
 #info, #details, #media {
