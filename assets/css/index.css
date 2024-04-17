@@ -72,20 +72,13 @@ li {
 header {
   position: sticky;
   z-index: 1;
+  top: 0;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
   padding: 1em 2em;
+  margin: 0 auto;
   background: #000;
   text-transform: uppercase
-}
-
-#logo {
-  animation: none
-}
-
-nav a {
-  margin-left: .5em
 }
 
 nav a:before, footer a:nth-of-type(2):before, details summary:before {
