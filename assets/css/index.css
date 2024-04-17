@@ -98,7 +98,7 @@ main {
 }
 
 #info {
-  height: calc(100vh - 8.2em)
+  height: calc(100vh - 8em)
 }
 
 #info, #details, #media {
