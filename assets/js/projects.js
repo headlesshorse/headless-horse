@@ -29,7 +29,7 @@ const populateHTML = async (project, allProjects) => {
     mediaItemsHTML.push(figureItem);
   }
 
-  const getNextProjectLink = (nextProject) => nextProject ? `<a href="/projects/${nextProject.slug}">Next: ${nextProject.title}</a>` : '';
+  const getNextProjectLink = (nextProject) => nextProject ? `<a href="/projects/${nextProject.slug}">[Next: ${nextProject.title}]</a>` : '';
 
   const template = `
     <main>
