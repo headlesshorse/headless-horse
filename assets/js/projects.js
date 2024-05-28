@@ -78,14 +78,6 @@ const populateHTML = async (project, allProjects) => {
       type();
     }
   });
-
-  // Carbon
-  const CO2 = async () => {
-    const { size = '', url = '', co2 = '' } = await (await fetch(`https://digitalbeacon.co/badge?url=${encodeURIComponent(window.location.href)}`)).json();
-    document.getElementById('carbon').outerHTML = `<a href="${url}" target="_blank" data-more="Low-consumption site using renewable energy.">${size} / ${co2}</a>`;
-  };
-
-  CO2();
 };
 
 window.onload = fetchProjectData;

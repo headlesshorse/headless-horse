@@ -1,4 +1,4 @@
-const i = { e: document.querySelector('#installation'), x: 0, y: 0 };
+const i = { e: document.querySelector('#projects'), x: 0, y: 0 };
 let tX = 0, tY = 0, decelerate = false;
 
 function init() {
@@ -48,7 +48,10 @@ function mouseOver(event) {
   const tooltip = document.createElement('div');
   tooltip.id = 'tooltip';
   tooltip.style.position = 'absolute';
-  tooltip.innerHTML = this.getAttribute('title');
+  const title = this.getAttribute('title');
+  const link = this.getAttribute('href');
+  const tooltipContent = link ? `${title} [VISIT]` : title;
+  tooltip.innerHTML = tooltipContent;
   document.body.appendChild(tooltip);
   updateTooltipPosition(event, tooltip);
   window.addEventListener('mousemove', (event) => updateTooltipPosition(event, tooltip));
@@ -58,8 +61,9 @@ function mouseOver(event) {
 function mouseOut() {
   if (mobile) return;
   const tooltip = document.getElementById('tooltip');
+  const title = tooltip.innerText.replace(' [VISIT]', '');
   tooltip.remove();
-  this.setAttribute('title', tooltip.innerHTML);
+  this.setAttribute('title', title);
 }
 
 function updateTooltipPosition(event, tooltip) {
