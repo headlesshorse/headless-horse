@@ -1,83 +1,72 @@
-async function fetchProjectData() {
-  const currentPage = window.location.pathname.split('/').pop();
-  const { projects } = await (await fetch('/assets/data/projects.json')).json();
-  const project = projects.find(({ slug }) => slug === currentPage);
+const i = { e: document.querySelector('#projects'), x: 0, y: 0 };
+let tX = 0, tY = 0, decelerate = false;
 
-  document.title = `${project.title} | HEADLESS HORSE`;
-  populateHTML(project, projects);
+function init() {
+  r();
+  ['mousemove', 'touchmove', 'resize'].forEach(e => window.addEventListener(e, mV));
+  document.body.style.overflow = 'hidden';
 }
 
-const getSizeInKB = async (url) => Math.ceil((await fetch(url).then(res => res.blob())).size / 1024);
+function r() {
+  const { innerWidth: w, innerHeight: h } = window;
+  i.xM = w - i.e.naturalWidth;
+  i.yM = h - i.e.naturalHeight;
+}
 
-const populateHTML = async (project, allProjects) => {
+function mV(event) {
+  const { clientX, clientY } = event.targetTouches?.[0] || event;
+  [tX, tY] = [map(clientX, 0, window.innerWidth, 0, i.xM), map(clientY, 0, window.innerHeight, 0, i.yM)];
+  decelerate = false;
+}
 
-  let mediaListHTML = '';
-  const mediaItemsHTML = [];
-  for (let index = 0; index < project.media.length; index++) {
-    const { src, alt, type } = project.media[index];
-    const sizeKB = await getSizeInKB(src);
+const map = (x, a, b, c, d) => c + ((d - c) * (x - a)) / (b - a) || 0;
+const l = (s, e, t) => s * (1 - t) + e * t;
 
-    const mediaContent = type === 'Image'
-      ? `<img src="${src}" alt="${alt}" loading="lazy" width="auto" height="100%">`
-      : `<video autoplay loop muted preload="none" width="auto" height="100%"><source src="${src}" type="video/mp4"></video>`;
+function animate() {
+  const factor = decelerate ? 0.08 : 0.03;
+  [i.x, i.y] = [l(i.x, tX, factor), l(i.y, tY, factor)];
+  i.e.style.transform = `translate(${i.x}px, ${i.y}px)`;
+  requestAnimationFrame(animate);
+}
 
-    const linkNumber = (index + 1).toString().padStart(2, '0');
-    const listItem = `<li><a href="#media-${linkNumber}" data-more="${type} / ${sizeKB} KB">${linkNumber}. ${alt}</a></li>`;
-    mediaListHTML += listItem;
+window.addEventListener('load', () => { init(); animate(); });
+window.addEventListener('beforeunload', () => cancelAnimationFrame(animate));
 
-    const figureItem = `<figure id="media-${linkNumber}">${mediaContent}<figcaption>${linkNumber}. ${alt} / ${sizeKB} KB</figcaption></figure>`;
-    mediaItemsHTML.push(figureItem);
-  }
+const areas = document.getElementsByTagName('area');
+const mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-  const getNextProjectLink = (nextProject) => nextProject ? `<a href="/projects/${nextProject.slug}">[Next: ${nextProject.title}]</a>` : '';
+for (const area of areas) {
+  const tooltip = document.createElement('div');
+  tooltip.id = 'tooltip';
+  tooltip.style.position = 'absolute';
+  area.addEventListener('mouseover', mouseOver);
+  area.addEventListener('mouseout', mouseOut);
+}
 
-  const template = `
-    <main>
-      <article id="details">
-        <section>
-          <h2>Info</h2>
-          <p>${project.description}</p>
-        </section>
-        <section>
-          ${project.links.length > 0 ? '<h2>Links</h2><ul>' + project.links.map(({ link, title }) => `<li><a href="${link}" target="_blank" rel="noreferrer" data-more="${link}">${title}</a></li>`).join('') + '</ul>' : ''}
-          ${project.press.length > 0 ? '<h2>Press</h2><ul>' + project.press.map(({ link, title, date }) => `<li><a href="${link}" target="_blank" rel="noreferrer" data-more="${date}">${title}</a></li>`).join('') + '</ul>' : ''}
-          ${project.credits.length > 0 ? '<h2>Credits</h2><ul>' + project.credits.map(({ link, title, credit }) => `<li><a href="${link}" target="_blank" rel="noreferrer" data-more="${credit}">${title}</a></li>`).join('') + '</ul>' : ''}
-        </section>
-        <details>
-          <summary>[Index]</summary>
-          <ul>${mediaListHTML}</ul>
-        </details>
-      </article>
+function mouseOver(event) {
+  if (mobile) return;
+  const tooltip = document.createElement('div');
+  tooltip.id = 'tooltip';
+  tooltip.style.position = 'absolute';
+  const title = this.getAttribute('title');
+  const link = this.getAttribute('href');
+  const tooltipContent = link ? `${title} [VISIT]` : title;
+  tooltip.innerHTML = tooltipContent;
+  document.body.appendChild(tooltip);
+  updateTooltipPosition(event, tooltip);
+  window.addEventListener('mousemove', (event) => updateTooltipPosition(event, tooltip));
+  this.removeAttribute('title');
+}
 
-      <section id="media">
-        ${mediaItemsHTML.join('')}
-      </section>
+function mouseOut() {
+  if (mobile) return;
+  const tooltip = document.getElementById('tooltip');
+  const title = tooltip.innerText.replace(' [VISIT]', '');
+  tooltip.remove();
+  this.setAttribute('title', title);
+}
 
-      <footer>
-        <a id="carbon"></a>
-        <a "${getNextProjectLink(allProjects[(allProjects.findIndex(({ slug }) => slug === project.slug) + 1) % allProjects.length])}</a>
-      </footer>
-    </main>
-  `;
-
-  document.querySelector('header').insertAdjacentHTML('afterend', template);
-
-  // Typing
-  document.querySelectorAll('section *').forEach(element => {
-    if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3 && !element.classList.contains('typewriter')) {
-      element.classList.add('typewriter');
-      let text = element.textContent;
-      element.textContent = text.substring(0, text.length - 20);
-      let i = Math.max(0, text.length - 20);
-      function type() {
-        if (i < text.length) {
-          element.textContent += text.charAt(i++);
-          setTimeout(type, 120);
-        }
-      }
-      type();
-    }
-  });
-};
-
-window.onload = fetchProjectData;
+function updateTooltipPosition(event, tooltip) {
+  tooltip.style.top = `${event.pageY + 10}px`;
+  tooltip.style.left = `${event.pageX + 10}px`;
+}
