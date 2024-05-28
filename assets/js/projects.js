@@ -44,7 +44,7 @@ const populateHTML = async (project, allProjects) => {
           ${project.credits.length > 0 ? '<h2>Credits</h2><ul>' + project.credits.map(({ link, title, credit }) => `<li><a href="${link}" target="_blank" rel="noreferrer" data-more="${credit}">${title}</a></li>`).join('') + '</ul>' : ''}
         </section>
         <details>
-          <summary>Index</summary>
+          <summary>[Index]</summary>
           <ul>${mediaListHTML}</ul>
         </details>
       </article>
