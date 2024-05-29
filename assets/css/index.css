@@ -112,7 +112,7 @@ main {
 }
 
 #info {
-  height: calc(100vh - 5em)
+  height: calc(100vh - 4em)
 }
 
 #info, #details, #media {
@@ -141,7 +141,8 @@ details[open] summary {
 
 #media {
   grid-auto-rows: 50em;
-  min-height: 50em
+  min-height: 50em;
+  padding: 1em 0
 }
 
 #media figure {
@@ -167,10 +168,6 @@ details[open] summary {
   margin: 3em auto;
   text-overflow: ellipsis;
   white-space: nowrap
-}
-
-footer {
-  padding: 1em 0
 }
 
 footer a:nth-of-type(2) {
