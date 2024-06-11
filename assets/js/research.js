@@ -1,4 +1,4 @@
-class Mood {
+class Research {
     constructor(containerId, ...slugs) {
         this.feed = [];
         this.container = document.getElementById(containerId);
@@ -11,21 +11,21 @@ class Mood {
         this.loadFeed();
     }
 
-    async getMood(slug) {
+    async getResearch(slug) {
         const response = await fetch(`https://widgets.pinterest.com/v3/pidgets/boards/headlesshorse/${slug}/pins/`);
         if (response.ok) return (await response.json()).data.pins;
         throw new Error('Network Error');
     }
 
     async loadFeed() {
-        const feedData = await Promise.all(this.filter.map(slug => this.getMood(slug)));
+        const feedData = await Promise.all(this.filter.map(slug => this.getResearch(slug)));
         this.feed = feedData.flat();
         this.loadedCount = 0;
         this.render();
     }
 
     async loadByFilter(index) {
-        this.feed = await this.getMood(this.filter[index]);
+        this.feed = await this.getResearch(this.filter[index]);
         this.loadedCount = 0;
         this.render();
     }
@@ -69,21 +69,4 @@ class Mood {
     }
 }
 
-new Mood('media', 'Direction', 'Graphic', 'Wellness', 'Print', 'Space', 'Style');
-
-// Typing
-document.querySelectorAll('section *').forEach(element => {
-    if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3 && !element.classList.contains('typewriter')) {
-        element.classList.add('typewriter');
-        let text = element.textContent;
-        element.textContent = text.substring(0, text.length - 20);
-        let i = Math.max(0, text.length - 20);
-        function type() {
-            if (i < text.length) {
-                element.textContent += text.charAt(i++);
-                setTimeout(type, 120);
-            }
-        }
-        type();
-    }
-});
+new Research('media', 'Direction', 'Graphic', 'Wellness', 'Print', 'Space', 'Style');
