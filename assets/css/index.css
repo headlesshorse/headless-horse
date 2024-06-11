@@ -44,12 +44,10 @@ a:hover {
 
 @keyframes flicker {
   0%, 2%, 6%, 8%, 12%, 16%, 18%, 99% {
-    opacity: 1
+    opacity: 1;
   }
-
-  3%, 5%, 9%, 11%, 15%, 17%,
-  to {
-    opacity: 0
+  3%, 5%, 9%, 11%, 15%, 17%, to {
+    opacity: 0;
   }
 }
 
@@ -62,7 +60,6 @@ ul {
 }
 
 li {
-  display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
@@ -179,7 +176,6 @@ footer a:nth-of-type(2) {
 #tooltip {
   min-width: 15em;
   padding: 1em;
-  margin: 1em;
   background: var(--border-corner);
   background-color: #000;
   text-align: center;
