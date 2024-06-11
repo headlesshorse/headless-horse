@@ -1,4 +1,3 @@
-// Menu
 document.addEventListener('DOMContentLoaded', () => {
     const [menuTrigger, menuOverlay] = ['horseshoe', 'menu'].map(id => document.getElementById(id));
 
@@ -11,10 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     menuOverlay.addEventListener('click', (e) => (e.target === menuOverlay) && toggleMenu());
 });
 
-// Carbon
 const CO2 = async () => {
     const { size = '', url = '', co2 = '' } = await (await fetch(`https://digitalbeacon.co/badge?url=${encodeURIComponent(window.location.href)}`)).json();
-    document.getElementById('carbon').outerHTML = `<a href="${url}" target="_blank" data-more="Low-consumption site using renewable energy.">${size} / ${co2}</a>`;
+    document.getElementById('carbon').outerHTML = `<a href="${url}" target="_blank" data-more="Low-impact site powered by clean energy ⋆˙⟡">${size} / ${co2}</a>`;
 };
 
 CO2();
