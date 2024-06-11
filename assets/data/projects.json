@@ -9,6 +9,7 @@
       ],
       "press": [
         {"title": "Vogue", "date": "16.11.20", "link": "https://vogue.co.uk/beauty/gallery/best-mood-supplements#:~:text=LYMA"},
+        {"title": "Vogue", "date": "10.05.24", "link": "https://www.vogue.co.uk/article/best-multivitamins-for-women#:~:text=LYMA"},
         {"title": "Forbes", "date": "31.12.20", "link": "https://forbes.com/sites/biancasalonga/2022/09/07/meet-the-gold-standard-and-supermodel-health-supplement-from-lyma"},
         {"title": "Evening Standard", "date": "27.04.23", "link": "https://standard.co.uk/business/venture-capitalists-plough-ps1m-into-luxury-health-supplements-maker-lyma-a4058231.html"},
         {"title": "Financial Times", "date": "07.09.22", "link": "https://ft.com/content/08078211-638b-4326-ac2e-92ae2cdf65c9"}
@@ -83,7 +84,7 @@
       ]
     },
     {
-      "title": "Billelis",
+      "title": "Billelis: In Memoriam",
       "slug": "billelis",
       "description": "Headless Horse collaborated with Billelis to curate the digital canvas for his NFT auction. Crafting a virtual gallery, we wove into the narrative for the collection, building anticipation in the lead-up to the sale. Post-auction, our collaboration extended as we created a book that was distributed to collectors who obtained all eight unique artworks during the sale. Partnering with the esteemed French artistic printing company, Imprimerie du Marais, we brought the artist's vision to life through exquisite packaging and foiled artworks, each page narrating the moving story behind its creation.",
       "links": [
@@ -149,7 +150,7 @@
       ]
     },
     {
-      "title": "Nike Air Max Day",
+      "title": "Nike: Air Max Day",
       "slug": "nike-air-max",
       "description": "This marble shoe was hand carved by Alasdair Thomson for Nike Air Max Day, 2017. Nike, the Greek goddess of victory, sister of Strength, Force and Zeal. Headless Horse delivered Nike Air Max, hand carved in white marble by sculptor, Alasdair Thomson. The Horsemen decided to celebrate Air Max Day 2017, with an immortal representation of grecian style, set in stone.",
       "links": [
@@ -173,7 +174,7 @@
       ]
     },
     {
-      "title": "Chanel No5",
+      "title": "Chanel: No5",
       "slug": "chanel",
       "description": "White Carrara marble, Chanel No5, bottle. Hand carved from marble, gilded with 24-carat gold leaf, and encased in a refurbished ammunition crate lined with crushed black velvet.<br>In memory of Robin Abbey 1948 - 2019.",
       "links": [
