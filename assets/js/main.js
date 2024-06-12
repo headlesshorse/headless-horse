@@ -29,9 +29,7 @@ document.querySelectorAll('section *').forEach(element => {
 });
 
 // Carbon
-const carbon = async () => {
+(async () => {
     const { size = '', url = '', co2 = '' } = await (await fetch(`https://digitalbeacon.co/badge?url=${encodeURIComponent(window.location.href)}`)).json();
     document.getElementById('carbon').outerHTML = `<a href="${url}" target="_blank" data-more="Low-impact site powered by clean energy ⋆˙⟡">${size} / ${co2}</a>`;
-};
-
-carbon();
+})();
