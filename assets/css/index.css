@@ -1,7 +1,5 @@
 :root {
-  --b: rgba(0, 0, 0, 0) 90deg, #999 0;
-  --p: .4em .4em border-box no-repeat;
-  --border-corner: conic-gradient(from 90deg at top 1px left 1px, var(--b)) 0 0 / var(--p), conic-gradient(from 180deg at top 1px right 1px, var(--b)) 100% 0 / var(--p), conic-gradient(from 0deg at bottom 1px left 1px, var(--b)) 0 100% / var(--p), conic-gradient(from -90deg at bottom 1px right 1px, var(--b)) 100% 100% / var(--p)
+  --border-corner: linear-gradient(to right, #999 .1em, transparent .1em) 0 0, linear-gradient(to right, #999 .1em, transparent .1em) 0 100%, linear-gradient(to left, #999 .1em, transparent .1em) 100% 0, linear-gradient(to left, #999 .1em, transparent .1em) 100% 100%, linear-gradient(to bottom, #999 .1em, transparent .1em) 0 0, linear-gradient(to bottom, #999 .1em, transparent .1em) 100% 0, linear-gradient(to top, #999 .1em, transparent .1em) 0 100%, linear-gradient(to top, #999 .1em, transparent .1em) 100% 100%;
 }
 
 * {
@@ -144,7 +142,14 @@ details[open] summary {
 
 #media figure {
   padding: 5em;
-  background: var(--border-corner)
+  background: var(--border-corner);
+  background-size: .4em .4em;
+  background-repeat: no-repeat;
+  transition: background 0.8s ease
+}
+
+#media figure:hover {
+  background-size: 1.2em 1.2em
 }
 
 #media img, #media video {
@@ -178,6 +183,8 @@ footer a:nth-of-type(2) {
   padding: 1em;
   background: var(--border-corner);
   background-color: #000;
+  background-size: .4em .4em;
+  background-repeat: no-repeat;
   text-align: center;
   text-transform: uppercase;
   filter: drop-shadow(0px 12px 20px #000)
