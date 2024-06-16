@@ -1,37 +1,37 @@
 async function fetchProjectData() {
-  const currentPage = window.location.pathname.split('/').pop();
-  const { projects } = await (await fetch('/assets/data/projects.json')).json();
-  const project = projects.find(({ slug }) => slug === currentPage);
+	const currentPage = window.location.pathname.split('/').pop();
+	const { projects } = await (await fetch('/assets/data/projects.json')).json();
+	const project = projects.find(({ slug }) => slug === currentPage);
 
-  document.title = `${project.title} | HEADLESS HORSE`;
-  populateHTML(project, projects);
+	document.title = `${project.title} | HEADLESS HORSE`;
+	populateHTML(project, projects);
 }
 
 const getSizeInKB = async (url) => Math.ceil((await fetch(url).then(res => res.blob())).size / 1024);
 
 const populateHTML = async (project, allProjects) => {
 
-  let mediaListHTML = '';
-  const mediaItemsHTML = [];
-  for (let index = 0; index < project.media.length; index++) {
-    const { src, alt, type } = project.media[index];
-    const sizeKB = await getSizeInKB(src);
+	let mediaListHTML = '';
+	const mediaItemsHTML = [];
+	for (let index = 0; index < project.media.length; index++) {
+		const { src, alt, type } = project.media[index];
+		const sizeKB = await getSizeInKB(src);
 
-    const mediaContent = type === 'Image'
-      ? `<img src="${src}" alt="${alt}" loading="lazy" width="auto" height="100%">`
-      : `<video autoplay loop muted preload="none" width="auto" height="100%"><source src="${src}" type="video/mp4"></video>`;
+		const mediaContent = type === 'Image'
+			? `<img src="${src}" alt="${alt}" loading="lazy" width="auto" height="100%">`
+			: `<video autoplay loop muted preload="none" width="auto" height="100%"><source src="${src}" type="video/mp4"></video>`;
 
-    const linkNumber = (index + 1).toString().padStart(2, '0');
-    const listItem = `<li><a href="#media-${linkNumber}" data-more="${type} / ${sizeKB} KB">${linkNumber}. ${alt}</a></li>`;
-    mediaListHTML += listItem;
+		const linkNumber = (index + 1).toString().padStart(2, '0');
+		const listItem = `<li><a href="#media-${linkNumber}" data-more="${type} / ${sizeKB} KB">${linkNumber}. ${alt}</a></li>`;
+		mediaListHTML += listItem;
 
-    const figureItem = `<figure id="media-${linkNumber}">${mediaContent}<figcaption>${linkNumber}. ${alt} / ${sizeKB} KB</figcaption></figure>`;
-    mediaItemsHTML.push(figureItem);
-  }
+		const figureItem = `<figure id="media-${linkNumber}">${mediaContent}<figcaption>${linkNumber}. ${alt} / ${sizeKB} KB</figcaption></figure>`;
+		mediaItemsHTML.push(figureItem);
+	}
 
-  const getNextProjectLink = (nextProject) => nextProject ? `<a href="/projects/${nextProject.slug}">[Next: ${nextProject.title}]</a>` : '';
+	const getNextProjectLink = (nextProject) => nextProject ? `<a href="/projects/${nextProject.slug}">[Next: ${nextProject.title}]</a>` : '';
 
-  const template = `
+	const template = `
     <main>
       <article id="details">
         <section>
@@ -60,7 +60,7 @@ const populateHTML = async (project, allProjects) => {
     </main>
   `;
 
-  document.querySelector('header').insertAdjacentHTML('afterend', template);
+	document.querySelector('header').insertAdjacentHTML('afterend', template);
 };
 
 window.onload = fetchProjectData;
