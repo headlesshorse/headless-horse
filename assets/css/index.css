@@ -137,7 +137,7 @@ details[open] summary {
   background: var(--border-corner);
   background-size: .4em .4em;
   background-repeat: no-repeat;
-  transition: background 0.5s ease
+  transition: background-size 0.5s ease
 }
 
 #media figure:hover {
