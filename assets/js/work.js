@@ -50,7 +50,7 @@ function showTooltip(event) {
 function hideTooltip() {
   if (mobile) return;
   const tooltip = document.getElementById('tooltip');
-  const title = tooltip.innerText.replace(' [VISIT]', '');
+  const title = tooltip.innerText.replace('↳', '');
   tooltip.remove();
   this.setAttribute('title', title);
 }
@@ -61,7 +61,7 @@ function createTooltip(area) {
   tooltip.style.position = 'absolute';
   const title = area.getAttribute('title');
   const link = area.getAttribute('href');
-  tooltip.innerHTML = link ? `${title} [VISIT]` : title;
+  tooltip.innerHTML = link ? `<span style="animation: blink 1.5s steps(4, start) infinite">↳</span> ${title}` : title;
   return tooltip;
 }
 
