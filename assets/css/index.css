@@ -180,9 +180,8 @@ footer a:nth-of-type(2) {
 
 .line {
   width: 0;
-  height: .05em;
+  border-bottom: .05em solid #999;
   margin: 2em 0 1em 0;
-  background: #999;
   animation: draw 1s forwards
 }
 
