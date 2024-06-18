@@ -97,7 +97,7 @@ main {
 }
 
 #info {
-  height: calc(100vh - 4.9em)
+  height: calc(100vh - 7.1em)
 }
 
 #info, #details, #media {
@@ -131,7 +131,7 @@ details[open] summary {
 }
 
 #media figure {
-  padding: 5em;
+  padding: 7em;
   background: var(--border-corner);
   background-size: .4em .4em;
   background-repeat: no-repeat;
@@ -155,13 +155,9 @@ details[open] summary {
   display: block;
   overflow: hidden;
   width: 20vw;
-  margin: 3em auto;
+  margin: 4em auto;
   text-overflow: ellipsis;
   white-space: nowrap
-}
-
-footer {
-  padding-top: 1em;
 }
 
 footer a:nth-of-type(2) {
@@ -185,8 +181,9 @@ footer a:nth-of-type(2) {
 .line {
   width: 0;
   height: .05em;
+  margin: 2em 0 1em 0;
   background: #999;
-  animation: draw 1s forwards;
+  animation: draw 1s forwards
 }
 
 @media screen and (max-width: 820px) {
