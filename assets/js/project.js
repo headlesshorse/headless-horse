@@ -22,7 +22,7 @@ const populateHTML = async (project, allProjects) => {
 		mediaItemsHTML.push(`<figure id="media-${linkNumber}"><img src="${src}" alt="${alt}" loading="lazy" width="100%" height="100%"><figcaption>${linkNumber}. ${alt} / ${sizeKB} KB</figcaption></figure>`);
 	}
 
-	const getNextProjectLink = (nextProject) => nextProject ? `<a href="/projects/${nextProject.slug}">[Next: ${nextProject.title}]</a>` : '';
+	const getNextProjectLink = (nextProject) => nextProject ? `<a href="/projects/${nextProject.slug}"><span style="animation: blink 1.5s steps(4, start) infinite">↳ </span>Next: ${nextProject.title}</a>` : '';
 
 	document.querySelector('header').insertAdjacentHTML('afterend', `
     <main>
@@ -37,11 +37,14 @@ const populateHTML = async (project, allProjects) => {
           ${project.credits.length ? `<h2>Credits</h2><ul>${project.credits.map(({ link, title, credit }) => `<li><a href="${link}" target="_blank" rel="noreferrer" data-more="${credit}">${title}</a></li>`).join('')}</ul>` : ''}
         </section>
         <details>
-          <summary>[Index]</summary>
+          <summary>Index</summary>
           <ul>${mediaListHTML}</ul>
         </details>
       </article>
-      <section id="media">${mediaItemsHTML.join('')}</section>
+
+      <div class="line"></div>
+      <div id="media">${mediaItemsHTML.join('')}</div>
+
       <footer>
         <a id="carbon"></a>
         ${getNextProjectLink(allProjects[(allProjects.findIndex(({ slug }) => slug === project.slug) + 1) % allProjects.length])}
