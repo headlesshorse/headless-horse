@@ -220,4 +220,4 @@ footer a:nth-of-type(2) {
 
 @keyframes blink { to { visibility: hidden } }
 
-@keyframes draw { 0% { width: 0; } 100% { width: 100%; } }
+@keyframes draw { 0% { width: 0; } 100% { width: 100% } }
