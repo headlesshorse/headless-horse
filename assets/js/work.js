@@ -1,4 +1,4 @@
-const i = { e: document.querySelector('#projects'), x: 0, y: 0 };
+const i = { e: document.querySelector('#work'), x: 0, y: 0 };
 let tX = 0, tY = 0, decelerate = false;
 
 function init() {
