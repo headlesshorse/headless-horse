@@ -1,6 +1,6 @@
 // Menu
 document.addEventListener('DOMContentLoaded', () => {
-	const [menuTrigger, menuOverlay] = ['horseshoe', 'menu'].map(id => document.getElementById(id));
+	const [menuTrigger, menuOverlay] = ['horseshoe', 'nav'].map(id => document.getElementById(id));
 
 	const toggleMenu = () => {
 		menuOverlay.style.display = (menuOverlay.style.display === 'flex') ? 'none' : 'flex';

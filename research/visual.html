@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Research | HEADLESS HORSE</title>
+  <title>Visual Research | HEADLESS HORSE</title>
   <meta name="description" content="Headless Horse is an independent branding, design, and development studio. Articulating visions for the industries of beauty, fashion, culture, and commerce.">
   <meta name="theme-color" content="#000000">
   <meta property="og:title" content="HEADLESS HORSE">
@@ -17,20 +17,29 @@
 <body>
   <header>
     <a id="horseshoe"><img src="/assets/media/horseshoe.webp" alt="Headless Horse Menu"></a>
-    <nav id="menu">
+    <nav id="nav">
       <ul>
         <li><a href="/">Work</a></li>
         <li><a href="/info">Info</a></li>
-        <li><a href="/research">Research</a></li>
+        <li><a href="/research/visual">Research</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <article id="details">
+    <div id="subnav">
+      <h1>/Research/Visual</h1>
+      <ul>
+        <li><span class="marker">↳</span> <a href="./visual">Visual</a></li>
+        <li><a href="./academic">Academic</a></li>
+      </ul>
+    </div>
+    <div class="line"></div>
+
+    <article id="info">
       <section>
         <h2>Info</h2>
-        <p>Welcome to our visual research page. Use the filter to sort images by category.<br>All images are sourced from our Pinterest profile via the Pinterest API and are copyrighted by their respective owners. Hover over an image to view its source.<br><a href="https://pinterest.com/headlesshorse" target="_blank">Visit our Pinterest profile.</a></p>
+        <p>Welcome to our visual research page. Use the filter to sort images by category.<br>All images are served using the Pinterest API and are copyrighted by their respective owners. Hover over an image to view its source.<br><a href="https://pinterest.com/headlesshorse" target="_blank">Visit our Pinterest profile.</a></p>
       </section>
       <section>
         <h2>Tags</h2>
@@ -39,8 +48,7 @@
     </article>
 
     <div class="line"></div>
-    <div id="media">
-    </div>
+    <div id="media"></div>
 
     <footer>
       <a id="carbon"></a>
@@ -48,7 +56,7 @@
   </main>
   
   <script src="/assets/js/main.js"></script>
-  <script async src="/assets/js/research.js"></script>
+  <script async src="/assets/js/research/visual.js"></script>
   <script async defer src="https://scripts.withcabin.com/hello.js"></script>
 </body>
 

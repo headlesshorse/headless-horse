@@ -22,32 +22,39 @@ const populateHTML = async (project, allProjects) => {
 		mediaItemsHTML.push(`<figure id="media-${linkNumber}"><img src="${src}" alt="${alt}" loading="lazy" width="100%" height="100%"><figcaption>${linkNumber}. ${alt} / ${sizeKB} KB</figcaption></figure>`);
 	}
 
-	const getNextProjectLink = (nextProject) => nextProject ? `<a href="/projects/${nextProject.slug}"><span style="animation: blink 1.5s steps(4, start) infinite">↳ </span>Next: ${nextProject.title}</a>` : '';
+	const getNextProjectLink = (nextProject) => nextProject ? `<a href="/projects/${nextProject.slug}"><span class="marker">↳</span> Next: ${nextProject.title}</a>` : '';
 
 	document.querySelector('header').insertAdjacentHTML('afterend', `
     <main>
-      <article id="details">
+      <div id="subnav">
+        <h1>/Work/${project.title}</h1>
+        <ul>
+          <li>${getNextProjectLink(allProjects[(allProjects.findIndex(({ slug }) => slug === project.slug) + 1) % allProjects.length])}</li>
+        </ul>
+      </div>
+      <div class="line"></div>
+
+      <article id="info">
         <section>
           <h2>Info</h2>
-          <p>${project.description}</p>
+          <p>${project.info}</p>
         </section>
         <section>
           ${project.links.length ? `<h2>Links</h2><ul>${project.links.map(({ link, title }) => `<li><a href="${link}" target="_blank" rel="noreferrer" data-more="${link}">${title}</a></li>`).join('')}</ul>` : ''}
           ${project.press.length ? `<h2>Press</h2><ul>${project.press.map(({ link, title, date }) => `<li><a href="${link}" target="_blank" rel="noreferrer" data-more="${date}">${title}</a></li>`).join('')}</ul>` : ''}
           ${project.credits.length ? `<h2>Credits</h2><ul>${project.credits.map(({ link, title, credit }) => `<li><a href="${link}" target="_blank" rel="noreferrer" data-more="${credit}">${title}</a></li>`).join('')}</ul>` : ''}
         </section>
-        <details>
-          <summary>Index</summary>
-          <ul>${mediaListHTML}</ul>
-        </details>
       </article>
 
+      <details>
+        <summary><span class="marker">↳</span> Index</summary>
+        <ul>${mediaListHTML}</ul>
+      </details>
       <div class="line"></div>
       <div id="media">${mediaItemsHTML.join('')}</div>
 
       <footer>
         <a id="carbon"></a>
-        ${getNextProjectLink(allProjects[(allProjects.findIndex(({ slug }) => slug === project.slug) + 1) % allProjects.length])}
       </footer>
     </main>
   `);

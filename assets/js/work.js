@@ -61,7 +61,7 @@ function createTooltip(area) {
   tooltip.style.position = 'absolute';
   const title = area.getAttribute('title');
   const link = area.getAttribute('href');
-  tooltip.innerHTML = link ? `<span style="animation: blink 1.5s steps(4, start) infinite">↳</span> ${title}` : title;
+  tooltip.innerHTML = link ? `<span class="marker">↳</span> ${title}` : title;
   return tooltip;
 }
 
