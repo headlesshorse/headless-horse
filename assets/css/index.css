@@ -107,7 +107,7 @@ main {
 
 #info, #media {
   display: grid;
-  grid: auto 45em / repeat(3, 1fr);
+  grid: 45em / repeat(3, 1fr);
   gap: 2em
 }
 
