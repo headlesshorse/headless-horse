@@ -41,7 +41,7 @@ class Research {
 		this.container.innerHTML = feedItems.map(({ images, link, id }) => {
 			const imageUrl = images['237x'].url;
 			const sourceUrl = link?.replace(/^https?:\/\/(www\.)?/i, '');
-			return `<figure><img src="${imageUrl}" width="100%" height="100%" style="filter: grayscale(50%) contrast(0.8) brightness(0.9)"><figcaption><a href="${sourceUrl ? link : `https://pinterest.com/pin/${id}`}" target="_blank">${sourceUrl ? `Source: ${sourceUrl}` : 'Source not available'}</a></figcaption></figure>`;
+			return `<figure><img src="${imageUrl}" width="100%" height="100%" style="filter: grayscale(50%) contrast(.8) brightness(.9)"><figcaption><a href="${sourceUrl ? link : `https://pinterest.com/pin/${id}`}" target="_blank">${sourceUrl ? `Source: ${sourceUrl}` : 'Source not available'}</a></figcaption></figure>`;
 		}).join('');
 
 		if (this.loadedCount < this.feed.length) {
