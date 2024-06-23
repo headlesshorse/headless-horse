@@ -120,14 +120,14 @@ main {
   animation: slide 1s forwards .5s;
 }
 
-details summary::-webkit-details-marker {
-  display: none
-}
-
 details summary {
   margin-top: 2em;
   text-transform: uppercase;
   cursor: s-resize
+}
+
+details summary::-webkit-details-marker {
+  display: none
 }
 
 details[open] summary {
