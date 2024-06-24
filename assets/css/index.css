@@ -7,8 +7,7 @@
   padding: 0;
   margin: 0;
   color: #999;
-  font: normal 11px courier, monospace;
-  line-height: 1.6;
+  font: normal 11px/1.6 courier, monospace;
   text-decoration: none
 }
 
