@@ -66,6 +66,26 @@ function createTooltip(area) {
 }
 
 function updateTooltipPosition(event, tooltip) {
-  tooltip.style.top = `${event.pageY + 20}px`;
-  tooltip.style.left = `${event.pageX + 20}px`;
+  tooltip.style.top = `${event.pageY + 15}px`;
+  tooltip.style.left = `${event.pageX + 15}px`;
 }
+
+document.body.insertBefore(
+  (() => {
+    const cursor = document.createElement('div');
+    cursor.id = 'cursor';
+    cursor.style.cssText = 'height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: 1;';
+    cursor.innerHTML = `<div id="linex" style="position: relative; min-height: .05em; background: #999; opacity: .5;"></div><div id="liney" style="position: relative; width: .05em; min-height: 100%; background: #999; opacity: .5;"></div><div id="datay" style="position: absolute; bottom: 1em; left: 15px;"></div><div id="datax" style="position: absolute; right: 1em; top: 10px;"></div>`;
+    const updateCursor = ({ clientX, clientY, pageX, pageY }) => {
+      cursor.querySelector("#linex").style.top = `${clientY}px`;
+      cursor.querySelector("#liney").style.left = `${clientX}px`;
+      cursor.querySelector("#datay").style.left = `${clientX + 15}px`;
+      cursor.querySelector("#datay").textContent = `[X. ${pageX}]`;
+      cursor.querySelector("#datax").style.top = `${clientY + 10}px`;
+      cursor.querySelector("#datax").textContent = `[Y. ${pageY}]`;
+    };
+    document.addEventListener('mousemove', updateCursor);
+    return cursor;
+  })(),
+  document.getElementById('work')
+);

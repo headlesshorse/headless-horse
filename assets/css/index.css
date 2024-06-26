@@ -59,13 +59,12 @@ li {
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: help;
-  filter: drop-shadow(0 1em 2em #000);
   animation: none
 }
 
 nav {
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   display: none;
   justify-content: center;
   align-items: center;
@@ -180,8 +179,7 @@ input, input:focus {
   background-size: .4em .4em;
   background-repeat: no-repeat;
   text-align: center;
-  text-transform: uppercase;
-  filter: drop-shadow(0 1em 2em #000);
+  text-transform: uppercase
 }
 
 .line {
@@ -216,6 +214,10 @@ input, input:focus {
 
   figure figcaption {
     opacity: 1
+  }
+
+  #cursor {
+    display: none;
   }
 }
 
