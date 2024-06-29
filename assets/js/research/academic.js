@@ -1,20 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   const $ = id => document.getElementById(id),
-        searchInput = $('searchInput'), 
+        searchInput = $('search'), 
         resultsList = $('media'), 
-        searchCount = $('searchCount'), 
+        searchCount = $('count'), 
         popularTerms = $('tags');
 
   let data = [], timeoutId;
-
-  const getSizeInKB = async url => {
-    try {
-      const res = await fetch(url);
-      return Math.ceil((await res.blob()).size / 1024);
-    } catch {
-      return 'N/A';
-    }
-  };
 
   const fetchData = async () => {
     try {
@@ -37,16 +28,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
       searchCount.textContent = `${filteredData.length} result(s)`;
 
-      for (const { name, info, thumbnail, date, file, fileSizeURL } of filteredData) {
+      for (const { name, info, thumbnail, date, file } of filteredData) {
+        const cleanFile = file?.replace(/^https?:\/\/(www\.)?/i, '');
+
         const figure = document.createElement('figure');
         figure.innerHTML = `
           <h2><a href="${file}" target="_blank">${name}</a></h2>
           <p>${info}</p>
-          <img src="${thumbnail}" alt="${name}">
+          <img src="${thumbnail}" style="filter: grayscale(50%) contrast(.8) brightness(.9)">
           <figcaption>
             <ul>
               <li>Published: ${date}</li>
-              <li><a href="${file}" target="_blank">Download: ${file.split('.').pop().toLowerCase()} / ${await getSizeInKB(fileSizeURL)} KB</a></li>
+              <li><a href="${file}" target="_blank">View: ${cleanFile}</a></li>
             </ul>
           </figcaption>
         `;
