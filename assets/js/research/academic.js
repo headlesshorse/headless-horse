@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const fetchData = async () => {
     try {
-      const res = await fetch('/assets/data/research.json');
+      const res = await fetch('/assets/data/academic.json');
       data = await res.json();
       fetchAndDisplayData();
     } catch (e) {
