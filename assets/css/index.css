@@ -109,10 +109,6 @@ main {
   gap: 2em
 }
 
-#info {
-  height: calc(100vh - 7em)
-}
-
 #media {
   padding: 1em 0;
   transform: translateY(100%);
@@ -208,7 +204,7 @@ input, input:focus {
   
   #info, #media {
     grid: auto / 1fr;
-    height: auto
+    height: auto !important
   }
 
   section {
