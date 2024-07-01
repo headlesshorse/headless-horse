@@ -1,5 +1,5 @@
 :root {
-  --border-corner: linear-gradient(to right, #999 .05em, transparent .05em) 0 0, linear-gradient(to right, #999 .05em, transparent .05em) 0 100%, linear-gradient(to left, #999 .05em, transparent .05em) 100% 0, linear-gradient(to left, #999 .05em, transparent .05em) 100% 100%, linear-gradient(to bottom, #999 .05em, transparent .05em) 0 0, linear-gradient(to bottom, #999 .05em, transparent .05em) 100% 0, linear-gradient(to top, #999 .05em, transparent .05em) 0 100%, linear-gradient(to top, #999 .05em, transparent .05em) 100% 100%
+  --border-corner: linear-gradient(to right, #999 1px, transparent 1px) 0 0, linear-gradient(to right, #999 1px, transparent 1px) 0 100%, linear-gradient(to left, #999 1px, transparent 1px) 100% 0, linear-gradient(to left, #999 1px, transparent 1px) 100% 100%, linear-gradient(to bottom, #999 1px, transparent 1px) 0 0, linear-gradient(to bottom, #999 1px, transparent 1px) 100% 0, linear-gradient(to top, #999 1px, transparent 1px) 0 100%, linear-gradient(to top, #999 1px, transparent 1px) 100% 100%
 }
 
 * {
@@ -135,14 +135,14 @@ figure {
   justify-content: center;
   align-items: center;
   background: var(--border-corner);
-  background-size: .4em .4em;
+  background-size: 4px 4px;
   background-repeat: no-repeat;
   transition: background-size 0.5s ease;
   text-align: center
 }
 
 figure:hover {
-  background-size: 1.2em 1.2em
+  background-size: 12px 12px
 }
 
 figure img {
@@ -176,7 +176,7 @@ input, input:focus {
   padding: 1em;
   background: var(--border-corner);
   background-color: #000;
-  background-size: .4em .4em;
+  background-size: 4px 4px;
   background-repeat: no-repeat;
   text-align: center;
   text-transform: uppercase
@@ -184,7 +184,7 @@ input, input:focus {
 
 .line {
   width: 0;
-  border-top: .05em solid #999;
+  border-top: 1px solid #999;
   margin: 1em 0;
   animation: draw 1s forwards
 }
