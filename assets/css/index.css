@@ -46,8 +46,12 @@ ul {
 }
 
 li {
+  display: -webkit-box;
   overflow: hidden;
-  text-overflow: ellipsis
+  -webkit-box-orient: vertical;
+  box-orient: vetical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1
 }
 
 #horseshoe {
