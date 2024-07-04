@@ -12,7 +12,7 @@
 }
 
 body {
-  background: #000
+  background: #000;
 }
 
 h1, h2 {
@@ -47,9 +47,7 @@ ul {
 
 li {
   overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical
+  text-overflow: ellipsis
 }
 
 #horseshoe {
@@ -161,7 +159,7 @@ figure figcaption {
 }
 
 figure:hover figcaption {
-  opacity: 1;
+  opacity: 1
 }
 
 input, input:focus {
@@ -218,7 +216,7 @@ input, input:focus {
   }
 
   #cursor {
-    display: none;
+    display: none
   }
 }
 
