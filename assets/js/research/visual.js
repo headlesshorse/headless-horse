@@ -39,7 +39,7 @@ class Media {
 	render() {
 		const feedItems = this.feed.slice(0, this.loadedCount += this.perLoad);
 		this.container.innerHTML = feedItems.map(({ images, link, id }) => {
-			const image = images['564x'].url;
+			const image = images['237x'].url;
 			const cleanLink = link?.replace(/^https?:\/\/(www\.)?/i, '');
 			return `<figure><img src="${image}" style="filter: grayscale(50%) contrast(.8) brightness(.9)"><figcaption><a href="${cleanLink ? link : `https://pinterest.com/pin/${id}`}" target="_blank">${cleanLink ? `Source: ${cleanLink}` : 'Source not available'}</a></figcaption></figure>`;
 		}).join('');
