@@ -117,20 +117,6 @@ main {
   animation: slide 1s forwards .5s
 }
 
-details summary {
-  margin-top: 2em;
-  text-transform: uppercase;
-  cursor: s-resize
-}
-
-details summary::-webkit-details-marker {
-  display: none
-}
-
-details[open] summary {
-  cursor: n-resize
-}
-
 figure {
   display: flex;
   flex-direction: column;
@@ -150,6 +136,7 @@ figure:hover {
 figure img {
   width: 70%;
   height: 60%;
+  max-height: 700px;
   margin: 4em 0;
   object-fit: contain
 }
@@ -169,16 +156,6 @@ input, input:focus {
   caret-color: #999
 }
 
-#tooltip {
-  min-width: 15em;
-  padding: 1em;
-  background: var(--border-corner), #000;
-  background-size: 4px 4px;
-  background-repeat: no-repeat;
-  text-align: center;
-  text-transform: uppercase
-}
-
 .line {
   width: 0;
   border-top: 1px solid #999;
@@ -188,6 +165,16 @@ input, input:focus {
 
 .marker {
   animation: blink 1.5s steps(4, start) infinite
+}
+
+#tooltip {
+  min-width: 15em;
+  padding: 1em;
+  background: var(--border-corner), #000;
+  background-size: 4px 4px;
+  background-repeat: no-repeat;
+  text-align: center;
+  text-transform: uppercase
 }
 
 @media screen and (max-width: 820px) {

@@ -1,4 +1,4 @@
-class Research {
+class Media {
 	constructor(containerId, ...tags) {
 		this.container = document.getElementById(containerId);
 		this.tagContainer = document.getElementById('tags');
@@ -12,7 +12,7 @@ class Research {
 		this.loadByTag(0);
 	}
 
-	async getResearch(tag) {
+	async getMedia(tag) {
 		const baseUrl = 'https://widgets.pinterest.com/v3/pidgets/';
 		const endpoint = tag === 'All' ? `users/headlesshorse/pins/` : `boards/headlesshorse/${tag}/pins/`;
 		const apiUrl = `${baseUrl}${endpoint}`;
@@ -27,7 +27,7 @@ class Research {
 
 	async loadByTag(index) {
 		this.activeTagIndex = index;
-		this.feed = await this.getResearch(this.tags[index]);
+		this.feed = await this.getMedia(this.tags[index]);
 		this.loadedCount = 0;
 		this.render();
 	}
@@ -39,7 +39,7 @@ class Research {
 	render() {
 		const feedItems = this.feed.slice(0, this.loadedCount += this.perLoad);
 		this.container.innerHTML = feedItems.map(({ images, link, id }) => {
-			const image = images['237x'].url;
+			const image = images['564x'].url;
 			const cleanLink = link?.replace(/^https?:\/\/(www\.)?/i, '');
 			return `<figure><img src="${image}" style="filter: grayscale(50%) contrast(.8) brightness(.9)"><figcaption><a href="${cleanLink ? link : `https://pinterest.com/pin/${id}`}" target="_blank">${cleanLink ? `Source: ${cleanLink}` : 'Source not available'}</a></figcaption></figure>`;
 		}).join('');
@@ -56,9 +56,9 @@ class Research {
 	renderTags() {
 		this.tagContainer.innerHTML = this.tags.map((tag, index) => {
 			const isActive = index === this.activeTagIndex;
-			return `<li><a onclick="research.loadByTag(${index})">${isActive ? '<span class="marker">↳</span> ' : ''}${tag}</a></li>`;
+			return `<li><a onclick="media.loadByTag(${index})">${isActive ? '<span class="marker">↳</span> ' : ''}${tag}</a></li>`;
 		}).join('');
 	}
 }
 
-const research = new Research('media', 'All', 'Direction', 'Graphic', 'Wellness', 'Print', 'Space', 'Style');
+const media = new Media('media', 'All', 'Direction', 'Graphic', 'Wellness', 'Print', 'Space', 'Style');

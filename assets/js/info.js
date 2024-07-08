@@ -1,3 +1,4 @@
+// Press
 const fetchWorkData = async () => {
   const { works } = await (await fetch('/assets/data/work.json')).json();
 

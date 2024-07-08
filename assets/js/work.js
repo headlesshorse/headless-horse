@@ -1,3 +1,4 @@
+// Work
 const i = { e: document.querySelector('#work'), x: 0, y: 0 };
 let tX = 0, tY = 0, decelerate = false;
 
@@ -32,6 +33,7 @@ function animate() {
 window.addEventListener('load', () => { init(); animate(); });
 window.addEventListener('beforeunload', () => cancelAnimationFrame(animate));
 
+// Tooltip
 const mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 Array.from(document.getElementsByTagName('area')).forEach(area => {
   area.addEventListener('mouseover', showTooltip);
@@ -70,12 +72,13 @@ function updateTooltipPosition(event, tooltip) {
   tooltip.style.left = `${event.pageX + 15}px`;
 }
 
+// Cursor
 document.body.insertBefore(
   (() => {
     const cursor = document.createElement('div');
     cursor.id = 'cursor';
     cursor.style.cssText = 'height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: 1;';
-    cursor.innerHTML = `<div id="linex" style="position: relative; min-height: .05em; background: #999; opacity: .5;"></div><div id="liney" style="position: relative; width: .05em; min-height: 100%; background: #999; opacity: .5;"></div><div id="datay" style="position: absolute; bottom: 1em; left: 15px;"></div><div id="datax" style="position: absolute; right: 1em; top: 10px;"></div>`;
+    cursor.innerHTML = `<div id="linex" style="position: relative; min-height: .05em; background: #999; opacity: .5;"></div><div id="liney" style="position: relative; width: .05em; min-height: 100%; background: #999; opacity: .5;"></div><div id="datay" style="position: absolute; bottom: 1em; left: 15px;"></div><div id="datax" style="position: absolute; right: 1em; top: 10px"></div>`;
     const updateCursor = ({ clientX, clientY, pageX, pageY }) => {
       cursor.querySelector("#linex").style.top = `${clientY}px`;
       cursor.querySelector("#liney").style.left = `${clientX}px`;
