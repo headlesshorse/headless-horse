@@ -12,7 +12,7 @@
 }
 
 body {
-  background: #000;
+  background: #000
 }
 
 h1, h2 {
@@ -143,6 +143,7 @@ figure img {
 
 figure figcaption {
   opacity: 0;
+  width: 70%
 }
 
 figure:hover figcaption {
@@ -195,10 +196,6 @@ input, input:focus {
     display: grid;
     grid-template-columns: 1fr 2fr;
     row-gap: 2em
-  }
-
-  figure figcaption {
-    opacity: 1
   }
 
   #cursor {
