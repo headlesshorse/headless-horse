@@ -1,3 +1,4 @@
+// Media
 class Media {
 	constructor(containerId, ...tags) {
 		this.container = document.getElementById(containerId);
