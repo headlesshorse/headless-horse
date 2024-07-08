@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const figure = document.createElement('figure');
         figure.innerHTML = `
-          <h2><a href="${link}" target="_blank">${title}</a></h2>
+          <h2>${title}</h2>
           <p>${info}</p>
           <img src="${thumbnail}" style="filter: grayscale(50%) contrast(.8) brightness(.9)">
           <figcaption>
