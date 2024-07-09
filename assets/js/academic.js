@@ -1,10 +1,10 @@
 // Research
 document.addEventListener('DOMContentLoaded', () => {
   const $ = id => document.getElementById(id),
-        searchInput = $('search'), 
-        resultsList = $('media'), 
-        searchCount = $('count'), 
-        popularTerms = $('tags');
+    searchInput = $('search'),
+    resultsList = $('media'),
+    searchCount = $('count'),
+    popularTerms = $('tags');
 
   let data = [], timeoutId;
 
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <figcaption>
             <ul>
               <li>Published: ${date}</li>
-              <li><a href="${link}" target="_blank">View: ${cleanLink}</a></li>
+              <li><a href="${link}" target="_blank">Source: ${cleanLink}</a></li>
             </ul>
           </figcaption>
         `;

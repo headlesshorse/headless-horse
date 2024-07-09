@@ -1,6 +1,6 @@
 // Press
 const fetchWorkData = async () => {
-  const { works } = await (await fetch('/assets/data/work.json')).json();
+  const works = await (await fetch('/assets/data/work.json')).json();
 
   const titleCounts = {};
   const pressLinks = works.flatMap(work => (work.press || []).map(link => {

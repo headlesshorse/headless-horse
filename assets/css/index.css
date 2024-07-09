@@ -1,5 +1,5 @@
 :root {
-  --border-corner: linear-gradient(to right, #999 1px, transparent 1px) 0 0, linear-gradient(to right, #999 1px, transparent 1px) 0 100%, linear-gradient(to left, #999 1px, transparent 1px) 100% 0, linear-gradient(to left, #999 1px, transparent 1px) 100% 100%, linear-gradient(to bottom, #999 1px, transparent 1px) 0 0, linear-gradient(to bottom, #999 1px, transparent 1px) 100% 0, linear-gradient(to top, #999 1px, transparent 1px) 0 100%, linear-gradient(to top, #999 1px, transparent 1px) 100% 100%
+  --corner: linear-gradient(to right, #999 1px, transparent 1px) 0 0, linear-gradient(to right, #999 1px, transparent 1px) 0 100%, linear-gradient(to left, #999 1px, transparent 1px) 100% 0, linear-gradient(to left, #999 1px, transparent 1px) 100% 100%, linear-gradient(to bottom, #999 1px, transparent 1px) 0 0, linear-gradient(to bottom, #999 1px, transparent 1px) 100% 0, linear-gradient(to top, #999 1px, transparent 1px) 0 100%, linear-gradient(to top, #999 1px, transparent 1px) 100% 100%
 }
 
 * {
@@ -122,7 +122,7 @@ figure {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--border-corner);
+  background: var(--corner);
   background-size: 4px 4px;
   background-repeat: no-repeat;
   transition: background-size 0.5s ease;
@@ -171,7 +171,7 @@ input, input:focus {
 #tooltip {
   min-width: 15em;
   padding: 1em;
-  background: var(--border-corner), #000;
+  background: var(--corner), #000;
   background-size: 4px 4px;
   background-repeat: no-repeat;
   text-align: center;

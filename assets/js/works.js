@@ -1,7 +1,6 @@
-// Details
 const fetchWorkData = async () => {
   const currentPage = window.location.pathname.split('/').pop();
-  const { works } = await (await fetch('/assets/data/work.json')).json();
+  const works = await (await fetch('/assets/data/work.json')).json();
   const work = works.find(({ slug }) => slug === currentPage);
 
   document.title = `${work.title} | HEADLESS HORSE`;
