@@ -193,6 +193,10 @@ input, input:focus {
     height: auto !important
   }
 
+  figure {
+    max-width: 100%
+  }
+
   section {
     display: grid;
     grid-template-columns: 1fr 2fr;
