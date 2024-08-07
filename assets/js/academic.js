@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         [title, info].some(v => v.toLowerCase().includes(term))
       );
 
-      searchCount.textContent = `${filteredData.length} result(s)`;
+      searchCount.textContent = `${filteredData.length} Result(s)`;
 
       for (const { title, info, thumbnail, date, link } of filteredData) {
         const cleanLink = link?.replace(/^https?:\/\/(www\.)?/i, '');

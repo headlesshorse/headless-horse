@@ -30,6 +30,8 @@ document.querySelectorAll('section *').forEach(element => {
 
 // Carbon
 (async () => {
-  const { size = '', url = '', co2 = '' } = await (await fetch(`https://digitalbeacon.co/badge?url=${encodeURIComponent(window.location.href)}`)).json();
-  document.getElementById('carbon').outerHTML = `<a href="${url}" target="_blank" data-more="Low-impact site powered by clean energy ⋆˚✿˖°">${size} / ${co2}</a>`;
+  const { size = '', url = '', co2 = '', rating = '' } = await (await fetch(`https://digitalbeacon.co/badge?url=${encodeURIComponent(window.location.href)}`)).json();
+  const co2Formatted = parseFloat(co2).toFixed(2);
+  const ratingFormatted = rating.toUpperCase();
+  document.getElementById('carbon').outerHTML = `<a href="${url}" target="_blank" data-more="${size}, powered by clean energy ⋆˚✿˖°">${ratingFormatted} / ${co2Formatted}g CO2e</a>`;
 })();
