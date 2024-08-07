@@ -60,7 +60,7 @@ function hideTooltip() {
 function createTooltip(area) {
   const tooltip = document.createElement('div');
   tooltip.id = 'tooltip';
-  tooltip.style.position = 'absolute';
+  tooltip.style.cssText = 'position: absolute; min-width: 15em; padding: 1em; background: var(--corner), #000; background-size: 4px 4px; background-repeat: no-repeat; text-align: center; text-transform: uppercase';
   const title = area.getAttribute('title');
   const link = area.getAttribute('href');
   tooltip.innerHTML = link ? `<span class="marker">↳</span> ${title}` : title;
