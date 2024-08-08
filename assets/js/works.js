@@ -36,8 +36,13 @@ const populateHTML = (work, allWorks) => {
       <div class="line"></div>
       <div id="media"></div>
 
+      <div class="line"></div>
       <footer>
         <a id="carbon"></a>
+        <ul>
+          <li>Copyright © 2024</li>
+          <li><a href="https://withcabin.com/privacy/headless.horse" target="_blank">Privacy Policy</a></li>
+        </ul>
       </footer>
     </main>
   `);

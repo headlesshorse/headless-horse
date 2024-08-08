@@ -17,7 +17,6 @@ const fetchWorkData = async () => {
   const template = `
     <h2>Press</h2>
     <ul>${Object.keys(pressGroups).sort().map(title => `<li>${pressGroups[title].map((link, index) => `<a href="${link.link}" target="_blank" rel="noreferrer" data-more="${link.projectName}, ${link.date}">${index === 0 ? link.title : ''}${link.sectionLink}</a>`).join('')}</li>`).join('')}</ul>
-    <br>
   `;
   document.querySelector('section:last-of-type').insertAdjacentHTML('afterbegin', template);
 };
