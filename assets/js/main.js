@@ -33,5 +33,5 @@ document.querySelectorAll('section *').forEach(element => {
   const { size = '', url = '', co2 = '', rating = '' } = await (await fetch(`https://digitalbeacon.co/badge?url=${encodeURIComponent(window.location.href)}`)).json();
   const co2Formatted = parseFloat(co2).toFixed(2);
   const ratingFormatted = rating.toUpperCase();
-  document.getElementById('carbon').outerHTML = `<a href="${url}" target="_blank" data-more="${size} hosted with renewable energy ⋆˚✿˖°">${ratingFormatted} / ${co2Formatted} g CO2e</a>`;
+  document.getElementById('carbon').outerHTML = `<a href="${url}" target="_blank" data-more="${size} hosted with renewable energy ⋆˚✿˖°">${ratingFormatted} / ${co2Formatted}g CO2</a>`;
 })();
