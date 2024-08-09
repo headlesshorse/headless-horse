@@ -9,7 +9,7 @@ const fetchWorkData = async () => {
 };
 
 const populateHTML = (work, allWorks) => {
-  const getNextWorkLink = (nextWork) => nextWork ? `<a href="/work/${nextWork.slug}"><span class="marker">↳</span> Next: ${nextWork.title}</a>` : '';
+  const getNextWorkLink = (nextWork) => nextWork ? `<a class="marker" href="/work/${nextWork.slug}">Next: ${nextWork.title}</a>` : '';
 
   document.querySelector('header').insertAdjacentHTML('afterend', `
     <main>

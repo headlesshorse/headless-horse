@@ -168,7 +168,8 @@ input, input:focus {
   animation: draw 1s forwards
 }
 
-.marker {
+.marker::before {
+  content: "↳ ";
   animation: blink 1.5s steps(4, start) infinite
 }
 
