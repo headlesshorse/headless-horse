@@ -50,21 +50,19 @@ function showTooltip(event) {
 }
 
 function hideTooltip() {
-  if (mobile) return;
-  const tooltip = document.getElementById('tooltip');
-  const title = tooltip.innerText.replace('↳', '');
-  tooltip.remove();
-  this.setAttribute('title', title);
+  if (!mobile) {
+    this.setAttribute('title', document.getElementById('tooltip').innerText);
+    document.getElementById('tooltip').remove();
+  }
 }
 
 function createTooltip(area) {
-  const tooltip = document.createElement('div');
-  tooltip.id = 'tooltip';
-  tooltip.style.cssText = 'position: absolute; min-width: 15em; padding: 1em; background: var(--corner), #000; background-size: 4px 4px; background-repeat: no-repeat; text-align: center; text-transform: uppercase';
-  const title = area.getAttribute('title');
-  const link = area.getAttribute('href');
-  tooltip.innerHTML = link ? `<span class="marker">↳</span> ${title}` : title;
-  return tooltip;
+  return Object.assign(document.createElement('div'), {
+    id: 'tooltip',
+    className: area.href ? 'marker' : '',
+    style: 'position: absolute; min-width: 15em; padding: 1em; background: var(--corner), #000; background-size: 4px 4px; background-repeat: no-repeat; text-align: center; text-transform: uppercase',
+    innerText: area.title
+  });
 }
 
 function updateTooltipPosition(event, tooltip) {
@@ -79,15 +77,15 @@ document.body.insertBefore(
     cursor.id = 'cursor';
     cursor.style.cssText = 'height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: 1';
     cursor.innerHTML = `<div id="linex" style="position: relative; min-height: 1px; background: #999;"></div><div id="liney" style="position: relative; width: 1px; min-height: 100%; background: #999"></div><div id="datay" style="position: absolute; bottom: 1em"></div><div id="datax" style="position: absolute; right: 1em"></div>`;
-    const updateCursor = ({ clientX, clientY, pageX, pageY }) => {
-      cursor.querySelector("#datax").textContent = `[Y. ${pageY}]`;
-      cursor.querySelector("#datay").textContent = `[X. ${pageX}]`;
-      cursor.querySelector("#datax").style.top = `${clientY + 10}px`;
-      cursor.querySelector("#datay").style.left = `${clientX + 15}px`;
-      cursor.querySelector("#linex").style.top = `${clientY}px`;
-      cursor.querySelector("#liney").style.left = `${clientX}px`;
-    };
-    document.addEventListener('mousemove', updateCursor);
+    document.addEventListener('mousemove', ({ clientX, clientY, pageX, pageY }) => {
+      const [dx, dy, lx, ly] = ['#datax', '#datay', '#linex', '#liney'].map(id => cursor.querySelector(id));
+      dx.textContent = `[Y. ${pageY}]`;
+      dy.textContent = `[X. ${pageX}]`;
+      dx.style.top = `${clientY + 10}px`;
+      dy.style.left = `${clientX + 15}px`;
+      lx.style.top = `${clientY}px`;
+      ly.style.left = `${clientX}px`;
+    });
     return cursor;
   })(),
   document.getElementById('work')

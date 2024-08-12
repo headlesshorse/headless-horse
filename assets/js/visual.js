@@ -57,7 +57,7 @@ class Media {
   renderTags() {
     this.tagContainer.innerHTML = this.tags.map((tag, index) => {
       const isActive = index === this.activeTagIndex;
-      return `<li><a onclick="media.loadByTag(${index})">${isActive ? '<span class="marker">↳</span> ' : ''}${tag}</a></li>`;
+      return `<li class="${isActive ? 'marker' : ''}"><a onclick="media.loadByTag(${index})">${tag}</a></li>`;
     }).join('');
   }
 }

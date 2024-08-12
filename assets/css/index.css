@@ -3,9 +3,9 @@
 }
 
 * {
-  box-sizing: border-box;
   padding: 0;
   margin: 0;
+  list-style: none;
   color: #999;
   font: 400 11px/1.6 courier, monospace;
   text-decoration: none
@@ -34,15 +34,11 @@ a:hover {
 }
 
 a[target=_blank] {
-  cursor: ne-resize !important
+  cursor: ne-resize
 }
 
 a[data-more]:hover::after {
   content: ": " attr(data-more)
-}
-
-ul {
-  list-style: none
 }
 
 li, figure figcaption {
@@ -184,7 +180,7 @@ input, input:focus {
   
   #info, #media {
     grid: auto / 1fr;
-    height: auto !important
+    height: auto
   }
 
   figure {
