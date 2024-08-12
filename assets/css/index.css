@@ -180,7 +180,7 @@ input, input:focus {
   
   #info, #media {
     grid: auto / 1fr;
-    height: auto
+    height: auto !important
   }
 
   figure {
