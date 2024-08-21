@@ -57,7 +57,7 @@ li, figure figcaption {
   left: 50%;
   transform: translateX(-50%);
   cursor: help;
-  animation: none;
+  animation: none
 }
 
 nav {
