@@ -53,9 +53,9 @@ li, figure figcaption {
 #horseshoe {
   position: fixed;
   z-index: 2;
-  top: 50%;
+  top: calc(50% - 45px);
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   cursor: help;
   animation: none
 }

@@ -1,14 +1,18 @@
 // Menu
 document.addEventListener('DOMContentLoaded', () => {
   const [menuTrigger, menuOverlay] = ['horseshoe', 'nav'].map(id => document.getElementById(id));
+  const body = document.body;
 
   const toggleMenu = () => {
-    menuOverlay.style.display = (menuOverlay.style.display === 'flex') ? 'none' : 'flex';
-    menuTrigger.style.display = (menuTrigger.style.display === 'none') ? 'flex' : 'none';
+    const isOpen = menuOverlay.style.display === 'flex';
+    menuOverlay.style.display = isOpen ? 'none' : 'flex';
+    menuTrigger.style.display = isOpen ? 'flex' : 'none';
+    body.style.touchAction = isOpen ? '' : 'none';
+    body.style.overflow = isOpen ? '' : 'hidden';
   };
 
   menuTrigger.addEventListener('click', toggleMenu);
-  menuOverlay.addEventListener('click', (e) => (e.target === menuOverlay) && toggleMenu());
+  menuOverlay.addEventListener('click', e => e.target === menuOverlay && toggleMenu());
 });
 
 // Typing
