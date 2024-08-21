@@ -53,7 +53,7 @@ li, figure figcaption {
 #horseshoe {
   position: fixed;
   z-index: 2;
-  top: calc(100vh - 50svh - 45px);
+  top: calc(100svh - 50svh - 45px);
   left: 50%;
   transform: translateX(-50%);
   cursor: help;
