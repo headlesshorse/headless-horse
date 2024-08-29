@@ -15,6 +15,10 @@ body {
   background: #000
 }
 
+h1::before {
+  content: "/"
+}
+
 h1, h2 {
   text-transform: uppercase
 }

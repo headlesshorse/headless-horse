@@ -14,7 +14,7 @@ const populateHTML = (work, allWorks) => {
   document.querySelector('header').insertAdjacentHTML('afterend', `
     <main>
       <div id="subnav">
-        <h1>/Work/${work.title}</h1>
+        <h1>Work/${work.title}</h1>
         <ul>
           <li>${getNextWorkLink(allWorks[(allWorks.findIndex(({ slug }) => slug === work.slug) + 1) % allWorks.length])}</li>
         </ul>
