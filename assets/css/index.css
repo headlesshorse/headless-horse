@@ -8,7 +8,8 @@
   list-style: none;
   color: #999;
   font: 400 11px/1.6 courier, monospace;
-  text-decoration: none
+  text-decoration: none;
+  text-wrap: pretty
 }
 
 body {
