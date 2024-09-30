@@ -8,8 +8,7 @@
   list-style: none;
   color: #999;
   font: 400 11px/1.6 courier, monospace;
-  text-decoration: none;
-  text-wrap: pretty
+  text-decoration: none
 }
 
 body {
@@ -65,10 +64,11 @@ li, figure figcaption {
   animation: none
 }
 
-nav {
+menu {
   position: fixed;
   z-index: 3;
   display: none;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -79,9 +79,8 @@ nav {
   cursor: w-resize
 }
 
-nav li {
+menu li {
   padding: 1em 2em;
-  text-align: center;
   text-transform: uppercase;
   cursor: default
 }
@@ -90,23 +89,6 @@ main {
   padding: 1em 2em;
   margin: 0 auto;
   counter-reset: section
-}
-
-#subnav {
-  text-transform: uppercase
-}
-
-#subnav, footer {
-  display: flex
-}
-
-#subnav ul, footer ul {
-  margin-left: auto
-}
-
-#subnav ul li, footer ul li {
-  display: inline;
-  margin-left: 2em
 }
 
 #info, #media {
@@ -155,11 +137,9 @@ figure:hover figcaption {
   opacity: 1
 }
 
-input, input:focus {
-  margin-top: 2em;
-  background: 0;
-  outline: none;
-  caret-color: #999
+footer {
+  display: flex;
+  justify-content: space-between
 }
 
 .line {

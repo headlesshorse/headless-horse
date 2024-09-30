@@ -13,12 +13,7 @@ const populateHTML = (work, allWorks) => {
 
   document.querySelector('header').insertAdjacentHTML('afterend', `
     <main>
-      <div id="subnav">
-        <h1>Work/${work.title}</h1>
-        <ul>
-          <li>${getNextWorkLink(allWorks[(allWorks.findIndex(({ slug }) => slug === work.slug) + 1) % allWorks.length])}</li>
-        </ul>
-      </div>
+      <h1>Work/${work.title}</h1>
       <div class="line"></div>
 
       <article id="info">
@@ -39,10 +34,7 @@ const populateHTML = (work, allWorks) => {
       <div class="line"></div>
       <footer>
         <a id="carbon"></a>
-        <ul>
-          <li>™ and © <script>document.write(new Date().getFullYear())</script></li>
-          <li><a href="https://withcabin.com/privacy/headless.horse" target="_blank">Privacy Policy</a></li>
-        </ul>
+        ${getNextWorkLink(allWorks[(allWorks.findIndex(({ slug }) => slug === work.slug) + 1) % allWorks.length])}
       </footer>
     </main>
   `);

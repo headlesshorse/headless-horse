@@ -27,7 +27,6 @@ window.onload = fetchWorkData;
 const now = new Date();
 const day = now.getUTCDay();
 const hour = now.getUTCHours() + 1;
-const currentTime = now.toTimeString().split(' ')[0].slice(0, 5);
 
 const isOpen = 
   (day === 0 || day === 6) || 
@@ -35,4 +34,4 @@ const isOpen =
   (hour >= 9 && hour < 18) ? 'The studio is open today from 09:00-18:00.' : 
   'We are out of office. We will be open tomorrow, 09:00-18:00.';
 
-document.querySelector('p').insertAdjacentHTML('beforeend', '<br>' + isOpen + ' The current time is ' + currentTime + '.');
+document.querySelector('p').insertAdjacentHTML('beforeend', '<br>' + isOpen);

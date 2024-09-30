@@ -1,2 +1,0 @@
-# headless.horse
-headless.horse
