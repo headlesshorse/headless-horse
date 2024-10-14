@@ -7,8 +7,8 @@
       {"title": "Website", "link": "https://lyma.life"}
     ],
     "press": [
-      {"title": "Vogue", "date": "16.11.20", "link": "https://vogue.co.uk/beauty/gallery/best-mood-supplements#:~:text=LYMA"},
-      {"title": "Vogue", "date": "10.05.24", "link": "https://vogue.co.uk/article/best-multivitamins-for-women#:~:text=LYMA"},
+      {"title": "Vogue", "date": "16.11.20", "link": "https://vogue.co.uk/beauty/gallery/best-mood-supplements#:~:text=lyma"},
+      {"title": "Vogue", "date": "10.05.24", "link": "https://vogue.co.uk/article/best-multivitamins-for-women#:~:text=lyma"},
       {"title": "Forbes", "date": "31.12.20", "link": "https://forbes.com/sites/biancasalonga/2022/09/07/meet-the-gold-standard-and-supermodel-health-supplement-from-lyma"},
       {"title": "Evening Standard", "date": "27.04.23", "link": "https://standard.co.uk/business/venture-capitalists-plough-ps1m-into-luxury-health-supplements-maker-lyma-a4058231.html"},
       {"title": "Financial Times", "date": "07.09.22", "link": "https://ft.com/content/08078211-638b-4326-ac2e-92ae2cdf65c9"}
@@ -26,6 +26,7 @@
     "press": [
       {"title": "The Brand Identity", "date": "13.07.23", "link": "https://the-brandidentity.com/project/how-headless-horse-reimagined-team-dr-josephs-identity-and-packaging-for-a-sustainable-future"},
       {"title": "L'Officiel", "date": "05.04.23", "link": "https://lofficiel.at/beauty/team-dr-joseph-natural-hightech-cosmetics"},
+      {"title": "Vanity Fair", "date": "09.10.24", "link": "https://www.vanityfair.it/article/novita-prodotti-beauty-di-ottobre#:~:text=In%20Spa,%20con%20i%20trattamenti%20viso%20di%20cosmetica%20naturale%20hi-tech"},
       {"title": "Condé Nast Traveller", "date": "13.07.23", "link": "https://cntraveller.com/hotels/mandarin-oriental-lake-como/#:~:text=team%20dr%20joseph"},
       {"title": "Communication Arts", "date": "16.02.23", "link": "https://commarts.com/webpicks/team-dr-joseph"},
       {"title": "Scottish Design Awards", "date": "29.06.23", "link": "https://scottishdesignawards.com/2023/graphic-packaging-product/team-dr-joseph/"}
