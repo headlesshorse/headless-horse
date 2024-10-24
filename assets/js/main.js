@@ -1,7 +1,9 @@
 // Menu
 document.addEventListener('DOMContentLoaded', () => {
-  const [menuTrigger, menuOverlay] = ['horseshoe', 'menu'].map(id => document.getElementById(id));
+  const menuTrigger = document.getElementById('horseshoe');
+  const menuOverlay = document.getElementById('menu');
   const body = document.body;
+
   const toggleMenu = () => {
     const isOpen = menuOverlay.style.display === 'flex';
     menuOverlay.style.display = isOpen ? 'none' : 'flex';
@@ -9,14 +11,22 @@ document.addEventListener('DOMContentLoaded', () => {
     body.style.touchAction = isOpen ? '' : 'none';
     body.style.overflow = isOpen ? '' : 'hidden';
   };
+
   menuTrigger.addEventListener('click', toggleMenu);
-  menuOverlay.addEventListener('click', e => e.target === menuOverlay && toggleMenu());
+  menuOverlay.addEventListener('click', (e) => {
+    if (e.target === menuOverlay) toggleMenu();
+  });
 
   const currentPath = window.location.pathname;
   document.querySelectorAll('#menu a').forEach(link => {
     const linkPath = link.getAttribute('href');
     if (currentPath === linkPath || (currentPath.startsWith(linkPath) && linkPath !== '/')) {
-      link.innerHTML = `[ ${link.innerHTML} ]`;
+      Object.assign(link.style, {
+        padding: '1em 3em',
+        background: 'var(--corner)',
+        backgroundSize: '4px 4px',
+        backgroundRepeat: 'no-repeat',
+      });
     }
   });
 });

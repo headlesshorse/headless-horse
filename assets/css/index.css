@@ -80,9 +80,9 @@ menu {
 }
 
 menu li {
-  padding: 1em 2em;
+  padding: 2em;
   text-transform: uppercase;
-  cursor: default
+  cursor: default;
 }
 
 main {
