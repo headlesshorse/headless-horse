@@ -84,7 +84,7 @@ document.body.insertBefore(
     const cursor = document.createElement('div');
     cursor.id = 'cursor';
     cursor.style.cssText = 'position: absolute; z-index: 1;  height: 100%; width: 100%;  pointer-events: none';
-    cursor.innerHTML = `<div id="linex" style="position: relative; min-height: 1px; background: #999;"></div><div id="liney" style="position: relative; width: 1px; min-height: 100%; background: #999"></div><div id="datay" style="position: absolute; top: 1em"></div><div id="datax" style="position: absolute; right: 1em"></div>`;
+    cursor.innerHTML = `<div id="linex" style="position: relative; min-height: 1px; background: #999;"></div><div id="liney" style="position: relative; width: 1px; min-height: 100%; background: #999"></div><div id="datay" style="position: absolute; top: 1em"></div><div id="datax" style="position: absolute; right: 2em"></div>`;
     document.addEventListener('mousemove', ({ clientX, clientY, pageX, pageY }) => {
       const [dx, dy, lx, ly] = ['#datax', '#datay', '#linex', '#liney'].map(id => cursor.querySelector(id));
       dx.textContent = `[Y. ${pageY}]`;
