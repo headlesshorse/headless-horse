@@ -1,4 +1,12 @@
 // Work
+window.onload = () => {
+  const frame = document.createElement('div');
+  const borderSize = window.innerWidth <= 820 ? '0' : '150px';
+  frame.style.cssText = `position: absolute; z-index: 2; top:0; left: 0; border: ${borderSize} solid #000; width: 100vw; height: 100svh; box-sizing: border-box; pointer-events: none; transition: border-width 2s`;
+  document.body.appendChild(frame);
+  setTimeout(() => frame.style.borderWidth = '0', 2000);
+};
+
 const i = { e: document.querySelector('#work'), x: 0, y: 0 };
 let tX = 0, tY = 0, decelerate = false;
 
@@ -75,8 +83,8 @@ document.body.insertBefore(
   (() => {
     const cursor = document.createElement('div');
     cursor.id = 'cursor';
-    cursor.style.cssText = 'height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: 1';
-    cursor.innerHTML = `<div id="linex" style="position: relative; min-height: 1px; background: #999;"></div><div id="liney" style="position: relative; width: 1px; min-height: 100%; background: #999"></div><div id="datay" style="position: absolute; bottom: 1em"></div><div id="datax" style="position: absolute; right: 1em"></div>`;
+    cursor.style.cssText = 'position: absolute; z-index: 1;  height: 100%; width: 100%;  pointer-events: none';
+    cursor.innerHTML = `<div id="linex" style="position: relative; min-height: 1px; background: #999;"></div><div id="liney" style="position: relative; width: 1px; min-height: 100%; background: #999"></div><div id="datay" style="position: absolute; top: 1em"></div><div id="datax" style="position: absolute; right: 1em"></div>`;
     document.addEventListener('mousemove', ({ clientX, clientY, pageX, pageY }) => {
       const [dx, dy, lx, ly] = ['#datax', '#datay', '#linex', '#liney'].map(id => cursor.querySelector(id));
       dx.textContent = `[Y. ${pageY}]`;
