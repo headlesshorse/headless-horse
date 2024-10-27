@@ -1,3 +1,4 @@
+// Works
 const fetchWorkData = async () => {
   const currentPage = window.location.pathname.split('/').pop();
   const works = await (await fetch('/assets/data/work.json')).json();
@@ -42,7 +43,7 @@ const populateHTML = (work, allWorks) => {
   new Media('media', work.slug);
 };
 
-// Media
+// Pinterest
 class Media {
   constructor(containerId, boardExtension) {
     this.container = document.getElementById(containerId);
