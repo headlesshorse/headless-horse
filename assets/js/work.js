@@ -1,10 +1,10 @@
 // Work
 window.onload = () => {
   const frame = document.createElement('div');
-  const borderSize = window.innerWidth <= 820 ? '0' : '150px';
-  frame.style.cssText = `position: absolute; z-index: 2; top:0; left: 0; border: ${borderSize} solid #000; width: 100vw; height: 100svh; box-sizing: border-box; pointer-events: none; transition: border-width 2s`;
+  const borderSize = window.innerWidth <= 820 ? '0' : '100vh';
+  frame.style.cssText = `position: absolute; z-index: 1; top:0; left: 0; border-top: ${borderSize} solid #000; width: 100vw; height: 100svh; box-sizing: border-box; pointer-events: none; transition: border-width 1s`;
   document.body.appendChild(frame);
-  setTimeout(() => frame.style.borderWidth = '0', 1000);
+  setTimeout(() => frame.style.borderWidth = '0', 500);
 };
 
 const i = { e: document.querySelector('#work'), x: 0, y: 0 };
